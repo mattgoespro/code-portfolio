@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "clean": "rmdir -r .\\node_modules",
-    "webpack-start": "webpack-dev-server start --mode development",
+    "webpack-start": "webpack-dev-server --mode development",
     "webpack-build": "webpack --mode production"
   },
   "eslintConfig": {
