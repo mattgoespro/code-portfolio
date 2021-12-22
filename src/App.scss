@@ -1,33 +1,35 @@
-/* add gradient shadow */
+@import "../public/assets/styles/theme.scss";
+
 nav {
+  background: $gray-1;
   display: flex;
-  justify-content: center;
-  background: #1f1f1f;
 }
 
 .nav-link {
   margin: 10px 40px;
-  color: #ecb365;
   text-decoration: none;
   font-size: 18px;
   font-weight: 700;
   line-height: 50px;
 }
 
-a img {
-  vertical-align: middle;
-}
-
 .logo {
   background: none;
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.logo:hover {
-  cursor: pointer;
+a {
+  color: $light;
 }
 
-.linkedin-logo {
-  width: 45px;
-  height: 35px;
+.socials {
+  float: right;
+
+  img {
+    vertical-align: middle;
+  }
 }

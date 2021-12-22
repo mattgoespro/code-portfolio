@@ -1,9 +1,9 @@
 const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = function (_env, argv) {
@@ -33,30 +33,8 @@ module.exports = function (_env, argv) {
           },
         },
         {
-          test: /\.css$/,
-          use: [
-            isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-            "css-loader",
-          ],
-        },
-        {
-          test: /\.s[ac]ss$/,
-          use: [
-            isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-            {
-              loader: "css-loader",
-              options: {
-                importLoaders: 2,
-              },
-            },
-            "resolve-url-loader",
-            {
-              loader: "sass-loader",
-              options: {
-                sourceMap: true,
-              },
-            },
-          ],
+          test: /.s?css$/,
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
         {
           test: /\.(png|jpg|gif)$/i,
@@ -95,16 +73,15 @@ module.exports = function (_env, argv) {
     },
     resolve: {
       extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss"],
-      // alias: {
-      //   "@": path.resolve(__dirname, "src"),
-      // },a
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
     },
     plugins: [
-      isProduction &&
-        new MiniCssExtractPlugin({
-          filename: "assets/styles/css/[name].[contenthash:8].css",
-          chunkFilename: "assets/styles/css/[name].[contenthash:8].chunk.css",
-        }),
+      new MiniCssExtractPlugin({
+        filename: "assets/styles/css/[name].[contenthash:8].css",
+        chunkFilename: "assets/styles/css/[name].[contenthash:8].chunk.css",
+      }),
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(
           isProduction ? "production" : "development"
@@ -117,6 +94,7 @@ module.exports = function (_env, argv) {
       new ForkTsCheckerWebpackPlugin({
         async: false,
       }),
+      new CssMinimizerPlugin(),
     ].filter(Boolean),
     optimization: {
       minimize: isProduction,
@@ -136,7 +114,7 @@ module.exports = function (_env, argv) {
             warnings: false,
           },
         }),
-        new OptimizeCssAssetsPlugin(),
+        new CssMinimizerPlugin(),
       ],
       splitChunks: {
         chunks: "all",
@@ -161,10 +139,13 @@ module.exports = function (_env, argv) {
       },
       runtimeChunk: "single",
     },
+    performance: {
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000,
+    },
     devServer: {
       compress: true,
       historyApiFallback: true,
-      open: true,
       client: {
         overlay: true,
       },
