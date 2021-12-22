@@ -20,7 +20,8 @@
     "start-prod": "webpack-dev-server --mode production",
     "build": "webpack --mode production",
     "clean-build": "rm -rf dist",
-    "clean-packages": "rm -rf node_modules"
+    "clean-packages": "rm -rf node_modules",
+    "clean": "concurrently --kill-others \"npm run clean-build\" \"npm run clean-packages\""
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +57,7 @@
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "concurrently": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.3.0",
     "fork-ts-checker-webpack-plugin": "^6.5.0",
     "html-webpack-plugin": "^5.5.0",
