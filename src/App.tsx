@@ -1,10 +1,12 @@
-import React from "react";
-import "./App.scss";
+import React from 'react';
+import './App.scss';
+import './index.scss';
+import { Home } from './components/home/Home';
 
 class App extends React.Component {
   render(): React.ReactNode {
     return (
-      <div className="App">
+      <div className="app">
         <nav>
           <div className="page-links">
             <a className="nav-link" href="">
@@ -18,7 +20,6 @@ class App extends React.Component {
             </a>
           </div>
           <div className="socials">
-            <button id="github" className="logo"></button>
             <a
               className="nav-link"
               href="https://github.com/mattgoespro"
@@ -35,6 +36,9 @@ class App extends React.Component {
             </a>
           </div>
         </nav>
+        <div className="home">
+          <Home />
+        </div>
       </div>
     );
   }

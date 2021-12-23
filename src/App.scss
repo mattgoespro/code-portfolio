@@ -1,16 +1,22 @@
 @import "../public/assets/styles/theme.scss";
 
+.app {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
 nav {
   background: $gray-1;
   display: flex;
+  justify-content: space-between;
 }
 
 .nav-link {
-  margin: 10px 40px;
-  text-decoration: none;
   font-size: 18px;
   font-weight: 700;
   line-height: 50px;
+  margin: 10px;
 }
 
 .logo {
@@ -31,5 +37,15 @@ a {
 
   img {
     vertical-align: middle;
+    width: 24px;
+    height: 24px;
   }
+}
+
+.intro {
+  height: 500px;
+}
+
+.home {
+  margin: 50px auto auto auto;
 }

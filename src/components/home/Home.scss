@@ -1,0 +1,28 @@
+@import "../../../public/assets/styles/theme";
+
+.introduction {
+  width: 600px;
+  background-color: $gray-1;
+  padding: 20px;
+}
+
+.intro-title {
+  text-align: center;
+  margin: 20px;
+  color: $light;
+}
+
+.intro-sub {
+  color: $gray-2;
+} 
+
+.intro-paragraph {
+  color: $gray-3;
+  font-family: "Arial";
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.about-ref {
+  color: $primary;
+}
