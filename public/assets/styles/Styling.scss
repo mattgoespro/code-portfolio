@@ -3,3 +3,15 @@
 **/
 
 $border-radius: 5px;
+
+.content {
+  width: 600px;
+  background-color: $gray-1;
+  padding: 20px;
+}
+
+.content-title {
+  text-align: center;
+  margin: 20px;
+  color: $light;
+}

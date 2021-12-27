@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import './App.scss';
 import './index.scss';
-import { Home } from './components/home/Home';
 
 class App extends React.Component {
   render(): React.ReactNode {
@@ -9,15 +9,9 @@ class App extends React.Component {
       <div className="app">
         <nav>
           <div className="page-links">
-            <a className="nav-link" href="">
-              Home
-            </a>
-            <a className="nav-link" href="">
-              Projects
-            </a>
-            <a className="nav-link" href="">
-              About
-            </a>
+            <Link className='nav-link' to="/home">Home</Link>
+            <Link className='nav-link' to="/projects">Projects</Link>
+            <Link className='nav-link' to="/">About</Link>
           </div>
           <div className="socials">
             <a
@@ -36,8 +30,8 @@ class App extends React.Component {
             </a>
           </div>
         </nav>
-        <div className="home">
-          <Home />
+        <div className='content-wrapper'>
+          <Outlet />
         </div>
       </div>
     );

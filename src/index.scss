@@ -19,6 +19,7 @@ code {
 
 h1 {
   font-size: $title-size;
+  color: $light;
 }
 
 h2 {
@@ -35,4 +36,8 @@ div {
 
 a {
   text-decoration: none;
+}
+
+.link {
+  color: $accent;
 }

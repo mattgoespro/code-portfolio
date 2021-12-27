@@ -1,17 +1,5 @@
 @import "../../../public/assets/styles/theme";
 
-.introduction {
-  width: 600px;
-  background-color: $gray-1;
-  padding: 20px;
-}
-
-.intro-title {
-  text-align: center;
-  margin: 20px;
-  color: $light;
-}
-
 .intro-sub {
   color: $gray-2;
 } 
@@ -23,6 +11,6 @@
   font-weight: lighter;
 }
 
-.about-ref {
-  color: $primary;
+.alias {
+  color: $secondary;
 }

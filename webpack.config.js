@@ -147,6 +147,7 @@ module.exports = function (_env, argv) {
     devServer: {
       compress: true,
       historyApiFallback: true,
+      open: true,
       client: {
         overlay: true,
       },
