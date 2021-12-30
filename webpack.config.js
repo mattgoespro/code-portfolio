@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -16,7 +17,7 @@ module.exports = function (_env, argv) {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'assets/js/[name].[contenthash:8].js',
-      publicPath: '/',
+      publicPath: '/'
     },
     module: {
       rules: [
@@ -28,13 +29,13 @@ module.exports = function (_env, argv) {
             options: {
               cacheDirectory: true,
               cacheCompression: false,
-              envName: isProduction ? 'production' : 'development',
-            },
-          },
+              envName: isProduction ? 'production' : 'development'
+            }
+          }
         },
         {
           test: /.s?css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
         },
         {
           test: /\.(png|jpg|gif)$/i,
@@ -42,20 +43,20 @@ module.exports = function (_env, argv) {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              name: 'assets/media/images/[name].[hash:8].[ext]',
-            },
-          },
+              name: 'assets/media/images/[name].[hash:8].[ext]'
+            }
+          }
         },
         {
           test: /\.svg$/,
-          use: ['@svgr/webpack'],
+          use: ['@svgr/webpack']
         },
         {
           test: /\.(eot|otf|ttf|woff|woff2)$/,
           loader: require.resolve('file-loader'),
           options: {
-            name: 'static/media/[name].[hash:8].[ext]',
-          },
+            name: 'static/media/[name].[hash:8].[ext]'
+          }
         },
         {
           test: /\.module.css$/,
@@ -64,38 +65,36 @@ module.exports = function (_env, argv) {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
-              },
-            },
-          ],
-        },
-      ],
+                modules: true
+              }
+            }
+          ]
+        }
+      ]
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        '@components': path.resolve(__dirname, 'src/components'),
-      },
+        '@components': path.resolve(__dirname, 'src/components')
+      }
     },
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'assets/styles/css/[name].[contenthash:8].css',
-        chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css',
+        chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css'
       }),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(
-          isProduction ? 'production' : 'development',
-        ),
+        'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html'),
-        inject: true,
+        inject: true
       }),
       new ForkTsCheckerWebpackPlugin({
-        async: false,
+        async: false
       }),
-      new CssMinimizerPlugin(),
+      new CssMinimizerPlugin()
     ].filter(Boolean),
     optimization: {
       minimize: isProduction,
@@ -103,19 +102,19 @@ module.exports = function (_env, argv) {
         new TerserWebpackPlugin({
           terserOptions: {
             compress: {
-              comparisons: false,
+              comparisons: false
             },
             mangle: {
-              safari10: true,
+              safari10: true
             },
             output: {
               comments: false,
-              ascii_only: true,
+              ascii_only: true
             },
-            warnings: false,
-          },
+            warnings: false
+          }
         }),
-        new CssMinimizerPlugin(),
+        new CssMinimizerPlugin()
       ],
       splitChunks: {
         chunks: 'all',
@@ -126,31 +125,29 @@ module.exports = function (_env, argv) {
           vendors: {
             test: /[\\/]node_modules[\\/]/,
             name(module, chunks, cacheGroupKey) {
-              const packageName = module.context.match(
-                /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-              )[1];
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
               return `${cacheGroupKey}.${packageName.replace('@', '')}`;
-            },
+            }
           },
           common: {
             minChunks: 2,
-            priority: -10,
-          },
-        },
+            priority: -10
+          }
+        }
       },
-      runtimeChunk: 'single',
+      runtimeChunk: 'single'
     },
     performance: {
       maxEntrypointSize: 512000,
-      maxAssetSize: 512000,
+      maxAssetSize: 512000
     },
     devServer: {
       compress: true,
       historyApiFallback: true,
       open: true,
       client: {
-        overlay: true,
-      },
-    },
+        overlay: true
+      }
+    }
   };
 };

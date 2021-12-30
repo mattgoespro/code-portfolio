@@ -1,23 +1,23 @@
-@import "../../public/assets/styles/Theme";
+@import '../../public/assets/styles/Theme';
 
 .page-not-found {
-    display: flex;
-    margin-top: 50px;
+  display: flex;
+  margin-top: 50px;
 }
 
 .msg-page-not-found {
-    width: 200px;
-    color: $light;
-    margin-left: 20px;
-    text-align: center;
+  width: 200px;
+  color: $light;
+  margin-left: 20px;
+  text-align: center;
 }
 
 .image {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img {
-    width: 300px;
+  width: 300px;
 }
