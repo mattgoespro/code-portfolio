@@ -1,3 +1,4 @@
+import { SvgIcon } from '@mui/material';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './App.scss';
@@ -14,19 +15,21 @@ export function App() {
           <Link className="nav-link" to="/projects">
             Projects
           </Link>
-          <Link className="nav-link" to="/">
+          <Link className="nav-link" to="/about">
             About
           </Link>
         </div>
         <div className="socials">
           <a className="nav-link" href="https://github.com/mattgoespro" target="tab">
-            <img src="./assets/media/images/github-logo.png" alt="Github" />
+            {/* <img src="./assets/media/images/github-logo.png" alt="Github" /> */}
+            <SvgIcon></SvgIcon>
           </a>
           <a
             className="nav-link"
             href="https://www.linkedin.com/in/matt-young-691b48189/"
             target="tab">
-            <img src="./assets/media/images/linkedin-logo.png" alt="LinkedIn" />
+            {/* <img src="./assets/media/images/linkedin-logo.png" alt="LinkedIn" /> */}
+            <SvgIcon></SvgIcon>
           </a>
         </div>
       </nav>

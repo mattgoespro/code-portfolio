@@ -5,9 +5,7 @@ import './Home.scss';
 export default class Home extends React.Component {
   render(): React.ReactNode {
     return (
-      <div className="content">
-        <h1 className="content-title">Hello World!</h1>
-        <h2 className="intro-sub">Allow me to introduce myself.</h2>
+      <div>
         <p className="intro-paragraph">
           My name is Matt but I go by the alias <i className="alias">hoppingmode</i> (cool right?).
         </p>

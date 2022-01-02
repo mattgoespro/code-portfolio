@@ -1,11 +1,10 @@
-/**
-* HTML element style class properties. 
-**/
+@import '../styles/Theme';
+@import '../styles/Typography';
 
-$border-radius: 5px;
+$border-radius-container: 5px;
 
 .content {
-  width: 600px;
+  width: 100%;
   background-color: $gray-1;
   padding: 20px;
 }
@@ -14,4 +13,21 @@ $border-radius: 5px;
   text-align: center;
   margin: 20px;
   color: $light;
+}
+
+.content-subtitle {
+  @extend .content-title;
+  color: $gray-2;
+}
+
+@mixin navigation-link($color) {
+  color: $color;
+}
+
+.nav-link {
+  @include navigation-link($light);
+  font-size: $font-nav-link-size;
+  font-weight: 700;
+  line-height: 50px;
+  margin: 10px;
 }

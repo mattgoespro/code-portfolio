@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.2.5",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -24,10 +21,10 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "start-prod": "webpack-dev-server --mode production",
+    "start:prod": "webpack-dev-server --mode production",
     "build": "webpack --mode production",
-    "clean-build": "rm -rf dist",
-    "clean-packages": "rm -rf node_modules",
+    "clean:build": "rm -rf dist",
+    "clean:packages": "rm -rf node_modules",
     "clean": "concurrently --kill-others \"npm run clean-build\" \"npm run clean-packages\"",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",

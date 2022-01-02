@@ -4,6 +4,11 @@
 *
 **/
 
-$title-size: 72px;
-$subtitle-size: 24px;
-$paragraph-size: 18px;
+@mixin title($font-size) {
+  font-size: $font-size;
+}
+
+$font-title-size: 54px;
+$font-subtitle-size: 24px;
+$font-paragraph-size: 18px;
+$font-nav-link-size: 18px;

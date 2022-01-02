@@ -16,26 +16,22 @@ code {
 }
 
 h1 {
-  font-size: $title-size;
+  font-size: $font-title-size;
   color: $light;
 }
 
 h2 {
-  font-size: $subtitle-size;
+  font-size: $font-subtitle-size;
 }
 
 p {
-  font-size: $paragraph-size;
+  font-size: $font-paragraph-size;
 }
 
 div {
-  border-radius: $border-radius;
+  border-radius: $border-radius-container;
 }
 
 a {
   text-decoration: none;
-}
-
-.link {
-  color: $accent;
 }
