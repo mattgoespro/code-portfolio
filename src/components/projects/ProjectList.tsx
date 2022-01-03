@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import GithubProject from './github-project/GithubProject';
+import GithubProject from './project/Project';
 import './ProjectList.scss';
 
 export interface License {
@@ -31,7 +31,7 @@ export interface Owner {
   site_admin: boolean;
 }
 
-interface Github {
+export interface GithubProject {
   id: number;
   node_id: string;
   name: string;
@@ -112,17 +112,40 @@ interface Github {
 }
 
 export default function ProjectList() {
-  const [githubRepos, setGithubRepos] = useState<Github[]>([]);
+  const [githubRepos, setGithubRepos] = useState<GithubProject[]>([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  // [] as second arg only calls the function once.
   useEffect(() => {
+    // TODO: Make this cleaner
+    setLoading(true);
     fetch('https://api.github.com/users/mattgoespro/repos')
       .then((rsp) => rsp.json())
-      .then((rsp) => setGithubRepos(rsp));
-  });
+      .then((rsp: GithubProject[]) => {
+        setGithubRepos(rsp);
+        setLoading(false);
+      })
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
+
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    return () => {};
+  }, []);
 
   return (
     <div className="project-list">
-      <GithubProject />
+      {loading && <p>Posts are loading!</p>}
+      {error && <p>{error}</p>}
+      {githubRepos
+        .filter((repo) => !repo.private)
+        .map((repo) => {
+          return (
+            <div key={repo.url} className="project">
+              <GithubProject key={repo.url} repo={repo} />
+            </div>
+          );
+        })}
     </div>
   );
 }
