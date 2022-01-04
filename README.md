@@ -1,5 +1,7 @@
-# Matt Young Code Portfolio
+<h1>Matt Young Code Portfolio</h1>
 
-## Introduction
+<h2>Introduction</h2>
 
-This is a website I built to showcase the projects I have been working.
+<p>
+    This is a website I built to showcase the projects I have been working.
+</p>

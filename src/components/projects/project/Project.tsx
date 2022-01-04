@@ -1,11 +1,10 @@
-import { Card, CardActions, CardContent, CardHeader, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardHeader } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { GithubProject } from '../ProjectList';
 import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import { Buffer } from 'buffer';
 import parse from 'html-react-parser';
-import asciidoctor from 'asciidoctor';
 
 interface Readme {
   name: string;
@@ -39,8 +38,9 @@ export default function Project(props: { repo: GithubProject }) {
     fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
       .then((rsp) => rsp.json())
       .then((rsp: Readme) => {
-        const readmeContent = Buffer.from(rsp.content, 'base64').toString();
-        setReadme(asciidoctor().convert(readmeContent) as string);
+        const readmePayload = Buffer.from(rsp.content, 'base64').toString();
+        console.log(readmePayload);
+        setReadme(readmePayload);
       })
       .catch((err) => {
         console.log(err);
@@ -59,7 +59,8 @@ export default function Project(props: { repo: GithubProject }) {
         title={project.name}
         subheader="Subheader"
       />
-      <CardContent>{parse(readme)}</CardContent>
+      {/* <CardContent>{parse(readme)}</CardContent> */}
+      <CardContent>{readme}</CardContent>
       <CardActions disableSpacing />
     </Card>
   );
