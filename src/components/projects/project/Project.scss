@@ -1,5 +1,21 @@
 @import '../../../../public/assets/styles/Theme.scss';
+@import '../../../../public/assets/styles/Typography.scss';
 
-.project-avatar {
+.avatar {
   color: $light;
+}
+
+.title-description {
+  font-size: 16px;
+  color: $gray-2;
+  font-weight: 300;
+}
+
+.description {
+  color: $light;
+  font-size: 14px;
+}
+
+.no-description {
+  color: $secondary;
 }

@@ -1,18 +1,6 @@
-import createTheme, { ThemeOptions } from '@mui/material/styles/createTheme';
+// TODO: Import SCSS theme variables here
 
-// declare module '@mui/material/styles' {
-//   interface Theme {
-//     status: {
-//       danger: string;
-//     };
-//   }
-//   // allow configuration using `createTheme`
-//   interface ThemeOptions {
-//     status?: {
-//       danger?: string;
-//     };
-//   }
-// }
+import createTheme, { ThemeOptions } from '@mui/material/styles/createTheme';
 
 const baseTheme = createTheme({
   palette: {
@@ -65,8 +53,7 @@ const baseTheme = createTheme({
   direction: 'rtl',
   shape: {
     borderRadius: 4
-  },
-  typography: {}
+  }
 });
 
 const appTheme = createTheme(baseTheme, {
@@ -85,12 +72,38 @@ const appTheme = createTheme(baseTheme, {
     },
     MuiCardHeader: {
       styleOverrides: {
+        root: {
+          borderBottom: `1px solid ${baseTheme.palette.grey[800]}`
+        },
         title: {
           color: baseTheme.palette.common.white
         },
         subheader: {
           color: baseTheme.palette.grey[600]
         }
+      }
+    },
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          fontFamily: baseTheme.typography.fontFamily
+        }
+      }
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: baseTheme.palette.primary.main,
+          color: baseTheme.palette.common.white,
+          // Alternate style
+          // backgroundColor: baseTheme.palette.common.white,
+          // color: baseTheme.palette.primary.dark,
+          // border: `2px solid ${baseTheme.palette.primary.dark}`,
+          ':hover': {
+            backgroundColor: baseTheme.palette.primary.light
+          }
+        },
+        colorPrimary: baseTheme.palette.primary.dark
       }
     }
   }
