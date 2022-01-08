@@ -30,8 +30,9 @@ ReactDOM.render(
             />
             <Route
               path="projects"
-              element={<Content title="Projects" component={<ProjectList />} />}
-            />
+              element={<Content title="Projects" component={<ProjectList />} />}>
+              <Route path=":project" />
+            </Route>
             <Route path="about" element={<Content title="About" component={<About />} />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>

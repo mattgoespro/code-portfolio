@@ -14,19 +14,11 @@ import { GitHub } from '@mui/icons-material';
 import { Buffer } from 'buffer';
 import parse from 'html-react-parser';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Readme from './readme/Readme';
 import { ExpandMoreProps, GithubReadme } from './Project.model';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import ReadmeDialog from './readme/ReadmeDialog';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/react';
-
-// Can be a string as well. Need to ensure each key-value pair ends with ;
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
+import { Link } from 'react-router-dom';
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, label, ...other } = props;
@@ -54,7 +46,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export default function Project(props: { repo: GithubProject }) {
   const project = props.repo;
   const [readme, setReadme] = useState('');
-  const [open, setOpen] = useState(false);
+  const [open, setReadmeDialogOpen] = useState(false);
   const [error, setError] = useState(false);
 
   const [expanded, setExpanded] = React.useState(false);
@@ -69,7 +61,7 @@ export default function Project(props: { repo: GithubProject }) {
       .then((rsp) => rsp.json())
       .then((rsp: GithubReadme) => {
         const readmePayload = Buffer.from(rsp.content, 'base64').toString();
-        setReadme(readmePayload);
+        setReadme(readmePayload.trim());
       })
       .catch((err) => {
         console.log(err);
@@ -88,9 +80,14 @@ export default function Project(props: { repo: GithubProject }) {
           style={{
             float: 'right'
           }}>
-          <IconButton size="small" onClick={() => setOpen(true)}>
+          {/* <IconButton size="small" onClick={() => setReadmeDialogOpen(true)}>
             <OpenInFullIcon fontSize="small" />
-          </IconButton>
+          </IconButton> */}
+          <Link to={`/projects/${project.name}`}>
+            <IconButton size="small" onClick={() => setReadmeDialogOpen(true)}>
+              <OpenInFullIcon fontSize="small" />
+            </IconButton>
+          </Link>
         </span>
       </div>
     );
@@ -102,7 +99,7 @@ export default function Project(props: { repo: GithubProject }) {
         open={open}
         title={project.full_name}
         content={parse(readme)}
-        onClose={() => setOpen(false)}
+        onClose={() => setReadmeDialogOpen(false)}
       />
       <Card sx={{ width: 400 }} variant="outlined">
         <CardHeader
