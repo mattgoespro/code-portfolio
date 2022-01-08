@@ -103,7 +103,10 @@ const appTheme = createTheme(baseTheme, {
             backgroundColor: baseTheme.palette.primary.light
           }
         },
-        colorPrimary: baseTheme.palette.primary.dark
+        colorPrimary: baseTheme.palette.primary.dark,
+        sizeSmall: 30,
+        sizeMedium: 50,
+        sizeLarge: 70
       }
     }
   }

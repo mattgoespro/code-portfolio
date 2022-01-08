@@ -20,16 +20,16 @@ export function App() {
           </Link>
         </div>
         <div className="socials">
-          <a className="nav-link" href="https://github.com/mattgoespro" target="tab">
-            {/* <img src="./assets/media/images/github-logo.png" alt="Github" /> */}
-            <SvgIcon></SvgIcon>
-          </a>
           <a
             className="nav-link"
             href="https://www.linkedin.com/in/matt-young-691b48189/"
             target="tab">
-            {/* <img src="./assets/media/images/linkedin-logo.png" alt="LinkedIn" /> */}
-            <SvgIcon></SvgIcon>
+            <img src="./assets/media/images/linkedin-logo.png" alt="LinkedIn" />
+            {/* <SvgIcon></SvgIcon> */}
+          </a>
+          <a className="nav-link" href="https://github.com/mattgoespro" target="tab">
+            <img src="./assets/media/images/github-logo.png" alt="Github" />
+            {/* <SvgIcon></SvgIcon> */}
           </a>
         </div>
       </nav>

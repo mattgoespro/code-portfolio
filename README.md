@@ -32,7 +32,6 @@
         </li>
     </ul>
     <h3><b>Personal Work and Interests</b></h3>
-    <br>
     <ul>
         <li>
             <code>React</code> - The language this website was built with and my primary focus for personal development. <code>React Native</code> would be my go-to for further responsive mobile application development.
@@ -41,14 +40,16 @@
             <code>Dart</code> (<a href="https://flutter.dev/">Flutter</a>) - Released a mobile application to the Android Play Store to facilitate the retraining of one's sense of smell and taste after loss. The idea was conceived by an Ear, Nose and Throat surgeon in light of the Covid-19 pandemic and it's symptoms.
         </li>
     </ul>
-    <br>
     <h3><b>Other</b></h3>
     <ul>
+        <li>
+            <code>Python</code> - Used rarely in a professional environment, but more often for creating personal utility software.
+        </li>
         <li>
             <code>C++</code> - Projects included implementing machine learning algorithms, multi-threading, parallel and concurrent programming, and 3D graphics using <a href="https://www.opengl.org//">OpenGL</a>. 
         </li>
         <li>
-            <code>C++</code> - Projects included implementing machine learning algorithms, multi-threading, parallel and concurrent programming, and 3D graphics using <a href="https://www.opengl.org//">OpenGL</a>. 
+            <code>C#</code> - Primarily used for videogame development with the Unity Engine. 
         </li>
     </ul>
 </p>

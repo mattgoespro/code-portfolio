@@ -1,4 +1,6 @@
+import { css } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
+import { PulseLoader } from 'react-spinners';
 import GithubProject from './project/Project';
 import './ProjectList.scss';
 
@@ -133,19 +135,33 @@ export default function ProjectList() {
     return () => {};
   }, []);
 
+  function getLoader() {
+    return (
+      <PulseLoader
+        color="#0018ed"
+        loading={loading}
+        css={css`
+          margin-top: 10px;
+        `}
+        size={15}
+      />
+    );
+  }
+
   return (
     <div className="project-list">
-      {loading && <p>Posts are loading!</p>}
-      {error && <p>{error}</p>}
-      {githubRepos
-        .filter((repo) => !repo.private)
-        .map((repo) => {
-          return (
-            <div key={repo.url} className="project">
-              <GithubProject key={repo.url} repo={repo} />
-            </div>
-          );
-        })}
+      {error && <div>Uh oh, an error occurred. Please try again.</div>}
+      {loading && getLoader()}
+      {!loading &&
+        githubRepos
+          .filter((repo) => !repo.private)
+          .map((repo) => {
+            return (
+              <div key={repo.url} className="project">
+                <GithubProject key={repo.url} repo={repo} />
+              </div>
+            );
+          })}
     </div>
   );
 }

@@ -5,48 +5,34 @@ import {
   CardHeader,
   Collapse,
   IconButton,
-  IconButtonProps,
   styled
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { GithubProject } from '../ProjectList';
 import './Project.scss';
-import { GitHub, Title } from '@mui/icons-material';
+import { GitHub } from '@mui/icons-material';
 import { Buffer } from 'buffer';
 import parse from 'html-react-parser';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Readme from './readme/Readme';
+import { ExpandMoreProps, GithubReadme } from './Project.model';
+import OpenInFullIcon from '@mui/icons-material/OpenInFull';
+import ReadmeDialog from './readme/ReadmeDialog';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { css } from '@emotion/react';
 
-interface Readme {
-  name: string;
-  path: string;
-  sha: string;
-  size: number;
-  url: string;
-  html_url: string;
-  git_url: string;
-  download_url: string;
-  type: string;
-  content: string;
-  encoding: string;
-  _links: Links;
-}
-
-interface Links {
-  self: string;
-  git: string;
-  html: string;
-}
-
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-  label: string;
-}
+// Can be a string as well. Need to ensure each key-value pair ends with ;
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, label, ...other } = props;
   return (
     <div>
+      <IconButton {...other} size="small" />
       <span
         style={{
           color: 'white',
@@ -55,13 +41,6 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
         }}>
         {label}
       </span>
-      <IconButton
-        {...other}
-        style={{
-          width: 30,
-          height: 30
-        }}
-      />
     </div>
   );
 })(({ theme, expand }) => ({
@@ -75,8 +54,8 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export default function Project(props: { repo: GithubProject }) {
   const project = props.repo;
   const [readme, setReadme] = useState('');
+  const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -88,55 +67,73 @@ export default function Project(props: { repo: GithubProject }) {
     // TODO: Make this cleaner
     fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
       .then((rsp) => rsp.json())
-      .then((rsp: Readme) => {
+      .then((rsp: GithubReadme) => {
         const readmePayload = Buffer.from(rsp.content, 'base64').toString();
         setReadme(readmePayload);
       })
       .catch((err) => {
         console.log(err);
         setError(true);
-      })
-      .finally(() => setLoading(false));
+      });
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {};
   }, []);
 
-  console.log(readme);
+  function getCardTitle() {
+    return (
+      <div>
+        <span>{project.name}</span>
+        <span
+          style={{
+            float: 'right'
+          }}>
+          <IconButton size="small" onClick={() => setOpen(true)}>
+            <OpenInFullIcon fontSize="small" />
+          </IconButton>
+        </span>
+      </div>
+    );
+  }
 
   return (
-    <Card sx={{ width: 400 }} variant="outlined">
-      <CardHeader
-        avatar={<GitHub className="avatar" />}
-        title={project.name}
-        subheader="Subheader"
+    <div>
+      <ReadmeDialog
+        open={open}
+        title={project.full_name}
+        content={parse(readme)}
+        onClose={() => setOpen(false)}
       />
-      <CardContent>
-        <h3 className="title-description">Description</h3>
-        <div className="description">
-          {project.description || <i className="no-description">Not available.</i>}
-        </div>
-      </CardContent>
-      <CardActions
-        style={{
-          justifyContent: 'end'
-        }}>
-        {readme.trim() !== '' && (
-          <ExpandMore
-            label="View Readme"
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="Show more">
-            <ExpandMoreIcon />
-          </ExpandMore>
-        )}
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Card sx={{ width: 400 }} variant="outlined">
+        <CardHeader
+          avatar={<GitHub className="avatar" />}
+          title={getCardTitle()}
+          subheader="Subheader"
+        />
         <CardContent>
-          <Readme content={parse(readme)} />
+          <h3 className="title-description">Description</h3>
+          <div className="description">{project.description || <i>Not available.</i>}</div>
         </CardContent>
-      </Collapse>
-    </Card>
+        <CardActions
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}>
+          {
+            <ExpandMore
+              label="Summary"
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="Show more">
+              <ExpandMoreIcon />
+            </ExpandMore>
+          }
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent></CardContent>
+        </Collapse>
+      </Card>
+    </div>
   );
 }
