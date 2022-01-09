@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import React from 'react';
-import { useNavigate } from 'react-router';
+import './ReadmeDialog.scss';
 
 interface ReadmeDialogProps {
   title: string;
@@ -11,18 +11,13 @@ interface ReadmeDialogProps {
 
 export default function ReadmeDialog(props: ReadmeDialogProps) {
   const { title, content, open, onClose } = props;
-  const navigate = useNavigate();
 
   return (
-    <Dialog
-      open={open}
-      onClose={() => {
-        navigate('/projects');
-        onClose();
-      }}
-      scroll="paper">
+    <Dialog open={open} onClose={onClose} scroll="paper">
       <DialogTitle>{title}</DialogTitle>
-      <DialogContent>{content}</DialogContent>
+      <DialogContent>
+        {(content.length > 0 && content) || <div>This project does not have a README.md file.</div>}
+      </DialogContent>
     </Dialog>
   );
 }

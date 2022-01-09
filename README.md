@@ -1,4 +1,4 @@
-<h1>Matt Young Code Portfolio</h1>
+<h1>hoppingmode | Code Portfolio</h1>
 
 <h2>Introduction</h2>
 
@@ -15,7 +15,7 @@
 <h2>Projects</h2>
 
 <p>
-    I am an avid learner driven by curiosity. You may notice that the projects encompass a variety of different programming languages and frameworks. I strongly believe that learning from a multitude of languages often inspires innovation across different projects and opens up the mind when it comes to solving new problems.  
+    I am an avid learner driven by curiosity. You may notice that the projects I've worked on encompass a variety of different programming languages and frameworks. I strongly believe that learning from a multitude of languages often inspires innovation across different projects and opens up the mind when it comes to solving new problems.  
 </p>
 <p>
     <h2>My Programming Language Experience</h2>

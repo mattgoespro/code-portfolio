@@ -80,14 +80,9 @@ export default function Project(props: { repo: GithubProject }) {
           style={{
             float: 'right'
           }}>
-          {/* <IconButton size="small" onClick={() => setReadmeDialogOpen(true)}>
+          <IconButton size="small" onClick={() => setReadmeDialogOpen(true)}>
             <OpenInFullIcon fontSize="small" />
-          </IconButton> */}
-          <Link to={`/projects/${project.name}`}>
-            <IconButton size="small" onClick={() => setReadmeDialogOpen(true)}>
-              <OpenInFullIcon fontSize="small" />
-            </IconButton>
-          </Link>
+          </IconButton>
         </span>
       </div>
     );

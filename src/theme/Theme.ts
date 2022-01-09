@@ -108,6 +108,13 @@ const appTheme = createTheme(baseTheme, {
         sizeMedium: 50,
         sizeLarge: 70
       }
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          borderBottom: `1px solid ${baseTheme.palette.grey[800]}`
+        }
+      }
     }
   }
 } as ThemeOptions);

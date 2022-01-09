@@ -14,6 +14,7 @@
 - Find way to import scss variables into typescript.
 - Clean up hard-coded styles.
 - Social nav icon styling.
+- Fix navbar links inheriting underline from the _ReadmeDialog.scss_ stylesheet.
 
 ## Components
 
@@ -21,6 +22,7 @@
   - Add project code language composition.
   - Add non-git projects.
 - Move generic components to own file.
+- Get _simplebar-react_ scrollbar working.
 
 ## Cool to have
 

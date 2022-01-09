@@ -1,4 +1,3 @@
-import { SvgIcon } from '@mui/material';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './App.scss';

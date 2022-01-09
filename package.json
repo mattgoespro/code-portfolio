@@ -24,6 +24,7 @@
     "react-scripts": "5.0.0",
     "react-spinners": "^0.11.0",
     "sass": "^1.45.0",
+    "simplebar-react": "^2.3.6",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
