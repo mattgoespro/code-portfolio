@@ -1,5 +1,6 @@
 // TODO: Import SCSS theme variables here
 
+import { lighten } from '@mui/material';
 import createTheme, { ThemeOptions } from '@mui/material/styles/createTheme';
 
 const baseTheme = createTheme({
@@ -90,17 +91,20 @@ const appTheme = createTheme(baseTheme, {
         }
       }
     },
+    MuiCardActions: {
+      styleOverrides: {
+        root: {
+          borderTop: `1px solid ${baseTheme.palette.grey[800]}`
+        }
+      }
+    },
     MuiIconButton: {
       styleOverrides: {
         root: {
           backgroundColor: baseTheme.palette.primary.main,
           color: baseTheme.palette.common.white,
-          // Alternate style
-          // backgroundColor: baseTheme.palette.common.white,
-          // color: baseTheme.palette.primary.dark,
-          // border: `2px solid ${baseTheme.palette.primary.dark}`,
           ':hover': {
-            backgroundColor: baseTheme.palette.primary.light
+            backgroundColor: lighten(baseTheme.palette.primary.light, 0.01)
           }
         },
         colorPrimary: baseTheme.palette.primary.dark,

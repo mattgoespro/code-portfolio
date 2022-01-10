@@ -33,5 +33,10 @@ div {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+span {
+  font-family: 'Roboto';
+  font-weight: 100;
 }

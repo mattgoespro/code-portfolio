@@ -4,26 +4,25 @@
 
 - Resolve %PUBLIC_URL% issue.
 - Change images to SVGs.
-- GitHub projects should specify name used to display on card.
-- Check if React has a _resolver_ package.
+- Alert API call failures
 
 ## Styles
 
-- Look at using the Material UI theming solution.
-  - Work out how to use Variants.
 - Find way to import scss variables into typescript.
 - Clean up hard-coded styles.
 - Social nav icon styling.
-- Fix navbar links inheriting underline from the _ReadmeDialog.scss_ stylesheet.
+- Fix html elements inheriting styles from the _ReadmeDialog.scss_ stylesheet.
 
 ## Components
 
 - Project
-  - Add project code language composition.
   - Add non-git projects.
 - Move generic components to own file.
 - Get _simplebar-react_ scrollbar working.
+- Make dialog routable to maintain state on refresh.
+- Check if React has a _resolver_ package.
+- Clean up HTTP calls (see [Axios](https://www.npmjs.com/package/axios) package)
 
-## Cool to have
+## Cool To Have
 
-- Legend of most used languages
+- [Tailwindcss](https://tailwindcss.com/) styling.

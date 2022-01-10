@@ -5,13 +5,56 @@
   color: $light;
 }
 
+.description-wrapper {
+  vertical-align: middle;
+}
+
 .title-description {
   font-size: 16px;
   color: $gray-2;
   font-weight: 300;
+  margin-top: 0;
 }
 
 .description {
   color: $light;
   font-size: 14px;
+}
+
+.summary-repo {
+  display: flex;
+  flex-direction: column;
+  color: $light;
+  font-size: 14px;
+
+  span {
+    margin-bottom: 5px;
+  }
+}
+
+.summary-language-chart {
+  display: flex;
+}
+
+.summary-legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 150px;
+  align-self: center;
+}
+
+.summary-legend-lang {
+  font-size: 14px;
+  font-family: 'Roboto';
+  margin: 3px;
+}
+
+.icon-btn-readme {
+  // background-color: #262626 !important;
+}
+
+.icon-readme {
+  width: 15px !important;
+  height: 15px !important;
 }

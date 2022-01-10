@@ -5,7 +5,8 @@ import {
   CardHeader,
   Collapse,
   IconButton,
-  styled
+  styled,
+  Tooltip
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { GithubProject } from '../ProjectList';
@@ -17,8 +18,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ExpandMoreProps, GithubReadme } from './Project.model';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import ReadmeDialog from './readme/ReadmeDialog';
-import { css } from '@emotion/react';
-import { Link } from 'react-router-dom';
+import { PieChart } from 'react-minimal-pie-chart';
+import { Data } from 'react-minimal-pie-chart/types/commonTypes';
+import { format } from 'date-fns';
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, label, ...other } = props;
@@ -47,6 +49,7 @@ export default function Project(props: { repo: GithubProject }) {
   const project = props.repo;
   const [readme, setReadme] = useState('');
   const [open, setReadmeDialogOpen] = useState(false);
+  const [languageComposition, setLanguageComposition] = useState<{ [key: string]: number }>({});
   const [error, setError] = useState(false);
 
   const [expanded, setExpanded] = React.useState(false);
@@ -57,6 +60,11 @@ export default function Project(props: { repo: GithubProject }) {
 
   useEffect(() => {
     // TODO: Make this cleaner
+    fetch(`https://api.github.com/repos/${project.full_name}/languages`)
+      .then((rsp) => rsp.json())
+      .then((rsp) => {
+        setLanguageComposition(rsp);
+      });
     fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
       .then((rsp) => rsp.json())
       .then((rsp: GithubReadme) => {
@@ -64,6 +72,7 @@ export default function Project(props: { repo: GithubProject }) {
         setReadme(readmePayload.trim());
       })
       .catch((err) => {
+        // TODO: Alert failure
         console.log(err);
         setError(true);
       });
@@ -80,10 +89,86 @@ export default function Project(props: { repo: GithubProject }) {
           style={{
             float: 'right'
           }}>
-          <IconButton size="small" onClick={() => setReadmeDialogOpen(true)}>
-            <OpenInFullIcon fontSize="small" />
-          </IconButton>
+          <Tooltip title="View Readme">
+            <IconButton
+              className="icon-btn-readme"
+              size="small"
+              onClick={() => setReadmeDialogOpen(true)}>
+              <OpenInFullIcon className="icon-readme" />
+            </IconButton>
+          </Tooltip>
         </span>
+      </div>
+    );
+  }
+
+  function getLanguageCompositionChart() {
+    /**
+     * Colors used in the pie chart.
+     *
+     * I'd be surprised to see more than 10 different
+     * languages.
+     *
+     * Generated using <code>https://www.webfx.com/web-design/random-color-picker/</code>.
+     */
+    const languageColors = [
+      '#64b5f6',
+      '#4caf50',
+      '#ffb74d',
+      '#e57373',
+      '#ff4081',
+      '#b05bb3',
+      '#0819EC',
+      '#ED7C27',
+      '#3FA0A8',
+      '#BAC96B',
+      '#75373F',
+      '#DFCA26'
+    ];
+
+    const languages = Object.keys(languageComposition);
+    const values = Object.values(languageComposition);
+    const total = values.reduce((val, s) => val + s, 0);
+    const chartData: Data = languages.map((lang, i) => ({
+      title: lang,
+      value: languageComposition[lang] || 0,
+      color: languageColors[i]
+    }));
+
+    return (
+      <div>
+        <div className="summary-repo">
+          <span>Created: {format(new Date(project.created_at), 'dd-MM-yyyy p')}</span>
+          <span>Last Updated: {format(new Date(project.pushed_at), 'dd-MM-yyyy p')}</span>
+        </div>
+        <div className="summary-language-chart">
+          <div className="summary-legend">
+            {languages.map((lang, i) => {
+              return (
+                <span
+                  key={lang}
+                  className="summary-legend-lang"
+                  style={{
+                    color: languageColors[i]
+                  }}>
+                  {lang}
+                </span>
+              );
+            })}
+          </div>
+          <PieChart
+            data={chartData}
+            label={({ dataEntry }) => `${((dataEntry.value * 100) / total).toFixed()}%`}
+            labelStyle={{
+              fontSize: '3px',
+              fontFamily: 'Roboto'
+            }}
+            labelPosition={70}
+            animate={true}
+            radius={20}
+            style={{ width: '300px' }}
+          />
+        </div>
       </div>
     );
   }
@@ -96,15 +181,21 @@ export default function Project(props: { repo: GithubProject }) {
         content={parse(readme)}
         onClose={() => setReadmeDialogOpen(false)}
       />
-      <Card sx={{ width: 400 }} variant="outlined">
+      <Card sx={{ width: 600 }} variant="outlined">
         <CardHeader
           avatar={<GitHub className="avatar" />}
           title={getCardTitle()}
-          subheader="Subheader"
+          subheader={
+            <a href={project.html_url} target="tab">
+              Repository
+            </a>
+          }
         />
         <CardContent>
-          <h3 className="title-description">Description</h3>
-          <div className="description">{project.description || <i>Not available.</i>}</div>
+          <div className="description-wrapper">
+            <h3 className="title-description">Description</h3>
+            <div className="description">{project.description || <i>Not available.</i>}</div>
+          </div>
         </CardContent>
         <CardActions
           style={{
@@ -118,12 +209,12 @@ export default function Project(props: { repo: GithubProject }) {
               onClick={handleExpandClick}
               aria-expanded={expanded}
               aria-label="Show more">
-              <ExpandMoreIcon />
+              <ExpandMoreIcon fontSize="small" />
             </ExpandMore>
           }
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent></CardContent>
+          <CardContent>{getLanguageCompositionChart()}</CardContent>
         </Collapse>
       </Card>
     </div>
