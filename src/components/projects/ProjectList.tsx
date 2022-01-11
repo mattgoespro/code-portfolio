@@ -128,8 +128,8 @@ export default function ProjectList() {
         setGithubRepos(rsp);
         setLoading(false);
       })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
+      .catch(() => setError(true));
+    // .finally(() => setLoading(false));
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {};
@@ -153,15 +153,20 @@ export default function ProjectList() {
       {error && <div>Uh oh, an error occurred. Please try again.</div>}
       {loading && getLoader()}
       {!loading &&
-        githubRepos
-          .filter((repo) => !repo.private)
-          .map((repo) => {
-            return (
-              <div key={repo.url} className="project">
-                <GithubProject key={repo.url} repo={repo} />
-              </div>
-            );
-          })}
+        githubRepos.map((repo, index) => {
+          return (
+            <div
+              key={repo.url}
+              className="project"
+              style={
+                {
+                  '--index': index
+                } as React.CSSProperties
+              }>
+              <GithubProject key={repo.url} repo={repo} />
+            </div>
+          );
+        })}
     </div>
   );
 }

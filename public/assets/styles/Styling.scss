@@ -5,8 +5,11 @@ $border-radius-container: 5px;
 
 .content {
   width: 100%;
-  // background-color: $gray-1;
+  // background-color: $grey-1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content-title {

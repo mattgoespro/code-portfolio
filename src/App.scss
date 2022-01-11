@@ -2,13 +2,12 @@
 @import '../public/assets/styles/styling';
 
 .app {
-  height: 700px;
   display: flex;
   flex-direction: column;
 }
 
 nav {
-  background: $gray-1;
+  background: $grey-1;
   display: flex;
   justify-content: space-between;
 }
@@ -22,17 +21,26 @@ nav {
   }
 }
 
-a {
-  color: $light;
-}
-
 .socials {
   float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+  margin-right: 5px;
 
-  img {
-    vertical-align: middle;
-    width: 24px;
-    height: 24px;
+  .linkedin-icon,
+  .github-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .linkedin-icon {
+    color: $primary-900;
+  }
+
+  .github-icon {
+    color: $light;
   }
 }
 

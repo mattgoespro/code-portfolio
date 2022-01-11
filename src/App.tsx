@@ -1,7 +1,10 @@
+import SvgIcon from '@mui/material/SvgIcon';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './App.scss';
 import './index.scss';
+import GithubLogo from '../public/assets/media/svg/github-logo.svg';
+import LinkedInLogo from '../public/assets/media/svg/linkedin-logo.svg';
 
 export function App() {
   return (
@@ -19,16 +22,11 @@ export function App() {
           </Link>
         </div>
         <div className="socials">
-          <a
-            className="nav-link"
-            href="https://www.linkedin.com/in/matt-young-691b48189/"
-            target="tab">
-            <img src="./assets/media/images/linkedin-logo.png" alt="LinkedIn" />
-            {/* <SvgIcon></SvgIcon> */}
+          <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
+            <SvgIcon className="linkedin-icon">{<LinkedInLogo />}</SvgIcon>
           </a>
-          <a className="nav-link" href="https://github.com/mattgoespro" target="tab">
-            <img src="./assets/media/images/github-logo.png" alt="Github" />
-            {/* <SvgIcon></SvgIcon> */}
+          <a href="https://github.com/mattgoespro" target="tab">
+            <SvgIcon className="github-icon">{<GithubLogo />}</SvgIcon>
           </a>
         </div>
       </nav>

@@ -1,41 +1,9 @@
 @import '../../../../../public/assets/styles/Typography.scss';
 @import '../../../../../public/assets/styles/Theme.scss';
 
-h1 {
-  font-size: 24px;
-  color: $light;
-}
-
-h2 {
-  font-size: 20px;
-  color: $light;
-}
-
-h3 {
-  font-size: 18px;
-  color: $light;
-}
-
-p,
-li {
-  color: $gray-3;
-  font-family: 'Roboto';
-  font-weight: 100;
-  font-size: 16px;
-}
-
-code {
-  color: $accent;
-}
-
-a {
-  color: #8a75ff;
-  text-decoration: underline;
-}
-
 .no-readme {
   text-align: center;
   font-family: 'Roboto';
   margin-top: 20px;
-  color: $gray-3;
+  color: $grey-3;
 }

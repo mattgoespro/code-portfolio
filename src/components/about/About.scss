@@ -1,2 +1,18 @@
-@import '../../../public/assets/styles/Styling.scss';
-@import '../../../public/assets/styles/Typography.scss';
+@import '../../../public/assets/styles/Theme.scss';
+
+.img-profile {
+  border-radius: 40px;
+}
+
+.about-wrapper {
+  display: flex;
+  margin: auto;
+}
+
+.about-info {
+  width: 300px;
+  color: $grey-800;
+  font-family: 'Roboto';
+  margin: 10px;
+  font-size: 16px;
+}

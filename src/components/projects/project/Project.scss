@@ -21,33 +21,58 @@
   font-size: 14px;
 }
 
+.expand-more-label {
+  font-size: 16px;
+  color: $gray-2;
+  margin: 15px;
+  vertical-align: middle;
+}
+
+.divider {
+  border-bottom: 1px solid $grey-800;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .summary-repo {
   display: flex;
   flex-direction: column;
   color: $light;
-  font-size: 14px;
 
   span {
-    margin-bottom: 5px;
+    font-size: 14px;
+    margin-bottom: 8px;
   }
+}
+
+.summary-language-chart-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-language-chart-title {
+  color: $gray-2;
+  font-size: 16px;
+  text-decoration: underline;
 }
 
 .summary-language-chart {
   display: flex;
+  margin: 5px;
 }
 
 .summary-legend {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 150px;
+  justify-content: space-between;
   align-self: center;
+  height: 200px;
+  margin: 10px;
 }
 
 .summary-legend-lang {
   font-size: 14px;
   font-family: 'Roboto';
-  margin: 3px;
 }
 
 .icon-btn-readme {

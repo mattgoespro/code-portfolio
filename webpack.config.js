@@ -49,7 +49,14 @@ module.exports = function (_env, argv) {
         },
         {
           test: /\.svg$/,
-          use: ['@svgr/webpack']
+          use: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                native: true
+              }
+            }
+          ]
         },
         {
           test: /\.(eot|otf|ttf|woff|woff2)$/,

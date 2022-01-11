@@ -13,7 +13,6 @@ import { GithubProject } from '../ProjectList';
 import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import { Buffer } from 'buffer';
-import parse from 'html-react-parser';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ExpandMoreProps, GithubReadme } from './Project.model';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
@@ -27,14 +26,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   return (
     <div>
       <IconButton {...other} size="small" />
-      <span
-        style={{
-          color: 'white',
-          margin: 15,
-          verticalAlign: 'middle'
-        }}>
-        {label}
-      </span>
+      <span className="expand-more-label">{label}</span>
     </div>
   );
 })(({ theme, expand }) => ({
@@ -141,82 +133,86 @@ export default function Project(props: { repo: GithubProject }) {
           <span>Created: {format(new Date(project.created_at), 'dd-MM-yyyy p')}</span>
           <span>Last Updated: {format(new Date(project.pushed_at), 'dd-MM-yyyy p')}</span>
         </div>
-        <div className="summary-language-chart">
-          <div className="summary-legend">
-            {languages.map((lang, i) => {
-              return (
-                <span
-                  key={lang}
-                  className="summary-legend-lang"
-                  style={{
-                    color: languageColors[i]
-                  }}>
-                  {lang}
-                </span>
-              );
-            })}
+        <div className="divider"></div>
+        <div className="summary-language-chart-wrapper">
+          <span className="summary-language-chart-title">Languages Used</span>
+          <div className="summary-language-chart">
+            <div className="summary-legend">
+              {languages.map((lang, i) => {
+                return (
+                  <span
+                    key={lang}
+                    className="summary-legend-lang"
+                    style={{
+                      color: languageColors[i]
+                    }}>
+                    {lang}
+                  </span>
+                );
+              })}
+            </div>
+            <PieChart
+              data={chartData}
+              label={({ dataEntry }) => `${((dataEntry.value * 100) / total).toFixed()}%`}
+              labelStyle={{
+                fontSize: '3px',
+                fontFamily: 'Roboto'
+              }}
+              labelPosition={70}
+              animate={true}
+              style={{ width: '300px', margin: 10 }}
+            />
           </div>
-          <PieChart
-            data={chartData}
-            label={({ dataEntry }) => `${((dataEntry.value * 100) / total).toFixed()}%`}
-            labelStyle={{
-              fontSize: '3px',
-              fontFamily: 'Roboto'
-            }}
-            labelPosition={70}
-            animate={true}
-            radius={20}
-            style={{ width: '300px' }}
-          />
         </div>
       </div>
     );
   }
 
   return (
-    <div>
+    <Card variant="outlined">
       <ReadmeDialog
         open={open}
         title={project.full_name}
-        content={parse(readme)}
+        content={readme}
         onClose={() => setReadmeDialogOpen(false)}
       />
-      <Card sx={{ width: 600 }} variant="outlined">
-        <CardHeader
-          avatar={<GitHub className="avatar" />}
-          title={getCardTitle()}
-          subheader={
-            <a href={project.html_url} target="tab">
-              Repository
-            </a>
-          }
-        />
+      <CardHeader
+        avatar={<GitHub className="avatar" />}
+        title={getCardTitle()}
+        subheader={
+          <a href={project.html_url} target="tab">
+            Repository
+          </a>
+        }
+      />
+      <CardContent>
+        <div className="description-wrapper">
+          <h3 className="title-description">Description</h3>
+          <div className="description">{project.description || <i>Not available.</i>}</div>
+        </div>
+      </CardContent>
+      <CardActions
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
+        {
+          <ExpandMore
+            label="Summary"
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="Show more">
+            <ExpandMoreIcon fontSize="small" />
+          </ExpandMore>
+        }
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <div className="description-wrapper">
-            <h3 className="title-description">Description</h3>
-            <div className="description">{project.description || <i>Not available.</i>}</div>
-          </div>
+          {getLanguageCompositionChart()}
+          {<div className="divider"></div>}
         </CardContent>
-        <CardActions
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}>
-          {
-            <ExpandMore
-              label="Summary"
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="Show more">
-              <ExpandMoreIcon fontSize="small" />
-            </ExpandMore>
-          }
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>{getLanguageCompositionChart()}</CardContent>
-        </Collapse>
-      </Card>
-    </div>
+      </Collapse>
+    </Card>
   );
 }

@@ -1,11 +1,29 @@
 @import '../../../public/assets/styles/Theme.scss';
 
+:root {
+  --index: 0;
+}
+
 .project-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .project {
   margin: 20px;
+  min-width: 60%;
+  animation-name: fade-in-projects;
+  animation-duration: 1s;
+  animation-delay: calc(var(--index) * 100ms);
+}
+
+@keyframes fade-in-projects {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
