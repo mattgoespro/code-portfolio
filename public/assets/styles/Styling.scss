@@ -20,7 +20,7 @@ $border-radius-container: 5px;
 
 .content-subtitle {
   @extend .content-title;
-  color: $gray-2;
+  color: $grey-2;
 }
 
 @mixin navigation-link($color) {
