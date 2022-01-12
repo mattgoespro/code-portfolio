@@ -1,17 +1,9 @@
 import React from 'react';
 import './About.scss';
-import DownloadForOfflineOutlinedIcon from '@mui/icons-material/DownloadForOfflineOutlined';
-import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
+// import DownloadForOfflineOutlinedIcon from '@mui/icons-material/DownloadForOfflineOutlined';
+// import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
 import CvDownloadIcon from '../../../public/assets/media/svg/cv-download.svg';
-import SvgIcon from '@mui/icons-material/DownloadForOfflineOutlined';
-
-const downloadCvIcon = (
-  <a role={'button'}>
-    <div>
-      <SvgIcon className="cv-icon">{<CvDownloadIcon />}</SvgIcon>
-    </div>
-  </a>
-);
+import SvgIcon from '@mui/material/SvgIcon';
 
 export default function About() {
   return (
@@ -33,8 +25,12 @@ export default function About() {
       </div>
       <div className="resources">
         <div className="download-cv">
-          Download CV
-          <SvgIcon className="cv-icon">{<CvDownloadIcon />}</SvgIcon>
+          <div>Download CV</div>
+          {
+            <a role={'button'} href="https://google.com" className="cv-icon-link">
+              <SvgIcon className="cv-icon">{<CvDownloadIcon />}</SvgIcon>
+            </a>
+          }
         </div>
       </div>
     </div>

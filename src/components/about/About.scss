@@ -25,25 +25,22 @@
 }
 
 .download-cv {
-  color: $grey-800;
+  display: flex;
+  align-items: center;
+  color: $light;
   font-family: 'Roboto';
-  font-size: 36px;
+  font-size: 16px;
   font-weight: 100;
+  background-color: $primary-main;
+  padding: 10px;
 }
-
-// .cv-icon-link {
-//   display: flex;
-//   flex-direction: column;
-// }
 
 .cv-icon {
-  width: 60px !important;
-  height: 60px !important;
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: middle;
 }
 
-.download-icon {
-  width: 30px !important;
-  height: 30px !important;
-  transform: translate(45px, -40px);
-  color: white;
+.cv-icon-link {
+  margin-left: 5px;
 }

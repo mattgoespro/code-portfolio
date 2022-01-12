@@ -33,7 +33,7 @@ ReactDOM.render(
               element={
                 <Content
                   title="Projects"
-                  subtitle="What I have worked on."
+                  subtitle="Here's what I've been working on."
                   component={<ProjectList />}
                 />
               }></Route>

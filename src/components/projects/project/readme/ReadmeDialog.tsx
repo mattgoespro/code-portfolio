@@ -45,9 +45,8 @@ function createReadme(content: string) {
 
 export default function ReadmeDialog(props: ReadmeDialogProps) {
   const { title, content, open, onClose } = props;
-  console.log(content);
   return (
-    <Dialog open={open} onClose={onClose} scroll="paper" fullWidth={true}>
+    <Dialog open={open} onClose={onClose} scroll="paper" maxWidth="xl">
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         {(content.length > 0 && createReadme(content)) || (
