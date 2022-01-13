@@ -1,2 +1,43 @@
 @import '../../../../public/assets/styles/Theme';
 @import '../../../../public/assets/styles/Styling';
+
+@keyframes animate-title {
+  0% {
+    opacity: 0;
+    margin-right: 100px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-right: 20px;
+  }
+}
+
+@keyframes animate-subtitle {
+  0% {
+    opacity: 0;
+    margin-right: 100px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-right: 20px;
+  }
+}
+
+.content-title {
+  text-align: center;
+  margin: 20px;
+  color: $light;
+  animation: animate-title;
+  animation-duration: 200ms;
+}
+
+.content-subtitle {
+  text-align: center;
+  margin: 20px;
+  color: $grey-2;
+  animation: animate-subtitle;
+  animation-duration: 200ms;
+  animation-delay: 500ms;
+}

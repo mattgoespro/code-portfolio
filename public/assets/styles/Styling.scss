@@ -5,22 +5,10 @@ $border-radius-container: 5px;
 
 .content {
   width: 100%;
-  // background-color: $grey-1;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.content-title {
-  text-align: center;
-  margin: 20px;
-  color: $light;
-}
-
-.content-subtitle {
-  @extend .content-title;
-  color: $grey-2;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
 }
 
 @mixin navigation-link($color) {

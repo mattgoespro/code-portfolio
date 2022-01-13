@@ -37,7 +37,20 @@ ReactDOM.render(
                   component={<ProjectList />}
                 />
               }></Route>
-            <Route path="about" element={<Content title="About" component={<About />} />} />
+            <Route
+              path="about"
+              element={
+                <Content
+                  title="About"
+                  subtitle={
+                    <span>
+                      Who is <i>Matt Young</i>?
+                    </span>
+                  }
+                  component={<About />}
+                />
+              }
+            />
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>

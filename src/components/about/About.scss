@@ -2,6 +2,8 @@
 
 .img-profile {
   border-radius: 40px;
+  float: right;
+  padding: 0 0 20px 20px;
 }
 
 .about-wrapper {
@@ -12,16 +14,21 @@
 }
 
 .about-info-wrapper {
-  display: flex;
   margin-bottom: 50px;
 }
 
 .about-info {
-  width: 300px;
+  width: 500px;
   color: $grey-800;
   font-family: 'Roboto';
   margin: 10px;
-  font-size: 16px;
+  font-size: 12px;
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+p {
+  font-size: 14px !important;
 }
 
 .download-cv {
@@ -43,4 +50,8 @@
 
 .cv-icon-link {
   margin-left: 5px;
+}
+
+.list-text {
+  color: $primary-main;
 }

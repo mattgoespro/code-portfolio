@@ -1,13 +1,70 @@
 @import '../../../public/assets/styles/Theme';
 @import '../../../public/assets/styles/Styling';
 
-.intro-paragraph {
-  color: $grey-3;
-  font-family: 'Arial';
-  font-size: 14px;
-  font-weight: lighter;
+$angular: #dd0031;
+$react: #61dafb;
+$node: #3e863d;
+$spring: #6db33f;
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.alias {
-  color: $secondary;
+.technologies-header {
+  text-align: center;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.technology {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $grey-dark;
+  width: 200px;
+}
+
+.technology-name {
+  font-size: 24px;
+  text-align: center;
+}
+
+.angular {
+  color: $angular;
+}
+
+// Fix transform making the height weird
+
+.angular-logo {
+  // transform: scale(0.6);
+}
+
+.node {
+  color: $node;
+}
+
+.node-logo {
+  // transform: scale(0.6);
+}
+
+.react {
+  color: $react;
+}
+
+.react-logo {
+  // transform: scale(0.6);
+}
+
+.spring {
+  color: $spring;
+}
+
+.spring-logo {
+  // transform: scale(0.6);
 }
