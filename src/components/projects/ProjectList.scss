@@ -11,9 +11,11 @@
 }
 
 .project {
+  opacity: 0;
   margin: 20px;
   min-width: 60%;
   animation-name: fade-in-projects;
+  animation-fill-mode: forwards;
   animation-duration: 1s;
   animation-delay: calc(var(--index) * 100ms);
 }

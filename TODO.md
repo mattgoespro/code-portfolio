@@ -5,6 +5,7 @@
 - Resolve %PUBLIC_URL% issue.
 - Change images to SVGs.
 - Alert API call failures
+- Clean node-js.png in resource repo.
 
 ## Styles
 
@@ -22,6 +23,7 @@
 - Make dialog routable to maintain state on refresh.
 - Check if React has a _resolver_ package.
 - Clean up HTTP calls (see [Axios](https://www.npmjs.com/package/axios) package)
+- Refactor Home items to use shared component.
 
 ## Cool To Have
 

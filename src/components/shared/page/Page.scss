@@ -1,25 +1,19 @@
 @import '../../../../public/assets/styles/Theme';
 @import '../../../../public/assets/styles/Styling';
 
-@keyframes animate-title {
-  0% {
-    opacity: 0;
-    margin-right: 100px;
-  }
-
-  100% {
-    opacity: 1;
-    margin-right: 20px;
-  }
+:root {
+  --animation-duration: 500ms;
 }
 
-@keyframes animate-subtitle {
-  0% {
+@keyframes animate-title {
+  from {
+    display: none;
     opacity: 0;
     margin-right: 100px;
   }
 
-  100% {
+  to {
+    display: block;
     opacity: 1;
     margin-right: 20px;
   }
@@ -30,14 +24,17 @@
   margin: 20px;
   color: $light;
   animation: animate-title;
-  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  animation-duration: var(--animation-duration);
 }
 
 .content-subtitle {
+  opacity: 0;
   text-align: center;
   margin: 20px;
   color: $grey-2;
-  animation: animate-subtitle;
-  animation-duration: 200ms;
-  animation-delay: 500ms;
+  animation: animate-title;
+  animation-fill-mode: forwards;
+  animation-delay: var(--animation-duration);
+  animation-duration: var(--animation-duration);
 }

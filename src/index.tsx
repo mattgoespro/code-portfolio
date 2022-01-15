@@ -44,7 +44,7 @@ ReactDOM.render(
                   title="About"
                   subtitle={
                     <span>
-                      Who is <i>Matt Young</i>?
+                      <b>Who is</b> Matt Young?
                     </span>
                   }
                   component={<About />}
