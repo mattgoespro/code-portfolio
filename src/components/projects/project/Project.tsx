@@ -58,13 +58,19 @@ export default function Project(props: { repo: GithubProject }) {
         setLanguageComposition(rsp);
       });
     fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
-      .then((rsp) => rsp.json())
-      .then((rsp: GithubReadme) => {
-        const readmePayload = Buffer.from(rsp.content, 'base64').toString();
-        setReadme(readmePayload.trim());
+      .then((rsp) => {
+        if (rsp.status === 404) {
+          setReadme('');
+        } else if (rsp.status === 200) {
+          rsp.json().then((rsp) => {
+            const readmePayload = Buffer.from(rsp.content, 'base64').toString();
+            setReadme(readmePayload.trim());
+          });
+        } else {
+          setError(true);
+        }
       })
       .catch((err) => {
-        // TODO: Alert failure
         console.log(err);
         setError(true);
       });

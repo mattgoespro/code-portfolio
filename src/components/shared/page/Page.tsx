@@ -12,6 +12,7 @@ export default function Page(props: PageProps) {
     <div className="content">
       {props.title && <h1 className="content-title">{props.title}</h1>}
       {props.subtitle && <h2 className="content-subtitle">{props.subtitle}</h2>}
+      <div className="divider"></div>
       {props.component}
     </div>
   );
