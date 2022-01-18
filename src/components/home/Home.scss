@@ -24,6 +24,7 @@ $spring: #6db33f;
 
 .section-header {
   text-align: center;
+  color: $grey-2;
 }
 
 .technologies,
@@ -72,9 +73,6 @@ $spring: #6db33f;
 
 .dotnet {
   color: $dotnet;
-}
-
-.cpp {
 }
 
 .angular {

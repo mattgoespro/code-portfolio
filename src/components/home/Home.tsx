@@ -3,49 +3,45 @@ import './Home.scss';
 
 const languages = (
   <div>
-    <h2 className="section-header">I&apos;ve worked in all sorts of languages</h2>
+    <h3 className="section-header">I&apos;ve programmed in all sorts of languages</h3>
     <div className="languages">
       <div className="language-card">
         <div className="language-name typescript">
           <span>Type</span>Script
         </div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/typescript.png?raw=true" />
+        <img src="images/logos/typescript.png" />
       </div>
       <div className="language-card">
         <div className="language-name java">Java</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/java.png?raw=true" />
+        <img src="images/logos/java.png" />
       </div>
       <div className="language-card">
         <div className="language-name dotnet">C#</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/dotnet.png?raw=true" />
+        <img src="images/logos/dotnet.png" />
       </div>
-      {/* <div className="language-card">
-        <div className="language-name cpp">C++</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/cpp.png?raw=true" />
-      </div> */}
     </div>
   </div>
 );
 
 const technologies = (
   <div>
-    <h2 className="section-header">...in multiple technologies</h2>
+    <h3 className="section-header">...in multiple technologies</h3>
     <div className="technologies">
       <div className="technology-card">
         <div className="technology-name node">Node.js</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/node-js.png?raw=true" />
+        <img src="images/logos/node-js.png" />
       </div>
       <div className="technology-card">
         <div className="technology-name react">React</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/react.png?raw=true" />
+        <img src="images/logos/react.png" />
       </div>
       <div className="technology-card">
         <div className="technology-name angular">Angular</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/angular.png?raw=true" />
+        <img src="images/logos/angular.png" />
       </div>
       <div className="technology-card">
         <div className="technology-name spring">Spring</div>
-        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/logos/png/spring.png?raw=true" />
+        <img src="images/logos/spring.png" />
       </div>
     </div>
   </div>
