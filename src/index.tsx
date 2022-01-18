@@ -9,7 +9,7 @@ import ProjectList from './components/projects/ProjectList';
 import PageNotFound from './components/PageNotFound';
 import About from './components/about/About';
 import Content from './components/shared/page/Page';
-import appTheme from './theme/Theme';
+import appTheme from './theme/MaterialTheme';
 import { ThemeProvider } from '@mui/material/styles';
 
 ReactDOM.render(
