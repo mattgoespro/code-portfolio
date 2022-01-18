@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -35,15 +36,13 @@ module.exports = function (_env, argv) {
         {
           test: /.s?css$/,
           use: [
+            MiniCssExtractPlugin.loader,
             'css-loader',
             {
               loader: 'sass-loader',
               options: {
-                // Prefer `dart-sass`
-                implementation: require('sass'),
-                sassOptions: {
-                  fiber: false,
-                  includePaths: ['public/assets/styles']
+                sassLoader: {
+                  includePaths: [path.resolve(__dirname, './public/assets/styles')]
                 }
               }
             }
@@ -77,7 +76,7 @@ module.exports = function (_env, argv) {
         {
           test: /\.module.css$/,
           use: [
-            'style-loader',
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
             {
               loader: 'css-loader',
               options: {
@@ -91,11 +90,14 @@ module.exports = function (_env, argv) {
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
       alias: {
-        '~': path.resolve(__dirname, 'src/assets/styles/'),
         '@': path.resolve(__dirname, 'src')
       }
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'assets/styles/css/[name].[contenthash:8].css',
+        chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css'
+      }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
       }),
