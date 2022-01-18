@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.scss';
-import CvDownloadIcon from '../../../public/assets/media/svg/cv-download.svg';
+import CvDownloadIcon from '../../assets/media/svg/cv-download.svg';
 import SvgIcon from '@mui/material/SvgIcon';
 
 export default function About() {

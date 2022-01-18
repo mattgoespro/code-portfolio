@@ -3,8 +3,8 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './App.scss';
 import './index.scss';
-import GithubLogo from '../public/assets/media/svg/github-logo.svg';
-import LinkedInLogo from '../public/assets/media/svg/linkedin-logo.svg';
+import GithubLogo from './assets/media/svg/github-logo.svg';
+import LinkedInLogo from './assets/media/svg/linkedin-logo.svg';
 
 export function App() {
   return (
