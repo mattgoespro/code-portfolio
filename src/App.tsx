@@ -5,6 +5,8 @@ import './App.scss';
 import './index.scss';
 import GithubLogo from './assets/media/svg/github-logo.svg';
 import LinkedInLogo from './assets/media/svg/linkedin-logo.svg';
+import CvDownloadIcon from './assets/media/svg/cv-download.svg';
+import { Tooltip } from '@mui/material';
 
 export function App() {
   return (
@@ -21,13 +23,22 @@ export function App() {
             About
           </Link>
         </div>
-        <div className="socials">
-          <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
-            <SvgIcon className="linkedin-icon">{<LinkedInLogo />}</SvgIcon>
-          </a>
-          <a href="https://github.com/mattgoespro" target="tab">
-            <SvgIcon className="github-icon">{<GithubLogo />}</SvgIcon>
-          </a>
+        <div className="icons">
+          <Tooltip title="Download CV">
+            <a href="https://google.com">
+              <SvgIcon className="cv-icon">{<CvDownloadIcon />}</SvgIcon>
+            </a>
+          </Tooltip>
+          <Tooltip title="LinkedIn">
+            <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
+              <SvgIcon className="linkedin-icon">{<LinkedInLogo />}</SvgIcon>
+            </a>
+          </Tooltip>
+          <Tooltip title="GitHub">
+            <a href="https://github.com/mattgoespro" target="tab">
+              <SvgIcon className="github-icon">{<GithubLogo />}</SvgIcon>
+            </a>
+          </Tooltip>
         </div>
       </nav>
       <div className="content-wrapper">

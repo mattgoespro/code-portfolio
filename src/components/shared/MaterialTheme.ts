@@ -67,7 +67,7 @@ const appTheme = createTheme(baseTheme, {
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: baseTheme.palette.grey[900]
+          backgroundColor: '#18181b' // grey-dark
         }
       }
     },

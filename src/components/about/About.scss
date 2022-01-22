@@ -19,17 +19,19 @@
 }
 
 .about-info {
-  width: 500px;
-  color: $grey-800;
   font-family: 'Roboto';
+  font-weight: 100;
+  width: 500px;
+  color: $grey-600;
   margin: 10px;
-  font-size: 12px;
   text-align: justify;
   word-wrap: break-word;
+  background-color: $grey-dark;
+  padding: 20px;
 }
 
 p {
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 
 .download-cv {
@@ -43,16 +45,6 @@ p {
   padding: 10px;
 }
 
-.cv-icon {
-  width: 20px !important;
-  height: 20px !important;
-  vertical-align: middle;
-}
-
-.cv-icon-link {
-  margin-left: 5px;
-}
-
 .list-text {
-  color: $primary-main;
+  color: $secondary-200;
 }
