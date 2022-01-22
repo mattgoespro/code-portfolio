@@ -1,3 +1,4 @@
+import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 import './Home.scss';
 
@@ -25,14 +26,11 @@ const languages = (
 
 const technologies = (
   <div>
-    <h3 className="section-header">...in multiple technologies</h3>
+    <h3 className="section-header">... in multiple technologies</h3>
     <div className="technologies">
       <div className="technology-card">
-        <div className="technology-name node">Node.js</div>
-        <img src="images/logos/node-js.png" />
-      </div>
-      <div className="technology-card">
         <div className="technology-name react">React</div>
+        <div className="card-title-divider"></div>
         <img src="images/logos/react.png" />
       </div>
       <div className="technology-card">
@@ -40,9 +38,30 @@ const technologies = (
         <img src="images/logos/angular.png" />
       </div>
       <div className="technology-card">
+        <div className="technology-name node">Node.js</div>
+        <img src="images/logos/node-js.png" />
+      </div>
+      <div className="technology-card">
         <div className="technology-name spring">Spring</div>
         <img src="images/logos/spring.png" />
       </div>
+    </div>
+  </div>
+);
+
+const others = (
+  <div>
+    <h3 className="section-header">... with some other critters thrown the mix</h3>
+    <div className="others">
+      <Tooltip title="AWS">
+        <img className="other" src="images/logos/aws.png" alt="AWS" />
+      </Tooltip>
+      <Tooltip title="Docker">
+        <img className="other" src="images/logos/docker.png" alt="Docker" />
+      </Tooltip>
+      <Tooltip title="Kafka">
+        <img className="other" src="images/logos/kafka.png" alt="Kafka" />
+      </Tooltip>
     </div>
   </div>
 );
@@ -53,6 +72,7 @@ export default function Home() {
       <h2 className="header">I am a Full-Stack Software Engineer</h2>
       <div className="section">{languages}</div>
       <div className="section">{technologies}</div>
+      <div className="section">{others}</div>
     </div>
   );
 }

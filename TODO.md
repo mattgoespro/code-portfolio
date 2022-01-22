@@ -1,5 +1,9 @@
 # TODO
 
+## Dev
+
+- Set up local **.vscode** folder.
+
 ## General
 
 - Resolve %PUBLIC_URL% issue.

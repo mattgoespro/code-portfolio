@@ -12,9 +12,8 @@ import React, { useEffect, useState } from 'react';
 import { GithubProject } from '../ProjectList';
 import './Project.scss';
 import { GitHub } from '@mui/icons-material';
-import { Buffer } from 'buffer';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ExpandMoreProps, GithubReadme } from './Project.model';
+import { ExpandMoreProps } from './Project.model';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import ReadmeDialog from './readme/ReadmeDialog';
 import { PieChart } from 'react-minimal-pie-chart';
@@ -39,8 +38,8 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function Project(props: { repo: GithubProject }) {
   const project = props.repo;
+  const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readme, setReadme] = useState('');
-  const [open, setReadmeDialogOpen] = useState(false);
   const [languageComposition, setLanguageComposition] = useState<{ [key: string]: number }>({});
   const [error, setError] = useState(false);
 
@@ -57,24 +56,6 @@ export default function Project(props: { repo: GithubProject }) {
       .then((rsp) => {
         setLanguageComposition(rsp);
       });
-    fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
-      .then((rsp) => {
-        if (rsp.status === 404) {
-          setReadme('');
-        } else if (rsp.status === 200) {
-          rsp.json().then((rsp) => {
-            const readmePayload = Buffer.from(rsp.content, 'base64').toString();
-            setReadme(readmePayload.trim());
-          });
-        } else {
-          setError(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(true);
-      });
-
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {};
   }, []);
@@ -91,7 +72,26 @@ export default function Project(props: { repo: GithubProject }) {
             <IconButton
               className="icon-btn-readme"
               size="small"
-              onClick={() => setReadmeDialogOpen(true)}>
+              onClick={async () => {
+                fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
+                  .then((rsp) => {
+                    if (rsp.status === 404) {
+                      setReadme('');
+                    } else if (rsp.status === 200) {
+                      rsp.json().then((rsp) => {
+                        const readmePayload = Buffer.from(rsp.content, 'base64').toString();
+                        setReadme(readmePayload.trim());
+                      });
+                    } else {
+                      setError(true);
+                    }
+                    setReadmeDialogOpen(true);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    setError(true);
+                  });
+              }}>
               <OpenInFullIcon className="icon-readme" />
             </IconButton>
           </Tooltip>
@@ -176,12 +176,14 @@ export default function Project(props: { repo: GithubProject }) {
 
   return (
     <Card variant="outlined">
-      <ReadmeDialog
-        open={open}
-        title={project.full_name}
-        content={readme}
-        onClose={() => setReadmeDialogOpen(false)}
-      />
+      {readmeDialogOpen && (
+        <ReadmeDialog
+          open={readmeDialogOpen}
+          title={project.full_name}
+          content={readme}
+          onClose={() => setReadmeDialogOpen(false)}
+        />
+      )}
       <CardHeader
         avatar={<GitHub className="avatar" />}
         title={getCardTitle()}

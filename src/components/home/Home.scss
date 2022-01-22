@@ -90,3 +90,23 @@ $spring: #6db33f;
 .spring {
   color: $spring;
 }
+
+.others {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: $grey-dark;
+
+  img {
+    margin: 20px;
+  }
+}
+
+.other {
+  width: 40px;
+}
+
+.card-title-divider {
+  height: 1px;
+  border: 1px solid $grey-2;
+}
