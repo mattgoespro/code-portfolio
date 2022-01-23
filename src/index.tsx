@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -13,7 +13,7 @@ import appTheme from './components/shared/MaterialTheme';
 import { ThemeProvider } from '@mui/material/styles';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <ThemeProvider theme={appTheme}>
       <BrowserRouter>
         <Routes>
@@ -36,7 +36,8 @@ ReactDOM.render(
                   subtitle="Here's what I've been working on."
                   component={<ProjectList />}
                 />
-              }></Route>
+              }
+            ></Route>
             <Route
               path="about"
               element={
@@ -56,7 +57,7 @@ ReactDOM.render(
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 );
 

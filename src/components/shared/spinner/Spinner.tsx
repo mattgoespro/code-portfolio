@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
-import React from 'react';
 import { PulseLoader } from 'react-spinners';
 
-export function getLoader(loading: boolean) {
+export function getSpinner(loading: boolean) {
   return (
     <PulseLoader
       color="#0018ed"

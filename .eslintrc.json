@@ -26,6 +26,8 @@
     }
   },
   "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "eslint/no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",

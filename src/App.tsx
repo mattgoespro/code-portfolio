@@ -1,11 +1,9 @@
 import SvgIcon from '@mui/material/SvgIcon';
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './App.scss';
 import './index.scss';
 import GithubLogo from './assets/media/svg/github-logo.svg';
 import LinkedInLogo from './assets/media/svg/linkedin-logo.svg';
-import CvDownloadIcon from './assets/media/svg/cv-download.svg';
 import { IconButton, Tooltip } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 

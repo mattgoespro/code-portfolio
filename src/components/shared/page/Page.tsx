@@ -1,10 +1,9 @@
-import React from 'react';
 import './Page.scss';
 
 interface PageProps {
   title?: string;
   subtitle?: string | JSX.Element;
-  component: any;
+  component: JSX.Element;
 }
 
 export default function Page(props: PageProps) {

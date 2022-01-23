@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { getLoader } from '../shared/Loader';
+import { useEffect, useState } from 'react';
+import * as React from 'react';
+import { getSpinner } from '../shared/spinner/Spinner';
 import GithubProject from './project/Project';
 import './ProjectList.scss';
 
@@ -37,7 +38,7 @@ export default function ProjectList() {
   return (
     <div className="project-list">
       {error && <div>Uh oh, an error occurred. Please try again.</div>}
-      {loading && getLoader(true)}
+      {loading && getSpinner(true)}
       {!loading &&
         githubRepos.map((repo, index) => {
           return (
@@ -48,7 +49,8 @@ export default function ProjectList() {
                 {
                   '--index': index
                 } as React.CSSProperties
-              }>
+              }
+            >
               <GithubProject key={repo.full_name} repo={repo} />
             </div>
           );

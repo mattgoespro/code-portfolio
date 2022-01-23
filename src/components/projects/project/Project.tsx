@@ -9,13 +9,14 @@ import {
   styled,
   Tooltip
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import * as React from 'react';
 import { GithubProject } from '../ProjectList';
 import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import ReadmeDialog from './readme/ReadmeDialog';
+import ReadmeDialog from './readme-dialog/ReadmeDialog';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { format } from 'date-fns';
@@ -63,7 +64,8 @@ export default function Project(props: { repo: GithubProject }) {
         <span
           style={{
             float: 'right'
-          }}>
+          }}
+        >
           <Tooltip title="View Readme">
             <IconButton
               className="icon-btn-readme"
@@ -82,7 +84,8 @@ export default function Project(props: { repo: GithubProject }) {
                     setReadmeDialogOpen(true);
                   }
                 );
-              }}>
+              }}
+            >
               <OpenInFullIcon className="icon-readme" />
             </IconButton>
           </Tooltip>
@@ -143,7 +146,8 @@ export default function Project(props: { repo: GithubProject }) {
                       className="summary-legend-lang"
                       style={{
                         color: languageColors[i]
-                      }}>
+                      }}
+                    >
                       {lang}
                     </span>
                   );
@@ -200,14 +204,16 @@ export default function Project(props: { repo: GithubProject }) {
         style={{
           display: 'flex',
           justifyContent: 'space-between'
-        }}>
+        }}
+      >
         {
           <ExpandMore
             label="Summary"
             _expand={expanded}
             onClick={handleExpandClick}
             aria-expanded={expanded}
-            aria-label="Show more">
+            aria-label="Show more"
+          >
             <ExpandMoreIcon fontSize="small" />
           </ExpandMore>
         }
