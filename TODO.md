@@ -23,3 +23,4 @@
 ## Integrate
 
 - [Tailwindcss](https://tailwindcss.com/) styling.
+- GitHub API for authorized backend calls.

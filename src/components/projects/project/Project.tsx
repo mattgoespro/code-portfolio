@@ -16,7 +16,7 @@ import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import ReadmeDialog from './readme-dialog/ReadmeDialog';
+import ReadmeDialog from './project-readme-dialog/ReadmeDialog';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { format } from 'date-fns';
