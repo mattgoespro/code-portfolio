@@ -51,7 +51,7 @@ const technologies = (
 
 const others = (
   <div>
-    <h3 className="section-header">... with some other critters thrown the mix</h3>
+    <h3 className="section-header">... with some other critters thrown into the mix</h3>
     <div className="others">
       <Tooltip title="AWS">
         <img className="other" src="images/logos/aws.png" alt="AWS" />

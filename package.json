@@ -35,9 +35,9 @@
     "clean:build": "rm -rf dist",
     "clean:packages": "rm -rf node_modules",
     "clean": "concurrently --kill-others \"npm run clean:build\" \"npm run clean:packages\"",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write '.\\**\\*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write '.\\**\\*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc"
   },
   "eslintConfig": {
     "extends": [

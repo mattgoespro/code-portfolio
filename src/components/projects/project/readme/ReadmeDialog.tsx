@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
-import React from 'react';
+import { React } from 'react';
 import parse from 'html-react-parser';
 import './ReadmeDialog.scss';
 

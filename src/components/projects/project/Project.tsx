@@ -5,6 +5,7 @@ import {
   CardHeader,
   Collapse,
   IconButton,
+  IconButtonProps,
   styled,
   Tooltip
 } from '@mui/material';
@@ -13,23 +14,23 @@ import { GithubProject } from '../ProjectList';
 import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ExpandMoreProps } from './Project.model';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import ReadmeDialog from './readme/ReadmeDialog';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { format } from 'date-fns';
+import { Buffer } from 'buffer';
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, label, ...other } = props;
+const ExpandMore = styled((props: { _expand: boolean; label: string } & IconButtonProps) => {
+  const { _expand, label, ...other } = props;
   return (
     <div>
       <IconButton {...other} size="small" />
       <span className="expand-more-label">{label}</span>
     </div>
   );
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+})(({ theme, _expand }) => ({
+  transform: _expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest
@@ -41,8 +42,6 @@ export default function Project(props: { repo: GithubProject }) {
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readme, setReadme] = useState('');
   const [languageComposition, setLanguageComposition] = useState<{ [key: string]: number }>({});
-  const [error, setError] = useState(false);
-
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -50,14 +49,11 @@ export default function Project(props: { repo: GithubProject }) {
   };
 
   useEffect(() => {
-    // TODO: Make this cleaner
     fetch(`https://api.github.com/repos/${project.full_name}/languages`)
       .then((rsp) => rsp.json())
       .then((rsp) => {
         setLanguageComposition(rsp);
       });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    return () => {};
   }, []);
 
   function getCardTitle() {
@@ -72,9 +68,9 @@ export default function Project(props: { repo: GithubProject }) {
             <IconButton
               className="icon-btn-readme"
               size="small"
-              onClick={async () => {
-                fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`)
-                  .then((rsp) => {
+              onClick={() => {
+                fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`).then(
+                  (rsp) => {
                     if (rsp.status === 404) {
                       setReadme('');
                     } else if (rsp.status === 200) {
@@ -82,15 +78,10 @@ export default function Project(props: { repo: GithubProject }) {
                         const readmePayload = Buffer.from(rsp.content, 'base64').toString();
                         setReadme(readmePayload.trim());
                       });
-                    } else {
-                      setError(true);
                     }
                     setReadmeDialogOpen(true);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                    setError(true);
-                  });
+                  }
+                );
               }}>
               <OpenInFullIcon className="icon-readme" />
             </IconButton>
@@ -137,38 +128,44 @@ export default function Project(props: { repo: GithubProject }) {
       <div>
         <div className="summary-repo">
           <span>Created: {format(new Date(project.created_at), 'dd-MM-yyyy p')}</span>
-          <span>Last Updated: {format(new Date(project.pushed_at), 'dd-MM-yyyy p')}</span>
+          <span>Last Updated: {format(new Date(project.updated_at), 'dd-MM-yyyy p')}</span>
         </div>
         <div className="divider"></div>
         <div className="summary-language-chart-wrapper">
           <span className="summary-language-chart-title">Languages Used</span>
-          <div className="summary-language-chart">
-            <div className="summary-legend">
-              {languages.map((lang, i) => {
-                return (
-                  <span
-                    key={lang}
-                    className="summary-legend-lang"
-                    style={{
-                      color: languageColors[i]
-                    }}>
-                    {lang}
-                  </span>
-                );
-              })}
+          {(languages.length > 0 && (
+            <div className="summary-language-chart">
+              <div className="summary-legend">
+                {languages.map((lang, i) => {
+                  return (
+                    <span
+                      key={lang}
+                      className="summary-legend-lang"
+                      style={{
+                        color: languageColors[i]
+                      }}>
+                      {lang}
+                    </span>
+                  );
+                })}
+              </div>
+              <PieChart
+                data={chartData}
+                label={({ dataEntry }) => `${((dataEntry.value * 100) / total).toFixed()}%`}
+                labelStyle={{
+                  fontSize: '3px',
+                  fontFamily: 'Roboto'
+                }}
+                labelPosition={70}
+                animate={true}
+                style={{ width: '300px', margin: 10 }}
+              />
             </div>
-            <PieChart
-              data={chartData}
-              label={({ dataEntry }) => `${((dataEntry.value * 100) / total).toFixed()}%`}
-              labelStyle={{
-                fontSize: '3px',
-                fontFamily: 'Roboto'
-              }}
-              labelPosition={70}
-              animate={true}
-              style={{ width: '300px', margin: 10 }}
-            />
-          </div>
+          )) || (
+            <span className="summary-language-none-found">
+              <i>No recognized languages found.</i>
+            </span>
+          )}
         </div>
       </div>
     );
@@ -207,7 +204,7 @@ export default function Project(props: { repo: GithubProject }) {
         {
           <ExpandMore
             label="Summary"
-            expand={expanded}
+            _expand={expanded}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="Show more">

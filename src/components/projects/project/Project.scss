@@ -60,6 +60,12 @@
   margin: 5px;
 }
 
+.summary-language-none-found {
+  color: $light;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 .summary-legend {
   display: flex;
   flex-direction: column;

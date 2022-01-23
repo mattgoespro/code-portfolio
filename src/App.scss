@@ -16,12 +16,23 @@ nav {
   z-index: 1;
 }
 
-.nav-link:hover {
+.nav-link {
+  color: $light;
+  font-size: $font-nav-link-size;
   font-weight: bold;
-  color: $accent;
+  margin: 10px;
+
+  &:hover {
+    font-weight: bold;
+    color: #68bcfc;
+  }
 }
 
-.logo {
+.nav-left {
+  display: flex;
+}
+
+.nav-link .logo {
   background: none;
   border: none;
 
@@ -45,10 +56,10 @@ nav {
   }
 
   .linkedin-icon {
-    color: $primary-900;
+    color: #008cff;
 
     &:hover {
-      color: lighten($primary-900, 20%);
+      color: lighten(#008cff, 20%);
     }
   }
 
@@ -57,18 +68,6 @@ nav {
 
     &:hover {
       color: darken($light, 20%);
-    }
-  }
-
-  .cv-icon {
-    color: $accent;
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    vertical-align: middle;
-
-    &:hover {
-      color: lighten($accent, 10%);
     }
   }
 }
@@ -81,4 +80,12 @@ nav {
   margin: 40px auto auto auto;
   display: flex;
   width: 80%;
+}
+
+.nav-more {
+  background: none !important;
+
+  .nav-more-icon {
+    color: $light;
+  }
 }

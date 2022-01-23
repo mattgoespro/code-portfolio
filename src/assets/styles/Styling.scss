@@ -10,15 +10,3 @@ $border-radius-container: 5px;
   // flex-direction: column;
   // justify-content: center;
 }
-
-@mixin navigation-link($color) {
-  color: $color;
-}
-
-.nav-link {
-  @include navigation-link($light);
-  font-size: $font-nav-link-size;
-  font-weight: 700;
-  line-height: 50px;
-  margin: 10px;
-}
