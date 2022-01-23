@@ -4,7 +4,7 @@ import './Home.scss';
 const languages = (
   <div>
     <h3 className="section-header">I&apos;ve programmed in all sorts of languages</h3>
-    <div className="languages">
+    <div className="languages card">
       <div className="language-card">
         <div className="language-name typescript">
           <span>Type</span>Script
@@ -26,7 +26,7 @@ const languages = (
 const technologies = (
   <div>
     <h3 className="section-header">... in multiple technologies</h3>
-    <div className="technologies">
+    <div className="technologies card">
       <div className="technology-card">
         <div className="technology-name react">React</div>
         <div className="card-title-divider"></div>
@@ -40,9 +40,13 @@ const technologies = (
         <div className="technology-name node">Node.js</div>
         <img src="images/logos/node-js.png" />
       </div>
-      <div className="technology-card">
+      <div className="technology-card card">
         <div className="technology-name spring">Spring</div>
         <img src="images/logos/spring.png" />
+      </div>
+      <div className="technology-card">
+        <div className="technology-name postgresql">PostgreSQL</div>
+        <img src="images/logos/postgresql.png" />
       </div>
     </div>
   </div>
@@ -51,7 +55,7 @@ const technologies = (
 const others = (
   <div>
     <h3 className="section-header">... with some other critters thrown into the mix</h3>
-    <div className="others">
+    <div className="others card">
       <Tooltip title="AWS">
         <img className="other" src="images/logos/aws.png" alt="AWS" />
       </Tooltip>

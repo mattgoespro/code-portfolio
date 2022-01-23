@@ -34,17 +34,57 @@ module.exports = function (_env, argv) {
           }
         },
         {
+          test: /\.css$/,
+          exclude: '/node_modules/',
+          use: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader'
+            }
+          ]
+        },
+        {
+          test: /\.module.css$/,
+          use: [
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1
+              }
+            },
+            'postcss-loader'
+          ]
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
-            // Creates `style` nodes from JS strings
-            'style-loader',
-            // Translates CSS into CommonJS
-            'css-loader',
-            // Compiles Sass to CSS
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2
+              }
+            },
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
-                // Prefer `dart-sass`
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
                 implementation: require('sass')
               }
             }
@@ -74,23 +114,11 @@ module.exports = function (_env, argv) {
           options: {
             name: 'static/media/[name].[hash:8].[ext]'
           }
-        },
-        {
-          test: /\.module.css$/,
-          use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true
-              }
-            }
-          ]
         }
       ]
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
       alias: {
         '@': path.resolve(__dirname, 'src')
       }

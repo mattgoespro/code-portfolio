@@ -4,12 +4,16 @@
 $typescript: #3178c6;
 $java: #0074bd;
 $dotnet: #6d429c;
-$cpp: white;
 
 $angular: #dd0031;
 $react: #61dafb;
 $node: #3e863d;
 $spring: #6db33f;
+$posgresql: #35688f;
+
+.card {
+  flex-wrap: wrap;
+}
 
 .home-wrapper {
   display: flex;
@@ -20,6 +24,8 @@ $spring: #6db33f;
 .section {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .section-header {
@@ -31,10 +37,6 @@ $spring: #6db33f;
 .languages {
   display: flex;
   margin-top: 20px;
-
-  > div {
-    flex-basis: 50%;
-  }
 }
 
 .technology-card,
@@ -89,6 +91,10 @@ $spring: #6db33f;
 
 .spring {
   color: $spring;
+}
+
+.postgresql {
+  color: $posgresql;
 }
 
 .others {
