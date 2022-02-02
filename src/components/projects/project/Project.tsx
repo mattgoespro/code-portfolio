@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import { GithubProject } from '../ProjectList';
+import { GithubRepository } from '../ProjectList';
 import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -21,6 +21,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { format } from 'date-fns';
 import { Buffer } from 'buffer';
+import axios from 'axios';
 
 const ExpandMore = styled((props: { _expand: boolean; label: string } & IconButtonProps) => {
   const { _expand, label, ...other } = props;
@@ -38,7 +39,7 @@ const ExpandMore = styled((props: { _expand: boolean; label: string } & IconButt
   })
 }));
 
-export default function Project(props: { repo: GithubProject }) {
+export default function Project(props: { repo: GithubRepository }) {
   const project = props.repo;
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readme, setReadme] = useState('');
@@ -50,11 +51,9 @@ export default function Project(props: { repo: GithubProject }) {
   };
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${project.full_name}/languages`)
-      .then((rsp) => rsp.json())
-      .then((rsp) => {
-        setLanguageComposition(rsp);
-      });
+    axios.get<{ [key: string]: number }>(`/api/repos/${project.name}/languages`).then((rsp) => {
+      setLanguageComposition(rsp.data);
+    });
   }, []);
 
   function getCardTitle() {
@@ -71,19 +70,15 @@ export default function Project(props: { repo: GithubProject }) {
               className="icon-btn-readme"
               size="small"
               onClick={() => {
-                fetch(`https://api.github.com/repos/${project.full_name}/contents/README.md`).then(
-                  (rsp) => {
-                    if (rsp.status === 404) {
-                      setReadme('');
-                    } else if (rsp.status === 200) {
-                      rsp.json().then((rsp) => {
-                        const readmePayload = Buffer.from(rsp.content, 'base64').toString();
-                        setReadme(readmePayload.trim());
-                      });
-                    }
-                    setReadmeDialogOpen(true);
+                axios.get<{ content: string }>(`/api/repos/${project.name}/readme`).then((rsp) => {
+                  if (rsp.status === 404) {
+                    setReadme('');
+                  } else if (rsp.status === 200) {
+                    const readmePayload = Buffer.from(rsp.data.content || '', 'base64').toString();
+                    setReadme(readmePayload.trim());
                   }
-                );
+                  setReadmeDialogOpen(true);
+                });
               }}
             >
               <OpenInFullIcon className="icon-readme" />

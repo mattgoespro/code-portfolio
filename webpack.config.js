@@ -191,6 +191,12 @@ module.exports = function (_env, argv) {
       open: true,
       client: {
         overlay: true
+      },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          pathRewrite: { '^/api': '' }
+        }
       }
     }
   };

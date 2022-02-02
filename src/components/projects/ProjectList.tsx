@@ -3,8 +3,10 @@ import * as React from 'react';
 import { getSpinner } from '../shared/spinner/Spinner';
 import GithubProject from './project/Project';
 import './ProjectList.scss';
+import axios from 'axios';
+import Error from '../shared/error/Error';
 
-export interface GithubProject {
+export interface GithubRepository {
   name: string;
   full_name: string;
   description: string;
@@ -13,34 +15,37 @@ export interface GithubProject {
   html_url: string;
 }
 
+export interface GithubRepositories {
+  repositories: GithubRepository[];
+  pinnedRepositories?: GithubRepository[];
+}
+
 export default function ProjectList() {
-  const [githubRepos, setGithubRepos] = useState<GithubProject[]>([]);
-  const [error, setError] = useState(false);
+  const [githubRepos, setGithubRepos] = useState<GithubRepositories>();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  // [] as second arg only calls the function once.
   useEffect(() => {
-    // TODO: Make this cleaner
     setLoading(true);
-    fetch('https://api.github.com/users/mattgoespro/repos')
-      .then((rsp) => rsp.json())
-      .then((rsp: GithubProject[]) => {
-        setGithubRepos(rsp);
+    axios
+      .get<GithubRepositories>('/api/repos')
+      .then((resp) => {
+        setGithubRepos(resp.data);
         setLoading(false);
+        setError(false);
       })
-      .catch(() => setError(true));
-    // .finally(() => setLoading(false));
-
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    return () => {};
+      .catch(() => {
+        setLoading(false);
+        setError(true);
+      });
   }, []);
 
   return (
     <div className="project-list">
-      {error && <div>Uh oh, an error occurred. Please try again.</div>}
+      {error && <Error />}
       {loading && getSpinner(true)}
       {!loading &&
-        githubRepos.map((repo, index) => {
+        githubRepos?.repositories.map((repo, index) => {
           return (
             <div
               key={repo.full_name}
