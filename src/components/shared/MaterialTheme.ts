@@ -3,6 +3,21 @@
 import { lighten } from '@mui/material';
 import createTheme, { ThemeOptions } from '@mui/material/styles/createTheme';
 
+// $light: #ffffff;
+// $dark: #0e0e10;
+// $grey-dark: #18181b;
+// $grey-2: #8f8f8f;
+// $grey-3: #d6d6d6;
+// $grey-600: #979797;
+// $grey-800: #606060;
+// $accent: #ff570f;
+// $primary-main: #0c31ff;
+// $primary-200: #8a75ff;
+// $primary-500: #3235ff;
+// $primary-900: #0018ed;
+// $secondary: #ffe10d;
+// $secondary-200: #fff695;
+
 const baseTheme = createTheme({
   palette: {
     primary: {
@@ -48,7 +63,8 @@ const baseTheme = createTheme({
       paper: '#1f1f1f'
     },
     common: {
-      white: '#fff'
+      white: '#fff',
+      black: '#18181b'
     }
   },
   direction: 'rtl',

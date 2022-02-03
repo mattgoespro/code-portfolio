@@ -1,8 +1,5 @@
-@import '../../../assets/styles/Theme.scss';
-@import '../../../assets/styles/Typography.scss';
-
 .avatar {
-  color: $light;
+  color: black;
 }
 
 .description-wrapper {
@@ -11,25 +8,25 @@
 
 .title-description {
   font-size: 16px;
-  color: $grey-2;
+  color: #1f1f1f;
   font-weight: 300;
   margin-top: 0;
 }
 
 .description {
-  color: $light;
+  color: black;
   font-size: 14px;
 }
 
 .expand-more-label {
   font-size: 16px;
-  color: $grey-2;
+  color: #1f1f1f;
   margin: 15px;
   vertical-align: middle;
 }
 
 .divider {
-  border-bottom: 1px solid $grey-800;
+  border-bottom: 1px solid #1f1f1f;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -37,7 +34,7 @@
 .summary-repo {
   display: flex;
   flex-direction: column;
-  color: $light;
+  color: black;
 
   span {
     font-size: 14px;
@@ -51,7 +48,7 @@
 }
 
 .summary-language-chart-title {
-  color: $grey-2;
+  color: #1f1f1f;
   font-size: 16px;
 }
 
@@ -61,7 +58,7 @@
 }
 
 .summary-language-none-found {
-  color: $light;
+  color: #1f1f1f;
   font-size: 14px;
   margin-top: 10px;
 }

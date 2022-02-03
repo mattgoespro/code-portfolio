@@ -1,15 +1,9 @@
-@import 'assets/styles/Theme';
-@import 'assets/styles/Typography';
-@import 'assets/styles/Styling';
-
 body {
   margin: 0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0e0e10;
-  color: $light;
 }
 
 code {
@@ -17,21 +11,17 @@ code {
 }
 
 h1 {
-  font-size: $font-title-size;
-  color: $light;
+  font-size: 54px;
+  color: #18181b;
 }
 
 h2 {
-  font-size: $font-subtitle-size;
-  color: $light;
-}
-
-p {
-  font-size: $font-paragraph-size;
+  font-size: 24px;
+  color: #18181b;
 }
 
 div {
-  border-radius: $border-radius-container;
+  border-radius: 5px;
 }
 
 a {

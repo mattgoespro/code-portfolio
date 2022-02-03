@@ -1,6 +1,3 @@
-@import '../../assets/styles/Theme.scss';
-@import '../../assets/styles/Styling';
-
 $typescript: #3178c6;
 $java: #0074bd;
 $dotnet: #6d429c;
@@ -30,7 +27,7 @@ $posgresql: #35688f;
 
 .section-header {
   text-align: center;
-  color: $grey-2;
+  color: #1f1f1f;
 }
 
 .technologies,
@@ -44,7 +41,7 @@ $posgresql: #35688f;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $grey-dark;
+  background-color: white;
   margin: 10px;
   padding: 20px;
 
@@ -101,7 +98,6 @@ $posgresql: #35688f;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: $grey-dark;
 
   img {
     margin: 20px;
@@ -114,5 +110,5 @@ $posgresql: #35688f;
 
 .card-title-divider {
   height: 1px;
-  border: 1px solid $grey-2;
+  border: 1px solid grey;
 }

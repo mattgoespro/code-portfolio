@@ -1,6 +1,3 @@
-@import 'assets/styles/Theme.scss';
-@import 'assets/styles/Styling.scss';
-
 .app {
   display: flex;
   flex-direction: column;
@@ -9,7 +6,6 @@
 nav {
   position: fixed;
   width: 100%;
-  background: $grey-dark;
   display: flex;
   justify-content: space-between;
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
@@ -17,8 +13,8 @@ nav {
 }
 
 .nav-link {
-  color: $light;
-  font-size: $font-nav-link-size;
+  color: #18181b;
+  font-size: 18px;
   font-weight: bold;
   margin: 10px;
 
@@ -59,15 +55,13 @@ nav {
     color: #008cff;
 
     &:hover {
-      color: lighten(#008cff, 20%);
+      color: darken(#008cff, 20%);
     }
   }
 
   .github-icon {
-    color: $light;
-
     &:hover {
-      color: darken($light, 20%);
+      color: lighten(black, 20%);
     }
   }
 }
@@ -87,6 +81,6 @@ nav {
 
   .nav-more-icon {
     padding: 10 10px;
-    color: $light;
+    color: black;
   }
 }
