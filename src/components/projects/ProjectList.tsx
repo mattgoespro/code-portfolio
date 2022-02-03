@@ -8,7 +8,6 @@ import Error from '../shared/error/Error';
 
 export interface GithubRepository {
   name: string;
-  full_name: string;
   description: string;
   created_at: string;
   updated_at: string;
@@ -17,11 +16,14 @@ export interface GithubRepository {
 
 export interface GithubRepositories {
   repositories: GithubRepository[];
-  pinnedRepositories?: GithubRepository[];
+  pinnedRepositories: GithubRepository[];
 }
 
 export default function ProjectList() {
-  const [githubRepos, setGithubRepos] = useState<GithubRepositories>();
+  const [githubRepos, setGithubRepos] = useState<GithubRepositories>({
+    repositories: [],
+    pinnedRepositories: []
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -40,26 +42,46 @@ export default function ProjectList() {
       });
   }, []);
 
+  function projects(githubRepos: GithubRepositories) {
+    return (
+      (githubRepos && (
+        <div className="projects">
+          <div className="pinned-projects">
+            {githubRepos.pinnedRepositories.map((repo) => {
+              return (
+                <div key={repo.name} className="project">
+                  <GithubProject key={repo.name} repo={repo} />
+                </div>
+              );
+            })}
+          </div>
+          <div className="unpinned-projects">
+            {githubRepos.repositories.map((repo, index) => {
+              return (
+                <div
+                  key={repo.name}
+                  className="project"
+                  style={
+                    {
+                      '--index': index
+                    } as React.CSSProperties
+                  }
+                >
+                  <GithubProject key={repo.name} repo={repo} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )) || <div>Well this is embarrassing. There are no projects to display.</div>
+    );
+  }
+
   return (
     <div className="project-list">
-      {error && <Error />}
       {loading && getSpinner(true)}
-      {!loading &&
-        githubRepos?.repositories.map((repo, index) => {
-          return (
-            <div
-              key={repo.full_name}
-              className="project"
-              style={
-                {
-                  '--index': index
-                } as React.CSSProperties
-              }
-            >
-              <GithubProject key={repo.full_name} repo={repo} />
-            </div>
-          );
-        })}
+      {!loading && projects(githubRepos)}
+      {error && <Error />}
     </div>
   );
 }

@@ -175,7 +175,7 @@ export default function Project(props: { repo: GithubRepository }) {
       {readmeDialogOpen && (
         <ReadmeDialog
           open={readmeDialogOpen}
-          title={project.full_name}
+          title={project.name}
           content={readme}
           onClose={() => setReadmeDialogOpen(false)}
         />

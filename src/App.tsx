@@ -13,6 +13,9 @@ export function App() {
       <nav>
         <div className="nav-left">
           <div className="nav-left">
+            <IconButton className="nav-more">
+              <MoreVertIcon className="nav-more-icon"></MoreVertIcon>
+            </IconButton>
             <Link className="nav-link" to="/home">
               Home
             </Link>
@@ -23,9 +26,6 @@ export function App() {
               About
             </Link>
           </div>
-          <IconButton className="nav-more">
-            <MoreVertIcon className="nav-more-icon"></MoreVertIcon>
-          </IconButton>
         </div>
         <div className="icons">
           <Tooltip title="LinkedIn">
