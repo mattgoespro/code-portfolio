@@ -1,10 +1,10 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
     "allowJs": true,
+    "baseUrl": "./app",
     "paths": {
-      "@shared/*": ["./components/shared"]
+      "@shared/*": ["app/components/shared/*"]
     }
   }
 }

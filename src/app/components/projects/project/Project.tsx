@@ -9,9 +9,7 @@ import {
   styled,
   Tooltip
 } from '@mui/material';
-import * as React from 'react';
 import { GithubRepository } from '../ProjectList';
-import './Project.scss';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
@@ -20,6 +18,7 @@ import ProjectLanguageChart from './project-language-chart/ProjectLanguageChart'
 import { useState } from 'react';
 import { format } from 'date-fns';
 import axios from 'axios';
+import './Project.scss';
 
 const ExpandMore = styled((props: { _expand: boolean; label: string } & IconButtonProps) => {
   const { _expand, label, ...other } = props;
@@ -41,7 +40,7 @@ export default function Project(props: { repo: GithubRepository }) {
   const project = props.repo;
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readme, setReadme] = useState('');
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

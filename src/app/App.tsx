@@ -8,9 +8,10 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Home } from '@mui/icons-material';
 import { StrictMode } from 'react';
 import About from './components/about/About';
-import PageNotFound from './components/shared/page-not-found/PageNotFound';
 import ProjectList from './components/projects/ProjectList';
 import appTheme from './components/shared/material-theme/MaterialTheme';
+import PageNotFound from './components/shared/page-not-found/PageNotFound';
+
 const navBar = (
   <nav>
     <div className="nav-left">
@@ -48,7 +49,7 @@ function App() {
   return (
     <div className="app">
       {navBar}
-      <div className="content-wrapper">
+      <div style={{ display: 'none' }}>
         <Outlet />
       </div>
     </div>

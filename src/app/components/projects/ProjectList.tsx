@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import * as React from 'react';
 import { getSpinner } from '../shared/spinner/Spinner';
 import GithubProject from './project/Project';
-import './ProjectList.scss';
 import axios from 'axios';
-import Error from '../shared/error/Error';
+import './ProjectList.scss';
 
 export interface GithubRepository {
   name: string;
@@ -81,7 +79,7 @@ export default function ProjectList() {
     <div className="project-list">
       {loading && getSpinner(true)}
       {!loading && projects(githubRepos)}
-      {error && <Error />}
+      {error && <span>Oh no.</span>}
     </div>
   );
 }

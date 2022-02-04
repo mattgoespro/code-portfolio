@@ -4,7 +4,6 @@
 }
 
 nav {
-  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -68,12 +67,6 @@ nav {
 
 .intro {
   height: 500px;
-}
-
-.content-wrapper {
-  margin: 40px auto auto auto;
-  display: flex;
-  width: 80%;
 }
 
 .nav-more {

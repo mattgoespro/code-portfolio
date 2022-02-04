@@ -1,6 +1,5 @@
-import './index.scss';
 import * as ReactDOM from 'react-dom';
-import AppRoutes from './src/App';
+import AppRoutes from './app/App';
 
 ReactDOM.render(<AppRoutes />, document.getElementById('root'));
 

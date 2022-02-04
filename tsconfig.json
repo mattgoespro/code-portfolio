@@ -3,11 +3,9 @@
     "target": "es2016",
     "lib": ["dom"],
     "module": "esnext",
-    "rootDir": "./app",
-    "sourceRoot": "./app/src",
-    "sourceMap": true,
+    "rootDir": "./src",
     "moduleResolution": "node",
-    "baseUrl": "./",
     "jsx": "react-jsx"
-  }
+  },
+  "exclude": ["node_modules", "dist", ".vscode"]
 }
