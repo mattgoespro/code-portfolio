@@ -1,16 +1,25 @@
 import SvgIcon from '@mui/material/SvgIcon';
-import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Link,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate
+} from 'react-router-dom';
 import './App.scss';
 import GithubLogo from './assets/media/svg/github-logo.svg';
 import LinkedInLogo from './assets/media/svg/linkedin-logo.svg';
 import { IconButton, ThemeProvider, Tooltip } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Home } from '@mui/icons-material';
 import { StrictMode } from 'react';
 import About from './components/about/About';
 import ProjectList from './components/projects/ProjectList';
 import appTheme from './components/shared/material-theme/MaterialTheme';
 import PageNotFound from './components/shared/page-not-found/PageNotFound';
+import { useEffect } from 'react';
+import Home from './components/home/Home';
 
 const navBar = (
   <nav>
@@ -46,10 +55,19 @@ const navBar = (
 );
 
 function App() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate('/home');
+    }
+  }, [location.pathname]);
+
   return (
     <div className="app">
       {navBar}
-      <div style={{ display: 'none' }}>
+      <div className="content-wrapper">
         <Outlet />
       </div>
     </div>
