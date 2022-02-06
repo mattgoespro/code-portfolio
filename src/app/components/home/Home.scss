@@ -9,10 +9,11 @@ $spring: #6db33f;
 $posgresql: #35688f;
 
 .card {
-  flex-wrap: wrap;
+  margin: 5px;
 }
 
 .home-wrapper {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,4 +112,53 @@ $posgresql: #35688f;
 .card-title-divider {
   height: 1px;
   border: 1px solid grey;
+}
+
+h1 {
+  text-align: center;
+
+  font-size: 96px;
+  margin: 20px 20px 0 20px;
+}
+
+h3 {
+  margin: 10px;
+}
+
+h2 {
+  text-align: center;
+  width: 60%;
+  line-height: 1.5;
+}
+
+.circles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.header-divider {
+  border-top: 1px solid black;
+  height: 1px;
+  margin: 5px 5px 10px 5px;
+  width: 60%;
+}
+
+.headers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tour-container {
+  border-radius: 5px;
+  background-color: #283593;
+  > h2 {
+    font-size: 18px;
+    color: white;
+    width: auto;
+    margin: 0;
+    padding: 15px;
+  }
 }
