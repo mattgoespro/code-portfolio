@@ -1,4 +1,4 @@
-import { Card, IconButton, SvgIcon } from '@mui/material';
+import { Card, IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import appTheme from '../shared/material-theme/MaterialTheme';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -86,12 +86,6 @@ const others = (
       </Tooltip>
     </div>
   </div>
-);
-
-const circle = (
-  <svg height="100" width="100">
-    <circle cx="50" cy="50" r="40" fill="red" />
-  </svg>
 );
 
 export default function Home() {
