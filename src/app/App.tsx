@@ -11,12 +11,11 @@ import {
 import './App.scss';
 import GithubLogo from './assets/media/svg/github-logo.svg';
 import LinkedInLogo from './assets/media/svg/linkedin-logo.svg';
-import { IconButton, ThemeProvider, Tooltip } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { StrictMode } from 'react';
 import About from './components/about/About';
 import ProjectList from './components/projects/ProjectList';
-import appTheme from './components/shared/material-theme/MaterialTheme';
 import PageNotFound from './components/shared/page-not-found/PageNotFound';
 import { useEffect } from 'react';
 import Home from './components/home/Home';
@@ -67,7 +66,7 @@ function App() {
   return (
     <div className="app">
       {navBar}
-      <div className="content-wrapper">
+      <div>
         <Outlet />
       </div>
     </div>
@@ -77,18 +76,16 @@ function App() {
 export default function AppRoutes() {
   return (
     <StrictMode>
-      <ThemeProvider theme={appTheme}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />}>
-              <Route path="home" element={<Home />} />
-              <Route path="projects" element={<ProjectList />}></Route>
-              <Route path="about" element={<About />} />
-              <Route path="*" element={<PageNotFound />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="home" element={<Home />} />
+            <Route path="projects" element={<ProjectList />}></Route>
+            <Route path="about" element={<About />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </StrictMode>
   );
 }

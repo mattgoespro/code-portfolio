@@ -10,7 +10,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-module.exports = function (_env, argv) {
+module.exports = function (env, argv) {
+  const apiTarget = env.apiTarget;
+  let apiHost;
+
+  if (apiTarget === 'api-container') {
+    apiHost = 'http://localhost:8080';
+  } else if (apiTarget === 'api-stub') {
+    apiHost = 'http://localhost:8081';
+  } else if (apiTarget === 'local') {
+    if (env.apiPort) {
+      apiHost = `http://localhost:${env.apiPort}`;
+    } else {
+      throw new Error('API target port not specified.');
+    }
+  } else {
+    throw new Error('API target not specified.');
+  }
+
   const isProduction = argv.mode === 'production';
   const isDevelopment = !isProduction;
 
@@ -121,10 +138,7 @@ module.exports = function (_env, argv) {
       ]
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
+      extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     plugins: [
       new MiniCssExtractPlugin({
@@ -197,7 +211,7 @@ module.exports = function (_env, argv) {
       },
       proxy: {
         '/api': {
-          target: 'http://localhost:8080',
+          target: apiHost,
           pathRewrite: { '^/api': '' }
         }
       }

@@ -1,6 +1,5 @@
 import { Card, IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
-import appTheme from '../shared/material-theme/MaterialTheme';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './Home.scss';
 
@@ -92,14 +91,12 @@ export default function Home() {
   return (
     <div className="home-wrapper">
       <div className="headers">
-        <h1>
-          Hello <span style={{ color: appTheme.palette.primary.main }}>World!</span>
-        </h1>
-        <h3>Allow me to introduce myself.</h3>
+        <h1 className="welcome">Hello World!</h1>
+        <h3 className="welcome-intro">Allow me to introduce myself.</h3>
         <div className="header-divider"></div>
-        <h2>I am an aspiring Full-Stack Software Engineer.</h2>
+        <h2 className="header-2">I am an aspiring Full-Stack Software Engineer.</h2>
         <div className="tour-container">
-          <h2>Let me give you a tour of what I&apos;ve been up to...</h2>
+          <h2 className="header-2">Let me give you a tour of what I&apos;ve been up to...</h2>
         </div>
         <IconButton color="secondary">
           <KeyboardArrowDownIcon />

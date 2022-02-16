@@ -1,6 +1,5 @@
 import {
   Card,
-  CardActions,
   CardContent,
   CardHeader,
   Collapse,
@@ -20,7 +19,7 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import './Project.scss';
 
-const ExpandMore = styled((props: { _expand: boolean; label: string } & IconButtonProps) => {
+const ExpandMore = styled((props: { _expand: boolean; label?: string } & IconButtonProps) => {
   const { _expand, label, ...other } = props;
   return (
     <div>
@@ -66,16 +65,30 @@ export default function Project(props: { repo: GithubRepository }) {
                 });
               }}
             >
-              <OpenInFullIcon className="icon-readme" />
+              <OpenInFullIcon className="card-header-icon" />
             </IconButton>
           </Tooltip>
+        </span>
+        <span
+          style={{
+            float: 'right'
+          }}
+        >
+          <ExpandMore
+            _expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="Show more"
+          >
+            <ExpandMoreIcon fontSize="small" />
+          </ExpandMore>
         </span>
       </div>
     );
   }
 
   return (
-    <Card variant="outlined">
+    <Card className="project-card">
       {readmeDialogOpen && (
         <ReadmeDialog
           open={readmeDialogOpen}
@@ -99,24 +112,6 @@ export default function Project(props: { repo: GithubRepository }) {
           <div className="description">{project.description || <i>Not available.</i>}</div>
         </div>
       </CardContent>
-      <CardActions
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between'
-        }}
-      >
-        {
-          <ExpandMore
-            label="Summary"
-            _expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="Show more"
-          >
-            <ExpandMoreIcon fontSize="small" />
-          </ExpandMore>
-        }
-      </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         {expanded && (
           <CardContent>

@@ -3,6 +3,9 @@
 ## General
 
 - Alert API call failures.
+  - 504 Gateway timeout - backend is not running.
+  - 500 Internal server error
+  - 403 Unauthorized (intermittent)
 
 ## Styles
 

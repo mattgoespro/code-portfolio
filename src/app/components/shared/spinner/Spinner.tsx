@@ -1,15 +1,15 @@
 import { css } from '@emotion/react';
-import { PulseLoader } from 'react-spinners';
+import { FadeLoader } from 'react-spinners';
 
 export function getSpinner(loading: boolean) {
   return (
-    <PulseLoader
-      color="#0018ed"
+    <FadeLoader
+      color="#919191"
       loading={loading}
+      speedMultiplier={1.5}
       css={css`
-        margin-top: 10px;
+        transform: scale(0.7);
       `}
-      size={15}
     />
   );
 }
