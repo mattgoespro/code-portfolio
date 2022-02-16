@@ -32,12 +32,6 @@
     "@typescript-eslint/no-unused-vars": [
       "warn",
       { "varsIgnorePattern": "$import*|^_", "caughtErrorsIgnorePattern": "^_" }
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
     ]
   }
 }
