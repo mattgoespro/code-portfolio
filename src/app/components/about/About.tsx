@@ -11,7 +11,7 @@ export default function About() {
           <p>
             In 2015, I began my tertiary education at the University of Cape Town. In 2019, I
             graduated with an Honours degree majoring in Computer Science and Computer Games
-            Development in 2019d.
+            Development in 2019.
           </p>
           <p>
             I have now been working professionally as a Software Engineer for 4 years. I am
