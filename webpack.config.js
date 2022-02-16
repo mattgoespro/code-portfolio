@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/**
+ * Start webpack in dev mode: webpack-dev-server --mode development --port 4000
+ */
+
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
