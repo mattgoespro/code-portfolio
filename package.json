@@ -36,7 +36,7 @@
     "start": "webpack-dev-server --mode production --port 4000",
     "lint": "eslint ./src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
-    "lint:autoprefixer": "postcss src/**/*.scss --use autoprefixer --replace",
+    "lint:autoprefixer": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
     "build": "webpack --mode production",
     "clean": "rm -rf dist",
     "clean:all": "concurrently --kill-others \"rm -rf dist\" \"rm -rf node_modules\""
