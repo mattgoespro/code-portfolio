@@ -13,13 +13,13 @@
   margin: 20px;
   min-width: 60%;
   -webkit-animation-name: fade-in-projects;
-          animation-name: fade-in-projects;
+  animation-name: fade-in-projects;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-delay: calc(var(--index) * 100ms);
-          animation-delay: calc(var(--index) * 100ms);
+  animation-delay: calc(var(--index) * 100ms);
 }
 
 @-webkit-keyframes fade-in-projects {
