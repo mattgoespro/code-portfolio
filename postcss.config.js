@@ -5,7 +5,6 @@ module.exports = {
     require('postcss-import'),
     require('postcss-nested'),
     require('postcss-preset-env'),
-    require('postcss-fail-on-warn'),
-    require('autoprefixer')
+    require('postcss-fail-on-warn')
   ]
 };
