@@ -3,7 +3,7 @@
 }
 
 .home-wrapper {
-  margin-top: 30px;
+  margin-top: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,8 @@
 .welcome-info-actions {
   width: 600px;
   margin-top: 40px;
-  background-color: #283593;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 40px;
@@ -57,15 +58,20 @@
 
 .welcome-info {
   font-family: 'Roboto';
-  color: white;
+  color: #3d3d3d;
   text-align: center;
   font-size: 20px;
   margin: auto;
   font-weight: 100;
 }
 
+.welcome-divider {
+  height: 2px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  margin: 20px;
+}
+
 .welcome-actions {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,6 +79,10 @@
 
 .welcome-action-buttons {
   margin-top: 10px;
+}
+
+.btn-action {
+  width: 100px !important;
 }
 
 .btn-learn-more {
@@ -83,7 +93,7 @@
 
 .btn-technical-experience {
   background-color: #ff9800 !important;
-  color: white !important;
+  color: black !important;
   margin: 5px !important;
 }
 
@@ -91,30 +101,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.tour-container {
-  border-radius: 5px;
-  background-color: #283593;
-  > h2 {
-    font-size: 18px;
-    color: white;
-    width: auto;
-    margin: 0;
-    padding: 15px;
-  }
-}
-
-.timeline {
-  width: 60%;
-  background-color: #fdfdfd;
-  border-radius: 40px;
-  box-shadow: inset 0px 0px 18px -9px rgba(133, 133, 133, 0.74);
-}
-
-.timeline-date {
-  font-size: 24px !important;
-  color: black !important;
-  font-weight: bold !important;
-  padding-top: 0 !important;
 }

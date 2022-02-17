@@ -1,16 +1,12 @@
 import './Home.scss';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import uctLogo from '../../assets/media/images/uct-logo.png';
 import { Button } from '@mui/material';
-
-const timelineArrowStyle: React.CSSProperties = { borderRight: '7px solid  #131946' };
-const timelineContentStyle: React.CSSProperties = {
-  background: '#283593',
-  color: '#fff'
-};
+import Timeline from './Timeline/Timeline';
+import { useState } from 'react';
 
 export default function Home() {
+  const [timelineVisible, setTimelineVisible] = useState(false);
+
   return (
     <div className="home-wrapper">
       <div className="headers">
@@ -26,53 +22,22 @@ export default function Home() {
             I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking
             to make a difference in the software industry.
           </p>
+          <div className="welcome-divider"></div>
           <div className="welcome-actions">
-            <div className="welcome-info">What would you like to do next?</div>
+            <div className="welcome-info">What would you like to see next?</div>
             <div className="welcome-action-buttons">
-              <Button className="btn-learn-more">Timeline</Button>
-              <Button className="btn-technical-experience">Experience</Button>
+              <Button
+                className="btn-learn-more btn-action"
+                onClick={() => setTimelineVisible(!timelineVisible)}
+              >
+                Timeline
+              </Button>
+              <Button className="btn-technical-experience .btn-action">Experience</Button>
             </div>
           </div>
         </div>
       </div>
-      <div className="timeline">
-        <VerticalTimeline lineColor="#ff9800">
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            dateClassName="timeline-date"
-            contentStyle={timelineContentStyle}
-            contentArrowStyle={timelineArrowStyle}
-            date="2015-2017"
-            iconStyle={{
-              display: 'flex',
-              backgroundColor: '#fff'
-            }}
-            icon={<img src={uctLogo} style={{ display: 'flex' }}></img>}
-          >
-            <h3 className="vertical-timeline-element-title">Education - Undergrad</h3>
-            <p>
-              Enrolled at the University of Cape Town, double majoring in Computer Science and
-              Computer Games Development and eventually graduating with a degree in Computer
-              Science.
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            dateClassName="timeline-date"
-            contentStyle={timelineContentStyle}
-            contentArrowStyle={timelineArrowStyle}
-            date="2018"
-            iconStyle={{
-              display: 'flex',
-              backgroundColor: '#fff'
-            }}
-            icon={<img src={uctLogo} style={{ display: 'flex' }}></img>}
-          >
-            <h3 className="vertical-timeline-element-title">Education - Honours</h3>
-            <p>Enrolled in the Computer Science honours course at the University of Cape Town.</p>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
-      </div>
+      {timelineVisible && <Timeline />}
     </div>
   );
 }
