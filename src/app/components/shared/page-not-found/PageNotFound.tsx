@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import pepe from '../../../assets/media/images/pepe.png';
 import './PageNotFound.scss';
 
 export default function PageNotFound() {
   return (
     <div className="page-not-found">
       <div className="image">
-        <img src="assets/media/images/FeelsBadMan-404.png" alt="Page Not Found" />
+        <img src={pepe} alt="Page Not Found" />
       </div>
       <div className="msg-page-not-found">
         <h2>Pepe is sad that he couldn&apos;t find the page you&apos;re looking for.</h2>

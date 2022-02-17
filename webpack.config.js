@@ -111,14 +111,8 @@ module.exports = function (env, argv) {
           ]
         },
         {
-          test: /\.(png|jpg|gif)$/i,
-          use: {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'assets/media/images/[name].[hash:8].[ext]'
-            }
-          }
+          test: /\.(png|jpg|jpeg|gif)$/,
+          loader: 'file-loader'
         },
         {
           test: /\.svg$/,
