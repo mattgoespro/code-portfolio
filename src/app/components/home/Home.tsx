@@ -2,6 +2,7 @@ import './Home.scss';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import uctLogo from '../../assets/media/images/uct-logo.png';
+import { Button } from '@mui/material';
 
 const timelineArrowStyle: React.CSSProperties = { borderRight: '7px solid  #131946' };
 const timelineContentStyle: React.CSSProperties = {
@@ -20,11 +21,19 @@ export default function Home() {
           <div className="header-divider"></div>
           <h3 className="welcome-intro">Allow me to introduce myself.</h3>
         </div>
-        <h2 className="header-2">
-          I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
-          make a difference in the software industry.
-        </h2>
-        <h2 className="header-2">Let me give you a tour of how I got here...</h2>
+        <div className="welcome-info-actions">
+          <p className="welcome-info">
+            I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking
+            to make a difference in the software industry.
+          </p>
+          <div className="welcome-actions">
+            <div className="welcome-info">What would you like to do next?</div>
+            <div className="welcome-action-buttons">
+              <Button className="btn-learn-more">Timeline</Button>
+              <Button className="btn-technical-experience">Experience</Button>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="timeline">
         <VerticalTimeline lineColor="#ff9800">
