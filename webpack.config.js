@@ -11,25 +11,29 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = function (env, argv) {
+  const isProduction = argv.mode === 'production';
+  const isDevelopment = !isProduction;
+
   const apiTarget = env.apiTarget;
   let apiHost;
 
-  if (apiTarget === 'api-container') {
-    apiHost = 'http://localhost:8080';
-  } else if (apiTarget === 'api-stub') {
-    apiHost = 'http://localhost:8081';
-  } else if (apiTarget === 'local') {
-    if (env.apiPort) {
-      apiHost = `http://localhost:${env.apiPort}`;
+  if (!isProduction) {
+    if (apiTarget === 'api-container') {
+      apiHost = 'http://localhost:8080';
+    } else if (apiTarget === 'api-stub') {
+      apiHost = 'http://localhost:8081';
+    } else if (apiTarget === 'local') {
+      if (env.apiPort) {
+        apiHost = `http://localhost:${env.apiPort}`;
+      } else {
+        throw new Error('API target port not specified.');
+      }
     } else {
-      throw new Error('API target port not specified.');
+      throw new Error('API target not specified.');
     }
   } else {
-    throw new Error('API target not specified.');
+    // TODO: Backend docker target
   }
-
-  const isProduction = argv.mode === 'production';
-  const isDevelopment = !isProduction;
 
   return {
     devtool: isDevelopment && 'cheap-module-source-map',

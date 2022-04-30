@@ -39,16 +39,16 @@ export default function Project(props: { repo: GithubRepository }) {
   const project = props.repo;
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readme, setReadme] = useState('');
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState<boolean>();
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+    setExpanded(expanded == null ? true : !expanded);
   };
 
   function getCardTitle() {
     return (
       <div>
-        <span>{project.name}</span>
+        <span className="title-name">{project.name}</span>
         <span
           style={{
             float: 'right'
@@ -74,14 +74,9 @@ export default function Project(props: { repo: GithubRepository }) {
             float: 'right'
           }}
         >
-          <ExpandMore
-            _expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="Show more"
-          >
-            <ExpandMoreIcon fontSize="small" />
-          </ExpandMore>
+          <IconButton onClick={handleExpandClick}>
+            <ExpandMoreIcon className={expanded ? 'expand-icon' : 'collapse-icon'} />
+          </IconButton>
         </span>
       </div>
     );
@@ -98,11 +93,12 @@ export default function Project(props: { repo: GithubRepository }) {
         />
       )}
       <CardHeader
+        className="project-header"
         avatar={<GitHub className="avatar" />}
         title={getCardTitle()}
         subheader={
-          <a href={project.html_url} target="tab">
-            Repository
+          <a className="project-repo" href={project.html_url} target="tab">
+            &gt; Repository
           </a>
         }
       />

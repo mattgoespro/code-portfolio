@@ -2,12 +2,20 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
 }
 
+.project-header {
+  background-color: rgb(36, 56, 144) !important;
+}
+
 .avatar {
-  color: black;
+  color: white;
 }
 
 .description-wrapper {
   vertical-align: middle;
+}
+
+.title-name {
+  color: white;
 }
 
 .title-description {
@@ -20,6 +28,11 @@
   color: black;
   font-size: 14px;
   font-weight: 900;
+}
+
+.project-repo {
+  color: #ff9800;
+  font-weight: bold;
 }
 
 .expand-more-label {
@@ -87,4 +100,56 @@
 .card-header-icon {
   width: 15px !important;
   height: 15px !important;
+}
+
+@-webkit-keyframes expandIcon {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes expandIcon {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.expand-icon {
+  animation-name: expandIcon;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes collapseIcon {
+  from {
+    transform: rotate(90deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes collapseIcon {
+  from {
+    transform: rotate(90deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.collapse-icon {
+  animation-name: collapseIcon;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "code-portfolio",
+  "name": "hoppingmode",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -42,6 +42,10 @@
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:autoprefixer": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
     "build": "webpack --mode production",
+    "build:image": "npm run build && docker build . -t hoppingmode/site",
+    "docker:start-service": "npm run docker:remove-image && npm run docker:build-image && npm run docker:run-image",
+    "docker:run-image": "docker run -d -m 100m -p 4000:4000 --name hoppingmode_site hoppingmode/site",
+    "docker:remove-image": "docker rm -f hoppingmode_site",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
