@@ -24,9 +24,9 @@ const navBar = (
   <nav>
     <div className="nav-left">
       <div className="nav-left">
-        <IconButton className="nav-more">
+        {/* <IconButton className="nav-more">
           <MoreVertIcon className="nav-more-icon"></MoreVertIcon>
-        </IconButton>
+        </IconButton> */}
         <Link className="nav-link" to="/home">
           Home
         </Link>

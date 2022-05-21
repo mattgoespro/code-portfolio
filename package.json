@@ -34,13 +34,13 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start:container": "webpack serve --mode development --port 4000 --env apiTarget=api-container",
-    "start:container-stub": "webpack serve --mode development --port 4000 --env apiTarget=api-stub",
-    "start:local": "webpack serve --mode development --port 4000 --env apiTarget=local --env apiPort=3000",
+    "start": "webpack serve --mode development --port 4000 --env apiTarget=local --env apiPort=3000",
     "start:prod": "webpack serve --mode production --port 4000",
+    "start-container": "webpack serve --mode development --port 4000 --env apiTarget=api-container",
+    "start-container:stub": "webpack serve --mode development --port 4000 --env apiTarget=api-stub",
     "lint": "eslint ./src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
-    "lint:autoprefixer": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
+    "lint:autoprefix": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
     "build": "webpack --mode production",
     "build:image": "npm run build && docker build . -t hoppingmode/site",
     "docker:start-service": "npm run docker:remove-image && npm run docker:build-image && npm run docker:run-image",

@@ -27,6 +27,56 @@ nav {
 .nav-left {
   display: flex;
   align-items: center;
+
+  .nav-link {
+    margin: 15px;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 200;
+    color: black;
+    transition: background-color 0.1s;
+    position: relative;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: transparent;
+      cursor: pointer;
+      color: white;
+    }
+
+    &:hover::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(white 50%, #68bcfc 50%);
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      background-size: 200% 200%;
+      background-position: 0% 100%;
+      animation-name: nav-link-hover;
+      animation-duration: 100ms;
+      animation-direction: forward;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes nav-link-hover {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
 }
 
 .nav-link .logo {

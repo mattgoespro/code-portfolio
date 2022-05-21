@@ -197,6 +197,7 @@ module.exports = function (env, argv) {
       runtimeChunk: 'single'
     },
     performance: {
+      hints: false,
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
     },
