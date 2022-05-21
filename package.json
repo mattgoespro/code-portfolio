@@ -39,6 +39,7 @@
     "build:docker-image": "npm run build && docker build . -t hoppingmode/site",
     "start:prod": "webpack serve --mode production --port 4000 --env apiTarget=api-container",
     "start-with-stub": "webpack serve --mode development --port 4000 --env apiTarget=api-stub",
+    "start-container": "docker run -d -m 10m -p 8080:3000 --name site hoppingmode/site",
     "lint": "eslint ./src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:style-class-autoprefix": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
