@@ -47,37 +47,40 @@ export default function Project(props: { repo: GithubRepository }) {
 
   function getCardTitle() {
     return (
-      <div>
+      <div className="title-wrapper">
         <span className="title-name">{project.name}</span>
-        <span
-          style={{
-            float: 'right'
-          }}
-        >
-          <Tooltip title="View Readme">
-            <IconButton
-              className="icon-btn-readme"
-              size="small"
-              onClick={() => {
-                axios.get(`/api/repos/${project.name}/readme`).then((rsp) => {
-                  setReadme(rsp.data);
-                  setReadmeDialogOpen(true);
-                });
-              }}
-            >
-              <OpenInFullIcon className="card-header-icon" />
+        <div className="title-icon-buttons">
+          <span
+            style={{
+              float: 'right',
+              marginRight: '5px'
+            }}
+          >
+            <Tooltip title="View Readme">
+              <IconButton
+                size="small"
+                onClick={() => {
+                  axios.get(`/api/repos/${project.name}/readme`).then((rsp) => {
+                    setReadme(rsp.data);
+                    setReadmeDialogOpen(true);
+                  });
+                }}
+                className="title-icon-button"
+              >
+                <OpenInFullIcon className="card-header-icon" />
+              </IconButton>
+            </Tooltip>
+          </span>
+          <span
+            style={{
+              float: 'right'
+            }}
+          >
+            <IconButton className="title-icon-button view-readme" onClick={handleExpandClick}>
+              <ExpandMoreIcon className={expanded ? 'expand-icon' : 'collapse-icon'} />
             </IconButton>
-          </Tooltip>
-        </span>
-        <span
-          style={{
-            float: 'right'
-          }}
-        >
-          <IconButton onClick={handleExpandClick}>
-            <ExpandMoreIcon className={expanded ? 'expand-icon' : 'collapse-icon'} />
-          </IconButton>
-        </span>
+          </span>
+        </div>
       </div>
     );
   }
@@ -101,6 +104,7 @@ export default function Project(props: { repo: GithubRepository }) {
             &gt; Repository
           </a>
         }
+        style={{ display: 'flex', alignItems: 'center' }}
       />
       <CardContent>
         <div className="description-wrapper">

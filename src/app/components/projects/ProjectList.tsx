@@ -76,8 +76,12 @@ export default function ProjectList() {
   return (
     <div className="project-list-wrapper">
       {spinner()}
-      {githubRepos && projects(githubRepos)}
-      {error && <div>Well this is embarrassing. There are no projects to display.</div>}
+      {githubRepos && githubRepos.length > 0 && projects(githubRepos)}
+      {error && (
+        <div className="no-projects-to-display">
+          Well, this is embarrassing. There are no projects to display.
+        </div>
+      )}
     </div>
   );
 }

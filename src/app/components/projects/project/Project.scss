@@ -153,3 +153,28 @@
   animation-duration: 500ms;
   animation-fill-mode: forwards;
 }
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-icon-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.title-icon-button {
+  background-color: white !important;
+}
+
+.expand {
+  width: 27px;
+  height: 27px;
+}
+
+.view-readme {
+  width: 26px;
+  height: 26px;
+}

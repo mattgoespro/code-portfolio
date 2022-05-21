@@ -40,6 +40,11 @@
   animation-delay: calc(var(--index) * 100ms);
 }
 
+.no-projects-to-display {
+  text-align: center;
+  margin-top: 50px;
+}
+
 @-webkit-keyframes fade-in-projects {
   from {
     opacity: 0;
