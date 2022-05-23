@@ -38,7 +38,7 @@
     "start:prod": "webpack serve --mode production --port 4000 --env apiTarget=api-container",
     "build": "webpack --mode production",
     "docker:build-image": "npm run build && docker build . -t hoppingmode/site",
-    "docker:start-container": "docker run -d -p 8081:3000 --name site hoppingmode/site",
+    "docker:start-container": "docker run -d -p 8081:4000 --name site hoppingmode/site",
     "docker:start-with-stub": "webpack serve --mode development --port 4000 --env apiTarget=api-stub",
     "docker:start-all": "docker run -d -p 8081:4000 --name site hoppingmode/site; docker run -d -p 8082:3000 --name site hoppingmode/backend;",
     "lint": "eslint ./src",
