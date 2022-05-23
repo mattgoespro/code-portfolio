@@ -41,10 +41,14 @@
     "docker:start-container": "docker run -d -p 8081:4000 --name site hoppingmode/site",
     "docker:start-with-stub": "webpack serve --mode development --port 4000 --env apiTarget=api-stub",
     "docker:start-all": "docker run -d -p 8081:4000 --name site hoppingmode/site; docker run -d -p 8082:3000 --name site hoppingmode/backend;",
+    "docker:verdaccio": "docker-compose -f docker/docker-compose.verdaccio.yml up -d",
     "lint": "eslint ./src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:style-class-autoprefix": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
     "clean": "rm -rf dist"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
