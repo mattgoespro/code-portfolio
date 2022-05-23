@@ -13,9 +13,9 @@ RUN npm install
 COPY . .
 
 # Build with webpack
-RUN npm run build
+# RUN npm run build
 
 # Run on port 4000.
 EXPOSE 4000
 
-CMD [ "node", "dist/index.js"]
+CMD [ "npm", "run", "start:prod"]
