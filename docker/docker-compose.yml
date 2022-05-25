@@ -1,14 +1,12 @@
 services:
   frontend:
-    image: hoppingmode/site
+    image: hoppingmode-web/frontend
     ports:
-      - "8081:4000"
+      - '8081:4000'
     networks:
       - website
   backend:
-    image: hoppingmode/backend
-    ports:
-      - "8082:3000"
+    image: hoppingmode-web/backend
     networks:
       - website
 
