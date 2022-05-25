@@ -34,10 +34,10 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "webpack serve --mode development --port 4000 --env apiTarget=api-container",
+    "start:dev": "webpack serve --mode development --port 4000 --env apiTarget=api-container",
     "start:prod": "webpack serve --mode production --port 4000 --env apiTarget=api-container",
     "build": "webpack --mode production",
-    "docker:build-image": "npm run build && docker build . -f docker/Dockerfile -t hoppingmode-web/frontend",
+    "docker:build-image": "docker build . -f docker/Dockerfile -t hoppingmode-web/frontend",
     "docker:start-website": "docker-compose -f docker/docker-compose.yml up -d",
     "lint": "eslint ./src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",

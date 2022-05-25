@@ -12,8 +12,8 @@ RUN npm install
 # Copy source code to working directory.
 COPY . .
 
-# Build with webpack
-# RUN npm run build
+# Build with webpack.
+RUN webpack --mode production
 
 # Run on port 4000.
 EXPOSE 4000

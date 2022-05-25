@@ -32,7 +32,7 @@ module.exports = function (env, argv) {
       throw new Error('API target not specified.');
     }
   } else {
-    // TODO: Backend docker target
+    apiHost = 'http://backend:3000';
   }
 
   return {
@@ -156,30 +156,30 @@ module.exports = function (env, argv) {
         async: false
       }),
       new CssMinimizerPlugin()
-    ].filter(Boolean),
-    // optimization: {
-    //   minimize: isProduction,
-    //   minimizer: [
-    //     new TerserWebpackPlugin({
-    //       terserOptions: {
-    //         compress: {
-    //           comparisons: false
-    //         },
-    //         mangle: {
-    //           safari10: true
-    //         },
-    //         output: {
-    //           comments: false,
-    //           ascii_only: true
-    //         },
-    //         warnings: false
-    //       }
-    //     }),
-    //     new CssMinimizerPlugin()
-    //   ],
+    ],
+    optimization: {
+      minimize: isProduction,
+      minimizer: [
+        new TerserWebpackPlugin({
+          terserOptions: {
+            compress: {
+              comparisons: false
+            },
+            mangle: {
+              safari10: true
+            },
+            output: {
+              comments: false,
+              ascii_only: true
+            },
+            warnings: false
+          }
+        }),
+        new CssMinimizerPlugin()
+      ],
 
-    //   runtimeChunk: 'single'
-    // },
+      runtimeChunk: 'single'
+    },
     performance: {
       hints: false,
       maxEntrypointSize: 512000,
