@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Build with webpack.
-RUN webpack --mode production
+RUN npx webpack --mode production
 
 # Run on port 4000.
 EXPOSE 4000
