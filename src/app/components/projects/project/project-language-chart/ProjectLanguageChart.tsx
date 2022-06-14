@@ -13,7 +13,7 @@ export default function ProjectLanguageChart(props: ProjectLanguageChartProps) {
   const [languageComposition, setLanguageComposition] = useState<{ [key: string]: number }>({});
 
   useEffect(() => {
-    axios.get<{ [key: string]: number }>(`/api/repos/${project.name}/languages`).then((rsp) => {
+    axios.get<{ [key: string]: number }>(`http://localhost:3000/api/repos/${project.name}/languages`).then((rsp) => {
       setLanguageComposition(rsp.data);
     });
   }, []);

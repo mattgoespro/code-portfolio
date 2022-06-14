@@ -10,27 +10,6 @@ module.exports = function (env, argv) {
   const isProduction = argv.mode === 'production';
   const isDevelopment = !isProduction;
 
-  const apiTarget = env.apiTarget;
-  let apiHost;
-
-  if (!isProduction) {
-    if (apiTarget === 'api-container') {
-      apiHost = 'http://localhost:8080';
-    } else if (apiTarget === 'api-stub') {
-      apiHost = 'http://localhost:8081';
-    } else if (apiTarget === 'local') {
-      if (env.apiPort) {
-        apiHost = `http://localhost:${env.apiPort}`;
-      } else {
-        throw new Error('API target port not specified.');
-      }
-    } else {
-      throw new Error('API target not specified.');
-    }
-  } else {
-    apiHost = 'http://backend:3000';
-  }
-
   return {
     devtool: isDevelopment && 'cheap-module-source-map',
     entry: './src/index.tsx',
@@ -181,19 +160,5 @@ module.exports = function (env, argv) {
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
     },
-    devServer: {
-      compress: true,
-      historyApiFallback: true,
-      open: true,
-      client: {
-        overlay: true
-      },
-      proxy: {
-        '/api': {
-          target: apiHost,
-          pathRewrite: { '^/api': '' }
-        }
-      }
-    }
   };
 };
