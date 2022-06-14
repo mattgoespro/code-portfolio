@@ -1,7 +1,3 @@
-/**
- * Start webpack in dev mode: webpack-dev-server --mode development --port 4000
- */
-
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -40,7 +36,7 @@ module.exports = function (env, argv) {
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'index.js',
+      filename: '[name].[chunkhash].js',
       publicPath: '/'
     },
     module: {

@@ -34,17 +34,13 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start:dev": "webpack serve --mode development --port 4000 --env apiTarget=api-container",
-    "start:prod": "webpack serve --mode production --port 4000 --env apiTarget=api-container",
+    "start": "webpack serve --mode production --port 4000",
     "build": "webpack --mode production",
-    "docker:build-image": "docker build . -f docker/Dockerfile -t hoppingmode-web/frontend",
-    "docker:start-website": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:build": "docker build . -t hoppingmode-web/frontend",
+    "docker:start": "docker run -d --name frontend hoppingmode-web/frontend",
     "lint": "eslint ./src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:style-class-autoprefix": "postcss src/**/*.scss --use autoprefixer --replace --no-map"
-  },
-  "publishConfig": {
-    "registry": "http://localhost:4873"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

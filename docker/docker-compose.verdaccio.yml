@@ -1,5 +1,0 @@
-services:
-  verdaccio:
-    image: verdaccio/verdaccio
-    ports:
-      - '4873:7873'
