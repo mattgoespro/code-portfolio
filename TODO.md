@@ -3,9 +3,9 @@
 ## General
 
 - Alert API call failures.
-  - 504 Gateway timeout - backend is not running.
-  - 500 Internal server error
-  - 403 Unauthorized (intermittent)
+- 504 Gateway timeout - backend is not running
+- 500 Internal server error
+- 403 Unauthorized (intermittent)
 
 ## Styles
 
@@ -16,6 +16,7 @@
 
 - Get _simplebar-react_ scrollbar working.
 
-## Cool
 
-- Timeline
+## Tech Debt
+
+- Update packages: npx npm-check-updates -u

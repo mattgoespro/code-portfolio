@@ -1,0 +1,18 @@
+services:
+  frontend:
+    image: hoppingmode-web/frontend
+    depends_on:
+      - "api"
+    ports:
+      - '80:80'
+    networks:
+      - portfolio-website
+  api:
+    image: hoppingmode-web/api
+    ports:
+      - '8080:3000'
+    networks:
+      - portfolio-website
+
+networks:
+  portfolio-website: {}

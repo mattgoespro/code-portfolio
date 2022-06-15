@@ -21,13 +21,13 @@ export default function ProjectList() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get<GithubRepository[]>('http://api:3000/api/repos')
+      .get<GithubRepository[]>('http://localhost:8080/repos')
       .then((resp) => {
         setGithubRepos(resp.data);
         setLoading(false);
         setError(false);
       })
-      .catch(() => {
+      .catch((err) => {
         setLoading(false);
         setError(true);
       });

@@ -152,7 +152,6 @@ module.exports = function (env, argv) {
         }),
         new CssMinimizerPlugin()
       ],
-
       runtimeChunk: 'single'
     },
     performance: {
