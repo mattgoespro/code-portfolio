@@ -36,7 +36,7 @@
   "scripts": {
     "build-all": "npm run docker:build && cd ../hoppingmode-web-api && npm run docker:build",
     "start": "webpack serve --mode production --port 4000",
-    "build": "webpack --mode production",
+    "build": "rm -rf dist && webpack --mode production",
     "lint": "eslint src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:style-class-autoprefix": "postcss src/**/*.scss --use autoprefixer --replace --no-map",

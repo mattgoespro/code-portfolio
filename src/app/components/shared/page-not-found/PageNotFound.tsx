@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import pepe from '../../../assets/media/images/pepe.png';
+import pepe from '../../../assets/images/pepe.png';
 import './PageNotFound.scss';
 
 export default function PageNotFound() {

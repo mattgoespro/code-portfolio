@@ -9,10 +9,9 @@ import {
   useNavigate
 } from 'react-router-dom';
 import './App.scss';
-import GithubLogo from './assets/media/svg/github-logo.svg';
-import LinkedInLogo from './assets/media/svg/linkedin-logo.svg';
-import { IconButton, Tooltip } from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import GithubLogo from './assets/svg/github-logo.svg';
+import LinkedInLogo from './assets/svg/linkedin-logo.svg';
+import { Tooltip } from '@mui/material';
 import { StrictMode } from 'react';
 import About from './components/about/About';
 import ProjectList from './components/projects/ProjectList';

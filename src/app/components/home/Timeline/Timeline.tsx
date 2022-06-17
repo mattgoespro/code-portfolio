@@ -1,5 +1,5 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import uctLogo from '../../../assets/media/images/uct-logo.png';
+import uctLogo from '../../../assets/images/uct-logo.png';
 import './Timeline.scss';
 
 export default function Timeline() {

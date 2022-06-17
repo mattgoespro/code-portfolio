@@ -22,7 +22,7 @@ module.exports = function (env, argv) {
   }
 
   return {
-    devtool: isDevelopment && 'cheap-module-source-map',
+    devtool: 'source-map',
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -111,13 +111,6 @@ module.exports = function (env, argv) {
               loader: '@svgr/webpack'
             }
           ]
-        },
-        {
-          test: /\.(eot|otf|ttf|woff|woff2)$/,
-          loader: require.resolve('file-loader'),
-          options: {
-            name: 'static/media/[name].[hash:8].[ext]'
-          }
         }
       ]
     },
@@ -135,6 +128,7 @@ module.exports = function (env, argv) {
       new HtmlWebpackPlugin({
         title: 'Build Output Management',
         template: path.resolve(__dirname, 'public/index.html'),
+        favicon: path.resolve(__dirname, 'public/favicon.ico'),
         inject: true,
         clean: true
       }),

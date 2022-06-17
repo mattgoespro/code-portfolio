@@ -5,7 +5,7 @@ export default function About() {
     <div className="about-wrapper">
       <div className="about-info-wrapper">
         <div className="about-info">
-          <img className="img-profile" src="images/profile.png"></img>
+          <img className="img-profile" src="app/assets/images/profile.png"></img>
           <p className="paragraph">Now a little bit about me.</p>
           <p className="paragraph">I am from the beautiful country of South Africa.</p>
           <p className="paragraph">
