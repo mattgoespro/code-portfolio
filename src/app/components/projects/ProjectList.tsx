@@ -21,7 +21,7 @@ export default function ProjectList() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get<GithubRepository[]>('http://localhost:8080/repos')
+      .get<GithubRepository[]>('/api/repos')
       .then((resp) => {
         setGithubRepos(resp.data);
         setLoading(false);

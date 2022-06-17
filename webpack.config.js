@@ -10,6 +10,17 @@ module.exports = function (env, argv) {
   const isProduction = argv.mode === 'production';
   const isDevelopment = !isProduction;
 
+  const apiTarget = env.apiTarget;
+  let apiHost;
+
+  if (isDevelopment) {
+    if (apiTarget === 'container') {
+      apiHost = 'http://localhost:8080';
+    } else if (apiTarget === 'stub') {
+      apiHost = 'http://localhost:8081';
+    }
+  }
+
   return {
     devtool: isDevelopment && 'cheap-module-source-map',
     entry: './src/index.tsx',
@@ -159,5 +170,19 @@ module.exports = function (env, argv) {
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
     },
+    devServer: {
+      compress: true,
+      port: 4000,
+      client: {
+        overlay: true
+      },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          target: apiHost,
+          pathRewrite: { '^/api': '' }
+        }
+      }
+    }
   };
 };

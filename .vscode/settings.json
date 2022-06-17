@@ -1,6 +1,7 @@
 {
-  "workbench.iconTheme": "material-icon-theme",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
   "files.exclude": {
     "node_modules": true
   },
@@ -11,8 +12,6 @@
   "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.alwaysShowStatus": true,
   "eslint.lintTask.enable": true,
-  "eslint.run": "onSave",
-  "eslint.format.enable": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.suggestionActions.enabled": false,
   "[dockerfile]": {
