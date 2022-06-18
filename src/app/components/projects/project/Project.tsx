@@ -44,7 +44,7 @@ export default function Project(props: { repo: GithubRepository }) {
               <IconButton
                 size="small"
                 onClick={() => {
-                  axios.get(`/repos/${project.name}/readme`).then((rsp) => {
+                  axios.get(`/api/repos/${project.name}/readme`).then((rsp) => {
                     setReadme(rsp.data);
                     setReadmeDialogOpen(true);
                   });
