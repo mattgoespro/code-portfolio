@@ -21,7 +21,7 @@ export default function ProjectList() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get<GithubRepository[]>('/repos')
+      .get<GithubRepository[]>('/api/repos')
       .then((resp) => {
         setGithubRepos(resp.data);
         setLoading(false);
@@ -70,7 +70,7 @@ export default function ProjectList() {
   }
 
   function spinner() {
-    return loading ? <div className="project-spinner">{getSpinner(true)}</div> : null;
+    return loading ? getSpinner(true) : null;
   }
 
   return (

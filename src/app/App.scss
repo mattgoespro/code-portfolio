@@ -57,11 +57,24 @@ nav {
       border-bottom-right-radius: 5px;
       background-size: 200% 200%;
       background-position: 0% 100%;
+      -webkit-animation-name: nav-link-hover;
       animation-name: nav-link-hover;
+      -webkit-animation-duration: 100ms;
       animation-duration: 100ms;
+      -webkit-animation-direction: forward;
       animation-direction: forward;
+      -webkit-animation-timing-function: linear;
       animation-timing-function: linear;
     }
+  }
+}
+
+@-webkit-keyframes nav-link-hover {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 100%;
   }
 }
 
@@ -92,7 +105,7 @@ nav {
   float: right;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 7px;
 
   .linkedin-icon,

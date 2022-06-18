@@ -1,13 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Collapse,
-  IconButton,
-  IconButtonProps,
-  styled,
-  Tooltip
-} from '@mui/material';
+import { Card, CardContent, CardHeader, Collapse, IconButton, Tooltip } from '@mui/material';
 import { GithubRepository } from '../ProjectList';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -16,13 +7,11 @@ import ReadmeDialog from './project-readme-dialog/ReadmeDialog';
 import ProjectLanguageChart from './project-language-chart/ProjectLanguageChart';
 import { useState } from 'react';
 import { format } from 'date-fns';
-import axios from 'axios';
 import './Project.scss';
 
 export default function Project(props: { repo: GithubRepository }) {
   const project = props.repo;
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
-  const [readme, setReadme] = useState('');
   const [expanded, setExpanded] = useState<boolean>();
 
   const handleExpandClick = () => {
@@ -44,10 +33,7 @@ export default function Project(props: { repo: GithubRepository }) {
               <IconButton
                 size="small"
                 onClick={() => {
-                  axios.get(`/api/repos/${project.name}/readme`).then((rsp) => {
-                    setReadme(rsp.data);
-                    setReadmeDialogOpen(true);
-                  });
+                  setReadmeDialogOpen(true);
                 }}
                 className="title-icon-button"
               >
@@ -75,7 +61,6 @@ export default function Project(props: { repo: GithubRepository }) {
         <ReadmeDialog
           open={readmeDialogOpen}
           title={project.name}
-          content={readme}
           onClose={() => setReadmeDialogOpen(false)}
         />
       )}

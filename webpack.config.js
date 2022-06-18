@@ -8,15 +8,22 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = function (env, argv) {
   const isProduction = argv.mode === 'production';
-  const isDevelopment = !isProduction;
 
-  const apiTarget = env.apiTarget;
+  let apiTarget = env.apiTarget;
   let apiHost;
 
-  if (apiTarget === 'container') {
+  if (apiTarget === 'api') {
     apiHost = 'http://localhost:8080';
   } else if (apiTarget === 'stub') {
     apiHost = 'http://localhost:8081';
+  } else if (apiTarget === 'local') {
+    if (env.apiPort) {
+      apiHost = `http://localhost:${env.apiPort}`;
+    } else {
+      throw new Error('API target port not specified.');
+    }
+  } else {
+    throw new Error('API target not specified.');
   }
 
   return {
@@ -164,8 +171,8 @@ module.exports = function (env, argv) {
     },
     devServer: {
       compress: true,
+      historyApiFallback: true,
       open: true,
-      port: 4000,
       client: {
         overlay: true
       },

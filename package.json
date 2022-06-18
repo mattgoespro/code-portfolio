@@ -35,7 +35,8 @@
   },
   "scripts": {
     "build-all": "npm run docker:build && cd ../hoppingmode-web-api && npm run docker:build",
-    "start": "webpack serve --mode production --port 4000",
+    "start:stub": "webpack serve --mode development --port 4000 --env apiTarget=stub",
+    "start:api": "webpack serve --mode development --port 4000 --env apiTarget=api",
     "build": "rm -rf dist && webpack --mode production",
     "lint": "eslint src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
