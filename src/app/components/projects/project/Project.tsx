@@ -19,22 +19,6 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import './Project.scss';
 
-const ExpandMore = styled((props: { _expand: boolean; label?: string } & IconButtonProps) => {
-  const { _expand, label, ...other } = props;
-  return (
-    <div>
-      <IconButton {...other} size="small" />
-      <span className="expand-more-label">{label}</span>
-    </div>
-  );
-})(({ theme, _expand }) => ({
-  transform: _expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest
-  })
-}));
-
 export default function Project(props: { repo: GithubRepository }) {
   const project = props.repo;
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
@@ -60,7 +44,7 @@ export default function Project(props: { repo: GithubRepository }) {
               <IconButton
                 size="small"
                 onClick={() => {
-                  axios.get(`http://localhost:8080/repos/${project.name}/readme`).then((rsp) => {
+                  axios.get(`/repos/${project.name}/readme`).then((rsp) => {
                     setReadme(rsp.data);
                     setReadmeDialogOpen(true);
                   });

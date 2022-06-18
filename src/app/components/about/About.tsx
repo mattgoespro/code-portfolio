@@ -1,11 +1,12 @@
 import './About.scss';
+import profileImage from '../../assets/images/profile.png';
 
 export default function About() {
   return (
     <div className="about-wrapper">
       <div className="about-info-wrapper">
         <div className="about-info">
-          <img className="img-profile" src="app/assets/images/profile.png"></img>
+          <img className="img-profile" src={profileImage}></img>
           <p className="paragraph">Now a little bit about me.</p>
           <p className="paragraph">I am from the beautiful country of South Africa.</p>
           <p className="paragraph">

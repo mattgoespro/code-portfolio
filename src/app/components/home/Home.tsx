@@ -1,7 +1,7 @@
 import './Home.scss';
 import 'react-vertical-timeline-component/style.min.css';
 import { Button } from '@mui/material';
-import Timeline from './Timeline/Timeline';
+import Timeline from './timeline/Timeline';
 import { useState } from 'react';
 
 export default function Home() {

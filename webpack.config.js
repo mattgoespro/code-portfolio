@@ -13,12 +13,10 @@ module.exports = function (env, argv) {
   const apiTarget = env.apiTarget;
   let apiHost;
 
-  if (isDevelopment) {
-    if (apiTarget === 'container') {
-      apiHost = 'http://localhost:8080';
-    } else if (apiTarget === 'stub') {
-      apiHost = 'http://localhost:8081';
-    }
+  if (apiTarget === 'container') {
+    apiHost = 'http://localhost:8080';
+  } else if (apiTarget === 'stub') {
+    apiHost = 'http://localhost:8081';
   }
 
   return {
@@ -118,12 +116,12 @@ module.exports = function (env, argv) {
       extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
+      }),
       new MiniCssExtractPlugin({
         filename: 'assets/styles/css/[name].[contenthash:8].css',
         chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css'
-      }),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
       }),
       new HtmlWebpackPlugin({
         title: 'Build Output Management',
@@ -166,13 +164,13 @@ module.exports = function (env, argv) {
     },
     devServer: {
       compress: true,
+      open: true,
       port: 4000,
       client: {
         overlay: true
       },
       proxy: {
         '/api': {
-          target: 'http://localhost:8080',
           target: apiHost,
           pathRewrite: { '^/api': '' }
         }

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2020",
     "lib": ["dom"],
-    "module": "esnext",
+    "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
     "jsx": "react-jsx"
