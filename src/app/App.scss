@@ -101,6 +101,10 @@ nav {
   }
 }
 
+div[role='dialog'] {
+  min-width: 500px !important;
+}
+
 .icons {
   float: right;
   display: flex;

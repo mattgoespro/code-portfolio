@@ -42,7 +42,7 @@ export default function ProjectList() {
         <div className="pinned-projects">
           {pinnedRepos.map((repo) => {
             return (
-              <div key={repo.name} className="project">
+              <div key={repo.name} className="project pinned">
                 <GithubProject key={repo.name} repo={repo} />
               </div>
             );

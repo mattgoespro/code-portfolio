@@ -9,6 +9,7 @@ import { getSpinner } from '../../../shared/spinner/Spinner';
 interface ReadmeDialogProps {
   title: string;
   open: boolean;
+  pinned: boolean;
   onClose: () => void;
 }
 
@@ -16,7 +17,7 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
   const [readme, setReadme] = useState('');
   const [readmeLoading, setReadmeLoading] = useState(false);
 
-  const { title, open, onClose } = props;
+  const { title, open, pinned, onClose } = props;
   const markdownParser = MarkdownParser({
     html: true,
     linkify: true,
@@ -43,8 +44,15 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
   }
 
   return (
-    <Dialog open={open} onClose={onClose} scroll="paper" maxWidth="xl">
-      <DialogTitle>{title}</DialogTitle>
+    <Dialog className="dialog" open={open} onClose={onClose} scroll="paper">
+      <DialogTitle
+        className="dialog-title"
+        style={{
+          backgroundColor: pinned ? '#EC407A' : '#243890'
+        }}
+      >
+        {title}
+      </DialogTitle>
       <DialogContent>{(readmeLoading && getSpinner(true)) || getContent()}</DialogContent>
     </Dialog>
   );

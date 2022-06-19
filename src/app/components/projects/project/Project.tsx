@@ -7,6 +7,7 @@ import ReadmeDialog from './project-readme-dialog/ReadmeDialog';
 import ProjectLanguageChart from './project-language-chart/ProjectLanguageChart';
 import { useState } from 'react';
 import { format } from 'date-fns';
+import LinkIcon from '@mui/icons-material/Link';
 import './Project.scss';
 
 export default function Project(props: { repo: GithubRepository }) {
@@ -61,19 +62,24 @@ export default function Project(props: { repo: GithubRepository }) {
         <ReadmeDialog
           open={readmeDialogOpen}
           title={project.name}
+          pinned={project.pinned}
           onClose={() => setReadmeDialogOpen(false)}
         />
       )}
       <CardHeader
         className="project-header"
+        style={{
+          backgroundColor: project.pinned ? '#EC407A' : '#243890'
+        }}
         avatar={<GitHub className="avatar" />}
         title={getCardTitle()}
         subheader={
-          <a className="project-repo" href={project.html_url} target="tab">
-            &gt; Repository
-          </a>
+          <Tooltip title="Visit">
+            <a className="project-repo" href={project.html_url} target="tab">
+              <LinkIcon fontSize="medium" />
+            </a>
+          </Tooltip>
         }
-        style={{ display: 'flex', alignItems: 'center' }}
       />
       <CardContent>
         <div className="description-wrapper">
