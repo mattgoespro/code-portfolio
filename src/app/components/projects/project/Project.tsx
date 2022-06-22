@@ -8,6 +8,7 @@ import ProjectLanguageChart from './project-language-chart/ProjectLanguageChart'
 import { useState } from 'react';
 import { format } from 'date-fns';
 import LinkIcon from '@mui/icons-material/Link';
+import HelpIcon from '@mui/icons-material/Help';
 import './Project.scss';
 
 export default function Project(props: { repo: GithubRepository }) {
@@ -22,7 +23,16 @@ export default function Project(props: { repo: GithubRepository }) {
   function getCardTitle() {
     return (
       <div className="title-wrapper">
-        <span className="title-name">{project.name}</span>
+        <span className="title-name">
+          {project.name}{' '}
+          <span style={{ verticalAlign: 'middle' }}>
+            {project.pinned && (
+              <Tooltip title="This project is pinned.">
+                <HelpIcon fontSize="small" />
+              </Tooltip>
+            )}
+          </span>
+        </span>
         <div className="title-icon-buttons">
           <span
             style={{
@@ -30,7 +40,7 @@ export default function Project(props: { repo: GithubRepository }) {
               marginRight: '5px'
             }}
           >
-            <Tooltip title="View Readme">
+            <Tooltip title={project.pinned ? 'View' : 'View Readme'}>
               <IconButton
                 size="small"
                 onClick={() => {
@@ -42,15 +52,17 @@ export default function Project(props: { repo: GithubRepository }) {
               </IconButton>
             </Tooltip>
           </span>
-          <span
-            style={{
-              float: 'right'
-            }}
-          >
-            <IconButton className="title-icon-button view-readme" onClick={handleExpandClick}>
-              <ExpandMoreIcon className={expanded ? 'expand-icon' : 'collapse-icon'} />
-            </IconButton>
-          </span>
+          {!project.pinned && (
+            <span
+              style={{
+                float: 'right'
+              }}
+            >
+              <IconButton className="title-icon-button view-readme" onClick={handleExpandClick}>
+                <ExpandMoreIcon className={expanded ? 'expand-icon' : 'collapse-icon'} />
+              </IconButton>
+            </span>
+          )}
         </div>
       </div>
     );
@@ -61,8 +73,7 @@ export default function Project(props: { repo: GithubRepository }) {
       {readmeDialogOpen && (
         <ReadmeDialog
           open={readmeDialogOpen}
-          title={project.name}
-          pinned={project.pinned}
+          project={project}
           onClose={() => setReadmeDialogOpen(false)}
         />
       )}

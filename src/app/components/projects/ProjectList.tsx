@@ -39,15 +39,18 @@ export default function ProjectList() {
 
     return (
       <div className="projects">
-        <div className="pinned-projects">
-          {pinnedRepos.map((repo) => {
-            return (
-              <div key={repo.name} className="project pinned">
-                <GithubProject key={repo.name} repo={repo} />
-              </div>
-            );
-          })}
+        <div className="pinned-projects-wrapper">
+          <div className="pinned-projects">
+            {pinnedRepos.map((repo) => {
+              return (
+                <div key={repo.name} className="project pinned">
+                  <GithubProject key={repo.name} repo={repo} />
+                </div>
+              );
+            })}
+          </div>
         </div>
+
         <div className="unpinned-projects">
           {unpinnedRepos.map((repo, index) => {
             return (
@@ -74,14 +77,21 @@ export default function ProjectList() {
   }
 
   return (
-    <div className="project-list-wrapper">
-      {spinner()}
-      {githubRepos && githubRepos.length > 0 && projects(githubRepos)}
-      {error && (
-        <div className="no-projects-to-display">
-          Well, this is embarrassing. There are no projects to display.
-        </div>
-      )}
+    <div>
+      <div className="title-header-wrapper">
+        <h1 className="title">
+          My <span>Projects</span>
+        </h1>
+      </div>
+      <div className="project-list-wrapper">
+        {spinner()}
+        {githubRepos && githubRepos.length > 0 && projects(githubRepos)}
+        {error && (
+          <div className="no-projects-to-display">
+            Well, this is embarrassing. There are no projects to display.
+          </div>
+        )}
+      </div>
     </div>
   );
 }

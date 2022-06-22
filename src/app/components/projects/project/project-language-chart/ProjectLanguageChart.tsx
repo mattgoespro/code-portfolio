@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { GithubRepository } from '../../ProjectList';
+import './ProjectLanguageChart.scss';
 
 interface ProjectLanguageChartProps {
   project: GithubRepository;

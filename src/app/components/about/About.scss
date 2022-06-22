@@ -10,6 +10,7 @@
   flex-direction: column;
   margin: auto;
   align-items: center;
+  background-color: rgb(22, 22, 22);
 }
 
 .about-info-wrapper {
@@ -24,8 +25,9 @@
   margin: 10px;
   text-align: justify;
   word-wrap: break-word;
-  background-color: white;
+  background-color: rgb(229, 238, 252);
   padding: 20px;
+  border-radius: 20px;
 }
 
 .paragraph {

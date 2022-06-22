@@ -1,5 +1,6 @@
 .project-card {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+  height: 100% !important;
 }
 
 .project-header {
@@ -17,6 +18,12 @@
 
 .description-wrapper {
   vertical-align: middle;
+}
+
+.description-wrapper,
+.summary-repo {
+  font-family: Roboto;
+  font-weight: 100;
 }
 
 .title-name {
@@ -64,42 +71,6 @@
     font-weight: 900;
     margin-bottom: 8px;
   }
-}
-
-.summary-language-chart-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.summary-language-chart-title {
-  color: black;
-  font-size: 16px;
-  font-weight: 900;
-}
-
-.summary-language-chart {
-  display: flex;
-  margin: 5px;
-}
-
-.summary-language-none-found {
-  color: black;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-.summary-legend {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: center;
-  height: 200px;
-  margin: 10px;
-}
-
-.summary-legend-lang {
-  font-size: 14px;
-  font-family: 'Roboto';
 }
 
 .card-header-icon {

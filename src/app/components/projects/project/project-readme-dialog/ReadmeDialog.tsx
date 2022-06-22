@@ -5,11 +5,12 @@ import HTMLReactParser from 'html-react-parser';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getSpinner } from '../../../shared/spinner/Spinner';
+import ProjectLanguageChart from '../project-language-chart/ProjectLanguageChart';
+import { GithubRepository } from '../../ProjectList';
 
 interface ReadmeDialogProps {
-  title: string;
+  project: GithubRepository;
   open: boolean;
-  pinned: boolean;
   onClose: () => void;
 }
 
@@ -17,7 +18,7 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
   const [readme, setReadme] = useState('');
   const [readmeLoading, setReadmeLoading] = useState(false);
 
-  const { title, open, pinned, onClose } = props;
+  const { project, open, onClose } = props;
   const markdownParser = MarkdownParser({
     html: true,
     linkify: true,
@@ -27,13 +28,13 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
 
   useEffect(() => {
     setReadmeLoading(true);
-    axios.get(`/api/repos/${title}/readme`).then((rsp) => {
+    axios.get(`/api/repos/${project.name}/readme`).then((rsp) => {
       setReadme(rsp.data);
       setReadmeLoading(false);
     });
   }, []);
 
-  function getContent() {
+  function getReadmeContent() {
     return readme.length > 0 ? (
       parseHtml(markdownParser.render(readme))
     ) : (
@@ -43,15 +44,24 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
     );
   }
 
+  function getContent() {
+    return (
+      <div className="readme-content">
+        {project.pinned && <ProjectLanguageChart project={project} />}
+        <div>{getReadmeContent()}</div>
+      </div>
+    );
+  }
+
   return (
     <Dialog className="dialog" open={open} onClose={onClose} scroll="paper">
       <DialogTitle
         className="dialog-title"
         style={{
-          backgroundColor: pinned ? '#EC407A' : '#243890'
+          backgroundColor: project.pinned ? '#EC407A' : '#243890'
         }}
       >
-        {title}
+        {project.name}
       </DialogTitle>
       <DialogContent>{(readmeLoading && getSpinner(true)) || getContent()}</DialogContent>
     </Dialog>
