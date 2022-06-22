@@ -15,7 +15,6 @@ import { Tooltip } from '@mui/material';
 import { StrictMode } from 'react';
 import About from './components/about/About';
 import ProjectList from './components/projects/ProjectList';
-import PageNotFound from './components/shared/page-not-found/PageNotFound';
 import { useEffect } from 'react';
 import Home from './components/home/Home';
 
@@ -81,7 +80,7 @@ export default function AppRoutes() {
             <Route path="home" element={<Home />} />
             <Route path="projects" element={<ProjectList />}></Route>
             <Route path="about" element={<About />} />
-            <Route path="*" element={<PageNotFound />} />
+            <Route path="*" />
           </Route>
         </Routes>
       </BrowserRouter>

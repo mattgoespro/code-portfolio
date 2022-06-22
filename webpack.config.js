@@ -12,22 +12,24 @@ module.exports = function (env, argv) {
   let apiTarget = env.apiTarget;
   let apiHost;
 
-  if (apiTarget === 'api') {
-    apiHost = 'http://localhost:8080';
-  } else if (apiTarget === 'stub') {
-    apiHost = 'http://localhost:8081';
-  } else if (apiTarget === 'local') {
-    if (env.apiPort) {
-      apiHost = `http://localhost:${env.apiPort}`;
+  if (!isProduction) {
+    if (apiTarget === 'api') {
+      apiHost = 'http://localhost:8080';
+    } else if (apiTarget === 'stub') {
+      apiHost = 'http://localhost:8081';
+    } else if (apiTarget === 'local') {
+      if (env.apiPort) {
+        apiHost = `http://localhost:${env.apiPort}`;
+      } else {
+        throw new Error('API target port not specified.');
+      }
     } else {
-      throw new Error('API target port not specified.');
+      throw new Error('API target not specified.');
     }
-  } else {
-    throw new Error('API target not specified.');
   }
 
   return {
-    devtool: 'source-map',
+    devtool: !isProduction ? 'source-map' : 'inline-source-map',
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),

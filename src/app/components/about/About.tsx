@@ -1,5 +1,4 @@
 import './About.scss';
-import profileImage from '../../assets/images/profile.png';
 import { Tooltip } from '@mui/material';
 
 export default function About() {
@@ -8,7 +7,10 @@ export default function About() {
       <div className="about-info-wrapper">
         <div className="about-info">
           <Tooltip title="I might not look like this now....">
-            <img className="img-profile" src={profileImage}></img>
+            <img
+              className="img-profile"
+              src="https://github.com/mattgoespro/public-resources/blob/master/images/profile.png?raw=true"
+            ></img>
           </Tooltip>
           <p className="paragraph">Now a little bit about me.</p>
           <p className="paragraph">I am a proud South African, born and bred.</p>

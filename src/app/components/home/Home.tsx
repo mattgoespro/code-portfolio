@@ -10,13 +10,19 @@ export default function Home() {
   return (
     <div className="home-wrapper">
       <div className="headers">
-        <div className="welcome-wrapper">
-          <h1 className="welcome">
-            Hello <span>World!</span>
-          </h1>
-          <div className="header-divider"></div>
-          <h3 className="welcome-intro">Allow me to introduce myself.</h3>
+        <div className="background-image-header">
+          <img
+            className="background-image"
+            src="https://github.com/mattgoespro/public-resources/blob/master/images/knysna_harbour.jpg?raw=true"
+          ></img>
+          <div className="background-image-welcome-wrapper">
+            <h1 className="welcome">
+              Hello <span>World!</span>
+            </h1>
+            <h3 className="welcome-intro">Allow me to introduce myself.</h3>
+          </div>
         </div>
+
         <div className="welcome-info-actions">
           <p className="welcome-info">
             I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking
