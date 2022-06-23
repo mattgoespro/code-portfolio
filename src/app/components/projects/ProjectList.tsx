@@ -78,10 +78,11 @@ export default function ProjectList() {
 
   return (
     <div>
-      <div className="title-header-wrapper">
-        <h1 className="title">
-          My <span>Projects</span>
+      <div className="page-header-wrapper">
+        <h1 className="page-header">
+          These are the <span>Projects</span> I have worked on
         </h1>
+        <h2 className="page-header-subtext">among other unicorn-level ones...</h2>
       </div>
       <div className="project-list-wrapper">
         {spinner()}

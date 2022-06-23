@@ -8,7 +8,9 @@ module.exports = (env, _argv) => {
   return merge(webpackCommon, {
     devtool: 'source-map',
     plugins: [
-      new ForkTsCheckerWebpackPlugin(),
+      new ForkTsCheckerWebpackPlugin({
+        async: false
+      }),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         openAnalyzer: false

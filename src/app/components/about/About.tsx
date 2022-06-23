@@ -4,6 +4,15 @@ import { Tooltip } from '@mui/material';
 export default function About() {
   return (
     <div className="about-wrapper">
+      <div className="about-background-image-header">
+        <img src="https://github.com/mattgoespro/public-resources/blob/master/images/github-commit-history.png?raw=true"></img>
+        <div className="about-background-image-welcome-wrapper">
+          <h1 className="about-welcome">
+            Who is <span>Matt</span>?
+          </h1>
+          <h3 className="about-welcome-intro">and what is he about?</h3>
+        </div>
+      </div>
       <div className="about-info-wrapper">
         <div className="about-info">
           <Tooltip title="I might not look like this now....">
@@ -27,10 +36,10 @@ export default function About() {
           </p>
           <p className="paragraph">
             I began my programming journey creating server plugins in Java for the popular video
-            game <a href="https://minecraft.net">Minecraft</a> in my free time outside of school.
-            The server running my code went on to become one of the top 5 servers worldwide by
-            number of concurrent players. It was at this time that my &apos;code-brain&apos;
-            unlocked, and I knew there and then that this was what I was meant to do.
+            game, Minecraft in my free time outside of school. The server running my code went on to
+            become one of the top 5 servers worldwide by number of concurrent players. It was at
+            this time that my &apos;code-brain&apos; unlocked, and I knew there and then that this
+            was what I was meant to do.
           </p>
           <p className="paragraph">
             I have a passion for learning and extreme drive for success. Programming has become a

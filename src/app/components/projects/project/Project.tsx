@@ -27,7 +27,7 @@ export default function Project(props: { repo: GithubRepository }) {
           {project.name}{' '}
           <span style={{ verticalAlign: 'middle' }}>
             {project.pinned && (
-              <Tooltip title="This project is pinned.">
+              <Tooltip title="Pinned on Github.">
                 <HelpIcon fontSize="small" />
               </Tooltip>
             )}

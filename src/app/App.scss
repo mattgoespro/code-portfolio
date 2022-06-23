@@ -13,6 +13,7 @@ nav {
 }
 
 .nav-link {
+  font-family: Roboto;
   color: #18181b;
   font-size: 24px;
   font-weight: 800;
@@ -113,7 +114,8 @@ div[role='dialog'] {
   margin-right: 7px;
 
   .linkedin-icon,
-  .github-icon {
+  .github-icon,
+  .cv-icon {
     width: 20px;
     height: 20px;
     padding: 10px;
@@ -130,6 +132,14 @@ div[role='dialog'] {
   .github-icon {
     &:hover {
       color: lighten(black, 20%);
+    }
+  }
+
+  .cv-icon {
+    color: purple;
+
+    &:hover {
+      color: darken(purple, 20%);
     }
   }
 }

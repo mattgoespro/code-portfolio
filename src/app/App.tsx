@@ -11,6 +11,7 @@ import {
 import './App.scss';
 import GithubLogo from './assets/svg/github-logo.svg';
 import LinkedInLogo from './assets/svg/linkedin-logo.svg';
+import CvDownloadIcon from './assets/svg/cv.svg';
 import { Tooltip } from '@mui/material';
 import { StrictMode } from 'react';
 import About from './components/about/About';
@@ -37,6 +38,11 @@ const navBar = (
       </div>
     </div>
     <div className="icons">
+      <Tooltip title="Download CV">
+        <a href="https://github.com/mattgoespro/public-resources/raw/master/docs/MattYoungCurriculumVitae.pdf">
+          <SvgIcon className="cv-icon">{<CvDownloadIcon />}</SvgIcon>
+        </a>
+      </Tooltip>
       <Tooltip title="LinkedIn">
         <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
           <SvgIcon className="linkedin-icon">{<LinkedInLogo />}</SvgIcon>
