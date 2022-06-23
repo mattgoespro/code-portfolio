@@ -6,6 +6,7 @@
 - 504 Gateway timeout - backend is not running
 - 500 Internal server error
 - 403 Unauthorized (intermittent)
+- Update packages.
 
 ## Styles
 
@@ -15,7 +16,6 @@
 ## Components
 
 - Get _simplebar-react_ scrollbar working.
-
 
 ## Tech Debt
 
