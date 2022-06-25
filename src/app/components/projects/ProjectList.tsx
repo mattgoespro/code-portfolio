@@ -3,25 +3,18 @@ import { getSpinner } from '../shared/spinner/Spinner';
 import GithubProject from './project/Project';
 import axios from 'axios';
 import './ProjectList.scss';
-
-export interface GithubRepository {
-  name: string;
-  description: string;
-  created_at: string;
-  updated_at: string;
-  html_url: string;
-  pinned: boolean;
-}
+import { ApiRepositoryResponseDTO } from './Project';
 
 export default function ProjectList() {
-  const [githubRepos, setGithubRepos] = useState<GithubRepository[]>([]);
+  const [githubRepos, setGithubRepos] = useState<ApiRepositoryResponseDTO[]>([]);
+  const [githubPinnedRepos, setGithubPinnedRepos] = useState<ApiRepositoryResponseDTO[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get<GithubRepository[]>('/api/repos')
+      .get<ApiRepositoryResponseDTO[]>('/api/repos')
       .then((resp) => {
         setGithubRepos(resp.data);
         setLoading(false);
@@ -31,20 +24,36 @@ export default function ProjectList() {
         setLoading(false);
         setError(true);
       });
+    axios
+      .get<ApiRepositoryResponseDTO[]>('/api/repos/pinned')
+      .then((resp) => {
+        setGithubPinnedRepos(resp.data);
+        setLoading(false);
+        setError(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        setError(true);
+      });
   }, []);
 
-  function projects(githubRepos: GithubRepository[]) {
-    const pinnedRepos = githubRepos.filter((repo) => repo.pinned);
-    const unpinnedRepos = githubRepos.filter((repo) => !repo.pinned);
-
+  function projects(githubRepos: ApiRepositoryResponseDTO[]) {
     return (
       <div className="projects">
         <div className="pinned-projects-wrapper">
           <div className="pinned-projects">
-            {pinnedRepos.map((repo) => {
+            {githubPinnedRepos.map((repo, index) => {
               return (
-                <div key={repo.name} className="project pinned">
-                  <GithubProject key={repo.name} repo={repo} />
+                <div
+                  key={repo.name}
+                  className="project pinned"
+                  style={
+                    {
+                      '--unpinnedProjectIndex': index
+                    } as React.CSSProperties
+                  }
+                >
+                  <GithubProject key={repo.name} repo={repo} pinned={true} />
                 </div>
               );
             })}
@@ -52,21 +61,23 @@ export default function ProjectList() {
         </div>
 
         <div className="unpinned-projects">
-          {unpinnedRepos.map((repo, index) => {
-            return (
-              <div
-                key={repo.name}
-                className="project"
-                style={
-                  {
-                    '--index': index
-                  } as React.CSSProperties
-                }
-              >
-                <GithubProject key={repo.name} repo={repo} />
-              </div>
-            );
-          })}
+          {githubRepos
+            .filter((repo) => !githubPinnedRepos.includes(repo))
+            .map((repo, index) => {
+              return (
+                <div
+                  key={repo.name}
+                  className="project"
+                  style={
+                    {
+                      '--projectIndex': index
+                    } as React.CSSProperties
+                  }
+                >
+                  <GithubProject key={repo.name} repo={repo} pinned={false} />
+                </div>
+              );
+            })}
         </div>
       </div>
     );

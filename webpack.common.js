@@ -6,19 +6,47 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 function setDevServerApiHost(env) {
   let apiTarget = env['api-target'];
   let apiHost;
+  let hostName;
 
   if (apiTarget === 'api') {
     apiHost = 'http://localhost:8080';
+    hostName = 'API';
   } else if (apiTarget === 'stub') {
     apiHost = 'http://localhost:8081';
+    hostName = 'API Stub';
   } else if (apiTarget === 'local') {
     if (env.apiPort) {
       apiHost = `http://localhost:${env.apiPort}`;
     } else {
       throw new Error('API target port not specified.');
     }
+  }
+
+  if (hostName === 'API') {
+    console.log(`
+      ___  _               _    _                        _  _    _        ___  _  _    _  _        _         _    ___  ___ 
+     / __|| |_  __ _  _ _ | |_ (_) _ _   __ _   __ __ __(_)| |_ | |_     / __|(_)| |_ | || | _  _ | |__     /_\\  | _ \\|_ _|
+     \\__ \\|  _|/ _\` || '_||  _|| || \' \\ / _\` |  \\ V  V /| ||  _|| ' \\   | (_ || ||  _|| __ || || || '_ \\   / _ \\ |  _/ | |
+     |___/ \\__|\\__,_||_|   \\__||_||_||_|\\__, |   \\_/\\_/ |_| \\__||_||_|   \\___||_| \\__||_||_| \\_,_||_.__/  /_/ \\_\\|_|  |___|
+                                        |___/                                                                              
+    `);
+  } else if (hostName === 'API Stub') {
+    console.log(`
+      ___  _               _    _                        _  _    _       ___  _          _    
+     / __|| |_  __ _  _ _ | |_ (_) _ _   __ _   __ __ __(_)| |_ | |_    / __|| |_  _  _ | |__ 
+     \\__ \\|  _|/ _\` || '_||  _|| || ' \\ / _\` |  \\ V  V /| ||  _|| ' \\   \\__ \\|  _|| || || '_ \\
+     |___/ \\__|\\__,_||_|   \\__||_||_||_|\\__, |   \\_/\\_/ |_| \\__||_||_|  |___/ \\__| \\_,_||_.__/
+                                        |___/                                                 
+    `);
   } else {
-    throw new Error('API target not specified.');
+    console.log(`
+      ___  _               _    _                       _  _    _                _       _    ___  ___                             
+     / __|| |_  __ _  _ _ | |_ (_) _ _   __ _  __ __ __(_)| |_ | |_   ___  _  _ | |_    /_\\  | _ \\|_ _|  _ __  _ _  ___ __ __ _  _ 
+     \\__ \\|  _|/ _\` || '_||  _|| || ' \\ / _\` | \\ V  V /| ||  _|| ' \\ / _ \\| || ||  _|  / _ \\ |  _/ | |  | '_ \\| '_|/ _ \\ \\ /| || |
+     |___/ \\__|\\__,_||_|   \\__||_||_||_|\\__, |  \\_/\\_/ |_| \\__||_||_|\\___/ \\_,_| \\__| /_/ \\_\\|_|  |___| | .__/|_|  \\___//_\\_\\ \\_, |
+                                        |___/                                                           |_|                   |__/ 
+
+    `);
   }
 
   return apiHost;
@@ -28,6 +56,8 @@ module.exports = function (_env, argv) {
   const buildMode = argv.mode;
   const apiHost = setDevServerApiHost(_env);
 
+  let openWindow = true;
+
   return {
     entry: './src/index.tsx',
     output: {
@@ -36,7 +66,10 @@ module.exports = function (_env, argv) {
       publicPath: '/'
     },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx']
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      alias: {
+        shared: path.resolve(__dirname, 'src/app/assets/styles/shared.scss')
+      }
     },
     plugins: [
       new webpack.DefinePlugin({
@@ -102,7 +135,16 @@ module.exports = function (_env, argv) {
         },
         {
           test: /\.scss$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                implementation: require('sass')
+              }
+            }
+          ]
         }
       ]
     },
@@ -110,7 +152,7 @@ module.exports = function (_env, argv) {
     devServer: {
       compress: true,
       historyApiFallback: true,
-      open: true,
+      open: openWindow,
       client: {
         overlay: true
       },

@@ -6,10 +6,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getSpinner } from '../../../shared/spinner/Spinner';
 import ProjectLanguageChart from '../project-language-chart/ProjectLanguageChart';
-import { GithubRepository } from '../../ProjectList';
+import { ApiRepositoryResponseDTO } from '../../Project';
 
 interface ReadmeDialogProps {
-  project: GithubRepository;
+  project: ApiRepositoryResponseDTO;
+  projectPinned: boolean;
   open: boolean;
   onClose: () => void;
 }
@@ -18,7 +19,7 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
   const [readme, setReadme] = useState('');
   const [readmeLoading, setReadmeLoading] = useState(false);
 
-  const { project, open, onClose } = props;
+  const { project, projectPinned, open, onClose } = props;
   const markdownParser = MarkdownParser({
     html: true,
     linkify: true,
@@ -47,7 +48,7 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
   function getContent() {
     return (
       <div className="readme-content">
-        {project.pinned && <ProjectLanguageChart project={project} />}
+        {projectPinned && <ProjectLanguageChart project={project} />}
         <div>{getReadmeContent()}</div>
       </div>
     );
@@ -58,7 +59,7 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
       <DialogTitle
         className="dialog-title"
         style={{
-          backgroundColor: project.pinned ? '#EC407A' : '#243890'
+          backgroundColor: projectPinned ? '#EC407A' : '#243890'
         }}
       >
         {project.name}

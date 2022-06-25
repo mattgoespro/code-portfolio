@@ -7,6 +7,7 @@
 - 500 Internal server error
 - 403 Unauthorized (intermittent)
 - Update packages.
+- Investigate using nginx docker container.
 
 ## Styles
 

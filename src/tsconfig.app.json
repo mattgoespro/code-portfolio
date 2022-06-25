@@ -1,9 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "composite": true,
     "allowJs": true,
     "baseUrl": "./app",
-    "paths": {},
+    "paths": {
+      "styles": ["./app/assets/styles/shared.scss"]
+    },
     "allowSyntheticDefaultImports": true
   }
 }

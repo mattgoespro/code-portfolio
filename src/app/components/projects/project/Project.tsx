@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, Collapse, IconButton, Tooltip } from '@mui/material';
-import { GithubRepository } from '../ProjectList';
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
@@ -10,9 +9,15 @@ import { format } from 'date-fns';
 import LinkIcon from '@mui/icons-material/Link';
 import HelpIcon from '@mui/icons-material/Help';
 import './Project.scss';
+import { ApiRepositoryResponseDTO } from '../Project';
 
-export default function Project(props: { repo: GithubRepository }) {
-  const project = props.repo;
+interface ProjectProps {
+  repo: ApiRepositoryResponseDTO;
+  pinned: boolean;
+}
+
+export default function Project(props: ProjectProps) {
+  const { repo, pinned } = props;
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [expanded, setExpanded] = useState<boolean>();
 
@@ -24,9 +29,9 @@ export default function Project(props: { repo: GithubRepository }) {
     return (
       <div className="title-wrapper">
         <span className="title-name">
-          {project.name}{' '}
+          {repo.name}{' '}
           <span style={{ verticalAlign: 'middle' }}>
-            {project.pinned && (
+            {pinned && (
               <Tooltip title="Pinned on Github.">
                 <HelpIcon fontSize="small" />
               </Tooltip>
@@ -40,7 +45,7 @@ export default function Project(props: { repo: GithubRepository }) {
               marginRight: '5px'
             }}
           >
-            <Tooltip title={project.pinned ? 'View' : 'View Readme'}>
+            <Tooltip title={pinned ? 'View' : 'View Readme'}>
               <IconButton
                 size="small"
                 onClick={() => {
@@ -52,7 +57,7 @@ export default function Project(props: { repo: GithubRepository }) {
               </IconButton>
             </Tooltip>
           </span>
-          {!project.pinned && (
+          {!pinned && (
             <span
               style={{
                 float: 'right'
@@ -73,20 +78,21 @@ export default function Project(props: { repo: GithubRepository }) {
       {readmeDialogOpen && (
         <ReadmeDialog
           open={readmeDialogOpen}
-          project={project}
+          project={repo}
+          projectPinned={pinned}
           onClose={() => setReadmeDialogOpen(false)}
         />
       )}
       <CardHeader
         className="project-header"
         style={{
-          backgroundColor: project.pinned ? '#EC407A' : '#243890'
+          backgroundColor: pinned ? '#EC407A' : '#243890'
         }}
         avatar={<GitHub className="avatar" />}
         title={getCardTitle()}
         subheader={
           <Tooltip title="Visit">
-            <a className="project-repo" href={project.html_url} target="tab">
+            <a className="project-repo" href={repo.link} target="tab">
               <LinkIcon fontSize="medium" />
             </a>
           </Tooltip>
@@ -95,18 +101,18 @@ export default function Project(props: { repo: GithubRepository }) {
       <CardContent>
         <div className="description-wrapper">
           <h3 className="title-description">Description</h3>
-          <div className="description">{project.description || <i>Not available.</i>}</div>
+          <div className="description">{repo.description || <i>Not available.</i>}</div>
         </div>
       </CardContent>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         {expanded && (
           <CardContent>
             <div className="summary-repo">
-              <span>Created: {format(new Date(project.created_at), 'dd-MM-yyyy p')}</span>
-              <span>Last Updated: {format(new Date(project.updated_at), 'dd-MM-yyyy p')}</span>
+              <span>Created: {format(new Date(repo.createdTimestamp), 'dd-MM-yyyy p')}</span>
+              <span>Last Updated: {format(new Date(repo.updatedTimestamp), 'dd-MM-yyyy p')}</span>
             </div>
             <div className="divider"></div>
-            {<ProjectLanguageChart project={project} />}
+            {<ProjectLanguageChart project={repo} />}
             {<div className="divider"></div>}
           </CardContent>
         )}

@@ -37,6 +37,7 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
+    "start:isolated": "webpack serve --config webpack.dev.js --mode development --port 4000",
     "start:dev": "curl localhost:8081 && webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=stub",
     "start:prod": "curl localhost:8080 && webpack serve --config webpack.prod.js --mode production --port 4000 --env api-target=api",
     "build": "rm -rf dist && webpack --config webpack.prod.js --mode production",

@@ -1,5 +1,8 @@
+@import 'shared';
+
 :root {
-  --index: 0;
+  --projectIndex: 0;
+  --unpinnedProjectIndex: 0;
 }
 
 .page-header-wrapper {
@@ -75,14 +78,25 @@
   width: 500px;
 
   &:not(.pinned) {
-    -webkit-animation-name: fade-in-projects;
-    animation-name: fade-in-projects;
+    -webkit-animation-name: fadeAndSlide;
+    animation-name: fadeAndSlide;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-delay: calc(var(--index) * 100ms);
-    animation-delay: calc(var(--index) * 100ms);
+    -webkit-animation-delay: calc(var(--projectIndex) * 100ms);
+    animation-delay: calc(var(--projectIndex) * 100ms);
+  }
+
+  &.pinned {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: calc(var(--pinnedProjectIndex) * 100ms);
+    animation-delay: calc(var(--pinnedProjectIndex) * 100ms);
   }
 }
 
@@ -96,7 +110,7 @@
   margin-top: 50px;
 }
 
-@-webkit-keyframes fade-in-projects {
+@-webkit-keyframes fadeAndSlide {
   from {
     opacity: 0;
   }
@@ -106,7 +120,7 @@
   }
 }
 
-@keyframes fade-in-projects {
+@keyframes fadeAndSlide {
   from {
     opacity: 0;
     margin-left: 300px;

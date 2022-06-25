@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
-import { GithubRepository } from '../../ProjectList';
+import { ApiRepositoryResponseDTO } from '../../Project';
 import './ProjectLanguageChart.scss';
 
 interface ProjectLanguageChartProps {
-  project: GithubRepository;
+  project: ApiRepositoryResponseDTO;
 }
 
 export default function ProjectLanguageChart(props: ProjectLanguageChartProps) {
