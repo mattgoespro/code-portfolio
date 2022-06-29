@@ -56,8 +56,6 @@ module.exports = function (_env, argv) {
   const buildMode = argv.mode;
   const apiHost = setDevServerApiHost(_env);
 
-  let openWindow = true;
-
   return {
     entry: './src/index.tsx',
     output: {
@@ -152,7 +150,7 @@ module.exports = function (_env, argv) {
     devServer: {
       compress: true,
       historyApiFallback: true,
-      open: openWindow,
+      open: ['http://localhost:4000/home'],
       client: {
         overlay: true
       },

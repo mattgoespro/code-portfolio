@@ -5,7 +5,8 @@
     "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "dist", ".vscode"]
 }

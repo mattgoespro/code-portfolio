@@ -1,29 +1,37 @@
 import { Subject } from 'rxjs/internal/Subject';
 
-export interface ErrorNotification {
+export interface AlertNotificationDetails {
   error: string;
   message: string;
 }
 
-class NotificationService {
-  private notifications: ErrorNotification[] = [];
-  public notify: Subject<ErrorNotification> = new Subject();
+class AlertNotificationService {
+  private notifications: AlertNotificationDetails[] = [];
+  public notify: Subject<AlertNotificationDetails[]> = new Subject();
 
   public log({ status, statusText }) {
     const alert = {
       error: this.httpErrorToString(status),
       message: statusText
     };
-    this.notifications.push(alert);
-    this.notify.next(alert);
+
+    if (
+      this.notifications.find((n) => n.error === alert.error && n.message === alert.message) == null
+    ) {
+      this.notifications.push(alert);
+      this.notify.next(this.notifications);
+    }
   }
 
   public getNotifications() {
     return this.notifications;
   }
 
-  public remove(number: number) {
-    this.notifications.splice(number);
+  public remove(alert: AlertNotificationDetails) {
+    this.notifications = this.notifications.filter(
+      (n) => n.error != alert.error && n.message != alert.message
+    );
+    this.notify.next(this.notifications);
   }
 
   private httpErrorToString(httpErrorCode: number): string {
@@ -50,4 +58,4 @@ class NotificationService {
   }
 }
 
-export default new NotificationService();
+export default new AlertNotificationService();

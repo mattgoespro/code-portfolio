@@ -1,24 +1,20 @@
 import SvgIcon from '@mui/material/SvgIcon';
-import {
-  BrowserRouter,
-  Link,
-  Outlet,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate
-} from 'react-router-dom';
+import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import GithubLogo from './assets/svg/github-logo.svg';
 import LinkedInLogo from './assets/svg/linkedin-logo.svg';
 import CvDownloadIcon from './assets/svg/cv.svg';
-import { Tooltip } from '@mui/material';
+import { Stack, Tooltip } from '@mui/material';
 import { StrictMode } from 'react';
 import About from './components/about/About';
 import ProjectList from './components/projects/ProjectList';
-import { useEffect } from 'react';
 import Home from './components/home/Home';
-import React = require('react');
+import React from 'react';
+import { Subscription } from 'rxjs';
+import AlertNotificationService, {
+  AlertNotificationDetails
+} from './services/alert-notification/AlertNotification.service';
+import AlertNotification from './services/alert-notification/AlertNotification';
 
 function navBar() {
   return (
@@ -57,24 +53,57 @@ function navBar() {
   );
 }
 
-class App extends React.Component {
-  constructor(props) {
+interface AppState {
+  notifySubscription: Subscription;
+  notifications: AlertNotificationDetails[];
+}
+
+class App extends React.Component<Record<string, unknown>, AppState> {
+  constructor(props: Record<string, unknown>) {
     super(props);
+
+    this.state = {
+      notifications: [],
+      notifySubscription: null
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      notifySubscription: AlertNotificationService.notify.subscribe((notifications) => {
+        this.setState({
+          notifications
+        });
+      })
+    });
+  }
+
+  componentWillUnmount(): void {
+    this.state.notifySubscription.unsubscribe();
   }
 
   render() {
-    const location = useLocation();
-    const navigate = useNavigate();
-
-    useEffect(() => {
-      if (location.pathname === '/') {
-        navigate('/home');
-      }
-    }, [location.pathname]);
-
     return (
       <div className="app">
         {navBar()}
+        {this.state.notifications.length > 0 && (
+          <Stack className="notification-stack">
+            <div>
+              {this.state.notifications.map((notification, index) => {
+                return (
+                  <div key={index} className="notification">
+                    <AlertNotification
+                      alert={notification}
+                      onClose={() => {
+                        AlertNotificationService.remove(notification);
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </Stack>
+        )}
         <div className="error-notifications-tray"></div>
         <div>
           <Outlet />

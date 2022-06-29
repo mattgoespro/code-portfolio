@@ -1,13 +1,13 @@
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import './ReadmeDialog.scss';
-import * as MarkdownParser from 'markdown-it';
+import MarkdownParser from 'markdown-it';
 import HTMLReactParser from 'html-react-parser';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getSpinner } from '../../../shared/spinner/Spinner';
 import ProjectLanguageChart from '../project-language-chart/ProjectLanguageChart';
 import { ApiRepositoryResponseDTO, GithubApiRestErrorResponse } from '../../Project';
-import NotificationService from '../../../../services/Notification/Notification';
+import AlertNotificationService from '../../../../services/alert-notification/AlertNotification.service';
 
 interface ReadmeDialogProps {
   project: ApiRepositoryResponseDTO;
@@ -42,7 +42,7 @@ export default function ReadmeDialog(props: ReadmeDialogProps) {
       .catch((err: GithubApiRestErrorResponse) => {
         setReadmeLoading(false);
         setError(true);
-        NotificationService.log({
+        AlertNotificationService.log({
           status: err.response.status,
           statusText: err.response.statusText
         });

@@ -4,7 +4,7 @@ import GithubProject from './project/Project';
 import axios from 'axios';
 import './ProjectList.scss';
 import { ApiRepositoryResponseDTO, GithubApiRestErrorResponse } from './Project';
-import NotificationService from '../../services/Notification/Notification';
+import AlertNotificationService from '../../services/alert-notification/AlertNotification.service';
 
 export default function ProjectList() {
   const [githubRepos, setGithubRepos] = useState<ApiRepositoryResponseDTO[]>([]);
@@ -25,7 +25,7 @@ export default function ProjectList() {
       .catch((err: GithubApiRestErrorResponse) => {
         setLoading(false);
         setProjectsError(true);
-        NotificationService.log({
+        AlertNotificationService.log({
           status: err.response.status,
           statusText: err.response.statusText
         });
@@ -40,7 +40,7 @@ export default function ProjectList() {
       .catch((err: GithubApiRestErrorResponse) => {
         setLoading(false);
         setPinnedProjectsError(true);
-        NotificationService.log({
+        AlertNotificationService.log({
           status: err.response.status,
           statusText: err.response.statusText
         });
