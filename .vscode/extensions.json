@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "ahmadalli.vscode-nginx-conf",
+    "burkeholland.simple-react-snippets",
+    "christian-kohler.npm-intellisense",
+    "angryobject.react-pure-to-class-vscode"
+  ]
+}

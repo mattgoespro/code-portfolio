@@ -6,12 +6,11 @@
 - 504 Gateway timeout - backend is not running
 - 500 Internal server error
 - 403 Unauthorized (intermittent)
-- Update packages.
 - Investigate using nginx docker container.
+- Use redux for API calls
 
 ## Styles
 
-- Consolidate Theme.
 - Clean up hard-coded styles.
 
 ## Components

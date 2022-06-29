@@ -3,13 +3,15 @@ import { getSpinner } from '../shared/spinner/Spinner';
 import GithubProject from './project/Project';
 import axios from 'axios';
 import './ProjectList.scss';
-import { ApiRepositoryResponseDTO } from './Project';
+import { ApiRepositoryResponseDTO, GithubApiRestErrorResponse } from './Project';
+import NotificationService from '../../services/Notification/Notification';
 
 export default function ProjectList() {
   const [githubRepos, setGithubRepos] = useState<ApiRepositoryResponseDTO[]>([]);
   const [githubPinnedRepos, setGithubPinnedRepos] = useState<ApiRepositoryResponseDTO[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [projectsError, setProjectsError] = useState(false);
+  const [pinnedProjectsError, setPinnedProjectsError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -18,22 +20,30 @@ export default function ProjectList() {
       .then((resp) => {
         setGithubRepos(resp.data);
         setLoading(false);
-        setError(false);
+        setProjectsError(false);
       })
-      .catch(() => {
+      .catch((err: GithubApiRestErrorResponse) => {
         setLoading(false);
-        setError(true);
+        setProjectsError(true);
+        NotificationService.log({
+          status: err.response.status,
+          statusText: err.response.statusText
+        });
       });
     axios
       .get<ApiRepositoryResponseDTO[]>('/api/repos/pinned')
       .then((resp) => {
         setGithubPinnedRepos(resp.data);
         setLoading(false);
-        setError(false);
+        setPinnedProjectsError(false);
       })
-      .catch(() => {
+      .catch((err: GithubApiRestErrorResponse) => {
         setLoading(false);
-        setError(true);
+        setPinnedProjectsError(true);
+        NotificationService.log({
+          status: err.response.status,
+          statusText: err.response.statusText
+        });
       });
   }, []);
 
@@ -83,10 +93,6 @@ export default function ProjectList() {
     );
   }
 
-  function spinner() {
-    return loading ? getSpinner(true) : null;
-  }
-
   return (
     <div>
       <div className="page-header-wrapper">
@@ -94,15 +100,16 @@ export default function ProjectList() {
           These are the <span>Projects</span> I have worked on
         </h1>
         <h2 className="page-header-subtext">among other unicorn-level ones...</h2>
-      </div>
-      <div className="project-list-wrapper">
-        {spinner()}
-        {githubRepos && githubRepos.length > 0 && projects(githubRepos)}
-        {error && (
-          <div className="no-projects-to-display">
-            Well, this is embarrassing. There are no projects to display.
+        {pinnedProjectsError && (
+          <div className="no-pinned-projects-to-show">
+            Well, this is embarrassing. There are no pinned projects to display.
           </div>
         )}
+      </div>
+      <div className="project-list-wrapper">
+        {loading && getSpinner(true)}
+        {projectsError && <div className="no-projects-to-show">No projects to show.</div>}
+        {githubRepos.length > 0 && projects(githubRepos)}
       </div>
     </div>
   );

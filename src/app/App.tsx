@@ -13,19 +13,19 @@ import GithubLogo from './assets/svg/github-logo.svg';
 import LinkedInLogo from './assets/svg/linkedin-logo.svg';
 import CvDownloadIcon from './assets/svg/cv.svg';
 import { Tooltip } from '@mui/material';
-import { StrictMode } from 'react';
+import { StrictMode, useState } from 'react';
 import About from './components/about/About';
 import ProjectList from './components/projects/ProjectList';
 import { useEffect } from 'react';
 import Home from './components/home/Home';
+import NotificationService from './services/Notification/Notification';
+import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
 
 const navBar = (
   <nav>
     <div className="nav-left">
       <div className="nav-left">
-        {/* <IconButton className="nav-more">
-          <MoreVertIcon className="nav-more-icon"></MoreVertIcon>
-        </IconButton> */}
         <Link className="nav-link" to="/home">
           Home
         </Link>
@@ -70,6 +70,19 @@ function App() {
   return (
     <div className="app">
       {navBar}
+      <div className="error-notifications-tray">
+        <Stack>
+          {notifications.map((notification, index) => {
+            return (
+              <div className="error-notification-wrapper" key={index}>
+                <Alert severity="error">
+                  {notification} {notification.message}
+                </Alert>
+              </div>
+            );
+          })}
+        </Stack>
+      </div>
       <div>
         <Outlet />
       </div>
