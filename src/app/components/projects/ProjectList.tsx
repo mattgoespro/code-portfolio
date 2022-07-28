@@ -4,7 +4,7 @@ import './ProjectList.scss';
 import React from 'react';
 import { ApiRepositoryResponseDTO } from '../../shared/services/shared.model';
 import { Spinner } from '../../shared/components/spinner/Spinner';
-import ErrorNotificationService from '../../services/alert-notification/ErrorNotification.service';
+import ErrorNotificationService from '../../services/error-notification/ErrorNotification.service';
 
 interface ProjectListComponentState {
   pinnedProjects?: ApiRepositoryResponseDTO[];

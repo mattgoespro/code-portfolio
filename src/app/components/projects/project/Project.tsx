@@ -113,7 +113,7 @@ export default function Project(props: ProjectProps) {
               <span>Last Updated: {format(new Date(repo.updatedTimestamp), 'dd-MM-yyyy p')}</span>
             </div>
             <div className="divider"></div>
-            {<LanguageChart projectName={this.props.project.name} />}
+            {<LanguageChart projectName={props.repo.name} />}
             {<div className="divider"></div>}
           </CardContent>
         )}

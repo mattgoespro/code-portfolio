@@ -1,6 +1,6 @@
 import SvgIcon from '@mui/material/SvgIcon';
 import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
-import ProjectListComponent from './components/project-list/ProjectList';
+import ProjectListComponent from './components/projects/ProjectList';
 import './App.scss';
 import GithubLogo from '../assets/svg/github-logo.svg';
 import LinkedInLogo from '../assets/svg/linkedin-logo.svg';
@@ -10,7 +10,7 @@ import About from './components/about/About';
 import Home from './components/home/Home';
 import ErrorNotificationService, {
   ErrorNotification
-} from './services/alert-notification/ErrorNotification.service';
+} from './services/error-notification/ErrorNotification.service';
 import { useState } from 'react';
 
 function AppShell() {

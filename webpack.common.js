@@ -66,7 +66,7 @@ module.exports = function (_env, argv) {
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
       alias: {
-        shared: path.resolve(__dirname, 'src/app/assets/styles/shared.scss')
+        shared: path.resolve(__dirname, 'src/assets/styles/shared.scss')
       }
     },
     plugins: [

@@ -1,22 +1,20 @@
 # TODO
 
-## In Progress
+## Bugs
 
-- Clear alerts on navigate
-- Fix slow loading of network images
-- Configure eslint
-- Clean up hard-coded styles.
-- Update packages: _npx npm-check-updates -u_
+- Project readme content not displaying.
+- Project details collapse causes crash.
+- Network images fail to load completely before page is shown.
+- Dockerized: Fix nginx default page showing when refreshing browser.
+- Dockerized: Fix favicon not displaying
 
 ## General
 
-- Utilize nginx docker container as proxy server.
 - Get _simplebar-react_ scrollbar working.
-
-## Nice to have
-
-- Have docker only install required dependencies for each app
-- Redux for caching (probably not necessary)
+- Clear alerts on navigate
+- Configure eslint
+- Clean up hard-coded styles.
+- Update packages: _npx npm-check-updates -u_
 
 ## Tech Debt
 
