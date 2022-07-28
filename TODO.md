@@ -11,10 +11,7 @@
 ## General
 
 - Get _simplebar-react_ scrollbar working.
-- Clear alerts on navigate
-- Configure eslint
-- Clean up hard-coded styles.
-- Update packages: _npx npm-check-updates -u_
+- Clear alerts on navigate.
 
 ## Tech Debt
 
