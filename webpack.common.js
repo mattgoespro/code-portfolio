@@ -57,7 +57,7 @@ module.exports = function (_env, argv) {
   const apiHost = setDevServerApiHost(_env);
 
   return {
-    entry: './src/index.tsx',
+    entry: './src/main.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[chunkhash].js',

@@ -4,9 +4,7 @@ import './Home.scss';
 
 const _languages = (
   <div>
-    <h3 className="section-header">
-      I&apos;ve programmed in all sorts of languages
-    </h3>
+    <h3 className="section-header">I&apos;ve programmed in all sorts of languages</h3>
     <div className="languages">
       <Card className="card">
         <div className="language-card">
@@ -73,9 +71,7 @@ const _technologies = (
 
 const _others = (
   <div>
-    <h3 className="section-header">
-      ... with some other critters thrown into the mix
-    </h3>
+    <h3 className="section-header">... with some other critters thrown into the mix</h3>
     <div className="others card">
       <Tooltip title="AWS">
         <img className="other" src="images/logos/aws.png" alt="AWS" />

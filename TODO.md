@@ -1,19 +1,22 @@
 # TODO
 
+## In Progress
+
+- Clear alerts on navigate
+- Fix slow loading of network images
+- Configure eslint
+- Clean up hard-coded styles.
+- Update packages: _npx npm-check-updates -u_
+
 ## General
 
-- Alert API call failures.
-  - 504 Gateway timeout - backend is not running
-  - 500 Internal server error
-  - 403 Unauthorized (intermittent)
-- Convert pure functions to class components.
+- Utilize nginx docker container as proxy server.
 - Get _simplebar-react_ scrollbar working.
-- Investigate using nginx docker container.
-- Use redux for API calls
 
-## Styles
+## Nice to have
 
-- Clean up hard-coded styles.
+- Have docker only install required dependencies for each app
+- Redux for caching (probably not necessary)
 
 ## Tech Debt
 
