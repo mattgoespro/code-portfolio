@@ -68,10 +68,10 @@ export default function Project(props: ProjectProps) {
     <Card className="project-card">
       {readmeDialogOpen && (
         <ReadmeDialog
-          open={readmeDialogOpen}
+          dialogOpen={readmeDialogOpen}
           project={repo}
-          pinned
-          readme=""
+          projectPinned
+          readmeContent=""
           onDialogClose={() => setReadmeDialogOpen(false)}
         />
       )}

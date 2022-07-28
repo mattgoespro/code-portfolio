@@ -1,54 +1,41 @@
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import './ReadmeDialog.scss';
-import MarkdownParser from 'markdown-it';
-import { HTMLReactParserOptions } from 'html-react-parser';
+import HTMLReactParser from 'html-react-parser';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
-import React from 'react';
+import MarkdownIt from 'markdown-it';
 
 interface ProjectReadmeDialogProps {
   project: ApiRepositoryResponseDTO;
-  pinned?: boolean;
-  open: boolean;
-  readme: string;
+  projectPinned?: boolean;
+  dialogOpen: boolean;
+  readmeContent: string;
   onDialogClose: () => void;
 }
 
-class ReadmeDialog extends React.Component<ProjectReadmeDialogProps, unknown> {
-  constructor(
-    props: ProjectReadmeDialogProps,
-    private markdownParser: MarkdownParser,
-    private parseToJsx: (html: string, options?: HTMLReactParserOptions) => JSX.Element
-  ) {
-    super(props);
-  }
+function ProjectReadmeDialog(props: ProjectReadmeDialogProps) {
+  const parseHtmlToJsx = HTMLReactParser;
+  const parseMarkdownToString = MarkdownIt();
 
-  render(): React.ReactNode {
-    return (
-      <Dialog
-        className="dialog"
-        open={this.props.open}
-        onClose={this.props.onDialogClose}
-        scroll="paper"
-      >
-        <DialogTitle className={'dialog-title' + this.props.pinned ? ' dialog-pinned' : ''}>
-          {this.props.project.name}
-        </DialogTitle>
-        <DialogContent>
-          <div className="readme-content">
-            <div>
-              {this.props.readme.length > 0 ? (
-                this.parseToJsx(this.markdownParser.render(this.props.readme))
-              ) : (
-                <div className="no-readme">
-                  <i>No readme found.</i>
-                </div>
-              )}
-            </div>
+  return (
+    <Dialog className="dialog" open={props.dialogOpen} onClose={props.onDialogClose} scroll="paper">
+      <DialogTitle className={'dialog-title' + props.projectPinned ? ' dialog-pinned' : ''}>
+        {props.project.name}
+      </DialogTitle>
+      <DialogContent>
+        <div className="readme-content">
+          <div>
+            {props.readmeContent.length > 0 ? (
+              parseHtmlToJsx(parseMarkdownToString.render(props.readmeContent))
+            ) : (
+              <div className="no-readme">
+                <i>No readme found.</i>
+              </div>
+            )}
           </div>
-        </DialogContent>
-      </Dialog>
-    );
-  }
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
 
-export default ReadmeDialog;
+export default ProjectReadmeDialog;

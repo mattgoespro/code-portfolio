@@ -1,6 +1,7 @@
 import { GithubRepositoryLanguageResponseDTO } from '@shared/services/shared.model';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 
+// I'd be crazy to know more than 12 languages, right?
 export const languageChartLabelColors = [
   '#64b5f6',
   '#4caf50',
@@ -23,14 +24,15 @@ export interface LanguageChartData {
 }
 
 export function calculateChartData(
-  languages: GithubRepositoryLanguageResponseDTO
+  languageComposition: GithubRepositoryLanguageResponseDTO
 ): LanguageChartData {
-  const projectLanguages = Object.keys(languages);
-  const values = Object.values(languages);
-  const totalValues = values.reduce((val, s) => val + s, 0);
+  const languageDataMap = languageComposition.languages;
+  const projectLanguages = Object.keys(languageDataMap);
+  const projectLanguageUsages = Object.values(languageDataMap);
+  const totalValues = projectLanguageUsages.reduce((val, s) => val + s, 0);
   const data: Data = projectLanguages.map((lang, i) => ({
     title: lang,
-    value: projectLanguages[lang] || 0,
+    value: languageDataMap[lang] || 0,
     color: languageChartLabelColors[i]
   }));
   return {

@@ -15,65 +15,56 @@ interface LanguageChartProps {
 }
 
 function LanguageChart(props: LanguageChartProps) {
-  const [languages, setLanguages] = useState<GithubRepositoryLanguageResponseDTO>({
-    languages: null
-  });
   const [chartData, setChartData] = useState<LanguageChartData>(null);
 
   useEffect(() => {
-    try {
-      axios
-        .get<GithubRepositoryLanguageResponseDTO>(`/api/repos/${props.projectName}/languages`)
-        .then((resp) => {
-          setLanguages(resp.data);
-          setChartData(calculateChartData(languages));
-        });
-    } catch (err) {
-      ErrorNotificationService.log(err);
-    }
+    axios
+      .get<GithubRepositoryLanguageResponseDTO>(`/api/repos/${props.projectName}/languages`)
+      .then((resp) => {
+        setChartData(calculateChartData(resp.data));
+      })
+      .catch((err) => ErrorNotificationService.log(err));
   }, []);
 
   return (
-    <div>
-      <div className="summary-language-chart-wrapper">
-        <span className="summary-language-chart-title">Languages Used</span>
-        {(chartData?.projectLanguages.length > 0 && (
-          <div className="summary-language-chart">
-            <div className="summary-legend">
-              {chartData?.projectLanguages.map((lang, i) => {
-                return (
-                  <span
-                    key={lang}
-                    className="summary-legend-lang"
-                    style={{
-                      color: languageChartLabelColors[i]
-                    }}
-                  >
-                    {lang}
-                  </span>
-                );
-              })}
-            </div>
-            <PieChart
-              className="pie-chart"
-              data={chartData.data}
-              label={({ dataEntry }) =>
-                `${((dataEntry.value * 100) / chartData.totalValues).toFixed()}%`
-              }
-              labelStyle={{
-                fontSize: '3px',
-                fontFamily: 'Roboto'
-              }}
-              labelPosition={70}
-              animate={true}
-            />
+    <div className="summary-language-chart-wrapper">
+      <span className="summary-language-chart-title">Languages Used</span>
+      {(chartData?.projectLanguages.length > 0 && (
+        <div className="summary-language-chart">
+          <div className="summary-legend">
+            {chartData?.projectLanguages.map((lang, i) => {
+              return (
+                <span
+                  key={lang}
+                  className="summary-legend-lang"
+                  style={{
+                    color: languageChartLabelColors[i]
+                  }}
+                >
+                  {lang}
+                </span>
+              );
+            })}
           </div>
-        )) || (
-          <span className="summary-language-none-found">
-            <i>No recognized languages found.</i>
-          </span>
-        )}
-      </div>
+          <PieChart
+            className="pie-chart"
+            data={chartData.data}
+            label={(labelProps) =>
+              `${((labelProps.dataEntry.value * 100) / chartData.totalValues).toFixed()}%`
+            }
+            labelStyle={{
+              fontSize: '3px',
+              fontFamily: 'Roboto'
+            }}
+            labelPosition={70}
+            animate={true}
+          />
+        </div>
+      )) || (
+        <span className="summary-language-none-found">
+          <i>No recognized languages found.</i>
+        </span>
+      )}
     </div>
   );
 }
