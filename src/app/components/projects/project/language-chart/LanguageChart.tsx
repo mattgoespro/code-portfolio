@@ -1,4 +1,4 @@
-import { GithubRepositoryLanguageResponseDTO } from '../../../../shared/services/shared.model';
+import { GithubRepositoryLanguageResponseDTO } from '@shared/services/shared.model';
 import ErrorNotificationService from '../../../../services/error-notification/ErrorNotification.service';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -55,6 +55,7 @@ function LanguageChart(props: LanguageChartProps) {
               })}
             </div>
             <PieChart
+              className="pie-chart"
               data={chartData.data}
               label={({ dataEntry }) =>
                 `${((dataEntry.value * 100) / chartData.totalValues).toFixed()}%`
@@ -65,7 +66,6 @@ function LanguageChart(props: LanguageChartProps) {
               }}
               labelPosition={70}
               animate={true}
-              style={{ width: '300px', margin: 10 }}
             />
           </div>
         )) || (

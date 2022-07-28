@@ -2,8 +2,8 @@ import GithubProject from './project/Project';
 import axios from 'axios';
 import './ProjectList.scss';
 import React from 'react';
-import { ApiRepositoryResponseDTO } from '../../shared/services/shared.model';
-import { Spinner } from '../../shared/components/spinner/Spinner';
+import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
+import { Spinner } from '@shared/components/spinner/Spinner';
 import ErrorNotificationService from '../../services/error-notification/ErrorNotification.service';
 
 interface ProjectListComponentState {

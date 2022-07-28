@@ -10,6 +10,11 @@ export default function Timeline() {
     color: '#fff'
   };
 
+  const iconStyle = {
+    display: 'flex',
+    backgroundColor: '#fff'
+  };
+
   return (
     <div className="timeline">
       <VerticalTimeline lineColor="#ff9800">
@@ -19,10 +24,7 @@ export default function Timeline() {
           contentStyle={timelineContentStyle}
           contentArrowStyle={timelineArrowStyle}
           date="2015-2017"
-          iconStyle={{
-            display: 'flex',
-            backgroundColor: '#fff'
-          }}
+          iconStyle={iconStyle}
           icon={
             <img
               src="https://github.com/mattgoespro/public-resources/blob/master/images/uct-logo.png?raw=true"
@@ -43,10 +45,7 @@ export default function Timeline() {
           contentStyle={timelineContentStyle}
           contentArrowStyle={timelineArrowStyle}
           date="2018"
-          iconStyle={{
-            display: 'flex',
-            backgroundColor: '#fff'
-          }}
+          iconStyle={iconStyle}
           icon={
             <img
               src="https://github.com/mattgoespro/public-resources/blob/master/images/uct-logo.png?raw=true"

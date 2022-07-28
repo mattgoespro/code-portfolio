@@ -1,4 +1,4 @@
-import { GithubRepositoryLanguageResponseDTO } from '../../../../shared/services/shared.model';
+import { GithubRepositoryLanguageResponseDTO } from '@shared/services/shared.model';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 
 export const languageChartLabelColors = [

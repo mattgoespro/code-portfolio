@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import LinkIcon from '@mui/icons-material/Link';
 import HelpIcon from '@mui/icons-material/Help';
 import './Project.scss';
-import { ApiRepositoryResponseDTO } from '../../../shared/services/shared.model';
+import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
 import ReadmeDialog from './readme-dialog/ReadmeDialog';
 import LanguageChart from './language-chart/LanguageChart';
 
@@ -30,7 +30,7 @@ export default function Project(props: ProjectProps) {
       <div className="title-wrapper">
         <span className="title-name">
           {repo.name}{' '}
-          <span style={{ verticalAlign: 'middle' }}>
+          <span className="title-help-icon">
             {pinned && (
               <Tooltip title="Pinned on Github.">
                 <HelpIcon fontSize="small" />
@@ -39,12 +39,7 @@ export default function Project(props: ProjectProps) {
           </span>
         </span>
         <div className="title-icon-buttons">
-          <span
-            style={{
-              float: 'right',
-              marginRight: '5px'
-            }}
-          >
+          <span className="title-open-readme-icon">
             <Tooltip title={pinned ? 'View' : 'View Readme'}>
               <IconButton
                 size="small"
@@ -58,11 +53,7 @@ export default function Project(props: ProjectProps) {
             </Tooltip>
           </span>
           {!pinned && (
-            <span
-              style={{
-                float: 'right'
-              }}
-            >
+            <span className="project-expand-more-icon">
               <IconButton className="title-icon-button view-readme" onClick={handleExpandClick}>
                 <ExpandMoreIcon className={expanded ? 'expand-icon' : 'collapse-icon'} />
               </IconButton>

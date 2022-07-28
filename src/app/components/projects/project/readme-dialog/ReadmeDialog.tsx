@@ -2,7 +2,7 @@ import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import './ReadmeDialog.scss';
 import MarkdownParser from 'markdown-it';
 import { HTMLReactParserOptions } from 'html-react-parser';
-import { ApiRepositoryResponseDTO } from '../../../../shared/services/shared.model';
+import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
 import React from 'react';
 
 interface ProjectReadmeDialogProps {

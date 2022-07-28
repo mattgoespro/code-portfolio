@@ -30,10 +30,23 @@
   color: white;
 }
 
+.title-help-icon {
+  vertical-align: middle;
+}
+
+.title-open-readme-icon {
+  float: 'right';
+  margin-right: '5px';
+}
+
 .title-description {
   font-size: 24px;
   color: black;
   margin-top: 0;
+}
+
+.project-expand-more-icon {
+  float: 'right';
 }
 
 .description {

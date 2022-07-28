@@ -1,4 +1,4 @@
-import { ApiHttpErrorResponse } from '../../shared/services/shared.model';
+import { ApiHttpErrorResponse } from '@shared/services/shared.model';
 import { AxiosError } from 'axios';
 import { Subject } from 'rxjs/internal/Subject';
 

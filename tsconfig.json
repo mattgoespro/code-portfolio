@@ -6,7 +6,15 @@
     "rootDir": "./src",
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@shared/components/*": ["./src/app/shared/components/*"],
+      "@shared/services/*": ["./src/app/shared/services/*"]
+    }
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", ".vscode"]
 }
