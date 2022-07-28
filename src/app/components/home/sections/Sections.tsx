@@ -1,6 +1,6 @@
 import { Card } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
-import './Home.scss';
+import './Sections.scss';
 
 const _languages = (
   <div>

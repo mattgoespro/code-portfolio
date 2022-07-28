@@ -29,6 +29,15 @@
 .project-list-wrapper {
   width: 100%;
   margin: 0;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.project-list-spinner-loader {
+  z-index: -1;
 }
 
 .project-list {

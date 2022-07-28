@@ -16,3 +16,8 @@
 ## Tech Debt
 
 - Update packages: npx npm-check-updates -u
+
+## Production
+
+- Double check we're not importing unneeded modules.
+- Bundle optimization.

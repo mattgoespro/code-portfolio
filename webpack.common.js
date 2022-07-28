@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').TsconfigPathsPlugin;
 
 module.exports = function (_env, argv) {
   const buildMode = argv.mode;
@@ -19,8 +19,6 @@ module.exports = function (_env, argv) {
       plugins: [new TsconfigPathsPlugin()],
       alias: {
         shared: path.resolve(__dirname, 'src/assets/styles/shared.scss')
-        // '@shared/components': path.resolve(__dirname, 'src/app/shared/components'),
-        // '@shared/services': path.resolve(__dirname, 'src/app/shared/services')
       }
     },
     plugins: [
@@ -40,12 +38,12 @@ module.exports = function (_env, argv) {
     module: {
       rules: [
         {
-          test: /\.png$/,
+          test: /\.jpg$/,
           use: [
             {
               loader: 'url-loader',
               options: {
-                mimetype: 'image/png'
+                mimetype: 'image/jpg'
               }
             }
           ]

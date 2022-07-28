@@ -1,22 +1,41 @@
 import GithubProject from './project/Project';
 import axios from 'axios';
 import './ProjectList.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
-import { Spinner } from '@shared/components/spinner/Spinner';
+import Spinner from '@shared/components/spinner/Spinner';
 import ErrorNotificationService from '../../services/error-notification/ErrorNotification.service';
+import ProjectsBanner from '@images/page-banner-projects.jpg';
+import PageBanner from '@shared/components/page-banner/PageBanner';
+import { useEffect } from 'react';
 
-interface ProjectListComponentState {
-  pinnedProjects?: ApiRepositoryResponseDTO[];
-  unpinnedProjects?: ApiRepositoryResponseDTO[];
-  loading?: boolean;
-}
+function ProjectList() {
+  const [pinnedProjects, setPinnedProjects] = useState([]);
+  const [unpinnedProjects, setUnpinnedProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-export default class ProjectListComponent extends React.Component<
-  unknown,
-  ProjectListComponentState
-> {
-  private getProjectListTemplate(
+  useEffect(() => {
+    setLoading(true);
+
+    Promise.all([
+      axios.get<ApiRepositoryResponseDTO[]>('/api/repos'),
+      axios.get<ApiRepositoryResponseDTO[]>('/api/repos/pinned')
+    ])
+      .then((resp) => {
+        setUnpinnedProjects(resp[0].data);
+        setPinnedProjects(resp[1].data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        ErrorNotificationService.log(err);
+      });
+  }, []);
+
+  function projectsExist() {
+    return (pinnedProjects?.length || 0) + (unpinnedProjects?.length || 0) > 0;
+  }
+
+  function getProjectListComponent(
     projects: ApiRepositoryResponseDTO[],
     cssClass: string,
     pinned?: boolean
@@ -40,58 +59,34 @@ export default class ProjectListComponent extends React.Component<
     );
   }
 
-  private getProjectList() {
+  function getProjectList() {
     return (
       <div className="projects">
         <div className="pinned-projects-wrapper">
-          {this.getProjectListTemplate(this.state?.pinnedProjects, 'pinned-projects', true)}
+          {getProjectListComponent(pinnedProjects, 'pinned-projects', true)}
         </div>
-        {this.getProjectListTemplate(this.state?.unpinnedProjects, 'unpinned-projects')}
+        {getProjectListComponent(unpinnedProjects, 'unpinned-projects')}
       </div>
     );
   }
 
-  async componentDidMount() {
-    this.setState({
-      loading: true
-    });
-    try {
-      const unpinnedProjects = (await axios.get<ApiRepositoryResponseDTO[]>('/api/repos')).data;
-      const pinnedProjects = (await axios.get<ApiRepositoryResponseDTO[]>('/api/repos/pinned'))
-        .data;
-      this.setState({
-        pinnedProjects,
-        unpinnedProjects,
-        loading: false
-      });
-    } catch (err) {
-      this.setState({
-        loading: false
-      });
-      ErrorNotificationService.log(err);
-    }
-  }
-
-  private hasProjects() {
-    if (this.state?.pinnedProjects == null || this.state?.unpinnedProjects == null) {
-      return false;
-    }
-    return this.state?.pinnedProjects.length + this.state?.unpinnedProjects.length > 0;
-  }
-
-  render(): React.ReactNode {
-    return (
-      <div>
-        <div className="page-header-wrapper">
-          <h1 className="page-header">
-            These are the <span>Projects</span> I have worked on
-          </h1>
-        </div>
-        <div className="project-list-wrapper">
-          {this.state?.loading && <Spinner loading={true} />}
-          {this.hasProjects() && this.getProjectList()}
-        </div>
+  return (
+    <div>
+      <PageBanner
+        title="These are what I've been working on."
+        subtitle="Allow me to introduce myself."
+        backgroundImage={ProjectsBanner}
+      />
+      <div className="project-list-wrapper">
+        {loading && (
+          <div className="project-list-spinner-loader">
+            <Spinner />
+          </div>
+        )}
+        {projectsExist() && getProjectList()}
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default ProjectList;
