@@ -15,6 +15,13 @@ module.exports = (env, _argv) => {
         analyzerMode: 'static',
         openAnalyzer: false
       })
-    ]
+    ],
+    devServer: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8081'
+        }
+      }
+    }
   });
 };

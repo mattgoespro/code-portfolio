@@ -2,14 +2,14 @@ import { Card, CardContent, CardHeader, Collapse, IconButton, Tooltip } from '@m
 import { GitHub } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import ReadmeDialog from './project-readme-dialog/ReadmeDialog';
-import ProjectLanguageChart from './project-language-chart/ProjectLanguageChart';
 import { useState } from 'react';
 import { format } from 'date-fns';
 import LinkIcon from '@mui/icons-material/Link';
 import HelpIcon from '@mui/icons-material/Help';
 import './Project.scss';
-import { ApiRepositoryResponseDTO } from '../Project';
+import { ApiRepositoryResponseDTO } from '../../../shared/services/shared.model';
+import ReadmeDialog from './readme-dialog/ReadmeDialog';
+import LanguageChart from './language-chart/LanguageChart';
 
 interface ProjectProps {
   repo: ApiRepositoryResponseDTO;
@@ -79,8 +79,9 @@ export default function Project(props: ProjectProps) {
         <ReadmeDialog
           open={readmeDialogOpen}
           project={repo}
-          projectPinned={pinned}
-          onClose={() => setReadmeDialogOpen(false)}
+          pinned
+          readme=""
+          onDialogClose={() => setReadmeDialogOpen(false)}
         />
       )}
       <CardHeader
@@ -112,7 +113,7 @@ export default function Project(props: ProjectProps) {
               <span>Last Updated: {format(new Date(repo.updatedTimestamp), 'dd-MM-yyyy p')}</span>
             </div>
             <div className="divider"></div>
-            {<ProjectLanguageChart project={repo} />}
+            {<LanguageChart projectName={this.props.project.name} />}
             {<div className="divider"></div>}
           </CardContent>
         )}

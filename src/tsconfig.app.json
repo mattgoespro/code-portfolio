@@ -3,7 +3,7 @@
   "compilerOptions": {
     "composite": true,
     "allowJs": true,
-    "baseUrl": "./app",
+    "baseUrl": "app",
     "paths": {
       "styles": ["./app/assets/styles/shared.scss"]
     },

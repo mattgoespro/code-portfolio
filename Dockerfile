@@ -18,5 +18,6 @@ COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/
 
-# Test for valid nginx configuration
-CMD [ "nginx", "-t" ]
+RUN nginx -t
+
+CMD [ "nginx", "-g", "daemon off;" ]

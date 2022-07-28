@@ -1,23 +1,42 @@
 import SvgIcon from '@mui/material/SvgIcon';
 import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
+import ProjectListComponent from './components/project-list/ProjectList';
 import './App.scss';
-import GithubLogo from './assets/svg/github-logo.svg';
-import LinkedInLogo from './assets/svg/linkedin-logo.svg';
-import CvDownloadIcon from './assets/svg/cv.svg';
-import { Stack, Tooltip } from '@mui/material';
-import { StrictMode } from 'react';
+import GithubLogo from '../assets/svg/github-logo.svg';
+import LinkedInLogo from '../assets/svg/linkedin-logo.svg';
+import CvDownloadIcon from '../assets/svg/cv.svg';
+import { Alert, Tooltip } from '@mui/material';
 import About from './components/about/About';
-import ProjectList from './components/projects/ProjectList';
 import Home from './components/home/Home';
-import React from 'react';
-import { Subscription } from 'rxjs';
-import AlertNotificationService, {
-  AlertNotificationDetails
-} from './services/alert-notification/AlertNotification.service';
-import AlertNotification from './services/alert-notification/AlertNotification';
+import ErrorNotificationService, {
+  ErrorNotification
+} from './services/alert-notification/ErrorNotification.service';
+import { useState } from 'react';
 
-function navBar() {
-  return (
+function AppShell() {
+  const errorNotificationComponents = (errorNotifications: ErrorNotification[]) => {
+    return errorNotifications.map((notification, index) => {
+      return (
+        <Alert
+          key={index}
+          className="notification"
+          severity="error"
+          variant="standard"
+          onClose={() => ErrorNotificationService.remove(notification)}
+        >
+          Error: {notification.message}
+        </Alert>
+      );
+    });
+  };
+
+  const [errorNotifications, setErrorNotifications] = useState<ErrorNotification[]>([]);
+
+  ErrorNotificationService.notify.subscribe((notifications) => {
+    setErrorNotifications(notifications);
+  });
+
+  const navBar = (
     <nav>
       <div className="nav-left">
         <div className="nav-left">
@@ -51,81 +70,31 @@ function navBar() {
       </div>
     </nav>
   );
-}
 
-interface AppState {
-  notifySubscription: Subscription;
-  notifications: AlertNotificationDetails[];
-}
-
-class App extends React.Component<Record<string, unknown>, AppState> {
-  constructor(props: Record<string, unknown>) {
-    super(props);
-
-    this.state = {
-      notifications: [],
-      notifySubscription: null
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      notifySubscription: AlertNotificationService.notify.subscribe((notifications) => {
-        this.setState({
-          notifications
-        });
-      })
-    });
-  }
-
-  componentWillUnmount(): void {
-    this.state.notifySubscription.unsubscribe();
-  }
-
-  render() {
-    return (
-      <div className="app">
-        {navBar()}
-        {this.state.notifications.length > 0 && (
-          <Stack className="notification-stack">
-            <div>
-              {this.state.notifications.map((notification, index) => {
-                return (
-                  <div key={index} className="notification">
-                    <AlertNotification
-                      alert={notification}
-                      onClose={() => {
-                        AlertNotificationService.remove(notification);
-                      }}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </Stack>
-        )}
-        <div className="error-notifications-tray"></div>
-        <div>
-          <Outlet />
-        </div>
-      </div>
-    );
-  }
-}
-
-export default function AppRoutes() {
   return (
-    <StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route path="home" element={<Home />} />
-            <Route path="projects" element={<ProjectList />}></Route>
-            <Route path="about" element={<About />} />
-            <Route path="*" />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </StrictMode>
+    <div className="app-shell">
+      {navBar}
+      <div className="content-outlet-wrapper">
+        <div className="notification-stack">{errorNotificationComponents(errorNotifications)}</div>
+        <Outlet />
+      </div>
+    </div>
   );
 }
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppShell />}>
+          <Route path="home" element={<Home />} />
+          <Route path="projects" element={<ProjectListComponent />}></Route>
+          <Route path="about" element={<About />} />
+          <Route path="*" />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;

@@ -41,6 +41,13 @@ module.exports = (_env, _argv) => {
       hints: false,
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
+    },
+    devServer: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080'
+        }
+      }
     }
   });
 };
