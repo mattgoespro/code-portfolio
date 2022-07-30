@@ -1,6 +1,6 @@
 import './Home.scss';
 import 'react-vertical-timeline-component/style.min.css';
-import { Button, Tooltip } from '@mui/material';
+import { Button } from '@mui/material';
 import { useState } from 'react';
 import HomeBanner from '@images/page-banner-home.jpg';
 import Timeline from './timeline/Timeline';
@@ -35,9 +35,7 @@ export default function Home() {
             >
               Timeline
             </Button>
-            <Tooltip title="Disabled for now -.-">
-              <Button className="btn-technical-experience .btn-action">Experience</Button>
-            </Tooltip>
+            <Button className="btn-technical-experience .btn-action">Experience</Button>
           </div>
         </div>
       </div>

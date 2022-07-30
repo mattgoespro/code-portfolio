@@ -16,6 +16,7 @@ import ProjectReadmeDialog from './readme-dialog/ReadmeDialog';
 function ProjectList() {
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
+  const [fetchingProjects, setFetchingProjects] = useState(false);
   const [errorNotifications, setErrorNotifications] = useState<ErrorNotification[]>([]);
   const [activeWorkingProject, setActiveWorkingProject] = useState<ApiRepositoryResponseDTO>();
   const [overlayFetchReadmeActive, setOverlayFetchReadmeActive] = useState(false);
@@ -29,35 +30,38 @@ function ProjectList() {
   );
 
   useEffect(() => {
-    const ac = new AbortController();
+    const abortController = new AbortController();
+    setFetchingProjects(true);
 
     Promise.all([
-      axios.get<ApiRepositoryResponseDTO[]>('/api/repos', { signal: ac.signal }),
-      axios.get<ApiRepositoryResponseDTO[]>('/api/repos/pinned', { signal: ac.signal })
+      axios.get<ApiRepositoryResponseDTO[]>('/api/repos', { signal: abortController.signal }),
+      axios.get<ApiRepositoryResponseDTO[]>('/api/repos/pinned', { signal: abortController.signal })
     ])
       .then((resp) => {
         setUnpinnedProjects(resp[0].data);
         setPinnedProjects(resp[1].data);
+        setFetchingProjects(false);
       })
       .catch((err) => {
+        setFetchingProjects(false);
         ErrorNotificationService.log(err);
       });
 
     return () => {
-      ac.abort();
+      abortController.abort();
       errorNotificationSubscription.unsubscribe();
     };
   }, []);
 
   useEffect(() => {
     if (activeWorkingProject != null) {
-      const ac = new AbortController();
+      const abortController = new AbortController();
 
       setOverlayFetchReadmeActive(true);
 
       axios
         .get(`/api/repos/${activeWorkingProject.name}/readme`, {
-          signal: ac.signal
+          signal: abortController.signal
         })
         .then((resp) => {
           setOverlayFetchReadmeActive(false);
@@ -70,7 +74,7 @@ function ProjectList() {
         });
 
       return () => {
-        ac.abort();
+        abortController.abort();
       };
     }
   }, [activeWorkingProject]);
@@ -122,7 +126,10 @@ function ProjectList() {
 
   return (
     <div>
-      <SpinnerLoadingOverlay visible={overlayFetchReadmeActive} spinnerColor="white" />
+      <SpinnerLoadingOverlay
+        visible={fetchingProjects || overlayFetchReadmeActive}
+        spinnerColor="white"
+      />
       {readmeDialogOpen && (
         <ProjectReadmeDialog
           dialogOpen={readmeDialogOpen}

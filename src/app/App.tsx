@@ -31,16 +31,12 @@ function AppShell() {
             <SvgIcon className="cv-icon">{<CvDownloadIcon />}</SvgIcon>
           </a>
         </Tooltip>
-        <Tooltip title="LinkedIn">
-          <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
-            <SvgIcon className="linkedin-icon">{<LinkedInLogo />}</SvgIcon>
-          </a>
-        </Tooltip>
-        <Tooltip title="GitHub">
-          <a href="https://github.com/mattgoespro" target="tab">
-            <SvgIcon className="github-icon">{<GithubLogo />}</SvgIcon>
-          </a>
-        </Tooltip>
+        <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
+          <SvgIcon className="linkedin-icon">{<LinkedInLogo />}</SvgIcon>
+        </a>
+        <a href="https://github.com/mattgoespro" target="tab">
+          <SvgIcon className="github-icon">{<GithubLogo />}</SvgIcon>
+        </a>
       </div>
     </nav>
   );

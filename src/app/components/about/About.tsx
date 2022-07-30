@@ -1,30 +1,23 @@
+import PageBanner from '@shared/components/page-banner/PageBanner';
+import AboutBanner from '@images/page-banner-about.jpg';
 import './About.scss';
-import { Tooltip } from '@mui/material';
 
 export default function About() {
   return (
     <div className="about-wrapper">
-      <div className="about-background-image-header">
-        <img
-          src="https://github.com/mattgoespro/public-resources/blob/master/images/github-commit-history.png?raw=true"
-          alt="bg"
-        ></img>
-        <div className="about-background-image-welcome-wrapper">
-          <h1 className="about-welcome">
-            Who is <span>Matt</span>?
-          </h1>
-          <h3 className="about-welcome-intro">and what is he about?</h3>
-        </div>
-      </div>
+      <PageBanner
+        title="Who is Matt Young?"
+        titleColor="black"
+        subtitle="and what is he about?"
+        backgroundImage={AboutBanner}
+      />
       <div className="about-info-wrapper">
         <div className="about-info">
-          <Tooltip title="I might not look like this now....">
-            <img
-              className="img-profile"
-              src="https://github.com/mattgoespro/public-resources/blob/master/images/profile.png?raw=true"
-              alt="profile"
-            ></img>
-          </Tooltip>
+          <img
+            className="img-profile"
+            src="https://github.com/mattgoespro/public-resources/blob/master/images/profile.png?raw=true"
+            alt="profile"
+          ></img>
           <p className="paragraph">Now a little bit about me.</p>
           <p className="paragraph">I am a proud South African, born and bred.</p>
           <p className="paragraph">

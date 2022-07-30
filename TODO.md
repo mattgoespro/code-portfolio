@@ -7,6 +7,7 @@
 - Example: click open readme for a project then immediately route to home page. An error is logged in the console.
 - Error alert messages not correct.
 - Dockerized: Fix nginx default page showing when refreshing browser.
+- Scrollbar on right side of Projects page.
 
 ## Styling
 

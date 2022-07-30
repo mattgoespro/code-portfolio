@@ -30,9 +30,8 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start:isolated": "webpack serve --config webpack.dev.js --mode development --port 4000",
-    "start:dev": "webpack serve --config webpack.dev.js --mode development --port 4000",
-    "start:dev:local-api": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:3000",
+    "start:dev:api-local": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:3000",
+    "start:dev:api-container": "webpack serve --config webpack.dev.js --mode development --port 4000",
     "start:prod": "webpack serve --config webpack.prod.js --mode production --port 4000",
     "build": "webpack --config webpack.prod.js --mode production",
     "lint": "eslint src",

@@ -7,23 +7,24 @@ export interface ErrorNotification {
   message: string;
 }
 
+const MESSAGE_UNEXPECTED_ERROR = 'An unexpected error has occurred. Please try again.';
+const MESSAGE_SERVICE_UNAVAILABLE = 'Service is unavailable.';
+const MESSAGE_GATEWAY_TIMEOUT = 'Gateway timed out.';
+
 class ErrorNotificationService {
-  private static UNEXPECTED_ERROR_MESSAGE = 'An unexpected error has occurred. Please try again.';
   private notifications: ErrorNotification[] = [];
   public notify: Subject<ErrorNotification[]> = new Subject();
 
   public log(error: AxiosError) {
-    if (error.isAxiosError && error.code !== AxiosError.ERR_CANCELED) {
-      const notification: ErrorNotification = this.parseErrorToNotification(error);
+    const notification: ErrorNotification = this.parseErrorToNotification(error);
 
-      if (
-        this.notifications.find(
-          (n) => n.status === notification.status && n.message === notification.message
-        ) == null
-      ) {
-        this.notifications.push(notification);
-        this.notify.next(this.notifications);
-      }
+    if (
+      this.notifications.find(
+        (n) => n.status === notification.status && n.message === notification.message
+      ) == null
+    ) {
+      this.notifications.push(notification);
+      this.notify.next(this.notifications);
     }
   }
 
@@ -32,8 +33,22 @@ class ErrorNotificationService {
     let status = errorResponse.status;
     let message: string = null;
 
-    if (status === 504 || status === 401 || status === 403) {
-      message = ErrorNotificationService.UNEXPECTED_ERROR_MESSAGE;
+    if (status === 504) {
+      return {
+        status: 504,
+        message: MESSAGE_GATEWAY_TIMEOUT
+      };
+    }
+
+    if (error.code === AxiosError.ERR_NETWORK) {
+      return {
+        status: 503,
+        message: MESSAGE_SERVICE_UNAVAILABLE
+      };
+    }
+
+    if (status === 401 || status === 403) {
+      message = MESSAGE_UNEXPECTED_ERROR;
     } else {
       const responseData = errorResponse.data as ApiHttpErrorResponse;
       status = responseData.status;
