@@ -1,5 +1,5 @@
 import { GithubRepositoryLanguageResponseDTO } from '@shared/services/shared.model';
-import ErrorNotificationService from '../../../../services/error-notification/ErrorNotification.service';
+import ErrorNotificationService from '../../../../shared/services/error-notification/ErrorNotification.service';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
@@ -18,12 +18,16 @@ function LanguageChart(props: LanguageChartProps) {
   const [chartData, setChartData] = useState<LanguageChartData>(null);
 
   useEffect(() => {
+    const ac = new AbortController();
+
     axios
       .get<GithubRepositoryLanguageResponseDTO>(`/api/repos/${props.projectName}/languages`)
       .then((resp) => {
         setChartData(calculateChartData(resp.data));
       })
       .catch((err) => ErrorNotificationService.log(err));
+
+    return () => ac.abort();
   }, []);
 
   return (

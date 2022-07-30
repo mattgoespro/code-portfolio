@@ -7,8 +7,8 @@ import MarkdownIt from 'markdown-it';
 interface ProjectReadmeDialogProps {
   project: ApiRepositoryResponseDTO;
   projectPinned?: boolean;
-  dialogOpen: boolean;
   readmeContent: string;
+  dialogOpen: boolean;
   onDialogClose: () => void;
 }
 
@@ -18,7 +18,9 @@ function ProjectReadmeDialog(props: ProjectReadmeDialogProps) {
 
   return (
     <Dialog className="dialog" open={props.dialogOpen} onClose={props.onDialogClose} scroll="paper">
-      <DialogTitle className={'dialog-title' + props.projectPinned ? ' dialog-pinned' : ''}>
+      <DialogTitle
+        sx={{ color: 'white', backgroundColor: props.projectPinned ? '#ec407a' : '#243890' }}
+      >
         {props.project.name}
       </DialogTitle>
       <DialogContent>
@@ -28,7 +30,7 @@ function ProjectReadmeDialog(props: ProjectReadmeDialogProps) {
               parseHtmlToJsx(parseMarkdownToString.render(props.readmeContent))
             ) : (
               <div className="no-readme">
-                <i>No readme found.</i>
+                <i>No information to display.</i>
               </div>
             )}
           </div>

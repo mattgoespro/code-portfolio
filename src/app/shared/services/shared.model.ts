@@ -5,7 +5,7 @@ export interface AxiosError {
 }
 
 export interface ApiHttpErrorResponse {
-  httpErrorCode: number;
+  status: number;
   message: string;
 }
 

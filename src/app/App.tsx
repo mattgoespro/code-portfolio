@@ -1,41 +1,15 @@
 import SvgIcon from '@mui/material/SvgIcon';
 import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
-import ProjectListComponent from './components/projects/ProjectList';
+import ProjectListComponent from './components/projects/Projects';
 import './App.scss';
 import GithubLogo from '../assets/svg/github-logo.svg';
 import LinkedInLogo from '../assets/svg/linkedin-logo.svg';
 import CvDownloadIcon from '../assets/svg/cv.svg';
-import { Alert, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import About from './components/about/About';
 import Home from './components/home/Home';
-import ErrorNotificationService, {
-  ErrorNotification
-} from './services/error-notification/ErrorNotification.service';
-import { useState } from 'react';
 
 function AppShell() {
-  const errorNotificationComponents = (errorNotifications: ErrorNotification[]) => {
-    return errorNotifications.map((notification, index) => {
-      return (
-        <Alert
-          key={index}
-          className="notification"
-          severity="error"
-          variant="standard"
-          onClose={() => ErrorNotificationService.remove(notification)}
-        >
-          Error: {notification.message}
-        </Alert>
-      );
-    });
-  };
-
-  const [errorNotifications, setErrorNotifications] = useState<ErrorNotification[]>([]);
-
-  ErrorNotificationService.notify.subscribe((notifications) => {
-    setErrorNotifications(notifications);
-  });
-
   const navBar = (
     <nav>
       <div className="nav-left">
@@ -75,7 +49,6 @@ function AppShell() {
     <div className="app-shell">
       {navBar}
       <div className="content-outlet-wrapper">
-        <div className="notification-stack">{errorNotificationComponents(errorNotifications)}</div>
         <Outlet />
       </div>
     </div>

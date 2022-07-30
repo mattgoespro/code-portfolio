@@ -1,11 +1,8 @@
 import Alert from '@mui/material/Alert/Alert';
-import ErrorNotificationService from './ErrorNotification.service';
+import ErrorNotificationService, { ErrorNotification } from './ErrorNotification.service';
 
 interface ErrorNotificationProps {
-  notification: {
-    httpErrorCode: number;
-    message: string;
-  };
+  notification: ErrorNotification;
 }
 
 const ErrorNotification = (props: ErrorNotificationProps) => {

@@ -1,5 +1,4 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { merge } = require('webpack-merge');
 
 module.exports = (env, argv) => {
@@ -8,27 +7,16 @@ module.exports = (env, argv) => {
   return merge(webpackCommon, {
     devtool: 'source-map',
     plugins: [
-      new ForkTsCheckerWebpackPlugin({
-        async: false
-      }),
       new BundleAnalyzerPlugin({
-        analyzerMode: 'server',
+        analyzerMode: 'static',
         openAnalyzer: argv.openAnalyzer === true,
-        reportFilename: 'bundle-size-report.html',
-        statsOptions: {
-          assets: true,
-          children: true,
-          entrypoints: true,
-          performance: true,
-          usedExports: true,
-          publicPath: true
-        }
+        reportFilename: 'bundle-size-report.html'
       })
     ],
     devServer: {
       proxy: {
         '/api': {
-          target: 'http://localhost:8081'
+          target: env['api-target'] || 'http://localhost:8081'
         }
       }
     }

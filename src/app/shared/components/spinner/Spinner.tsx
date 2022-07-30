@@ -1,9 +1,9 @@
 import { FadeLoader } from 'react-spinners';
 
-const Spinner = () => {
+const Spinner = (props: { color: string }) => {
   return (
     <FadeLoader
-      color="orange"
+      color={props.color || 'orange'}
       loading={true}
       speedMultiplier={1}
       width={5}
