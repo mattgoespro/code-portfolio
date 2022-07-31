@@ -18,7 +18,7 @@ function ProjectList() {
   const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [fetchingProjects, setFetchingProjects] = useState(false);
   const [errorNotifications, setErrorNotifications] = useState<ErrorNotification[]>([]);
-  const [activeWorkingProject, setActiveWorkingProject] = useState<ApiRepositoryResponseDTO>();
+  const [activeWorkingProject, setActiveWorkingProject] = useState<ApiRepositoryResponseDTO>(null);
   const [overlayFetchReadmeActive, setOverlayFetchReadmeActive] = useState(false);
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readmeContent, setReadmeContent] = useState(null);
@@ -54,9 +54,9 @@ function ProjectList() {
   }, []);
 
   useEffect(() => {
-    if (activeWorkingProject != null) {
-      const abortController = new AbortController();
+    const abortController = new AbortController();
 
+    if (activeWorkingProject != null) {
       setOverlayFetchReadmeActive(true);
 
       axios
@@ -70,6 +70,7 @@ function ProjectList() {
         })
         .catch((err) => {
           setOverlayFetchReadmeActive(false);
+          setActiveWorkingProject(null);
           ErrorNotificationService.log(err);
         });
 
@@ -127,8 +128,8 @@ function ProjectList() {
   return (
     <div>
       <SpinnerLoadingOverlay
-        visible={fetchingProjects || overlayFetchReadmeActive}
         spinnerColor="white"
+        visible={fetchingProjects || overlayFetchReadmeActive}
       />
       {readmeDialogOpen && (
         <ProjectReadmeDialog

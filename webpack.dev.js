@@ -1,4 +1,3 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { merge } = require('webpack-merge');
 
 module.exports = (env, argv) => {
@@ -6,13 +5,6 @@ module.exports = (env, argv) => {
 
   return merge(webpackCommon, {
     devtool: 'source-map',
-    plugins: [
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        openAnalyzer: argv.openAnalyzer === true,
-        reportFilename: 'bundle-size-report.html'
-      })
-    ],
     devServer: {
       proxy: {
         '/api': {

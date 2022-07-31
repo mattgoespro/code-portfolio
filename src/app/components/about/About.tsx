@@ -1,5 +1,6 @@
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import AboutBanner from '@images/page-banner-about.jpg';
+import AboutProfile from '@images/about-profile.jpg';
 import './About.scss';
 
 export default function About() {
@@ -13,11 +14,7 @@ export default function About() {
       />
       <div className="about-info-wrapper">
         <div className="about-info">
-          <img
-            className="img-profile"
-            src="https://github.com/mattgoespro/public-resources/blob/master/images/profile.png?raw=true"
-            alt="profile"
-          ></img>
+          <img className="img-profile" src={AboutProfile} alt="profile"></img>
           <p className="paragraph">Now a little bit about me.</p>
           <p className="paragraph">I am a proud South African, born and bred.</p>
           <p className="paragraph">

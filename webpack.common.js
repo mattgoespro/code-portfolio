@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').TsconfigPathsPlugin;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = function (_env, argv) {
   const buildMode = argv.mode;
@@ -27,6 +28,7 @@ module.exports = function (_env, argv) {
         'process.env.NODE_ENV': JSON.stringify(buildMode)
       }),
       new ForkTsCheckerWebpackPlugin(),
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html'),
         favicon: path.resolve(__dirname, 'public/favicon.ico'),
@@ -40,13 +42,10 @@ module.exports = function (_env, argv) {
     module: {
       rules: [
         {
-          test: /\.jpg$/,
+          test: /\.(png|jpg)$/,
           use: [
             {
-              loader: 'url-loader',
-              options: {
-                mimetype: 'image/jpg'
-              }
+              loader: 'url-loader'
             }
           ]
         },

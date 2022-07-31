@@ -59,44 +59,42 @@ export default function Project(props: ProjectProps) {
   );
 
   return (
-    <div>
-      <Card className="project-card">
-        <CardHeader
-          className="project-header"
-          style={{
-            backgroundColor: pinned ? '#EC407A' : '#243890'
-          }}
-          avatar={<GitHub className="avatar" />}
-          title={projectTitle}
-          subheader={
-            <Tooltip title="Visit">
-              <a className="project-repo" href={repo.link} target="tab">
-                <LinkIcon fontSize="medium" />
-              </a>
-            </Tooltip>
-          }
-        />
-        <CardContent>
-          <div className="description-wrapper">
-            <h3 className="title-description">Description</h3>
-            <div className="description">{repo.description || <i>Not available.</i>}</div>
-          </div>
-        </CardContent>
-        <Collapse in={cardExpanded} timeout="auto" unmountOnExit>
-          {cardExpanded && (
-            <CardContent>
-              <div className="summary-repo">
-                <div className="summary-repo-activity">Project Activity</div>
-                <span>Created: {format(new Date(repo.createdTimestamp), 'dd-MM-yyyy p')}</span>
-                <span>Last Updated: {format(new Date(repo.updatedTimestamp), 'dd-MM-yyyy p')}</span>
-              </div>
-              <div className="divider"></div>
-              {<LanguageChart projectName={props.repo.name} />}
-              {<div className="divider"></div>}
-            </CardContent>
-          )}
-        </Collapse>
-      </Card>
-    </div>
+    <Card className="project-card">
+      <CardHeader
+        className="project-header"
+        style={{
+          backgroundColor: pinned ? '#EC407A' : '#243890'
+        }}
+        avatar={<GitHub className="avatar" />}
+        title={projectTitle}
+        subheader={
+          <Tooltip title="Visit">
+            <a className="project-repo" href={repo.link} target="tab">
+              <LinkIcon fontSize="medium" />
+            </a>
+          </Tooltip>
+        }
+      />
+      <CardContent>
+        <div className="description-wrapper">
+          <h3 className="title-description">Description</h3>
+          <div className="description">{repo.description || <i>Not available.</i>}</div>
+        </div>
+      </CardContent>
+      <Collapse in={cardExpanded} timeout="auto" unmountOnExit>
+        {cardExpanded && (
+          <CardContent>
+            <div className="summary-repo">
+              <div className="summary-repo-activity">Project Activity</div>
+              <span>Created: {format(new Date(repo.createdTimestamp), 'dd-MM-yyyy p')}</span>
+              <span>Last Updated: {format(new Date(repo.updatedTimestamp), 'dd-MM-yyyy p')}</span>
+            </div>
+            <div className="divider"></div>
+            {<LanguageChart projectName={props.repo.name} />}
+            {<div className="divider"></div>}
+          </CardContent>
+        )}
+      </Collapse>
+    </Card>
   );
 }
