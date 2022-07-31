@@ -1,5 +1,4 @@
 import PageBanner from '@shared/components/page-banner/PageBanner';
-import AboutBanner from '@images/page-banner-about.jpg';
 import AboutProfile from '@images/about-profile.jpg';
 import './About.scss';
 
@@ -10,7 +9,7 @@ export default function About() {
         title="Who is Matt Young?"
         titleColor="black"
         subtitle="and what is he about?"
-        backgroundImage={AboutBanner}
+        backgroundColor="white"
       />
       <div className="about-info-wrapper">
         <div className="about-info">

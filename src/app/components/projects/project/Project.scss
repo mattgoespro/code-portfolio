@@ -1,3 +1,5 @@
+@import 'shared';
+
 .project-card {
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px !important;
   height: 100% !important;
@@ -74,12 +76,6 @@
   font-weight: 900;
   margin: 15px;
   vertical-align: middle;
-}
-
-.divider {
-  border-bottom: 1px solid white;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .summary-repo {

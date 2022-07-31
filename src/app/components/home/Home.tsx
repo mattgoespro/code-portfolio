@@ -19,6 +19,7 @@ export default function Home() {
         }
         subtitle="Allow me to introduce myself."
         backgroundImage={HomeBanner}
+        backgroundImageAdjust={true}
       />
       <div className="welcome-info-actions">
         <p className="welcome-info">

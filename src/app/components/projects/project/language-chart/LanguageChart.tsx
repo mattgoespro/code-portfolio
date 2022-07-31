@@ -53,9 +53,15 @@ function LanguageChart(props: LanguageChartProps) {
           <PieChart
             className="pie-chart"
             data={chartData.data}
-            label={(labelProps) =>
-              `${((labelProps.dataEntry.value * 100) / chartData.totalValues).toFixed()}%`
-            }
+            label={(labelProps) => {
+              const percentagePortion = (labelProps.dataEntry.value * 100) / chartData.totalValues;
+
+              if (percentagePortion > 3) {
+                return `${percentagePortion.toFixed()}%`;
+              }
+
+              return '';
+            }}
             labelStyle={{
               fontSize: '3px',
               fontFamily: 'Roboto'

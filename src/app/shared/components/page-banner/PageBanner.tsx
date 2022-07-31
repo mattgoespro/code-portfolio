@@ -4,13 +4,21 @@ interface PageBannerProps {
   title: string | JSX.Element;
   titleColor?: string;
   subtitle: string;
-  backgroundImage: string;
+  backgroundColor?: string;
+  backgroundImage?: string;
+  backgroundImageAdjust?: boolean;
 }
 
 function PageBanner(props: PageBannerProps) {
   return (
-    <div className="banner">
-      <img className="banner-image" src={props.backgroundImage} alt="banner-image"></img>
+    <div className="banner" style={{ backgroundColor: props.backgroundColor }}>
+      {props.backgroundColor == null && props.backgroundImage != null && (
+        <img
+          className={props.backgroundImageAdjust ? 'banner-image' : ''}
+          src={props.backgroundImage}
+          alt="banner-image"
+        ></img>
+      )}
       <div className="banner-title-wrapper">
         <div className="banner-title" style={{ color: props.titleColor }}>
           {props.title}

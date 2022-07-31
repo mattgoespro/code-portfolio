@@ -42,13 +42,23 @@
 }
 
 .projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin: auto;
 }
 
 .pinned-projects-wrapper {
-  box-shadow: #32325d40 0px 6px 12px -2px, #0000004d 0px 3px 7px -3px;
-  background-color: #0e0e10;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title-pinned-projects {
+  text-align: center;
+  font-family: 'Nunito Sans';
+  margin-bottom: 0;
 }
 
 .pinned-projects {
@@ -56,11 +66,18 @@
   justify-content: center;
 }
 
+.pinned-projects-exit {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(white, #272727);
+}
+
 .unpinned-projects {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #272727;
+  width: 40%;
 }
 
 .project {

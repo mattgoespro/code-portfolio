@@ -149,9 +149,14 @@ function ProjectList() {
           title="Here's what I've been working on."
           subtitle="...among other things"
           backgroundImage={ProjectsBanner}
+          backgroundImageAdjust={true}
         />
         <div className="projects">
-          <div className="pinned-projects">{createProjectListElements(pinnedProjects, true)}</div>
+          <div className="pinned-projects-wrapper">
+            <h1 className="title-pinned-projects">Projects of Interest</h1>
+            <div className="pinned-projects">{createProjectListElements(pinnedProjects, true)}</div>
+            <div className="pinned-projects-exit"></div>
+          </div>
           <div className="unpinned-projects">
             {createProjectListElements(unpinnedProjects, false)}
           </div>
