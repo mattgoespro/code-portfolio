@@ -3,8 +3,6 @@ import './ReadmeDialog.scss';
 import HTMLReactParser, { Element } from 'html-react-parser';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
 import MarkdownIt from 'markdown-it';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
 
 interface ProjectReadmeDialogProps {
   project: ApiRepositoryResponseDTO;
@@ -31,47 +29,45 @@ function ProjectReadmeDialog(props: ProjectReadmeDialogProps) {
       >
         {props.project.name}
       </DialogTitle>
-      <SimpleBar style={{ maxHeight: 800 }}>
-        <div className="readme-content">
-          <div>
-            {props.readmeContent.length > 0 ? (
-              parseHtmlToJsx(parseMarkdownToString.render(props.readmeContent), {
-                replace: (domNode) => {
-                  if (domNode instanceof Element) {
-                    const tagName = domNode.name;
+      <div className="readme-content">
+        <div>
+          {props.readmeContent.length > 0 ? (
+            parseHtmlToJsx(parseMarkdownToString.render(props.readmeContent), {
+              replace: (domNode) => {
+                if (domNode instanceof Element) {
+                  const tagName = domNode.name;
 
-                    switch (tagName) {
-                      case 'h1':
-                        domNode.attribs['class'] = 'markdown-title roboto';
-                        break;
-                      case 'h2':
-                        domNode.attribs['class'] = 'markdown-section-title roboto';
-                        break;
-                      case 'h3':
-                        domNode.attribs['class'] = 'markdown-section-subtitle roboto';
-                        break;
-                      case 'p':
-                        domNode.attribs['class'] = 'markdown-section-content';
-                        break;
-                      case 'ul':
-                        domNode.attribs['class'] = 'markdown-list';
-                        break;
-                      case 'li':
-                        domNode.attribs['class'] = 'markdown-section-content';
-                    }
-
-                    return domNode;
+                  switch (tagName) {
+                    case 'h1':
+                      domNode.attribs['class'] = 'markdown-title roboto';
+                      break;
+                    case 'h2':
+                      domNode.attribs['class'] = 'markdown-section-title roboto';
+                      break;
+                    case 'h3':
+                      domNode.attribs['class'] = 'markdown-section-subtitle roboto';
+                      break;
+                    case 'p':
+                      domNode.attribs['class'] = 'markdown-section-content';
+                      break;
+                    case 'ul':
+                      domNode.attribs['class'] = 'markdown-list';
+                      break;
+                    case 'li':
+                      domNode.attribs['class'] = 'markdown-section-content';
                   }
+
+                  return domNode;
                 }
-              })
-            ) : (
-              <div className="no-readme">
-                <i>No information to display.</i>
-              </div>
-            )}
-          </div>
+              }
+            })
+          ) : (
+            <div className="no-readme">
+              <i>No information to display.</i>
+            </div>
+          )}
         </div>
-      </SimpleBar>
+      </div>
     </Dialog>
   );
 }

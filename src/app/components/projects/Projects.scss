@@ -63,28 +63,6 @@
 .project {
   margin: 20px;
   width: 500px;
-
-  // &:not(.pinned) {
-  //   -webkit-animation-name: fadeAndSlide;
-  //   animation-name: fadeAndSlide;
-  //   -webkit-animation-fill-mode: forwards;
-  //   animation-fill-mode: forwards;
-  //   -webkit-animation-duration: 1s;
-  //   animation-duration: 1s;
-  //   -webkit-animation-delay: calc(var(--unpinnedProjectIndex) * 100ms);
-  //   animation-delay: calc(var(--unpinnedProjectIndex) * 100ms);
-  // }
-
-  // &.pinned {
-  //   -webkit-animation-name: fadeIn;
-  //   animation-name: fadeIn;
-  //   -webkit-animation-fill-mode: forwards;
-  //   animation-fill-mode: forwards;
-  //   -webkit-animation-duration: 1s;
-  //   animation-duration: 1s;
-  //   -webkit-animation-delay: calc(var(--pinnedProjectIndex) * 100ms);
-  //   animation-delay: calc(var(--pinnedProjectIndex) * 100ms);
-  // }
 }
 
 .pinned {
