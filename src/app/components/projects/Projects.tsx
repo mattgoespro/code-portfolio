@@ -3,13 +3,9 @@ import axios from 'axios';
 import './Projects.scss';
 import { CSSProperties, useState } from 'react';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
-import ErrorNotificationService, {
-  ErrorNotification
-} from '@shared/services/error-notification/ErrorNotification.service';
 import ProjectsBanner from '@images/page-banner-projects.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
-import { Alert } from '@mui/material';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
 import ProjectReadmeDialog from './readme-dialog/ReadmeDialog';
 
@@ -17,17 +13,10 @@ function ProjectList() {
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [fetchingProjects, setFetchingProjects] = useState(false);
-  const [errorNotifications, setErrorNotifications] = useState<ErrorNotification[]>([]);
   const [activeWorkingProject, setActiveWorkingProject] = useState<ApiRepositoryResponseDTO>(null);
   const [overlayFetchReadmeActive, setOverlayFetchReadmeActive] = useState(false);
   const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
   const [readmeContent, setReadmeContent] = useState(null);
-
-  const errorNotificationSubscription = ErrorNotificationService.notify.subscribe(
-    (notifications) => {
-      setErrorNotifications(notifications);
-    }
-  );
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -42,14 +31,12 @@ function ProjectList() {
         setPinnedProjects(resp[1].data);
         setFetchingProjects(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setFetchingProjects(false);
-        ErrorNotificationService.log(err);
       });
 
     return () => {
       abortController.abort();
-      errorNotificationSubscription.unsubscribe();
     };
   }, []);
 
@@ -68,10 +55,9 @@ function ProjectList() {
           setReadmeContent(resp.data);
           setReadmeDialogOpen(true);
         })
-        .catch((err) => {
+        .catch(() => {
           setOverlayFetchReadmeActive(false);
           setActiveWorkingProject(null);
-          ErrorNotificationService.log(err);
         });
 
       return () => {
@@ -79,22 +65,6 @@ function ProjectList() {
       };
     }
   }, [activeWorkingProject]);
-
-  function getErrorNotifications(errorNotifications: ErrorNotification[]) {
-    return errorNotifications.map((notification, index) => {
-      return (
-        <Alert
-          key={index}
-          className="notification"
-          severity="error"
-          variant="standard"
-          onClose={() => ErrorNotificationService.remove(notification)}
-        >
-          {notification.message}
-        </Alert>
-      );
-    });
-  }
 
   function triggerLoadingOverlay(project: ApiRepositoryResponseDTO) {
     setOverlayFetchReadmeActive(true);
@@ -143,7 +113,6 @@ function ProjectList() {
           }}
         />
       )}
-      <div className="notification-stack">{getErrorNotifications(errorNotifications)}</div>
       <div className="project-list-wrapper">
         <PageBanner
           title="Here's what I've been working on."

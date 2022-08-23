@@ -26,7 +26,7 @@ export default function Home() {
           I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
           make a difference in the software industry.
         </p>
-        <div className="welcome-divider"></div>
+        <div className="divider"></div>
         <div className="welcome-actions">
           <div className="welcome-info">What would you like to see next?</div>
           <div className="welcome-action-buttons">

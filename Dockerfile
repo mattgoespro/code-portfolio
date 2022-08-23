@@ -3,11 +3,11 @@ FROM tiangolo/node-frontend:latest as build-stage
 
 WORKDIR /app
 
-COPY package*.json /app/
+COPY package*.json .
 
 RUN npm ci
 
-COPY ./ /app/
+COPY . .
 
 RUN npm run build
 

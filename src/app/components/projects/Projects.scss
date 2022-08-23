@@ -5,26 +5,6 @@
   --unpinnedProjectIndex: 0;
 }
 
-.notification-stack {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  z-index: 10;
-
-  .notification {
-    margin: 10px;
-    max-width: 400px;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 200ms;
-    animation-duration: 200ms;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-  }
-}
-
 .project-list-wrapper {
   width: 100%;
   margin: 0;
