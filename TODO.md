@@ -4,21 +4,20 @@
 
 - Memory leaks when tasks are still in progress when the component needs to dismount. Example: click open readme for a project then immediately route to home page. An error is logged in the console.
 
+# Reactive
+
+- Mobile support
+- Resizing components
+
 ## Styling
 
-- Use style classes instead of adding style using component properties where possible.
 - Switch to scss modules.
 
 ## Misc
 
-- Import ordering.
-- Change references of _repo/repository_ to _project_.
+- ESLint import ordering.
 
-## Tech Debt
+## Optimization
 
-- Update packages: npx ncu -u
-
-## Production
-
-- Double check we're not importing unneeded modules.
-- Bundle optimization.
+- Bundle sizes
+- Imports

@@ -7,7 +7,7 @@ COPY package*.json ./
 
 RUN npm ci
 
-COPY . .
+COPY . ./
 
 RUN npm run build
 
@@ -17,8 +17,5 @@ FROM nginx:1.15
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/
-
-# Test nginx configuration
-# RUN nginx -t
 
 CMD [ "nginx", "-g", "daemon off;" ]
