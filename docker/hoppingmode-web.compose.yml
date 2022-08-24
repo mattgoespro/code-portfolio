@@ -1,12 +1,15 @@
+version: '3'
 services:
   frontend:
     image: hoppingmode-web/frontend
     depends_on:
-      - "api"
+      - 'api'
     ports:
       - '80:80'
     networks:
       - portfolio-website
+    extra_hosts:
+      - host.docker.internal:host-gateway
   api:
     image: hoppingmode-web/api
     ports:
