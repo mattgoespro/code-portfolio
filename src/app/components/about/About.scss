@@ -1,37 +1,65 @@
-.img-profile {
-  border-radius: 40px;
-  float: right;
-  padding: 20px;
-  width: 200px !important;
+.about-wrapper {
+  margin: auto;
+  background-color: #f9f2eb;
 }
 
-.about-wrapper {
+.about-content-wrapper {
+  display: flex;
+  padding: 20px;
+}
+
+.about-content {
   display: flex;
   flex-direction: column;
-  margin: auto;
   align-items: center;
-  background-color: white;
 }
 
-.about-info-wrapper {
+.about-title {
+  font-size: 34px;
+  color: #2032b3;
+  text-align: center;
+  width: 700px;
+  margin: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.about-text {
   display: flex;
-  justify-content: center;
+}
+
+.img-profile {
+  width: 400px;
+  border-radius: 4px;
 }
 
 .about-info {
-  font-family: 'Roboto';
-  font-weight: 100;
+  position: relative;
   font-size: 16px;
-  color: white;
-  width: 40%;
+  max-width: 400px;
+  padding: 0 40px 0 40px;
   text-align: justify;
-  word-wrap: break-word;
-  padding: 20px;
-  background-color: #24292f;
 }
 
-.paragraph {
-  font-size: 16px !important;
+.left {
+  &:after {
+    content: '';
+    height: 90%;
+    width: 2px;
+    position: absolute;
+    right: 0;
+    top: 5%;
+    background-color: #ddd7d0;
+  }
+}
+
+.about-info .paragraph {
+  font-size: 15px;
+  font-family: Garamond;
+  color: #000038;
+}
+
+.list-item {
+  font-size: 12px;
 }
 
 .download-cv {
@@ -41,8 +69,4 @@
   font-size: 16px;
   font-weight: 100;
   padding: 10px;
-}
-
-.list-text {
-  color: white;
 }

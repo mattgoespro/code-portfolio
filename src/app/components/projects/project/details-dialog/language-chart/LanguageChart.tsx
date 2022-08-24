@@ -1,34 +1,14 @@
-import { GithubRepositoryLanguageResponseDTO } from '@shared/services/shared.model';
-import ErrorNotificationService from '../../../../shared/services/error-notification/ErrorNotification.service';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
-import {
-  calculateChartData,
-  LanguageChartData,
-  languageChartLabelColors
-} from './LanguageChart.model';
+import { ProjectLanguageComposition } from '@shared/services/shared.model';
+import { calculateChartData, languageChartLabelColors } from './LanguageChart.model';
 import './LanguageChart.scss';
 
 interface LanguageChartProps {
-  projectName: string;
+  languageComposition: ProjectLanguageComposition;
 }
 
 function LanguageChart(props: LanguageChartProps) {
-  const [chartData, setChartData] = useState<LanguageChartData>(null);
-
-  useEffect(() => {
-    const ac = new AbortController();
-
-    axios
-      .get<GithubRepositoryLanguageResponseDTO>(`/api/repos/${props.projectName}/languages`)
-      .then((resp) => {
-        setChartData(calculateChartData(resp.data));
-      })
-      .catch((err) => ErrorNotificationService.log(err));
-
-    return () => ac.abort();
-  }, []);
+  const chartData = calculateChartData(props.languageComposition);
 
   return (
     <div className="summary-language-chart-wrapper">

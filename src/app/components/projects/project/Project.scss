@@ -55,10 +55,6 @@
   margin-top: 0;
 }
 
-.project-expand-more-icon {
-  float: 'right';
-}
-
 .description {
   color: black;
   font-size: 16px;
@@ -70,102 +66,9 @@
   font-weight: bold;
 }
 
-.expand-more-label {
-  font-size: 16px;
-  color: black;
-  font-weight: 900;
-  margin: 15px;
-  vertical-align: middle;
-}
-
-.summary-repo {
-  display: flex;
-  flex-direction: column;
-  color: black;
-
-  span {
-    font-size: 14px;
-    font-weight: 100;
-    margin-bottom: 8px;
-  }
-}
-
-.summary-repo-activity {
-  color: black;
-  font-size: 16px;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
 .card-header-icon {
   width: 15px !important;
   height: 15px !important;
-}
-
-@-webkit-keyframes expandIcon {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes expandIcon {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-}
-
-.expand-icon {
-  -webkit-animation-name: expandIcon;
-  animation-name: expandIcon;
-  -webkit-animation-duration: 500ms;
-  animation-duration: 500ms;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes collapseIcon {
-  from {
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-
-  to {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes collapseIcon {
-  from {
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-
-  to {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-.collapse-icon {
-  -webkit-animation-name: collapseIcon;
-  animation-name: collapseIcon;
-  -webkit-animation-duration: 500ms;
-  animation-duration: 500ms;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
 }
 
 .title-wrapper {
@@ -181,11 +84,6 @@
 
 .title-icon-button {
   background-color: white !important;
-}
-
-.expand {
-  width: 27px;
-  height: 27px;
 }
 
 .view-readme {

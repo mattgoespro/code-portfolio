@@ -17,6 +17,12 @@ export interface ApiRepositoryResponseDTO {
   link: string;
 }
 
-export interface GithubRepositoryLanguageResponseDTO {
-  languages: { [key: string]: number };
+export interface ApiRepositoryReadmeResponseDTO {
+  content: string;
+}
+
+export type ProjectLanguageComposition = { [key: string]: number };
+
+export interface ApiRepositoryLanguagesResponseDTO {
+  languages: ProjectLanguageComposition;
 }

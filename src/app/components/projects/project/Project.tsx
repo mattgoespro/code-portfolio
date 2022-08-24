@@ -1,14 +1,10 @@
-import { Card, CardContent, CardHeader, Collapse, IconButton, Tooltip } from '@mui/material';
+import { Card, CardContent, CardHeader, IconButton, Tooltip } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import { useState } from 'react';
-import { format } from 'date-fns';
 import LinkIcon from '@mui/icons-material/Link';
 import HelpIcon from '@mui/icons-material/Help';
 import './Project.scss';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
-import LanguageChart from './language-chart/LanguageChart';
 
 interface ProjectProps {
   repo: ApiRepositoryResponseDTO;
@@ -18,7 +14,6 @@ interface ProjectProps {
 
 export default function Project(props: ProjectProps) {
   const { repo, pinned } = props;
-  const [cardExpanded, setCardExpanded] = useState<boolean>(false);
 
   const projectTitle = (
     <div className="title-wrapper">
@@ -32,7 +27,7 @@ export default function Project(props: ProjectProps) {
       </div>
       <div className="title-icon-buttons">
         <span className="title-open-readme-icon">
-          <Tooltip title={pinned ? 'View' : 'View Readme'}>
+          <Tooltip title="View Details">
             <IconButton
               size="small"
               onClick={() => {
@@ -44,16 +39,6 @@ export default function Project(props: ProjectProps) {
             </IconButton>
           </Tooltip>
         </span>
-        {!pinned && (
-          <span className="project-expand-more-icon">
-            <IconButton
-              className="title-icon-button view-readme"
-              onClick={() => setCardExpanded(cardExpanded == null ? true : !cardExpanded)}
-            >
-              <ExpandMoreIcon className={cardExpanded ? 'expand-icon' : 'collapse-icon'} />
-            </IconButton>
-          </span>
-        )}
       </div>
     </div>
   );
@@ -81,20 +66,21 @@ export default function Project(props: ProjectProps) {
           <div className="description">{repo.description || <i>Not available.</i>}</div>
         </div>
       </CardContent>
-      <Collapse in={cardExpanded} timeout="auto" unmountOnExit>
+      {/* <Collapse in={cardExpanded} timeout="auto" unmountOnExit>
         {cardExpanded && (
           <CardContent>
+            <div className="divider project-collapse-divider"></div>
             <div className="summary-repo">
               <div className="summary-repo-activity">Project Activity</div>
               <span>Created: {format(new Date(repo.createdTimestamp), 'dd-MM-yyyy p')}</span>
               <span>Last Updated: {format(new Date(repo.updatedTimestamp), 'dd-MM-yyyy p')}</span>
             </div>
-            <div className="divider"></div>
+            <div className="divider project-collapse-divider"></div>
             {<LanguageChart projectName={props.repo.name} />}
-            {<div className="divider"></div>}
+            {<div className="divider project-collapse-divider"></div>}
           </CardContent>
         )}
-      </Collapse>
+      </Collapse> */}
     </Card>
   );
 }

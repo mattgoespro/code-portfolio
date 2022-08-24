@@ -18,28 +18,19 @@ nav {
   z-index: 1;
 }
 
-.nav-link {
-  font-family: Roboto;
-  color: #18181b;
-  font-size: 24px;
-  font-weight: 800;
-  margin: 10px;
-
-  &:hover {
-    font-weight: bold;
-    color: #68bcfc;
-  }
-}
-
 .nav-left {
   display: flex;
   align-items: center;
+  height: 100%;
 
   .nav-link {
-    margin: 15px;
-    padding: 10px;
+    font-family: 'Roboto';
     font-size: 24px;
     font-weight: 200;
+    height: 100%;
+    line-height: 2.5;
+    margin-left: 20px;
+    padding: 0 15px 0 15px;
     color: black;
     transition: background-color 0.1s;
     position: relative;
@@ -91,20 +82,6 @@ nav {
   }
   to {
     background-position: 0% 100%;
-  }
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
-.nav-link .logo {
-  background: none;
-  border: none;
-
-  &:hover {
-    cursor: pointer;
   }
 }
 

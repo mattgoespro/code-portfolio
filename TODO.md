@@ -11,8 +11,6 @@
 
 ## Misc
 
-- Clear alerts on navigate.
-- Remove 'any' types, specifically in _useState_.
 - Import ordering.
 - Change references of _repo/repository_ to _project_.
 

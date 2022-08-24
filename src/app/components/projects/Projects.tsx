@@ -2,21 +2,27 @@ import GithubProject from './project/Project';
 import axios from 'axios';
 import './Projects.scss';
 import { CSSProperties, useState } from 'react';
-import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
-import ProjectsBanner from '@images/page-banner-projects.jpg';
+import {
+  ApiRepositoryResponseDTO,
+  ApiRepositoryLanguagesResponseDTO,
+  ApiRepositoryReadmeResponseDTO
+} from '@shared/services/shared.model';
+import ProjectsBanner from '@images/page-banner-projects-3.png';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
-import ProjectReadmeDialog from './readme-dialog/ReadmeDialog';
+import ProjectDetailsDialog from './project/details-dialog/DetailsDialog';
+import { ProjectLanguageComposition } from '@shared/services/shared.model';
 
 function ProjectList() {
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [fetchingProjects, setFetchingProjects] = useState(false);
   const [activeWorkingProject, setActiveWorkingProject] = useState<ApiRepositoryResponseDTO>(null);
-  const [overlayFetchReadmeActive, setOverlayFetchReadmeActive] = useState(false);
-  const [readmeDialogOpen, setReadmeDialogOpen] = useState(false);
-  const [readmeContent, setReadmeContent] = useState(null);
+  const [overlayFetchProjectDetailsActive, setOverlayFetchProjectDetailsActive] = useState(false);
+  const [projectDetailsDialogOpen, setProjectDetailsDialogOpen] = useState(false);
+  const [readmeContent, setReadmeContent] = useState('');
+  const [languageComposition, setLanguageComposition] = useState<ProjectLanguageComposition>(null);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -44,20 +50,33 @@ function ProjectList() {
     const abortController = new AbortController();
 
     if (activeWorkingProject != null) {
-      setOverlayFetchReadmeActive(true);
+      setOverlayFetchProjectDetailsActive(true);
 
-      axios
-        .get(`/api/repos/${activeWorkingProject.name}/readme`, {
-          signal: abortController.signal
-        })
+      Promise.all([
+        axios.get<ApiRepositoryReadmeResponseDTO>(
+          `/api/repos/${activeWorkingProject.name}/readme`,
+          {
+            signal: abortController.signal
+          }
+        ),
+        axios.get<ApiRepositoryLanguagesResponseDTO>(
+          `/api/repos/${activeWorkingProject.name}/languages`,
+          {
+            signal: abortController.signal
+          }
+        )
+      ])
         .then((resp) => {
-          setOverlayFetchReadmeActive(false);
-          setReadmeContent(resp.data);
-          setReadmeDialogOpen(true);
+          setReadmeContent(resp[0].data.content);
+          setLanguageComposition(resp[1].data.languages);
+          setOverlayFetchProjectDetailsActive(false);
+          setProjectDetailsDialogOpen(true);
         })
         .catch(() => {
-          setOverlayFetchReadmeActive(false);
+          setOverlayFetchProjectDetailsActive(false);
           setActiveWorkingProject(null);
+          setReadmeContent(null);
+          setLanguageComposition(null);
         });
 
       return () => {
@@ -67,7 +86,7 @@ function ProjectList() {
   }, [activeWorkingProject]);
 
   function triggerLoadingOverlay(project: ApiRepositoryResponseDTO) {
-    setOverlayFetchReadmeActive(true);
+    setOverlayFetchProjectDetailsActive(true);
     setActiveWorkingProject(project);
   }
 
@@ -99,16 +118,19 @@ function ProjectList() {
     <div>
       <SpinnerLoadingOverlay
         spinnerColor="white"
-        visible={fetchingProjects || overlayFetchReadmeActive}
+        visible={fetchingProjects || overlayFetchProjectDetailsActive}
       />
-      {readmeDialogOpen && (
-        <ProjectReadmeDialog
-          dialogOpen={readmeDialogOpen}
-          project={activeWorkingProject}
-          projectPinned={pinnedProjects.includes(activeWorkingProject)}
+      {projectDetailsDialogOpen && (
+        <ProjectDetailsDialog
+          dialogOpen={projectDetailsDialogOpen}
+          name={activeWorkingProject.name}
+          pinned={pinnedProjects.includes(activeWorkingProject)}
+          createdTimestamp={activeWorkingProject.createdTimestamp}
+          updatedTimestamp={activeWorkingProject.updatedTimestamp}
           readmeContent={readmeContent}
+          languageComposition={languageComposition}
           onDialogClose={() => {
-            setReadmeDialogOpen(false);
+            setProjectDetailsDialogOpen(false);
             setActiveWorkingProject(null);
           }}
         />
@@ -120,16 +142,19 @@ function ProjectList() {
           backgroundImage={ProjectsBanner}
           backgroundImageAdjust={true}
         />
-        <div className="projects">
-          <div className="pinned-projects-wrapper">
-            <h1 className="title-pinned-projects">Projects of Interest</h1>
-            <div className="pinned-projects">{createProjectListElements(pinnedProjects, true)}</div>
-            <div className="pinned-projects-exit"></div>
+        {!fetchingProjects && (
+          <div className="projects">
+            <div className="pinned-projects-wrapper">
+              <h1 className="title-pinned-projects">Projects of Interest</h1>
+              <div className="divider"></div>
+              <div className="project-list">{createProjectListElements(pinnedProjects, true)}</div>
+            </div>
+            <div className="divider list-divider"></div>
+            <h1 className="title-unpinned-projects">Projects I&apos;ve Done for Fun</h1>
+            <div className="divider unpinned-projects-divider"></div>
+            <div className="project-list">{createProjectListElements(unpinnedProjects, false)}</div>
           </div>
-          <div className="unpinned-projects">
-            {createProjectListElements(unpinnedProjects, false)}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -15,12 +15,6 @@
   flex-direction: column;
 }
 
-.project-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .projects {
   display: flex;
   flex-direction: column;
@@ -38,36 +32,51 @@
 .title-pinned-projects {
   text-align: center;
   font-family: 'Nunito Sans';
+  font-weight: 100;
+  font-size: 54px;
+  color: #5e5e5e;
   margin-bottom: 0;
 }
 
-.pinned-projects {
-  display: flex;
-  justify-content: center;
+.title-unpinned-projects {
+  text-align: center;
+  font-family: 'Nunito Sans';
+  font-weight: 100;
+  font-size: 42px;
+  margin: 10px 0 10px 0;
 }
 
-.pinned-projects-exit {
+.unpinned-projects-divider {
   width: 100%;
-  height: 20px;
-  background: linear-gradient(white, #272727);
+}
+
+.project-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .unpinned-projects {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: #272727;
-  width: 40%;
+  flex-wrap: wrap;
 }
 
 .project {
   margin: 20px;
-  width: 500px;
+  width: 30%;
 }
 
 .pinned {
   opacity: 1 !important;
-  flex-grow: 0;
+}
+
+.raised {
+  z-index: 10;
+}
+
+.list-divider {
+  width: 100%;
 }
 
 .no-projects-to-show {

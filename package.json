@@ -18,6 +18,7 @@
     "mini-css-extract-plugin": "^2.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-horizontal-scrolling-menu": "^3.2.0",
     "react-loading-overlay-ts": "^2.0.0",
     "react-minimal-pie-chart": "^8.2.0",
     "react-router-dom": "^6.2.1",
@@ -28,8 +29,9 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start:dev:api-local": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:3000",
-    "start:dev:api-container": "webpack serve --config webpack.dev.js --mode development --port 4000",
+    "start:api-target:local": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:3000",
+    "start:api-target:prod-container": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:8080",
+    "start:api-target:dev-container": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:8081",
     "start:prod": "webpack serve --config webpack.prod.js --mode production --port 4000",
     "build": "webpack --config webpack.prod.js --mode production",
     "lint": "eslint src",
