@@ -6,13 +6,14 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useState } from 'react';
 import LanguageChart from './language-chart/LanguageChart';
 import Readme from './readme/Readme';
-import { ProjectLanguageComposition } from '@shared/services/shared.model';
+import {
+  ApiRepositoryResponseDTO,
+  ProjectLanguageComposition
+} from '@shared/services/shared.model';
 import format from 'date-fns/format';
 
 interface ProjectDetailsDialog {
-  name: string;
-  createdTimestamp: string;
-  updatedTimestamp: string;
+  project: ApiRepositoryResponseDTO;
   pinned?: boolean;
   readmeContent: string;
   languageComposition: ProjectLanguageComposition;
@@ -21,6 +22,7 @@ interface ProjectDetailsDialog {
 }
 
 function ProjectDetailsDialog(props: ProjectDetailsDialog) {
+  const { repositoryName, friendlyName, createdTimestamp, updatedTimestamp } = props.project;
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -32,16 +34,24 @@ function ProjectDetailsDialog(props: ProjectDetailsDialog) {
       fullWidth={true}
     >
       <DialogTitle className={`dialog-title` + (props.pinned ? ' dialog-title-pinned' : '')}>
-        {props.name}
+        {friendlyName || repositoryName}
       </DialogTitle>
       <ScrollMenu
         Header={
           <div className="scroll-menu-header">
-            <IconButton aria-label="readme" color="primary" onClick={() => setActiveTab(0)}>
+            <IconButton
+              sx={{ visibility: activeTab === 0 ? 'hidden' : 'visible' }}
+              color="primary"
+              onClick={() => setActiveTab(0)}
+            >
               <NavigateBeforeIcon fontSize="large" />
             </IconButton>
             <div className="scroll-header-title">{activeTab === 0 ? 'Details' : 'Readme'}</div>
-            <IconButton aria-label="details" color="primary" onClick={() => setActiveTab(1)}>
+            <IconButton
+              sx={{ visibility: activeTab === 1 ? 'hidden' : 'visible' }}
+              color="primary"
+              onClick={() => setActiveTab(1)}
+            >
               <NavigateNextIcon fontSize="large" />
             </IconButton>
           </div>
@@ -52,10 +62,8 @@ function ProjectDetailsDialog(props: ProjectDetailsDialog) {
             <div className="summary-wrapper">
               <div className="summary-repo">
                 <div className="summary-repo-activity">Project Activity</div>
-                <span>Created: {format(new Date(props.createdTimestamp), 'dd-MM-yyyy p')}</span>
-                <span>
-                  Last Updated: {format(new Date(props.updatedTimestamp), 'dd-MM-yyyy p')}
-                </span>
+                <span>Created: {format(new Date(createdTimestamp), 'dd-MM-yyyy p')}</span>
+                <span>Last Updated: {format(new Date(updatedTimestamp), 'dd-MM-yyyy p')}</span>
               </div>
               <div className="divider project-collapse-divider"></div>
               <LanguageChart languageComposition={props.languageComposition} />

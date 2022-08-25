@@ -54,13 +54,13 @@ function ProjectList() {
 
       Promise.all([
         axios.get<ApiRepositoryReadmeResponseDTO>(
-          `/api/repos/${activeWorkingProject.name}/readme`,
+          `/api/repos/${activeWorkingProject.repositoryName}/readme`,
           {
             signal: abortController.signal
           }
         ),
         axios.get<ApiRepositoryLanguagesResponseDTO>(
-          `/api/repos/${activeWorkingProject.name}/languages`,
+          `/api/repos/${activeWorkingProject.repositoryName}/languages`,
           {
             signal: abortController.signal
           }
@@ -99,12 +99,12 @@ function ProjectList() {
       indexStyle[`--${pinnedProjects ? 'pinned' : 'unpinned'}ProjectIndex`] = index;
       return (
         <div
-          key={project.name}
+          key={project.repositoryName}
           className={'project' + (pinnedProjects ? ' pinned' : '')}
           style={indexStyle as CSSProperties}
         >
           <GithubProject
-            key={project.name}
+            key={project.repositoryName}
             repo={project}
             pinned={pinnedProjects}
             triggerLoadingOverlay={triggerLoadingOverlay}
@@ -123,10 +123,8 @@ function ProjectList() {
       {projectDetailsDialogOpen && (
         <ProjectDetailsDialog
           dialogOpen={projectDetailsDialogOpen}
-          name={activeWorkingProject.name}
+          project={activeWorkingProject}
           pinned={pinnedProjects.includes(activeWorkingProject)}
-          createdTimestamp={activeWorkingProject.createdTimestamp}
-          updatedTimestamp={activeWorkingProject.updatedTimestamp}
           readmeContent={readmeContent}
           languageComposition={languageComposition}
           onDialogClose={() => {

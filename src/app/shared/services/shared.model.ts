@@ -4,13 +4,14 @@ export interface AxiosError {
   };
 }
 
-export interface ApiHttpErrorResponse {
+export interface ApiErrorResponse {
   status: number;
   message: string;
 }
 
 export interface ApiRepositoryResponseDTO {
-  name: string;
+  repositoryName: string;
+  friendlyName: string;
   description: string;
   createdTimestamp: string;
   updatedTimestamp: string;
