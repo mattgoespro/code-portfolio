@@ -33,13 +33,15 @@
     "start:api-target:prod-container": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:8080",
     "start:api-target:dev-container": "webpack serve --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:8081",
     "start:prod": "webpack serve --config webpack.prod.js --mode production --port 4000",
-    "build": "webpack --config webpack.prod.js --mode production",
+    "build": "rm -rf dist && webpack --config webpack.prod.js --mode production",
     "lint": "eslint src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:gen-css-autoprefix": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
     "docker:build": "docker build . -t hoppingmode-web/frontend",
     "docker:start-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web up -d",
-    "docker:remove-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web down"
+    "docker:remove-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web down",
+    "clean-build": "rm -rf dist",
+    "clean-node": "rm -rf node_modules"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
