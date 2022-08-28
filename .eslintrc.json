@@ -28,6 +28,7 @@
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "eslint/no-unused-vars": "off",
     "no-console": "warn",
     "@typescript-eslint/no-unused-vars": [

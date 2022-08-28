@@ -6,7 +6,6 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').TsconfigPat
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = function (_env, argv) {
   const buildMode = argv.mode;
@@ -30,7 +29,6 @@ module.exports = function (_env, argv) {
         'process.env.NODE_ENV': JSON.stringify(buildMode)
       }),
       new ForkTsCheckerWebpackPlugin({ async: false }),
-      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html'),
         favicon: path.resolve(__dirname, 'public/favicon.ico'),

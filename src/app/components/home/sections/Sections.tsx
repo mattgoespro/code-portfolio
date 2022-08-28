@@ -1,5 +1,4 @@
 import Card from '@mui/material/Card';
-import Tooltip from '@mui/material/Tooltip';
 import './Sections.scss';
 
 const _languages = (
@@ -73,15 +72,15 @@ const _others = (
   <div>
     <h3 className="section-header">... with some other critters thrown into the mix</h3>
     <div className="others card">
-      <Tooltip title="AWS">
+      <div title="AWS">
         <img className="other" src="images/logos/aws.png" alt="AWS" />
-      </Tooltip>
-      <Tooltip title="Docker">
+      </div>
+      <div title="Docker">
         <img className="other" src="images/logos/docker.png" alt="Docker" />
-      </Tooltip>
-      <Tooltip title="Kafka">
+      </div>
+      <div title="Kafka">
         <img className="other" src="images/logos/kafka.png" alt="Kafka" />
-      </Tooltip>
+      </div>
     </div>
   </div>
 );

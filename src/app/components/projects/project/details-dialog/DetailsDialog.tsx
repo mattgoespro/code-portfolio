@@ -10,7 +10,6 @@ import {
   ApiRepositoryResponseDTO,
   ProjectLanguageComposition
 } from '@shared/services/shared.model';
-import format from 'date-fns/format';
 
 interface ProjectDetailsDialog {
   project: ApiRepositoryResponseDTO;
@@ -62,8 +61,8 @@ function ProjectDetailsDialog(props: ProjectDetailsDialog) {
             <div className="summary-wrapper">
               <div className="summary-repo">
                 <div className="summary-repo-activity">Project Activity</div>
-                <span>Created: {format(new Date(createdTimestamp), 'dd-MM-yyyy p')}</span>
-                <span>Last Updated: {format(new Date(updatedTimestamp), 'dd-MM-yyyy p')}</span>
+                <span>Created: {new Date(createdTimestamp).toUTCString()}</span>
+                <span>Last Updated: {new Date(updatedTimestamp).toUTCString()}</span>
               </div>
               <div className="divider project-collapse-divider"></div>
               <LanguageChart languageComposition={props.languageComposition} />
