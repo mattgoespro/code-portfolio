@@ -5,11 +5,6 @@
   max-height: 500px;
   overflow: hidden;
 
-  .banner-image {
-    -webkit-transform: translateY(-450px);
-    transform: translateY(-450px);
-  }
-
   .banner-title-wrapper {
     display: flex;
     flex-direction: column;

@@ -14,7 +14,7 @@ function AppShell() {
     <nav>
       <div className="nav-left">
         <div className="nav-left">
-          <Link className="nav-link" to="/home">
+          <Link className="nav-link" to="/">
             Home
           </Link>
           <Link className="nav-link" to="/projects">
@@ -52,7 +52,7 @@ function AppShell() {
   );
 }
 
-function App() {
+export function App() {
   return (
     <BrowserRouter>
       <Routes>

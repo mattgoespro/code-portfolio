@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').TsconfigPathsPlugin;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = function (_env, argv) {
@@ -27,7 +29,7 @@ module.exports = function (_env, argv) {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(buildMode)
       }),
-      new ForkTsCheckerWebpackPlugin(),
+      new ForkTsCheckerWebpackPlugin({ async: false }),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html'),
@@ -39,6 +41,40 @@ module.exports = function (_env, argv) {
         chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css'
       })
     ],
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserWebpackPlugin({
+          terserOptions: {
+            compress: true,
+            mangle: {
+              safari10: true
+            },
+            output: {
+              comments: false,
+              ascii_only: true
+            },
+            warnings: false
+          }
+        }),
+        new CssMinimizerPlugin()
+      ],
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all'
+          }
+        }
+      }
+    },
+    performance: {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
+    },
     module: {
       rules: [
         {

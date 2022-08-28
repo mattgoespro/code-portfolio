@@ -1,6 +1,6 @@
 import './Home.scss';
 import 'react-vertical-timeline-component/style.min.css';
-import HomeBanner from '@images/page-banner-home.jpg';
+import HomeBanner from '@images/knysna-harbour.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 
 export default function Home() {

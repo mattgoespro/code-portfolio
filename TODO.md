@@ -24,7 +24,6 @@
 ## Optimization
 
 - Bundle sizes
-- Imports
 
 ## Misc
 
