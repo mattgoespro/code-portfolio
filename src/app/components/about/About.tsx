@@ -1,4 +1,4 @@
-import AboutProfile from '@images/about-profile.jpg';
+import AboutProfile from '@assets/images/face-profile.jpg';
 import './About.scss';
 
 export default function About() {

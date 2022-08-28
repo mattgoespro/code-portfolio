@@ -1,4 +1,4 @@
-# TODO
+# TODO - Initial release
 
 ## Features
 
@@ -24,8 +24,11 @@
 ## Optimization
 
 - Bundle sizes
-- Imports
 
 ## Misc
 
 - ESLint import ordering.
+
+## Phase 2
+
+- Implement custom tooltips for hovering.

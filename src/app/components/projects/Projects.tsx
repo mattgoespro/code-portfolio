@@ -7,7 +7,7 @@ import {
   ApiRepositoryLanguagesResponseDTO,
   ApiRepositoryReadmeResponseDTO
 } from '@shared/services/shared.model';
-import ProjectsBanner from '@images/page-banner-projects.png';
+import ProjectsBanner from '@assets/images/programmer-setup.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';

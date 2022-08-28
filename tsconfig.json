@@ -13,7 +13,7 @@
     "paths": {
       "@shared/components/*": ["./src/app/shared/components/*"],
       "@shared/services/*": ["./src/app/shared/services/*"],
-      "@images/*": ["./src/assets/images/*"]
+      "@assets/images/*": ["./src/assets/images/*"]
     }
   },
   "include": ["src/**/*"],

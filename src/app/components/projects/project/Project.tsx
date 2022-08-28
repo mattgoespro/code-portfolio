@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, IconButton, Tooltip } from '@mui/material';
+import { Card, CardContent, CardHeader, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import './Project.scss';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
+import './Project.scss';
 
 interface ProjectProps {
   repo: ApiRepositoryResponseDTO;
@@ -23,7 +23,7 @@ export default function Project(props: ProjectProps) {
       <span className="title-name">{repo.friendlyName || repo.repositoryName}</span>
       <div className="title-icon-buttons">
         <span className="title-open-readme-icon">
-          <Tooltip title="View Details">
+          <div title="View Details">
             <IconButton
               size="small"
               onClick={() => {
@@ -33,7 +33,7 @@ export default function Project(props: ProjectProps) {
             >
               <OpenInFullIcon className="card-header-icon" />
             </IconButton>
-          </Tooltip>
+          </div>
         </span>
       </div>
     </div>
