@@ -45,6 +45,7 @@ function AppShell() {
     <div className="app-shell">
       {navBar}
       <div className="content-outlet-wrapper">
+        {location.pathname === '/' && <Home />}
         <Outlet />
       </div>
     </div>
@@ -56,10 +57,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppShell />}>
-          <Route path="home" element={<Home />} />
           <Route path="projects" element={<ProjectListComponent />}></Route>
           <Route path="about" element={<About />} />
-          <Route path="*" />
+          {/* <Route path="*" element={<AppShell />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

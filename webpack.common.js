@@ -102,7 +102,7 @@ module.exports = function (_env, argv) {
     devServer: {
       compress: true,
       historyApiFallback: true,
-      open: ['http://localhost:4000/home'],
+      open: ['http://localhost:4000'],
       client: {
         overlay: true
       },

@@ -3,45 +3,40 @@
   min-width: 70%;
   width: 70%;
   margin: auto;
-}
 
-.about-content-wrapper {
-  padding: 20px;
-  position: relative;
-}
+  .about-content-wrapper {
+    padding: 20px;
 
-.about-profile-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 20px;
-  width: 300px;
-}
+    .about-profile-image {
+      float: right;
+      margin: 20px;
+      width: 300px;
 
-.about-title {
-  font-size: 34px;
-  width: 70%;
-  color: #15227c;
-  text-align: center;
-  margin: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+      .about-text-content {
+        text-align: justify;
+
+        .about-text-content-title {
+          font-size: 34px;
+          color: #15227c;
+          margin-left: 10px;
+          margin-top: 10px;
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .paragraph {
+          margin: 20px 0;
+          font-size: 20px;
+          font-family: Garamond;
+          color: #000038;
+        }
+      }
+    }
+  }
 }
 
 .img-profile {
   border-radius: 10px;
   width: 100%;
-}
-
-.paragraph {
-  font-size: 15px;
-  font-family: Garamond;
-  color: #000038;
-}
-
-.about-text {
-  font-size: 16px;
-  padding: 0 40px 0 40px;
-  text-align: justify;
 }
 
 .list-item {
