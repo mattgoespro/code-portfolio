@@ -7,7 +7,7 @@ import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
 interface ProjectProps {
   repo: ApiRepositoryResponseDTO;
   pinned: boolean;
-  triggerLoadingOverlay: (project: ApiRepositoryResponseDTO) => void;
+  onLoadDetails: (project: ApiRepositoryResponseDTO) => void;
 }
 
 export default function Project(props: ProjectProps) {
@@ -27,7 +27,7 @@ export default function Project(props: ProjectProps) {
             <IconButton
               size="small"
               onClick={() => {
-                props.triggerLoadingOverlay(repo);
+                props.onLoadDetails(repo);
               }}
               className="title-icon-button"
             >

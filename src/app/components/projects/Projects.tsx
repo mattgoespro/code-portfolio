@@ -1,4 +1,4 @@
-import GithubProject from './project/Project';
+import Project from './project/Project';
 import axios from 'axios';
 import './Projects.scss';
 import { CSSProperties, useState } from 'react';
@@ -85,7 +85,7 @@ function ProjectList() {
     }
   }, [activeWorkingProject]);
 
-  function triggerLoadingOverlay(project: ApiRepositoryResponseDTO) {
+  function triggerDialogLoadingOverlay(project: ApiRepositoryResponseDTO) {
     setOverlayFetchProjectDetailsActive(true);
     setActiveWorkingProject(project);
   }
@@ -103,11 +103,11 @@ function ProjectList() {
           className={'project' + (pinnedProjects ? ' pinned' : '')}
           style={indexStyle as CSSProperties}
         >
-          <GithubProject
+          <Project
             key={project.repositoryName}
             repo={project}
             pinned={pinnedProjects}
-            triggerLoadingOverlay={triggerLoadingOverlay}
+            onLoadDetails={triggerDialogLoadingOverlay}
           />
         </div>
       );
@@ -115,7 +115,7 @@ function ProjectList() {
   }
 
   return (
-    <div>
+    <div className="projects-wrapper">
       <SpinnerLoadingOverlay
         spinnerColor="white"
         visible={fetchingProjects || overlayFetchProjectDetailsActive}

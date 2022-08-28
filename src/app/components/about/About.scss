@@ -1,72 +1,55 @@
 .about-wrapper {
-  margin: auto;
   background-color: #f9f2eb;
+  min-width: 70%;
+  width: 70%;
+  margin: auto;
 }
 
 .about-content-wrapper {
-  display: flex;
   padding: 20px;
+  position: relative;
 }
 
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.about-profile-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  width: 300px;
 }
 
 .about-title {
   font-size: 34px;
-  color: #2032b3;
+  width: 70%;
+  color: #15227c;
   text-align: center;
-  width: 700px;
   margin: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.about-text {
-  display: flex;
-}
-
 .img-profile {
-  width: 400px;
-  border-radius: 4px;
+  border-radius: 10px;
+  width: 100%;
 }
 
-.about-info {
-  position: relative;
-  font-size: 16px;
-  max-width: 400px;
-  padding: 0 40px 0 40px;
-  text-align: justify;
-}
-
-.left {
-  &:after {
-    content: '';
-    height: 90%;
-    width: 2px;
-    position: absolute;
-    right: 0;
-    top: 5%;
-    background-color: #ddd7d0;
-  }
-}
-
-.about-info .paragraph {
+.paragraph {
   font-size: 15px;
   font-family: Garamond;
   color: #000038;
 }
 
-.list-item {
-  font-size: 12px;
+.about-text {
+  font-size: 16px;
+  padding: 0 40px 0 40px;
+  text-align: justify;
 }
 
-.download-cv {
-  display: flex;
-  align-items: center;
-  font-family: 'Roboto';
-  font-size: 16px;
-  font-weight: 100;
-  padding: 10px;
+.list-item {
+  font-size: 15px;
+  font-family: Garamond;
+  color: #000038;
+
+  &::marker {
+    color: #000038;
+  }
 }
