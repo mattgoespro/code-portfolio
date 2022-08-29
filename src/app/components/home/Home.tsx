@@ -1,5 +1,4 @@
 import './Home.scss';
-import HomeBanner from '@assets/images/knysna-harbour.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 
 export default function Home() {
@@ -12,7 +11,7 @@ export default function Home() {
           </div>
         }
         subtitle="Allow me to introduce myself."
-        backgroundImage={HomeBanner}
+        backgroundImage="images/knysna-harbour.jpg"
         backgroundImageAdjust={true}
       />
       <p className="welcome-info">

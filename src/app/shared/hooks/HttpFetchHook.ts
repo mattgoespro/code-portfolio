@@ -1,39 +1,33 @@
 import { useEffect, useReducer, useRef } from 'react';
 import axios from 'axios';
+import { HttpClientEvent, HttpRequestState } from '@shared';
 
-type HTTPRequestStatus = 'Idle' | 'Executing' | 'Complete';
-
-interface HTTPRequestState<T> {
-  status: HTTPRequestStatus;
-  data?: T;
-  error?: boolean;
-}
-
-type ClientActionType = 'REQUESTED' | 'RECEIVED' | 'FAILED';
-
-interface ClientEvent<T> {
-  type: ClientActionType;
-  data?: T;
-}
-
-export default function useHttpRequest<T>(url: string) {
+export default function useHttpFetch<T>(
+  url: string,
+  transformResponseData?: <V>(respData: T) => V
+) {
   const dataCache = useRef({});
 
-  const initialState: HTTPRequestState<T> = {
-    status: 'Idle',
-    data: null,
-    error: false
+  const initialState: HttpRequestState<T> = {
+    loading: false,
+    data: null
   };
 
   const [state, dispatchEvent] = useReducer(
-    (state: HTTPRequestState<T>, action: ClientEvent<T>): HTTPRequestState<T> => {
-      switch (action.type) {
+    (state: HttpRequestState<T>, event: HttpClientEvent<T>): HttpRequestState<T> => {
+      let data = event.data;
+
+      if (transformResponseData != null) {
+        data = transformResponseData(data);
+      }
+
+      switch (event.action) {
         case 'REQUESTED':
-          return { ...initialState, status: 'Executing' };
+          return { ...initialState, loading: true };
         case 'RECEIVED':
-          return { ...initialState, status: 'Complete', data: action.data, error: false };
+          return { ...initialState, loading: false, data, error: false };
         case 'FAILED':
-          return { ...initialState, status: 'Idle', error: true };
+          return { ...initialState, loading: false, error: true };
         default:
           return state;
       }
@@ -48,13 +42,13 @@ export default function useHttpRequest<T>(url: string) {
 
     const submitHttpRequest = async () => {
       dispatchEvent({
-        type: 'REQUESTED'
+        action: 'REQUESTED'
       });
 
       if (dataCache.current[url]) {
         const data = dataCache.current[url];
         dispatchEvent({
-          type: 'RECEIVED',
+          action: 'RECEIVED',
           data
         });
       } else {
@@ -66,13 +60,13 @@ export default function useHttpRequest<T>(url: string) {
             if (cancelRequest) return;
 
             dispatchEvent({
-              type: 'RECEIVED',
+              action: 'RECEIVED',
               data: resp.data
             });
           })
           .catch(() =>
             dispatchEvent({
-              type: 'FAILED',
+              action: 'FAILED',
               data: null
             })
           );
@@ -86,5 +80,5 @@ export default function useHttpRequest<T>(url: string) {
     };
   }, [url]);
 
-  return { status: state.status, data: state.data };
+  return { loading: state.loading, data: state.data };
 }

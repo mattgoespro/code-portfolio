@@ -27,3 +27,16 @@ export type ProjectLanguageComposition = { [key: string]: number };
 export interface ApiRepositoryLanguagesResponseDTO {
   languages: ProjectLanguageComposition;
 }
+
+type HttpClientAction = 'REQUESTED' | 'RECEIVED' | 'FAILED';
+
+export interface HttpRequestState<T> {
+  loading: boolean;
+  data: T;
+  error?: boolean;
+}
+
+export interface HttpClientEvent<T> {
+  action: HttpClientAction;
+  data?: T;
+}

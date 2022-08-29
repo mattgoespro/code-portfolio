@@ -7,7 +7,6 @@ import {
   ApiRepositoryLanguagesResponseDTO,
   ApiRepositoryReadmeResponseDTO
 } from '@shared';
-import ProjectsBanner from '@assets/images/programmer-setup.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
@@ -173,7 +172,7 @@ function ProjectList() {
         <PageBanner
           title="Here's what I've been working on."
           subtitle="...among other things"
-          backgroundImage={ProjectsBanner}
+          backgroundImage="images/programmer-setup.jpg"
           backgroundImageAdjust={true}
         />
         {!fetchingProjects && (
