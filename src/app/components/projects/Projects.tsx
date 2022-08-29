@@ -6,13 +6,20 @@ import {
   ApiRepositoryResponseDTO,
   ApiRepositoryLanguagesResponseDTO,
   ApiRepositoryReadmeResponseDTO
-} from 'src/app/shared/shared.model';
+} from '@shared';
 import ProjectsBanner from '@assets/images/programmer-setup.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
 import ProjectDetailsDialog from './project/details-dialog/DetailsDialog';
-import { ProjectLanguageComposition } from 'src/app/shared/shared.model';
+import { ProjectLanguageComposition } from '@shared';
+
+interface ProjectCache {
+  [key: string]: {
+    readmeContent: string;
+    languageComposition: ProjectLanguageComposition;
+  };
+}
 
 function ProjectList() {
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
@@ -23,6 +30,7 @@ function ProjectList() {
   const [projectDetailsDialogOpen, setProjectDetailsDialogOpen] = useState(false);
   const [readmeContent, setReadmeContent] = useState('');
   const [languageComposition, setLanguageComposition] = useState<ProjectLanguageComposition>(null);
+  const [projectDetailsCache, setProjectDetailsCache] = useState<ProjectCache>(null);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -35,6 +43,17 @@ function ProjectList() {
       .then((resp) => {
         setUnpinnedProjects(resp[0].data);
         setPinnedProjects(resp[1].data);
+
+        const repos = [...resp[0].data, ...resp[1].data];
+        const cache = {};
+        repos.forEach((repo) => {
+          cache[repo.repositoryName] = {
+            readmeContent: null,
+            languageComposition: null
+          };
+        });
+        setProjectDetailsCache(cache);
+
         setFetchingProjects(false);
       })
       .catch(() => {
@@ -51,6 +70,17 @@ function ProjectList() {
 
     if (activeWorkingProject != null) {
       setOverlayFetchProjectDetailsActive(true);
+
+      const cachedProject = projectDetailsCache[activeWorkingProject.repositoryName];
+
+      if (cachedProject.readmeContent != null && cachedProject.languageComposition != null) {
+        setReadmeContent(cachedProject.readmeContent);
+        setLanguageComposition(cachedProject.languageComposition);
+        setOverlayFetchProjectDetailsActive(false);
+        setProjectDetailsDialogOpen(true);
+
+        return () => abortController.abort();
+      }
 
       Promise.all([
         axios.get<ApiRepositoryReadmeResponseDTO>(
@@ -69,6 +99,12 @@ function ProjectList() {
         .then((resp) => {
           setReadmeContent(resp[0].data.content);
           setLanguageComposition(resp[1].data.languages);
+
+          projectDetailsCache[activeWorkingProject.repositoryName] = {
+            readmeContent: resp[0].data.content,
+            languageComposition: resp[1].data.languages
+          };
+
           setOverlayFetchProjectDetailsActive(false);
           setProjectDetailsDialogOpen(true);
         })
