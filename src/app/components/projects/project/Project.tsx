@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import { ApiRepositoryResponseDTO } from '@shared/services/shared.model';
+import { ApiRepositoryResponseDTO } from 'src/app/shared/shared.model';
 import './Project.scss';
 
 interface ProjectProps {

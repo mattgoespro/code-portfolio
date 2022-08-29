@@ -6,10 +6,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useState } from 'react';
 import LanguageChart from './language-chart/LanguageChart';
 import Readme from './readme/Readme';
-import {
-  ApiRepositoryResponseDTO,
-  ProjectLanguageComposition
-} from '@shared/services/shared.model';
+import { ApiRepositoryResponseDTO, ProjectLanguageComposition } from 'src/app/shared/shared.model';
 
 interface ProjectDetailsDialog {
   project: ApiRepositoryResponseDTO;

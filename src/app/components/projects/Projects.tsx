@@ -6,13 +6,13 @@ import {
   ApiRepositoryResponseDTO,
   ApiRepositoryLanguagesResponseDTO,
   ApiRepositoryReadmeResponseDTO
-} from '@shared/services/shared.model';
+} from 'src/app/shared/shared.model';
 import ProjectsBanner from '@assets/images/programmer-setup.jpg';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
 import ProjectDetailsDialog from './project/details-dialog/DetailsDialog';
-import { ProjectLanguageComposition } from '@shared/services/shared.model';
+import { ProjectLanguageComposition } from 'src/app/shared/shared.model';
 
 function ProjectList() {
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
