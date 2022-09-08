@@ -76,12 +76,11 @@ module.exports = function (_env, argv) {
     module: {
       rules: [
         {
-          test: /\.(png|jpg)$/,
-          use: [
-            {
-              loader: 'url-loader'
-            }
-          ]
+          test: /\.(jpeg|png)$/i,
+          loader: 'file-loader',
+          options: {
+            name: '/images/[name].[ext]'
+          }
         },
         {
           test: /\.svg$/,
