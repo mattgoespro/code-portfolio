@@ -8,13 +8,14 @@ import {
   Routes,
   useLocation
 } from 'react-router-dom';
-import ProjectListComponent from './components/projects/Projects';
+import ProjectList from './components/projects/Projects';
 import './App.scss';
 import GithubLogo from '../assets/svg/logos/github.svg';
 import LinkedInLogo from '../assets/svg/logos/linkedin.svg';
 import CvDownloadIcon from '../assets/svg/cv.svg';
 import About from './components/about/About';
 import Home from './components/home/Home';
+import ProjectView from './components/projects/project-view/ProjectView';
 
 function Navigator() {
   const location = useLocation();
@@ -67,7 +68,9 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigator />}>
-          <Route path="projects" element={<ProjectListComponent />}></Route>
+          <Route path="projects" element={<ProjectList />}>
+            <Route path="view/:projectName" element={<ProjectView />}></Route>
+          </Route>
           <Route path="about" element={<About />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

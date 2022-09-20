@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
 import ProjectDetailsDialog from './project/details-dialog/DetailsDialog';
 import { ProjectLanguageComposition } from '@shared';
+import { Outlet } from 'react-router-dom';
 
 interface ProjectCache {
   [key: string]: {
@@ -218,6 +219,7 @@ function ProjectList() {
             <div className="project-list">{createProjectListElements(unpinnedProjects, false)}</div>
           </div>
         )}
+        <Outlet />
       </div>
     </div>
   );

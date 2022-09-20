@@ -10,7 +10,7 @@ Please note: all projects listed could still be in development, or demonstrate s
 
 ## Projects
 
-I am an avid learner driven by curiosity. You may notice that the projects I've worked on encompass a variety of different programming languages and frameworks. I strongly believe that learning from a multitude of languages often inspires innovation across different projects and opens up the mind when it comes to solving new problems.
+I'm an avid learner driven by curiosity. You may notice that the projects I've worked on encompass a variety of different programming languages and frameworks. I strongly believe that learning from a multitude of languages often inspires innovation across different projects and opens up the mind when it comes to solving new problems.
 
 ## Experience
 
