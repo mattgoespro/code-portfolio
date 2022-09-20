@@ -9,8 +9,9 @@
 
     .about-profile-image {
       float: right;
-      margin: 20px;
+      margin: 0 20px;
       width: 300px;
+      border-radius: 5px;
 
       .about-text-content {
         text-align: justify;

@@ -4,6 +4,7 @@ import App from './app/App';
 const root = createRoot(document.getElementById('root')); // createRoot(container!) if you use TypeScript
 root.render(<App />);
 
+// Scroll to top on page refresh
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };

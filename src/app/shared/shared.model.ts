@@ -1,10 +1,4 @@
-export interface AxiosError {
-  response: {
-    status: number;
-  };
-}
-
-export interface ApiErrorResponse {
+export interface ApiError {
   status: number;
   message: string;
 }
@@ -16,6 +10,12 @@ export interface ApiRepositoryResponseDTO {
   createdTimestamp: string;
   updatedTimestamp: string;
   link: string;
+}
+
+export enum ApiHttpErrorStatus {
+  NOT_FOUND = 404,
+  INTERNAL_SERVER_ERROR = 500,
+  BAD_GATEWAY = 504
 }
 
 export interface ApiRepositoryReadmeResponseDTO {

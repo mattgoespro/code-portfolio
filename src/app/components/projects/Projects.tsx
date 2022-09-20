@@ -1,11 +1,13 @@
 import Project from './project/Project';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import './Projects.scss';
 import { CSSProperties, useState } from 'react';
 import {
   ApiRepositoryResponseDTO,
   ApiRepositoryLanguagesResponseDTO,
-  ApiRepositoryReadmeResponseDTO
+  ApiRepositoryReadmeResponseDTO,
+  ApiError,
+  ApiHttpErrorStatus
 } from '@shared';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 import { useEffect } from 'react';
@@ -20,9 +22,15 @@ interface ProjectCache {
   };
 }
 
+interface ApiErrorResponseData {
+  status: ApiHttpErrorStatus;
+  message: string;
+}
+
 function ProjectList() {
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
+  const [apiErrorResponseData, setApiErrorResponseData] = useState<ApiErrorResponseData>(null);
   const [fetchingProjects, setFetchingProjects] = useState(false);
   const [activeWorkingProject, setActiveWorkingProject] = useState<ApiRepositoryResponseDTO>(null);
   const [overlayFetchProjectDetailsActive, setOverlayFetchProjectDetailsActive] = useState(false);
@@ -40,6 +48,7 @@ function ProjectList() {
       axios.get<ApiRepositoryResponseDTO[]>('/api/repos/pinned', { signal: abortController.signal })
     ])
       .then((resp) => {
+        setApiErrorResponseData(null);
         setUnpinnedProjects(resp[0].data);
         setPinnedProjects(resp[1].data);
 
@@ -52,11 +61,32 @@ function ProjectList() {
           };
         });
         setProjectDetailsCache(cache);
-
         setFetchingProjects(false);
       })
-      .catch(() => {
+      .catch((err: ApiError | AxiosError) => {
         setFetchingProjects(false);
+
+        if (err instanceof AxiosError) {
+          const e = err as AxiosError;
+
+          if (e.code === AxiosError.ERR_CANCELED) {
+            setApiErrorResponseData(null);
+            return;
+          }
+
+          if (e.response.status === ApiHttpErrorStatus.BAD_GATEWAY) {
+            setApiErrorResponseData({
+              status: ApiHttpErrorStatus.BAD_GATEWAY,
+              message: 'Service is currently not available.'
+            });
+          }
+        } else {
+          setApiErrorResponseData({
+            status: ApiHttpErrorStatus.INTERNAL_SERVER_ERROR,
+            message:
+              'Oops, something went wrong on my side. Reporting the issue to me will be greatly appreciated!'
+          });
+        }
       });
 
     return () => {

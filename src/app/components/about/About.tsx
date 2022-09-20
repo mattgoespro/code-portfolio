@@ -4,7 +4,11 @@ export default function About() {
   return (
     <div className="about-wrapper">
       <div className="about-content-wrapper">
-        <img className="about-profile-image" src="assets/profile.jpg" alt="profile-image"></img>
+        <img
+          className="about-profile-image"
+          src="images/face-profile.jpg"
+          alt="profile-image"
+        ></img>
         <div className="about-text-content">
           <div className="about-text-content-title">A Brief Summary of Me</div>
           <p className="paragraph">Now a little bit about me.</p>
