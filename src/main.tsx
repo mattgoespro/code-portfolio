@@ -1,8 +1,14 @@
+import { store } from '@shared/redux/store';
 import { createRoot } from 'react-dom/client';
-import App from './app/App';
+import { Provider } from 'react-redux';
+import { App } from './app/App';
 
-const root = createRoot(document.getElementById('root')); // createRoot(container!) if you use TypeScript
-root.render(<App />);
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 // Scroll to top on page refresh
 window.onbeforeunload = function () {

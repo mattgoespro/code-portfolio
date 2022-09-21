@@ -1,7 +1,7 @@
 import './Home.scss';
 import PageBanner from '@shared/components/page-banner/PageBanner';
 
-export default function Home() {
+export function Home() {
   return (
     <div className="home-wrapper">
       <PageBanner

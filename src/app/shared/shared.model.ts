@@ -1,8 +1,3 @@
-export interface ApiError {
-  status: number;
-  message: string;
-}
-
 export interface ApiRepositoryResponseDTO {
   repositoryName: string;
   friendlyName: string;
@@ -20,6 +15,10 @@ export enum ApiHttpErrorStatus {
 
 export interface ApiRepositoryReadmeResponseDTO {
   content: string;
+}
+
+export interface ApiRepositorySkillsResponseDTO {
+  skills: string[];
 }
 
 export type ProjectLanguageComposition = { [key: string]: number };

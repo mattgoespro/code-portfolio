@@ -1,32 +1,46 @@
 import Spinner from '../spinner/Spinner';
 import LoadingOverlay from 'react-loading-overlay-ts';
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { RootState } from '@shared/redux/store';
 
-interface SpinnerOverlayProps {
-  visible: boolean;
-  spinnerColor: string;
+class SpinnerLoadingOverlay extends Component<{ visible?: boolean }> {
+  render() {
+    const { visible } = this.props;
+
+    if (!visible) {
+      return <></>;
+    }
+
+    return (
+      <LoadingOverlay
+        active={true}
+        spinner={<Spinner color="white" />}
+        styles={{
+          wrapper: () => {
+            return {
+              position: 'fixed',
+              top: '0',
+              left: '0',
+              width: '100%',
+              height: '100%',
+              zIndex: 1000
+            };
+          },
+          content: () => {
+            return {
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              zIndex: '50'
+            };
+          }
+        }}
+      />
+    );
+  }
 }
 
-function SpinnerLoadingOverlay(props: SpinnerOverlayProps) {
-  return (
-    <LoadingOverlay
-      active={props.visible}
-      spinner={<Spinner color={props.spinnerColor} />}
-      styles={{
-        wrapper: () => {
-          return {
-            background: 'rgba(89, 89, 89, 0.2)'
-          };
-        },
-        content: () => {
-          return {
-            position: 'fixed',
-            top: '50%',
-            left: '50%'
-          };
-        }
-      }}
-    />
-  );
-}
-
-export default SpinnerLoadingOverlay;
+export default connect((state: RootState) => ({ visible: state.loadingOverlay.visible }))(
+  SpinnerLoadingOverlay
+);

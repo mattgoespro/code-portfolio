@@ -1,13 +1,13 @@
 import { Card, CardContent, CardHeader, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
-import OpenInFullIcon from '@mui/icons-material/OpenInFull';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { ApiRepositoryResponseDTO } from 'src/app/shared/shared.model';
 import './Project.scss';
+import { Link } from 'react-router-dom';
 
 interface ProjectProps {
   repo: ApiRepositoryResponseDTO;
   pinned: boolean;
-  onLoadDetails: (project: ApiRepositoryResponseDTO) => void;
 }
 
 export default function Project(props: ProjectProps) {
@@ -21,21 +21,11 @@ export default function Project(props: ProjectProps) {
         </a>
       </div>
       <span className="title-name">{repo.friendlyName || repo.repositoryName}</span>
-      <div className="title-icon-buttons">
-        <span className="title-open-readme-icon">
-          <div title="View Details">
-            <IconButton
-              size="small"
-              onClick={() => {
-                props.onLoadDetails(repo);
-              }}
-              className="title-icon-button"
-            >
-              <OpenInFullIcon className="card-header-icon" />
-            </IconButton>
-          </div>
-        </span>
-      </div>
+      <Link to={`/projects/${repo.repositoryName}`}>
+        <IconButton>
+          <NavigateNextIcon fontSize="large" className="view-project-nav-icon" />
+        </IconButton>
+      </Link>
     </div>
   );
 
