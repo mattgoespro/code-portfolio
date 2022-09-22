@@ -1,5 +1,5 @@
 import { PieChart } from 'react-minimal-pie-chart';
-import { ProjectLanguageComposition } from 'src/app/shared/shared.model';
+import { ProjectLanguageComposition } from '@shared/services/shared.dto';
 import { calculateChartData, languageChartLabelColors } from './ProjectLanguageChart.model';
 import './ProjectLanguageChart.scss';
 

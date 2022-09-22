@@ -5,7 +5,7 @@ import {
   ApiRepositoryLanguagesResponseDTO,
   ApiRepositoryResponseDTO,
   ApiRepositorySkillsResponseDTO
-} from '@shared';
+} from '@shared/services/shared.dto';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
