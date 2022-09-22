@@ -1,0 +1,143 @@
+.view-project {
+  margin: 0 auto 0 auto;
+}
+
+.view-project-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 12rem;
+}
+
+.header-divider {
+  margin: 0;
+}
+
+.btn-view-project-return {
+  position: absolute;
+}
+
+.view-project-title {
+  text-align: center;
+  font-size: 42px;
+  margin: 0 0 10px;
+  color: #0b549f;
+  font-family: Comfortaa, sans-serif;
+}
+
+.view-navigate-back {
+  position: absolute;
+  left: 100px;
+}
+
+.link-view-navigate-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-view-navigate-back {
+  width: 20px;
+  vertical-align: middle;
+}
+
+.view-project-skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-name {
+  font-size: 20px;
+  font-family: Comfortaa, sans-serif;
+  margin: 0 15px;
+}
+
+.skill-divider {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: rgb(252, 195, 89);
+}
+
+.scroll-menu-header {
+  padding: 10px;
+  color: #0b549f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-header-title {
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: 100;
+  width: 70px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.summary-wrapper {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.summary-repo {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  width: 400px;
+
+  span {
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 8px;
+  }
+}
+
+.summary-repo-activity {
+  color: black;
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.summary {
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 5px;
+}
+
+.summary-language-chart-wrapper {
+  font-weight: 100;
+}
+
+.summary-chart {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-language-chart-title {
+  color: black;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.summary-languages-none-found {
+  color: black;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.readme {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+}
