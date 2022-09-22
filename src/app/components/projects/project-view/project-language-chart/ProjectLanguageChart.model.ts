@@ -1,4 +1,4 @@
-import { ProjectLanguageComposition } from '@shared';
+import { ProjectLanguageComposition } from '@shared/services/shared.dto';
 import { Data } from 'react-minimal-pie-chart/types/commonTypes';
 
 // I'd be crazy to know more than 12 languages, right?

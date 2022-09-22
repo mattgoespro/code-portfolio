@@ -1,13 +1,9 @@
 @import 'shared';
 
-.app-shell {
+.shell {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-}
-
-.content-outlet-wrapper {
-  position: relative;
 }
 
 nav {
@@ -70,9 +66,45 @@ nav {
   }
 }
 
-.nav-link-social {
+.nav-social-icons {
+  float: right;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+
+  .nav-link-social {
+    display: flex;
+    align-items: center;
+    margin: 0 3px;
+
+    .icon-github {
+      color: black !important;
+
+      &:hover {
+        color: lighten($color: black, $amount: 30%) !important;
+      }
+    }
+
+    .icon-linkedin {
+      color: #0669bf !important;
+
+      &:hover {
+        color: lighten($color: #0669bf, $amount: 30%) !important;
+      }
+    }
+
+    .icon-cv-download {
+      color: #7300b6 !important;
+
+      &:hover {
+        color: lighten($color: #7300b6, $amount: 30%) !important;
+      }
+    }
+  }
+}
+
+.content-outlet {
+  position: relative;
 }
 
 @-webkit-keyframes nav-link-hover {
@@ -90,43 +122,5 @@ nav {
   }
   to {
     background-position: 0% 100%;
-  }
-}
-
-.nav-social-icons {
-  float: right;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-right: 7px;
-
-  .linkedin-icon,
-  .github-icon,
-  .cv-icon {
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-  }
-
-  .linkedin-icon {
-    color: #4c93d1;
-
-    &:hover {
-      color: darken(#4c93d1, 20%);
-    }
-  }
-
-  .github-icon {
-    &:hover {
-      color: lighten(black, 20%);
-    }
-  }
-
-  .cv-icon {
-    color: purple;
-
-    &:hover {
-      color: darken(purple, 20%);
-    }
   }
 }

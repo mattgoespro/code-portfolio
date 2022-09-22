@@ -11,12 +11,10 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "@shared": ["./src/app/shared/shared.model.ts"],
+      "@shared/*": ["src/app/shared/services/*"],
       "@shared/components/*": ["./src/app/shared/components/*"],
       "@shared/services/*": ["./src/app/shared/services/*"],
-      "@shared/hooks/*": ["./src/app/shared/hooks/*"],
-      "@shared/redux/*": ["./src/app/shared/redux/*"],
-      "@assets/images/*": ["./src/assets/images/*"]
+      "@shared/redux/*": ["./src/app/shared/redux/*"]
     }
   },
   "include": ["src/**/*"],

@@ -1,4 +1,4 @@
-import { ApiRepositoryResponseDTO } from '@shared';
+import { ApiRepositoryResponseDTO } from '@shared/services/shared.dto';
 import { useAppDispatch, useAppSelector } from '@shared/redux/hooks/UseHook';
 import {
   hideLoadingOverlay,

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { ApiRepositoryResponseDTO } from 'src/app/shared/shared.model';
+import { ApiRepositoryResponseDTO } from '@shared/services/shared.dto';
 import './Project.scss';
 import { Link } from 'react-router-dom';
 
