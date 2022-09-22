@@ -59,7 +59,7 @@ export function ProjectList() {
     });
   }
 
-  const unableToDisplayProjects = (
+  const fetchErrorTemplate = (
     <div className="project-load-error">
       <div className="error-wrapper">
         <div className="err-msg">Oops! My projects are unable to be displayed at this time.</div>
@@ -71,7 +71,8 @@ export function ProjectList() {
 
   return (
     <div>
-      {!overlayLoading && (
+      {error && fetchErrorTemplate}
+      {!error && !overlayLoading && (
         <div className="projects-wrapper">
           <div className="project-list-wrapper">
             <div className="projects">
@@ -92,7 +93,6 @@ export function ProjectList() {
           </div>
         </div>
       )}
-      {error && unableToDisplayProjects}
     </div>
   );
 }

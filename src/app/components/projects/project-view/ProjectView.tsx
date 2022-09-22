@@ -31,7 +31,6 @@ export function ProjectView() {
   const [readmeContent, setReadmeContent] = useState('');
   const [languageComposition, setLanguageComposition] = useState<ProjectLanguageComposition>(null);
   const [_apiError, setApiError] = useState();
-
   const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
@@ -111,9 +110,11 @@ export function ProjectView() {
               <h1 className="view-project-title">
                 {project.friendlyName || project.repositoryName}
               </h1>
-              <div className="view-project-skills">
-                {getProjectSkillsArray(technicalSkills.skills)}
-              </div>
+              {technicalSkills && (
+                <div className="view-project-skills">
+                  {getProjectSkillsArray(technicalSkills.skills)}
+                </div>
+              )}
             </div>
           </div>
           <div className="divider header-divider"></div>

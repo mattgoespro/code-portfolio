@@ -11,13 +11,21 @@ export function Home() {
           </div>
         }
         subtitle="Allow me to introduce myself."
-        backgroundImage="images/knysna-harbour.jpg"
+        backgroundImage="images/knysna-harbour-banner.jpg"
         backgroundImageAdjust={true}
       />
-      <p className="welcome-info">
-        I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
-        make a difference in the software industry.
-      </p>
+      <div className="welcome-info">
+        <h1 className="title-intro">The Intro</h1>
+        <p>
+          I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
+          make a difference in the software industry.
+        </p>
+        <p>
+          This digital portfolio serves as an outlet to demonstrate my skills as a creative and a
+          Software Engineering professional, as well as for anyone wanting to keep in touch with
+          what I work in on my free time.
+        </p>
+      </div>
     </div>
   );
 }
