@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.dto';
 import './Project.scss';
 import { Link } from 'react-router-dom';
+import { Link as LinkButton } from '@mui/material';
+import Button from '@mui/material/Button';
 
 interface ProjectProps {
   repo: ApiRepositoryResponseDTO;
@@ -13,37 +13,33 @@ interface ProjectProps {
 export default function Project(props: ProjectProps) {
   const { repo } = props;
 
-  const projectTitle = (
-    <div className="title-wrapper">
-      <div className="title-avatar">
-        <a href={repo.link} target="tab">
-          <GitHub className="avatar-github-icon" />
-        </a>
-      </div>
-      <span className="title-name">{repo.friendlyName || repo.repositoryName}</span>
-      <Link to={`/projects/${repo.repositoryName}`}>
-        <IconButton>
-          <NavigateNextIcon fontSize="large" className="view-project-nav-icon" />
-        </IconButton>
-      </Link>
-    </div>
-  );
-
   return (
-    <Card className="project-card">
-      <CardHeader
-        className="project-header"
-        style={{
-          backgroundColor: props.pinned ? '#EC407A' : '#243890'
-        }}
-        title={projectTitle}
-      />
-      <CardContent>
-        <div className="description-wrapper">
-          <h3 className="title-description">Description</h3>
-          <div className="description">{repo.description || <i>Not available.</i>}</div>
+    <div className="project-card">
+      <div className="project-card-title">
+        <div className="project-name">{repo.friendlyName || repo.repositoryName}</div>
+        <div className="project-actions">
+          <LinkButton
+            className="project-view-github"
+            href={repo.link}
+            target="tab"
+            underline="none"
+            sx={{ display: 'flex', alignItems: 'center', marginLeft: '15px' }}
+          >
+            <GitHub className="icon-view-github" sx={{ fontSize: 22 }} />
+            <span>View Repository</span>
+          </LinkButton>
+          <Link to={`/projects/${repo.repositoryName}`} className="link-github">
+            <Button className="btn-view-details" disableRipple>
+              View Details
+            </Button>
+          </Link>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+      <div className="divider title-divider"></div>
+      <div className="description-wrapper">
+        <div className="title-description">Description</div>
+        <div className="description">{repo.description || <i>Not available.</i>}</div>
+      </div>
+    </div>
   );
 }

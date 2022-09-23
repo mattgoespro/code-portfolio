@@ -1,11 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').TsconfigPathsPlugin;
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function (_env, argv) {
   const buildMode = argv.mode;
@@ -26,10 +26,11 @@ module.exports = function (_env, argv) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(buildMode)
+        'process.env.NODE_ENV': JSON.stringify(buildMode),
+        __REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })'
       }),
-      new ForkTsCheckerWebpackPlugin({ async: false }),
-      new HtmlWebpackPlugin({
+      new ForkTsCheckerPlugin({ async: false }),
+      new HtmlPlugin({
         template: path.resolve(__dirname, 'public/index.html'),
         favicon: path.resolve(__dirname, 'public/favicon.ico'),
         inject: true
@@ -41,22 +42,7 @@ module.exports = function (_env, argv) {
     ],
     optimization: {
       minimize: true,
-      minimizer: [
-        new TerserWebpackPlugin({
-          terserOptions: {
-            compress: true,
-            mangle: {
-              safari10: true
-            },
-            output: {
-              comments: false,
-              ascii_only: true
-            },
-            warnings: false
-          }
-        }),
-        new CssMinimizerPlugin()
-      ],
+      minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
       runtimeChunk: 'single',
       splitChunks: {
         cacheGroups: {

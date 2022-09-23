@@ -2,13 +2,13 @@ import { GitHub, LinkedIn } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import './NavBar.scss';
+import './RouteComponentOutletContainer.scss';
 
-interface NavBarProps {
+interface RouterComponentOutletContainerProps {
   landingPage: JSX.Element;
 }
 
-export function NavBar(props: NavBarProps) {
+export function RouterComponentOutletContainer(props: RouterComponentOutletContainerProps) {
   const location = useLocation();
 
   return (
@@ -32,17 +32,17 @@ export function NavBar(props: NavBarProps) {
             title="Download CV"
             href="https://github.com/mattgoespro/public-resources/raw/master/docs/MattYoungCurriculumVitae.pdf"
           >
-            <FileOpenIcon className="icon-cv-download" fontSize="medium" />
+            <FileOpenIcon className="nav-icon-cv-download" fontSize="medium" />
           </a>
           <a
             className="nav-link-social"
             href="https://www.linkedin.com/in/matt-young-691b48189/"
             target="tab"
           >
-            <LinkedIn className="icon-linkedin" fontSize="medium" />
+            <LinkedIn className="nav-icon-linkedin" fontSize="medium" />
           </a>
           <a className="nav-link-social" href="https://github.com/mattgoespro" target="tab">
-            <GitHub className="icon-github" fontSize="medium" />
+            <GitHub className="nav-icon-github" fontSize="medium" />
           </a>
         </div>
       </nav>

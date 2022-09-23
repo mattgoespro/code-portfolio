@@ -19,6 +19,7 @@ export function ProjectList() {
 
   useEffect(() => {
     const abortController = new AbortController();
+
     dispatch(showLoadingOverlay());
 
     Promise.all([
@@ -51,11 +52,7 @@ export function ProjectList() {
     pinnedProjects: boolean
   ) {
     return projects.map((project) => {
-      return (
-        <div key={project.repositoryName} className="project">
-          <Project key={project.repositoryName} repo={project} pinned={pinnedProjects} />
-        </div>
-      );
+      return <Project key={project.repositoryName} repo={project} pinned={pinnedProjects} />;
     });
   }
 
@@ -63,36 +60,32 @@ export function ProjectList() {
     <div className="project-load-error">
       <div className="error-wrapper">
         <div className="err-msg">Oops! My projects are unable to be displayed at this time.</div>
-        <div className="err-try-again">Please try again later, or contact me here.</div>
+        <div className="err-try-again">
+          Please try again later, or contact me directly on my socials.
+        </div>
       </div>
       <div className="divider"></div>
     </div>
   );
 
   return (
-    <div>
-      {error && fetchErrorTemplate}
-      {!error && !overlayLoading && (
-        <div className="projects-wrapper">
-          <div className="project-list-wrapper">
-            <div className="projects">
-              <div className="pinned-projects-wrapper">
-                <h1 className="title-pinned-projects">Projects of Interest</h1>
-                <div className="divider"></div>
-                <div className="project-list">
-                  {createProjectListElements(pinnedProjects, true)}
-                </div>
-              </div>
-              <div className="divider list-divider"></div>
-              <h1 className="title-unpinned-projects">Projects I&apos;ve Done for Fun</h1>
-              <div className="divider unpinned-projects-divider"></div>
-              <div className="project-list">
-                {createProjectListElements(unpinnedProjects, false)}
-              </div>
-            </div>
+    <div className="projects-intro">
+      <div className="project-info">
+        <h1 className="title-info">I pride myself on the work that I have done thus far.</h1>
+      </div>
+      <div className="project-list-wrapper">
+        <div className="projects">
+          <div className="pinned-projects-wrapper">
+            <h1 className="title-pinned-projects">Projects of Interest</h1>
+            <div className="divider"></div>
+            <div className="project-list">{createProjectListElements(pinnedProjects, true)}</div>
           </div>
+          <div className="divider list-divider"></div>
+          <h1 className="title-unpinned-projects">Projects I&apos;ve Done for Fun</h1>
+          <div className="divider unpinned-projects-divider"></div>
+          <div className="project-list">{createProjectListElements(unpinnedProjects, false)}</div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ module.exports = (env, argv) => {
 
   return merge(webpackCommon, {
     devtool: 'source-map',
-    plugins: [new BundleAnalyzerPlugin({})],
+    plugins: [new BundleAnalyzerPlugin()],
     devServer: {
       proxy: {
         '/api': {

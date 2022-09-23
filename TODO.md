@@ -22,6 +22,7 @@
 ## Optimization
 
 - Bundle sizes
+- Remove unused CSS styles
 
 ## Misc
 

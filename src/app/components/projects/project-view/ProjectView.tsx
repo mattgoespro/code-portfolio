@@ -102,7 +102,10 @@ export function ProjectView() {
           <div className="view-project-header">
             <div className="view-navigate-back">
               <Link to="../list" className="link-view-navigate-back">
-                <NavigateBeforeIcon className="icon-view-navigate-back" fontSize="large" />
+                <NavigateBeforeIcon
+                  className="icon-view-navigate-back"
+                  sx={{ fontSize: 50, color: 'orange' }}
+                />
                 <div>Return</div>
               </Link>
             </div>
@@ -110,7 +113,7 @@ export function ProjectView() {
               <h1 className="view-project-title">
                 {project.friendlyName || project.repositoryName}
               </h1>
-              {technicalSkills && (
+              {technicalSkills.skills.length > 0 && (
                 <div className="view-project-skills">
                   {getProjectSkillsArray(technicalSkills.skills)}
                 </div>

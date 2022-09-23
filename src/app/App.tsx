@@ -4,13 +4,13 @@ import { About } from './components/about/About';
 import { ProjectList } from './components/projects/project-list/ProjectList';
 import { ProjectView } from './components/projects/project-view/ProjectView';
 import { Projects } from './components/projects/Projects';
-import { NavBar } from './components/navbar/NavBar';
+import { RouterComponentOutletContainer } from './components/navbar/RouteComponentOutletContainer';
 
 export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavBar landingPage={<Home />} />}>
+        <Route path="/" element={<RouterComponentOutletContainer landingPage={<Home />} />}>
           <Route path="projects" element={<Projects />}>
             <Route path="list" element={<ProjectList />}></Route>
             <Route path=":projectName" element={<ProjectView />}></Route>

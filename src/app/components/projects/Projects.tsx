@@ -7,7 +7,7 @@ export function Projects() {
       <PageBanner
         title="Here's what I've been working on."
         subtitle="...among other things"
-        backgroundImage="/images/programmer-setup-3.png"
+        backgroundImage="/images/programmer-setup-banner.jpg"
         backgroundImageAdjust={true}
       />
       <Outlet />

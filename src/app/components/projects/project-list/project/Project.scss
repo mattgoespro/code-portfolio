@@ -1,42 +1,64 @@
 @import 'shared';
 
 .project-card {
-  box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px !important;
-  height: 100% !important;
+  box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
+  height: 100%;
+  max-width: 500px;
 }
 
-.avatar-github-icon {
-  color: white;
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
+.project-card-title {
+  .project-name {
+    font-family: 'Nunito Sans';
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .project-actions {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.title-divider {
+  margin-top: 0 !important;
+}
+
+.project-view-github {
+  display: flex;
+  padding: 6px 8px;
+
+  &:hover {
+    background-color: rgba(25, 118, 210, 0.04);
+  }
+
+  > span {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    text-transform: uppercase;
+    color: #1976d2;
+    margin-left: 10px;
+  }
 
   &:hover {
     cursor: pointer;
   }
 }
 
-.view-project-nav-icon {
-  color: white;
+.icon-view-github {
+  color: black;
+}
+
+.btn-view-details {
+  color: #0b549f;
 }
 
 .description-wrapper {
-  font-family: Roboto;
-  font-weight: 100;
-  vertical-align: middle;
-}
-
-.title-name-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.title-name {
-  color: white;
-  line-height: 1.5;
-  font-size: 20px;
-  font-weight: 100;
-  text-align: center;
-  padding: 10px;
+  padding: 15px;
 }
 
 .title-description {

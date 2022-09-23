@@ -10,25 +10,7 @@
   align-items: center;
 }
 
-.welcome-info {
-  font-family: 'Roboto';
-  text-align: center;
+p {
+  text-align: left;
   font-size: 24px;
-  font-weight: 100;
-  max-width: 800px;
-  margin-top: 100px;
-
-  div {
-    margin-bottom: 20px;
-  }
-
-  p {
-    text-align: left;
-    font-size: 24px;
-  }
-}
-
-.title-intro {
-  font-family: Montserrat, sans-serif;
-  margin-top: 0;
 }
