@@ -71,12 +71,13 @@ export function ProjectList() {
   return (
     <div className="projects-intro">
       <div className="project-info">
-        <h1 className="title-info">I pride myself on the work that I have done thus far.</h1>
+        <h1 className="title-info">
+          All projects listed below thus far are publicly available on my GitHub page.
+        </h1>
       </div>
       <div className="project-list-wrapper">
         <div className="projects">
           <div className="pinned-projects-wrapper">
-            <h1 className="title-pinned-projects">Projects of Interest</h1>
             <div className="divider"></div>
             <div className="project-list">{createProjectListElements(pinnedProjects, true)}</div>
           </div>

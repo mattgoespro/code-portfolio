@@ -4,6 +4,8 @@
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
   height: 100%;
   max-width: 500px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .project-card-title {
@@ -13,22 +15,24 @@
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 15px;
   }
 
   .project-actions {
     display: flex;
     justify-content: center;
+    padding: 0 5px;
   }
 }
 
 .title-divider {
-  margin-top: 0 !important;
+  margin: 0 !important;
 }
 
 .project-view-github {
   display: flex;
   padding: 6px 8px;
+  margin-left: 0px !important;
 
   &:hover {
     background-color: rgba(25, 118, 210, 0.04);
