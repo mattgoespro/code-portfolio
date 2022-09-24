@@ -1,4 +1,3 @@
-import { IconButton } from '@mui/material';
 import {
   ProjectLanguageComposition,
   ApiRepositoryReadmeResponseDTO,
@@ -9,9 +8,7 @@ import {
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import './ProjectView.scss';
 import { ProjectLanguageChart } from './project-language-chart/ProjectLanguageChart';
 import { ProjectReadme } from './project-readme/ProjectReadme';
@@ -26,24 +23,23 @@ export function ProjectView() {
   const dispatch = useAppDispatch();
 
   const [project, setProject] = useState<ApiRepositoryResponseDTO>(null);
-  const [loadingProjects, setLoadingProjects] = useState(true);
-  const [technicalSkills, setTechnicalSkills] = useState<ApiRepositorySkillsResponseDTO>(null);
+  const [loadingProject, setLoadingProject] = useState(true);
+  const [portfolio, setPortfolio] = useState<ApiRepositorySkillsResponseDTO>(null);
   const [readmeContent, setReadmeContent] = useState('');
   const [languageComposition, setLanguageComposition] = useState<ProjectLanguageComposition>(null);
   const [_apiError, setApiError] = useState();
-  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     const abortController = new AbortController();
 
     dispatch(showLoadingOverlay());
-    setLoadingProjects(true);
+    setLoadingProject(true);
 
     Promise.all([
       axios.get<ApiRepositoryResponseDTO>(`/api/repos/${projectName}`, {
         signal: abortController.signal
       }),
-      axios.get<ApiRepositorySkillsResponseDTO>(`/api/repos/${projectName}/skills`, {
+      axios.get<ApiRepositorySkillsResponseDTO>(`/api/repos/${projectName}/portfolio`, {
         signal: abortController.signal
       }),
       axios.get<ApiRepositoryReadmeResponseDTO>(`/api/repos/${projectName}/readme`, {
@@ -56,20 +52,20 @@ export function ProjectView() {
       .then((resp) => {
         setApiError(null);
         setProject(resp[0].data);
-        setTechnicalSkills(resp[1].data);
+        setPortfolio(resp[1].data);
         setReadmeContent(resp[2].data.content);
         setLanguageComposition(resp[3].data.languages);
         dispatch(hideLoadingOverlay());
-        setLoadingProjects(false);
+        setLoadingProject(false);
       })
       .catch((err) => {
         setApiError(err);
         setProject(null);
-        setTechnicalSkills(null);
+        setPortfolio(null);
         setReadmeContent(null);
         setLanguageComposition(null);
         dispatch(hideLoadingOverlay());
-        setLoadingProjects(false);
+        setLoadingProject(false);
       });
 
     return () => {
@@ -77,27 +73,9 @@ export function ProjectView() {
     };
   }, []);
 
-  function getProjectSkillsArray(skills: string[]) {
-    const skillElements: JSX.Element[] = [];
-
-    skills.forEach((skill, index) => {
-      skillElements.push(
-        <span key={skill} className="skill-name">
-          {skill}
-        </span>
-      );
-
-      if (index != skills.length - 1) {
-        skillElements.push(<div key={`${skill}${index}`} className="skill-divider"></div>);
-      }
-    });
-
-    return skillElements;
-  }
-
   return (
     <div className="view-project">
-      {!loadingProjects && (
+      {!loadingProject && (
         <>
           <div className="view-project-header">
             <div className="view-navigate-back">
@@ -110,68 +88,33 @@ export function ProjectView() {
               </Link>
             </div>
             <div>
-              <h1 className="view-project-title">
-                {project.friendlyName || project.repositoryName}
-              </h1>
-              {technicalSkills.skills.length > 0 && (
-                <div className="view-project-skills">
-                  {getProjectSkillsArray(technicalSkills.skills)}
-                </div>
-              )}
+              <h1 className="view-project-title">{portfolio.name}</h1>
             </div>
           </div>
-          <div className="divider header-divider"></div>
           <div className="project-content">
-            <ScrollMenu
-              Header={
-                <div className="scroll-menu-header">
-                  <IconButton
-                    sx={{ visibility: activeTab === 0 ? 'hidden' : 'visible' }}
-                    color="primary"
-                    onClick={() => setActiveTab(0)}
-                  >
-                    <NavigateBeforeIcon fontSize="small" />
-                  </IconButton>
-                  <div className="scroll-header-title">
-                    {activeTab === 0 ? 'Details' : 'Readme'}
-                  </div>
-                  <IconButton
-                    sx={{ visibility: activeTab === 1 ? 'hidden' : 'visible' }}
-                    color="primary"
-                    onClick={() => setActiveTab(1)}
-                  >
-                    <NavigateNextIcon fontSize="small" />
-                  </IconButton>
+            <div className="summary-wrapper">
+              <div className="summary">
+                <div className="summary-repo">
+                  <div className="summary-repo-activity">Project Activity</div>
+                  <span>Created: {new Date(project.createdTimestamp).toUTCString()}</span>
+                  <span>Last Updated: {new Date(project.updatedTimestamp).toUTCString()}</span>
                 </div>
-              }
-            >
-              {activeTab === 0 ? (
-                <div className="summary-wrapper">
-                  <div className="summary-repo-wrapper summary">
-                    <div className="summary-repo">
-                      <div className="summary-repo-activity">Project Activity</div>
-                      <span>Created: {new Date(project.createdTimestamp).toUTCString()}</span>
-                      <span>Last Updated: {new Date(project.updatedTimestamp).toUTCString()}</span>
-                    </div>
-                  </div>
-                  <div className="summary-language-chart-wrapper summary">
-                    <div className="summary-chart">
-                      <span className="summary-language-chart-title">Languages Used</span>
-                      {Object.keys(languageComposition).length > 0 &&
-                        (<ProjectLanguageChart languageComposition={languageComposition} /> || (
-                          <span className="summary-languages-none-found">
-                            <i>No recognized languages found.</i>
-                          </span>
-                        ))}
-                    </div>
-                  </div>
+              </div>
+              <div className="summary-language-chart-wrapper summary">
+                <div className="summary-chart">
+                  <span className="summary-language-chart-title">Languages Used</span>
+                  {Object.keys(languageComposition).length > 0 &&
+                    (<ProjectLanguageChart languageComposition={languageComposition} /> || (
+                      <span className="summary-languages-none-found">
+                        <i>No recognized languages found.</i>
+                      </span>
+                    ))}
                 </div>
-              ) : (
-                <div className="readme">
-                  <ProjectReadme readmeContent={readmeContent} />
-                </div>
-              )}
-            </ScrollMenu>
+              </div>
+            </div>
+            <div className="readme">
+              <ProjectReadme readmeContent={readmeContent} />
+            </div>
           </div>
         </>
       )}

@@ -25,28 +25,26 @@ export function ProjectLanguageChart(props: LanguageChartProps) {
   return (
     <div className="chart-wrapper">
       <div className="chart-legend">
-        {chartData?.projectLanguages.map((lang, i) => {
+        {chartData.map((lang, i) => {
           return (
             <span
-              key={lang}
+              key={lang.title}
               className="chart-legend-lang"
               style={{
                 color: languageChartLabelColors[i]
               }}
             >
-              {lang}
+              {lang.title}
             </span>
           );
         })}
       </div>
       <PieChart
         className="pie-chart"
-        data={chartData.data}
+        data={chartData}
         label={(labelProps) => {
-          const percentagePortion = (labelProps.dataEntry.value * 100) / chartData.totalValues;
-
-          if (percentagePortion > 3) {
-            return `${percentagePortion.toFixed()}%`;
+          if (labelProps.dataEntry.value > 3) {
+            return `${labelProps.dataEntry.value.toFixed()}%`;
           }
 
           return '';

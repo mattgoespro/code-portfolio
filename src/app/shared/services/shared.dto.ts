@@ -1,7 +1,7 @@
 export interface ApiRepositoryResponseDTO {
-  repositoryName: string;
-  friendlyName: string;
-  description: string;
+  name: string;
+  pinned: boolean;
+  description?: string;
   createdTimestamp: string;
   updatedTimestamp: string;
   link: string;
@@ -12,6 +12,7 @@ export interface ApiRepositoryReadmeResponseDTO {
 }
 
 export interface ApiRepositorySkillsResponseDTO {
+  name: string;
   skills: string[];
 }
 

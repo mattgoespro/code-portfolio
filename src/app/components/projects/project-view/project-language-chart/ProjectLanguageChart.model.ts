@@ -17,26 +17,10 @@ export const languageChartLabelColors = [
   '#DFCA26'
 ];
 
-export interface LanguageChartData {
-  projectLanguages: string[];
-  totalValues: number;
-  data: Data;
-}
-
-export function calculateChartData(
-  languageComposition: ProjectLanguageComposition
-): LanguageChartData {
-  const projectLanguages = Object.keys(languageComposition);
-  const projectLanguageUsages = Object.values(languageComposition);
-  const totalValues = projectLanguageUsages.reduce((val, s) => val + s, 0);
-  const data: Data = projectLanguages.map((lang, i) => ({
+export function calculateChartData(languageComposition: ProjectLanguageComposition): Data {
+  return Object.keys(languageComposition).map((lang, i) => ({
     title: lang,
     value: languageComposition[lang] || 0,
     color: languageChartLabelColors[i]
   }));
-  return {
-    projectLanguages,
-    totalValues,
-    data
-  };
 }

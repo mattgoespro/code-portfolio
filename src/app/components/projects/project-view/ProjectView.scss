@@ -9,20 +9,16 @@
   margin-top: 120px;
 }
 
-.header-divider {
-  margin: 50px !important;
-}
-
-.btn-view-project-return {
-  position: absolute;
+.project-content {
+  margin-top: 50px;
 }
 
 .view-project-title {
-  text-align: center;
+  font-family: Roboto Serif;
   font-size: 42px;
+  font-weight: 100;
   margin: 0;
-  color: #0b549f;
-  font-family: Comfortaa, sans-serif;
+  text-align: center;
 }
 
 .view-navigate-back {
@@ -39,45 +35,6 @@
 .icon-view-navigate-back {
   width: 20px;
   vertical-align: middle;
-}
-
-.view-project-skills {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.skill-name {
-  font-size: 20px;
-  font-family: Comfortaa, sans-serif;
-  margin: 0 15px;
-}
-
-.skill-divider {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background-color: rgb(252, 195, 89);
-}
-
-.scroll-menu-header {
-  padding: 10px;
-  color: #0b549f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.scroll-header-title {
-  font-size: 20px;
-  font-family: 'Roboto';
-  font-weight: 100;
-  width: 70px;
-}
-
-.content {
-  padding: 20px;
 }
 
 .summary-wrapper {
@@ -106,14 +63,6 @@
   margin-bottom: 20px;
 }
 
-.summary {
-  padding: 20px;
-  background-color: #f3f3f3;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 5px;
-}
-
 .summary-language-chart-wrapper {
   font-weight: 100;
 }
@@ -139,6 +88,5 @@
   max-width: 700px;
   margin: auto;
   padding: 20px;
-  background-color: #f3f3f3;
   border-radius: 10px;
 }

@@ -13,8 +13,7 @@ export function ProjectList() {
   const dispatch = useAppDispatch();
   const loaderVisible = useAppSelector((state) => state.loadingOverlay.visible);
 
-  const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
-  const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
+  const [projects, setProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -22,18 +21,10 @@ export function ProjectList() {
 
     dispatch(showLoadingOverlay());
 
-    Promise.all([
-      axios.get<ApiRepositoryResponseDTO[]>('/api/repos', { signal: abortController.signal }),
-      axios.get<ApiRepositoryResponseDTO[]>('/api/repos', {
-        signal: abortController.signal,
-        params: {
-          pinned: true
-        }
-      })
-    ])
+    axios
+      .get<ApiRepositoryResponseDTO[]>('/api/repos', { signal: abortController.signal })
       .then((resp) => {
-        setUnpinnedProjects(resp[0].data);
-        setPinnedProjects(resp[1].data);
+        setProjects(resp.data);
         dispatch(hideLoadingOverlay());
         setError(false);
       })
@@ -46,15 +37,6 @@ export function ProjectList() {
       abortController.abort();
     };
   }, []);
-
-  function createProjectListElements(
-    projects: ApiRepositoryResponseDTO[],
-    pinnedProjects: boolean
-  ) {
-    return projects.map((project) => {
-      return <Project key={project.repositoryName} repo={project} pinned={pinnedProjects} />;
-    });
-  }
 
   const projectLoadError = (
     <div className="project-load-error">
@@ -80,8 +62,20 @@ export function ProjectList() {
               </h1>
               <h2 className="title-intro-2">All are available on my GitHub profile.</h2>
             </div>
-            <div className="project-list">{createProjectListElements(pinnedProjects, true)}</div>
-            <div className="project-list">{createProjectListElements(unpinnedProjects, false)}</div>
+            <div className="project-list">
+              {projects
+                .filter((p) => p.pinned)
+                .map((project) => {
+                  return <Project key={project.name} project={project} />;
+                })}
+            </div>
+            <div className="project-list">
+              {projects
+                .filter((p) => !p.pinned)
+                .map((project) => {
+                  return <Project key={project.name} project={project} />;
+                })}
+            </div>
           </>
         )}
       </div>
