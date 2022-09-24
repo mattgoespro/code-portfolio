@@ -1,94 +1,63 @@
 @import 'shared';
+@import 'colors';
 
 .project-card {
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
   min-width: 300px;
   flex: 1;
   margin: 10px;
-}
 
-.project-card-title {
-  font-family: Nunito Sans;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.5;
-  text-transform: uppercase;
-  padding: 10px 15px;
-  text-align: center;
+  .project-card-title {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    background-color: $blue;
 
-  .project-actions {
-    display: flex;
-    justify-content: center;
-    padding: 0 5px;
+    .project-nav-links {
+      display: flex;
+      justify-content: center;
+
+      .btn-project-nav-link {
+        color: white !important;
+        font-size: 14px;
+        // padding: 0 5px;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      .lnk-view-details {
+        text-decoration: none;
+        color: white;
+
+        &:visited {
+          color: white;
+        }
+      }
+    }
   }
-}
 
-.title-divider {
-  margin: 0 !important;
-}
+  .description-wrapper {
+    padding: 15px;
 
-// .project-view-github {
-//   display: flex;
-//   padding: 6px 8px;
-//   margin-left: 0px !important;
+    .title-description {
+      font-family: Nunito Sans;
+      font-size: 18px;
+      color: black;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
 
-//   &:hover {
-//     background-color: rgba(25, 118, 210, 0.04);
-//   }
-// }
-
-.icon-view-github {
-  color: black;
-}
-
-.btn-view-details {
-  color: #0b549f;
-}
-
-.description-wrapper {
-  padding: 15px;
-}
-
-.title-description {
-  font-family: Nunito Sans;
-  font-size: 18px;
-  color: black;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.description {
-  color: black;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.project-repo {
-  color: #ff9800;
-  font-weight: bold;
-}
-
-.card-header-icon {
-  width: 15px !important;
-  height: 15px !important;
-}
-
-.title-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.title-icon-buttons {
-  display: flex;
-  align-items: center;
-}
-
-.title-icon-button {
-  background-color: white !important;
-}
-
-.view-readme {
-  width: 26px;
-  height: 26px;
+    .description {
+      color: black;
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
 }

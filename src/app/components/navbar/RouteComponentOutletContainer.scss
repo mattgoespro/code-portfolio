@@ -63,6 +63,10 @@ nav {
       -webkit-animation-timing-function: linear;
       animation-timing-function: linear;
     }
+
+    &:visited {
+      color: black;
+    }
   }
 }
 
