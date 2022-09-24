@@ -2,21 +2,19 @@
 
 .project-card {
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
-  height: 100%;
-  max-width: 500px;
-  flex-grow: 1;
-  flex-shrink: 1;
+  min-width: 300px;
+  flex: 1;
+  margin: 10px;
 }
 
 .project-card-title {
-  .project-name {
-    font-family: 'Nunito Sans';
-    line-height: 1.5;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 15px;
-  }
+  font-family: Nunito Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  text-align: center;
 
   .project-actions {
     display: flex;
@@ -29,29 +27,15 @@
   margin: 0 !important;
 }
 
-.project-view-github {
-  display: flex;
-  padding: 6px 8px;
-  margin-left: 0px !important;
+// .project-view-github {
+//   display: flex;
+//   padding: 6px 8px;
+//   margin-left: 0px !important;
 
-  &:hover {
-    background-color: rgba(25, 118, 210, 0.04);
-  }
-
-  > span {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 500;
-    font-size: 0.875rem;
-    line-height: 1.75;
-    text-transform: uppercase;
-    color: #1976d2;
-    margin-left: 10px;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-}
+//   &:hover {
+//     background-color: rgba(25, 118, 210, 0.04);
+//   }
+// }
 
 .icon-view-github {
   color: black;
@@ -66,10 +50,11 @@
 }
 
 .title-description {
-  font-size: 24px;
-  font-weight: 300;
+  font-family: Nunito Sans;
+  font-size: 18px;
   color: black;
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .description {

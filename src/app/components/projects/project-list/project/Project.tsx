@@ -23,14 +23,12 @@ export default function Project(props: ProjectProps) {
             href={repo.link}
             target="tab"
             underline="none"
-            sx={{ display: 'flex', alignItems: 'center', marginLeft: '15px' }}
           >
-            <GitHub className="icon-view-github" sx={{ fontSize: 22 }} />
-            <span>View Repository</span>
+            <Button>See Repo</Button>
           </LinkButton>
           <Link to={`/projects/${repo.repositoryName}`} className="link-github">
             <Button className="btn-view-details" disableRipple>
-              View Details
+              More Details
             </Button>
           </Link>
         </div>

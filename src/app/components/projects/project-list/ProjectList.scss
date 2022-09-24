@@ -1,47 +1,28 @@
 @import 'shared';
 
-.projects-intro {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.project-page {
+  margin: 100px auto;
 
-  .project-info {
-    margin-top: 100px;
+  .project-intro {
+    max-width: 900px;
+    margin: 0 auto 20px;
 
     .title-intro {
-      font-family: Roboto;
-      font-size: 24px;
+      font-family: Roboto Serif;
+      font-size: 42px;
       font-weight: 100;
-      margin-top: 100px;
-      max-width: 800px;
       text-align: center;
+      margin: 0;
+    }
+
+    .title-intro-2 {
+      font-family: Roboto Serif;
+      font-size: 42px;
+      font-weight: 100;
+      text-align: center;
+      margin: 20px 0 0;
     }
   }
-}
-
-.project-list-wrapper {
-  width: 100%;
-  margin: 0;
-  min-height: 500px;
-  max-width: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: auto;
-}
-
-.pinned-projects-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 
 .title-pinned-projects {
@@ -52,14 +33,6 @@
   color: #0b549f;
 }
 
-.title-unpinned-projects {
-  text-align: center;
-  font-family: 'Nunito Sans';
-  font-weight: 100;
-  font-size: 42px;
-  margin: 10px 0 10px 0;
-}
-
 .unpinned-projects-divider {
   width: 100%;
 }
@@ -67,24 +40,6 @@
 .project-list {
   display: flex;
   flex-wrap: wrap;
-
-  > * {
-    margin: 10px;
-  }
-}
-
-.unpinned-projects {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.pinned {
-  opacity: 1 !important;
-}
-
-.list-divider {
-  width: 100%;
 }
 
 .project-load-error {

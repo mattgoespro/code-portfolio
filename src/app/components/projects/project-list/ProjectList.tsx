@@ -11,7 +11,7 @@ import './ProjectList.scss';
 
 export function ProjectList() {
   const dispatch = useAppDispatch();
-  const overlayLoading = useAppSelector((state) => state.loadingOverlay.visible);
+  const loaderVisible = useAppSelector((state) => state.loadingOverlay.visible);
 
   const [pinnedProjects, setPinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
   const [unpinnedProjects, setUnpinnedProjects] = useState<ApiRepositoryResponseDTO[]>([]);
@@ -56,7 +56,7 @@ export function ProjectList() {
     });
   }
 
-  const fetchErrorTemplate = (
+  const projectLoadError = (
     <div className="project-load-error">
       <div className="error-wrapper">
         <div className="err-msg">Oops! My projects are unable to be displayed at this time.</div>
@@ -69,24 +69,22 @@ export function ProjectList() {
   );
 
   return (
-    <div className="projects-intro">
-      <div className="project-info">
-        <h1 className="title-info">
-          All projects listed below thus far are publicly available on my GitHub page.
-        </h1>
-      </div>
-      <div className="project-list-wrapper">
-        <div className="projects">
-          <div className="pinned-projects-wrapper">
-            <div className="divider"></div>
+    <>
+      <div className="project-page">
+        {error && projectLoadError}
+        {!error && !loaderVisible && (
+          <>
+            <div className="project-intro">
+              <h1 className="title-intro">
+                Here are some of my most noteworthy projects up-to-date.
+              </h1>
+              <h2 className="title-intro-2">All are available on my GitHub profile.</h2>
+            </div>
             <div className="project-list">{createProjectListElements(pinnedProjects, true)}</div>
-          </div>
-          <div className="divider list-divider"></div>
-          <h1 className="title-unpinned-projects">Projects I&apos;ve Done for Fun</h1>
-          <div className="divider unpinned-projects-divider"></div>
-          <div className="project-list">{createProjectListElements(unpinnedProjects, false)}</div>
-        </div>
+            <div className="project-list">{createProjectListElements(unpinnedProjects, false)}</div>
+          </>
+        )}
       </div>
-    </div>
+    </>
   );
 }

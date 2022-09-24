@@ -3,7 +3,7 @@ import PageBanner from '@shared/components/page-banner/PageBanner';
 
 export function Home() {
   return (
-    <div className="home-wrapper">
+    <>
       <PageBanner
         title={
           <div>
@@ -14,7 +14,7 @@ export function Home() {
         backgroundImage="images/knysna-harbour-banner.jpg"
         backgroundImageAdjust={true}
       />
-      <div className="welcome-info">
+      <div className="welcome-page">
         <h1 className="title-intro">The Intro</h1>
         <p>
           I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
@@ -26,6 +26,6 @@ export function Home() {
           what I work in on my free time.
         </p>
       </div>
-    </div>
+    </>
   );
 }

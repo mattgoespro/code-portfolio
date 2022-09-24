@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack.prod.js --mode development --port 4000 --env api-target=http://localhost:8080",
+    "start": "webpack-dev-server --config webpack.dev.js --mode development --port 4000 --env api-target=http://localhost:8080",
     "start:prod": "webpack-dev-server --config webpack.prod.js --mode production --port 4000 --env api-target=http://localhost:8080",
-    "build": "webpack --config webpack.prod.js --mode production",
+    "build": "webpack --config webpack.prod.js",
     "lint": "eslint src",
     "lint:fix": "concurrently \"eslint src --fix\" \"prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,md,json} --config ./.prettierrc\"",
     "lint:autoprefix-css": "postcss src/**/*.scss --use autoprefixer --replace --no-map",
