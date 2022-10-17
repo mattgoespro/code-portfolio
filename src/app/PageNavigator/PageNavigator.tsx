@@ -2,13 +2,13 @@ import { GitHub, LinkedIn } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import './Navigator.scss';
+import './PageNavigator.scss';
 
-interface NavigatorProps {
+interface PageNavigatorProps {
   landingPage: JSX.Element;
 }
 
-export function Navigator(props: NavigatorProps) {
+export function PageNavigator(props: PageNavigatorProps) {
   const location = useLocation();
 
   return (
