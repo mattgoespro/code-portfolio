@@ -6,10 +6,10 @@ import {
 } from '@shared/redux/reducers/loading-overlay-slice';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Project from './project/Project';
-import './ProjectList.scss';
+import './ProjectListView.scss';
+import { ProjectListItem } from './ProjectListItem/ProjectListItem';
 
-export function ProjectList() {
+export function ProjectListView() {
   const dispatch = useAppDispatch();
   const loaderVisible = useAppSelector((state) => state.loadingOverlay.visible);
 
@@ -66,14 +66,14 @@ export function ProjectList() {
               {projects
                 .filter((p) => p.pinned)
                 .map((project) => {
-                  return <Project key={project.name} project={project} />;
+                  return <ProjectListItem key={project.name} project={project} />;
                 })}
             </div>
             <div className="project-list">
               {projects
                 .filter((p) => !p.pinned)
                 .map((project) => {
-                  return <Project key={project.name} project={project} />;
+                  return <ProjectListItem key={project.name} project={project} />;
                 })}
             </div>
           </>

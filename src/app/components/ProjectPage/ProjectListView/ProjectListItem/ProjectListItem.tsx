@@ -1,13 +1,13 @@
 import { ApiRepositoryResponseDTO } from '@shared/services/shared.dto';
-import './Project.scss';
+import './ProjectListItem.scss';
 import { Link } from 'react-router-dom';
 import { Button, Link as ExternalLink } from '@mui/material';
 
-interface ProjectProps {
+interface ProjectListItemProps {
   project: ApiRepositoryResponseDTO;
 }
 
-export default function Project(props: ProjectProps) {
+export function ProjectListItem(props: ProjectListItemProps) {
   const { project } = props;
 
   return (

@@ -9,7 +9,7 @@ interface PageBannerProps {
   backgroundImageAdjust?: boolean;
 }
 
-function PageBanner(props: PageBannerProps) {
+export function PageBanner(props: PageBannerProps) {
   return (
     <div className="banner" style={{ backgroundColor: props.backgroundColor }}>
       {props.backgroundColor == null && props.backgroundImage != null && (
@@ -28,5 +28,3 @@ function PageBanner(props: PageBannerProps) {
     </div>
   );
 }
-
-export default PageBanner;

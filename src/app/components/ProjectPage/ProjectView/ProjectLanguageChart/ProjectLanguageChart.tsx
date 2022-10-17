@@ -3,11 +3,11 @@ import { ProjectLanguageComposition } from '@shared/services/shared.dto';
 import { calculateChartData, languageChartLabelColors } from './ProjectLanguageChart.model';
 import './ProjectLanguageChart.scss';
 
-interface LanguageChartProps {
+interface ProjectLanguageChartProps {
   languageComposition: ProjectLanguageComposition;
 }
 
-export function ProjectLanguageChart(props: LanguageChartProps) {
+export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
   const chartData = calculateChartData(props.languageComposition);
 
   // return (

@@ -1,16 +1,16 @@
-import PageBanner from '@shared/components/page-banner/PageBanner';
-import { Outlet } from 'react-router-dom';
+import { PageBanner } from '@shared/components/PageBanner/PageBanner';
+import { ProjectListView } from './ProjectListView/ProjectListView';
 
-export function Projects() {
+export function ProjectPage() {
   return (
-    <div>
+    <>
       <PageBanner
         title="Here's what I've been working on."
         subtitle="...among other things"
         backgroundImage="/images/programmer-setup-banner.jpg"
         backgroundImageAdjust={true}
       />
-      <Outlet />
-    </div>
+      <ProjectListView />
+    </>
   );
 }

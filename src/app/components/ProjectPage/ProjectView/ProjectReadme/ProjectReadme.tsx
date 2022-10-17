@@ -2,11 +2,11 @@ import './ProjectReadme.scss';
 import HTMLReactParser, { Element } from 'html-react-parser';
 import MarkdownIt from 'markdown-it';
 
-interface ReadmeProps {
+interface ProjectReadmeProps {
   readmeContent: string;
 }
 
-export function ProjectReadme(props: ReadmeProps) {
+export function ProjectReadme(props: ProjectReadmeProps) {
   const parseHtmlToJsx = HTMLReactParser;
   const parseMarkdownToString = MarkdownIt();
 

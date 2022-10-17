@@ -10,13 +10,13 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import './ProjectView.scss';
-import { ProjectLanguageChart } from './project-language-chart/ProjectLanguageChart';
-import { ProjectReadme } from './project-readme/ProjectReadme';
 import {
   hideLoadingOverlay,
   showLoadingOverlay
 } from '@shared/redux/reducers/loading-overlay-slice';
 import { useAppDispatch } from '@shared/redux/hooks/UseHook';
+import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
+import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 
 export function ProjectView() {
   const { projectName } = useParams();

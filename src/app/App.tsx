@@ -1,21 +1,19 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { Home } from './components/home/Home';
-import { About } from './components/about/About';
-import { ProjectList } from './components/projects/project-list/ProjectList';
-import { ProjectView } from './components/projects/project-view/ProjectView';
-import { Projects } from './components/projects/Projects';
-import { RouterComponentOutletContainer } from './components/navbar/RouteComponentOutletContainer';
+import { AboutPage } from './components/AboutPage/AboutPage';
+import { HomePage } from './components/HomePage/HomePage';
+import { Navigator } from './components/Navigator/Navigator';
+import { ProjectPage } from './components/ProjectPage/ProjectPage';
+import { ProjectView } from './components/ProjectPage/ProjectView/ProjectView';
 
 export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RouterComponentOutletContainer landingPage={<Home />} />}>
-          <Route path="projects" element={<Projects />}>
-            <Route path="list" element={<ProjectList />}></Route>
+        <Route path="/" element={<Navigator landingPage={<HomePage />} />}>
+          <Route path="projects" element={<ProjectPage />}>
             <Route path=":projectName" element={<ProjectView />}></Route>
           </Route>
-          <Route path="about" element={<About />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

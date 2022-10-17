@@ -1,14 +1,14 @@
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
-import SpinnerLoadingOverlay from '@shared/components/spinner-loading-overlay/SpinnerLoadingOverlay';
+import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import './RouteComponentOutletContainer.scss';
+import './Navigator.scss';
 
-interface RouterComponentOutletContainerProps {
+interface NavigatorProps {
   landingPage: JSX.Element;
 }
 
-export function RouterComponentOutletContainer(props: RouterComponentOutletContainerProps) {
+export function Navigator(props: NavigatorProps) {
   const location = useLocation();
 
   return (

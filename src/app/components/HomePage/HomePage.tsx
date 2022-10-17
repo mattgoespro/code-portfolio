@@ -1,7 +1,7 @@
-import './Home.scss';
-import PageBanner from '@shared/components/page-banner/PageBanner';
+import { PageBanner } from '@shared/components/PageBanner/PageBanner';
+import './HomePage.scss';
 
-export function Home() {
+export function HomePage() {
   return (
     <>
       <PageBanner

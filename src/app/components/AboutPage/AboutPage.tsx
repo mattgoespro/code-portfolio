@@ -1,6 +1,6 @@
-import './About.scss';
+import './AboutPage.scss';
 
-export function About() {
+export function AboutPage() {
   return (
     <div className="about-wrapper">
       <div className="about-content-wrapper">
