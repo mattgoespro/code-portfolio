@@ -1,29 +1,43 @@
-# TODO - Initial release
+# IMPORTANT!
 
-## Features
+## NGINX
 
-# API calls
+- Enable HTTPS using SSL certificates.
 
-- Cache API responses in components, particularly the ProjectList component.
-  -- Note sure if worth doing
+## API Response Caching
+
+- Cache API responses using React-Redux
+  - Important for ProjectPage
 
 ## Bugs
 
-- Prod docker frontend starts in base route
-
-## Responsive Design
-
-- Responsive components and support for mobile frame sizes.
-
-## Styling
-
-- Switch to scss modules to prevent style leakage.
+- Image assets from Webpack **_publicPath_** not being bundled in build.
+- **STILL AN ISSUE?** Frontend in Docker Container base URL displays nothing.
 
 ## Optimization
 
-- Bundle sizes
+- Minimize bundle sizes
 - Remove unused CSS styles
 
-## Misc
+# Nice To Have
 
-- ESLint import ordering.
+## Responsive Design
+
+- Responsive components for different media sizes.
+
+## Encapsulated Component Styles
+
+- Switch to **scss** **modules** to prevent style leakage bugs.
+
+## Testing Edge Cases
+
+### Handle cases where:
+
+- Repo does not exist during view/refresh/navigate
+- Backend is down
+- Backend crashes
+- Backend API request limit is reached
+
+# Not Very Important
+
+- ESLint import ordering rules.

@@ -11,9 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "@shared/*": ["src/app/shared/services/*"],
       "@shared/components/*": ["./src/app/Shared/components/*"],
-      "@shared/services/*": ["./src/app/Shared/services/*"],
       "@shared/redux/*": ["./src/app/Shared/redux/*"]
     }
   },

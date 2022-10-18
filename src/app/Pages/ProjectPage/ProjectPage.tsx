@@ -1,5 +1,5 @@
 import { PageBanner } from '@shared/components/PageBanner/PageBanner';
-import { ProjectListView } from './ProjectListView/ProjectListView';
+import { Outlet } from 'react-router-dom';
 
 export function ProjectPage() {
   return (
@@ -10,7 +10,7 @@ export function ProjectPage() {
         backgroundImage="/images/programmer-setup-banner.jpg"
         backgroundImageAdjust={true}
       />
-      <ProjectListView />
+      <Outlet />
     </>
   );
 }

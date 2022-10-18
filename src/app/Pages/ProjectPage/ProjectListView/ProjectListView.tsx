@@ -1,4 +1,3 @@
-import { ApiRepositoryResponseDTO } from '@shared/services/shared.dto';
 import { useAppDispatch, useAppSelector } from '@shared/redux/hooks/UseHook';
 import {
   hideLoadingOverlay,
@@ -8,12 +7,13 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './ProjectListView.scss';
 import { ProjectListItem } from './ProjectListItem/ProjectListItem';
+import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
 
 export function ProjectListView() {
   const dispatch = useAppDispatch();
   const loaderVisible = useAppSelector((state) => state.loadingOverlay.visible);
 
-  const [projects, setProjects] = useState<ApiRepositoryResponseDTO[]>([]);
+  const [projects, setProjects] = useState<RepositorySummary[]>([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function ProjectListView() {
     dispatch(showLoadingOverlay());
 
     axios
-      .get<ApiRepositoryResponseDTO[]>('/api/repos', { signal: abortController.signal })
+      .get<RepositorySummary[]>('/api/repos', { signal: abortController.signal })
       .then((resp) => {
         setProjects(resp.data);
         dispatch(hideLoadingOverlay());
@@ -66,14 +66,28 @@ export function ProjectListView() {
               {projects
                 .filter((p) => p.pinned)
                 .map((project) => {
-                  return <ProjectListItem key={project.name} project={project} />;
+                  return (
+                    <ProjectListItem
+                      key={project.name}
+                      name={project.name}
+                      description={project.description}
+                      githubUrl={project.githubUrl}
+                    />
+                  );
                 })}
             </div>
             <div className="project-list">
               {projects
                 .filter((p) => !p.pinned)
                 .map((project) => {
-                  return <ProjectListItem key={project.name} project={project} />;
+                  return (
+                    <ProjectListItem
+                      key={project.name}
+                      name={project.name}
+                      description={project.description}
+                      githubUrl={project.githubUrl}
+                    />
+                  );
                 })}
             </div>
           </>

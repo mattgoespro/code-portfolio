@@ -1,26 +1,25 @@
-import { ApiRepositoryResponseDTO } from '@shared/services/shared.dto';
 import './ProjectListItem.scss';
 import { Link } from 'react-router-dom';
 import { Button, Link as ExternalLink } from '@mui/material';
 
 interface ProjectListItemProps {
-  project: ApiRepositoryResponseDTO;
+  name: string;
+  description: string;
+  githubUrl: string;
 }
 
 export function ProjectListItem(props: ProjectListItemProps) {
-  const { project } = props;
-
   return (
     <div className="project-card">
       <div className="project-card-title">
-        <div className="project-name">{project.name}</div>
+        <div className="project-name">{props.name}</div>
         <div className="project-nav-links">
-          <ExternalLink href={project.link} target="tab" underline="none">
+          <ExternalLink href={props.githubUrl} target="tab" underline="none">
             <Button className="btn-project-nav-link">GitHub</Button>
           </ExternalLink>
 
           <Button className="btn-project-nav-link">
-            <Link className="lnk-view-details" to={`/projects/${project.name}`}>
+            <Link className="lnk-view-details" to={`/projects/${props.name}`}>
               Details
             </Link>
           </Button>
@@ -28,7 +27,7 @@ export function ProjectListItem(props: ProjectListItemProps) {
       </div>
       <div className="description-wrapper">
         <div className="title-description">Description</div>
-        <div className="description">{project.description || <i>Not available.</i>}</div>
+        <div className="description">{props.description || <i>Not available.</i>}</div>
       </div>
     </div>
   );

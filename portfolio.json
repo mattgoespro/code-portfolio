@@ -1,3 +1,13 @@
 {
-    "skills": ["Docker", "docker-compose", "node.js", "nginx", "PostCSS", "React", "React Redux", "Webpack"]
+  "name": "hoppingmode-web-frontend - A Code Portfolio Showcase",
+  "skills": [
+    "Docker",
+    "docker-compose",
+    "node.js",
+    "nginx",
+    "PostCSS",
+    "React",
+    "React Redux",
+    "Webpack"
+  ]
 }
