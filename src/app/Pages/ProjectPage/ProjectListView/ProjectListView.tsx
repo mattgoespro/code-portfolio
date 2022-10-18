@@ -58,9 +58,9 @@ export function ProjectListView() {
           <>
             <div className="project-intro">
               <h1 className="title-intro">
-                Here are some of my most noteworthy projects up-to-date.
+                Here are some of my most noteworthy projects up-to-date
               </h1>
-              <h2 className="title-intro-2">All are available on my GitHub profile.</h2>
+              <h2 className="title-intro-2">All are available to view on my GitHub profile</h2>
             </div>
             <div className="project-list">
               {projects

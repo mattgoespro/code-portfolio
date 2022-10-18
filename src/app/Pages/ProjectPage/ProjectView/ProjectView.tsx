@@ -11,6 +11,7 @@ import { useAppDispatch } from '@shared/redux/hooks/UseHook';
 import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { RepositoryDetails, RepositoryLanguages } from '@mattgoespro/hoppingmode-web';
+import { Buffer } from 'buffer';
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -86,7 +87,7 @@ export function ProjectView() {
                 <div className="summary-chart">
                   <span className="summary-language-chart-title">Languages Used</span>
                   {Object.keys(projectLanguages).length > 0 &&
-                    (<ProjectLanguageChart languageComposition={projectLanguages} /> || (
+                    (<ProjectLanguageChart languages={projectLanguages} /> || (
                       <span className="summary-languages-none-found">
                         <i>No recognized languages found.</i>
                       </span>
@@ -95,7 +96,7 @@ export function ProjectView() {
               </div>
             </div>
             <div className="readme">
-              <ProjectReadme readmeContent={project.readmeDoc} />
+              <ProjectReadme readmeContent={Buffer.from(project.readmeDoc, 'base64').toString()} />
             </div>
           </div>
         </>

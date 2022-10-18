@@ -1,14 +1,14 @@
+import { RepositoryLanguages } from '@mattgoespro/hoppingmode-web';
 import { PieChart } from 'react-minimal-pie-chart';
-import { ProjectLanguageComposition } from '@shared/services/shared.dto';
 import { calculateChartData, languageChartLabelColors } from './ProjectLanguageChart.model';
 import './ProjectLanguageChart.scss';
 
 interface ProjectLanguageChartProps {
-  languageComposition: ProjectLanguageComposition;
+  languages: RepositoryLanguages;
 }
 
 export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
-  const chartData = calculateChartData(props.languageComposition);
+  const chartData = calculateChartData(props.languages);
 
   // return (
   //   <div>
