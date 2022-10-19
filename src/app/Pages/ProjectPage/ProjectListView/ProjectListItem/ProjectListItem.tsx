@@ -5,12 +5,13 @@ import { Button, Link as ExternalLink } from '@mui/material';
 interface ProjectListItemProps {
   name: string;
   description: string;
+  pinned: boolean;
   githubUrl: string;
 }
 
 export function ProjectListItem(props: ProjectListItemProps) {
   return (
-    <div className="project-card">
+    <div className={`project-card ${props.pinned ? 'pinned' : ''}`}>
       <div className="project-card-title">
         <div className="project-name">{props.name}</div>
         <div className="project-nav-links">
@@ -19,7 +20,10 @@ export function ProjectListItem(props: ProjectListItemProps) {
           </ExternalLink>
 
           <Button className="btn-project-nav-link">
-            <Link className="lnk-view-details" to={`/projects/${props.name}`}>
+            <Link
+              className={`lnk-view-details ${props.pinned ? 'pinned' : ''}`}
+              to={`/projects/${props.name}`}
+            >
               Details
             </Link>
           </Button>

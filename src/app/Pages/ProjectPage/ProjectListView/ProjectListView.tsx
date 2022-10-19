@@ -70,6 +70,7 @@ export function ProjectListView() {
                     <ProjectListItem
                       key={project.name}
                       name={project.name}
+                      pinned={true}
                       description={project.description}
                       githubUrl={project.githubUrl}
                     />
@@ -84,6 +85,7 @@ export function ProjectListView() {
                     <ProjectListItem
                       key={project.name}
                       name={project.name}
+                      pinned={false}
                       description={project.description}
                       githubUrl={project.githubUrl}
                     />
