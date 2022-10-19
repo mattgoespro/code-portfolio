@@ -11,7 +11,7 @@ export function ProjectReadme(props: ProjectReadmeProps) {
   const parseMarkdownToString = MarkdownIt();
 
   return (
-    <div className="text">
+    <>
       {parseHtmlToJsx(parseMarkdownToString.render(props.readmeContent), {
         replace: (domNode) => {
           if (domNode instanceof Element) {
@@ -41,6 +41,6 @@ export function ProjectReadme(props: ProjectReadmeProps) {
           }
         }
       })}
-    </div>
+    </>
   );
 }

@@ -1,11 +1,14 @@
 @import 'shared';
 
-.project-page {
+.project-list {
   margin: 100px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
 
   .project-intro {
     max-width: 900px;
-    margin: 100px auto;
 
     .title-intro {
       font-family: Roboto Serif;
@@ -35,29 +38,4 @@
 
 .unpinned-projects-divider {
   width: 100%;
-}
-
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 80%;
-  margin: auto;
-}
-
-.project-load-error {
-  text-align: center;
-  font-family: Comfortaa, sans-serif;
-  width: 80%;
-  margin: auto;
-  margin-top: 50px;
-
-  .err-msg {
-    font-size: 48px;
-  }
-
-  .err-try-again {
-    font-size: 24px;
-    margin-top: 30px;
-  }
 }

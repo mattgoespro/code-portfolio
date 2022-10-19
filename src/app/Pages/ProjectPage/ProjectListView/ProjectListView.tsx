@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import './ProjectListView.scss';
 import { ProjectListItem } from './ProjectListItem/ProjectListItem';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
+import { ProjectPageLoadError } from '../ProjectPageLoadError';
 
 export function ProjectListView() {
   const dispatch = useAppDispatch();
@@ -38,22 +39,10 @@ export function ProjectListView() {
     };
   }, []);
 
-  const projectLoadError = (
-    <div className="project-load-error">
-      <div className="error-wrapper">
-        <div className="err-msg">Oops! My projects are unable to be displayed at this time.</div>
-        <div className="err-try-again">
-          Please try again later, or contact me directly on my socials.
-        </div>
-      </div>
-      <div className="divider"></div>
-    </div>
-  );
-
   return (
     <>
-      <div className="project-page">
-        {error && projectLoadError}
+      <div className="project-list">
+        {error && <ProjectPageLoadError />}
         {!error && !loaderVisible && (
           <>
             <div className="project-intro">

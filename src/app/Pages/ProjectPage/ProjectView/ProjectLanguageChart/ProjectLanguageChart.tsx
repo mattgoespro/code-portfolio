@@ -1,61 +1,69 @@
 import { RepositoryLanguages } from '@mattgoespro/hoppingmode-web';
-import { PieChart } from 'react-minimal-pie-chart';
-import { calculateChartData, languageChartLabelColors } from './ProjectLanguageChart.model';
 import './ProjectLanguageChart.scss';
+import { Pie } from 'react-chartjs-2';
+import { ChartData, ChartOptions } from 'chart.js';
+import 'chart.js/auto';
+
+// I'd be crazy to know more than 6 languages, right?
+export const chartColors = ['#ffb74d', '#aed581', '#4db6ac', '#4fc3f7', '#ba68c8', '#f06292'];
+export const chartHoverColors = ['#ff9800', '#8bc34a', '#009688', '#03a9f4', '#9c27b0', '#e91e63'];
 
 interface ProjectLanguageChartProps {
   languages: RepositoryLanguages;
 }
 
 export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
-  const chartData = calculateChartData(props.languages);
+  const options: ChartOptions<'pie'> = {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'left',
+        labels: {
+          font: {
+            family: 'Nunito Sans',
+            size: 14,
+            weight: 'bold'
+          },
+          boxWidth: 20,
+          boxHeight: 20,
+          padding: 5
+        }
+      },
+      tooltip: {
+        bodyFont: {
+          family: 'Nunito Sans',
+          size: 14,
+          weight: '300'
+        },
+        boxPadding: 10,
+        boxHeight: 25,
+        callbacks: {
+          label: (chartSection) => {
+            return `${chartSection.label}: ${chartSection.raw}%`;
+          }
+        }
+      }
+    }
+  };
 
-  // return (
-  //   <div>
-  //     {(chartData?.projectLanguages.length > 0 && (
-
-  //     )) || (
-  //       <span className="languages-none-found">
-  //         <i>No recognized languages found.</i>
-  //       </span>
-  //     )}
-  //   </div>
-  // );
+  function createChartData(languages: RepositoryLanguages): ChartData<'pie'> {
+    return {
+      labels: Object.keys(languages),
+      datasets: [
+        {
+          data: Object.values(languages),
+          backgroundColor: Object.keys(languages).map((_, index) => chartColors[index]),
+          hoverBackgroundColor: Object.keys(languages).map((_, index) => chartColors[index])
+        }
+      ]
+    };
+  }
 
   return (
-    <div className="chart-wrapper">
-      <div className="chart-legend">
-        {chartData.map((lang, i) => {
-          return (
-            <span
-              key={lang.title}
-              className="chart-legend-lang"
-              style={{
-                color: languageChartLabelColors[i]
-              }}
-            >
-              {lang.title}
-            </span>
-          );
-        })}
-      </div>
-      <PieChart
-        className="pie-chart"
-        data={chartData}
-        label={(labelProps) => {
-          if (labelProps.dataEntry.value > 3) {
-            return `${labelProps.dataEntry.value.toFixed()}%`;
-          }
-
-          return '';
-        }}
-        labelStyle={{
-          fontSize: '3px',
-          fontFamily: 'Roboto'
-        }}
-        labelPosition={70}
-        animate={true}
-      />
-    </div>
+    <>
+      {Object.keys(props.languages).length > 0 && (
+        <Pie data={createChartData(props.languages)} options={options}></Pie>
+      )}
+    </>
   );
 }

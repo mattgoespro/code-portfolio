@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import { useParams } from 'react-router-dom';
 import './ProjectView.scss';
 import {
   hideLoadingOverlay,
@@ -12,6 +11,8 @@ import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChar
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { RepositoryDetails, RepositoryLanguages } from '@mattgoespro/hoppingmode-web';
 import { Buffer } from 'buffer';
+import { ProjectPageLoadError } from '../ProjectPageLoadError';
+import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -20,7 +21,7 @@ export function ProjectView() {
   const [project, setProject] = useState<RepositoryDetails>(null);
   const [loadingProject, setLoadingProject] = useState(true);
   const [projectLanguages, setProjectLanguages] = useState<RepositoryLanguages>(null);
-  const [_apiError, setApiError] = useState();
+  const [error, setError] = useState();
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -37,14 +38,14 @@ export function ProjectView() {
       })
     ])
       .then((resp) => {
-        setApiError(null);
+        setError(null);
         setProject(resp[0].data);
         setProjectLanguages(resp[1].data);
         dispatch(hideLoadingOverlay());
         setLoadingProject(false);
       })
       .catch((err) => {
-        setApiError(err);
+        setError(err);
         setProject(null);
         setProjectLanguages(null);
         dispatch(hideLoadingOverlay());
@@ -57,45 +58,29 @@ export function ProjectView() {
   }, []);
 
   return (
-    <div className="view-project">
-      {!loadingProject && (
+    <div className="project-view-page">
+      {error && <ProjectPageLoadError />}
+      {!error && !loadingProject && (
         <>
-          <div className="view-project-header">
-            <div className="view-navigate-back">
-              <Link to="../list" className="link-view-navigate-back">
-                <NavigateBeforeIcon
-                  className="icon-view-navigate-back"
-                  sx={{ fontSize: 50, color: 'orange' }}
-                />
-                <div>Return</div>
-              </Link>
-            </div>
-            <div>
-              <h1 className="view-project-title">{project.portfolioSpec.name}</h1>
-            </div>
+          <div className="project-intro">
+            <h1 className="project-name">{project.portfolioSpec.name}</h1>
+            <div className="project-skills">Skills</div>
           </div>
           <div className="project-content">
-            <div className="summary-wrapper">
-              <div className="summary">
-                <div className="summary-repo">
-                  <div className="summary-repo-activity">Project Activity</div>
-                  <span>Created: {new Date(project.createdTimestamp).toUTCString()}</span>
-                  <span>Last Updated: {new Date(project.updatedTimestamp).toUTCString()}</span>
+            <div className="project-content-details">
+              <div className="project-content-details-header">
+                <div className="project-content-details-title">Project Details</div>
+              </div>
+              <div className="project-content-sections">
+                <div>
+                  <ProjectRepositoryStats project={project} />
                 </div>
               </div>
-              <div className="summary-language-chart-wrapper summary">
-                <div className="summary-chart">
-                  <span className="summary-language-chart-title">Languages Used</span>
-                  {Object.keys(projectLanguages).length > 0 &&
-                    (<ProjectLanguageChart languages={projectLanguages} /> || (
-                      <span className="summary-languages-none-found">
-                        <i>No recognized languages found.</i>
-                      </span>
-                    ))}
-                </div>
+              <div>
+                <ProjectLanguageChart languages={projectLanguages} />
               </div>
             </div>
-            <div className="readme">
+            <div className="project-view-readme">
               <ProjectReadme readmeContent={Buffer.from(project.readmeDoc, 'base64').toString()} />
             </div>
           </div>

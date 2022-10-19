@@ -33,10 +33,17 @@
 
 ### Handle cases where:
 
+- User navigates to unknown route
 - Repo does not exist during view/refresh/navigate
 - Backend is down
 - Backend crashes
 - Backend API request limit is reached
+- Project Page
+  - GitHub repo is not initialized
+  - No skills (possibly just ignore the project on the backend then)
+  - Language pie chart has no languages
+  - README does not exist
+  - README is empty
 
 # Not Very Important
 

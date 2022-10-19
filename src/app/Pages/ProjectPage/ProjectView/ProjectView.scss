@@ -1,92 +1,70 @@
-.view-project {
-  margin: 0 auto 0 auto;
-}
+@import 'colors';
 
-.view-project-header {
+.project-view-page {
+  margin: 100px auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  margin-top: 120px;
-}
+  width: 80%;
 
-.project-content {
-  margin-top: 50px;
-}
+  .project-intro {
+    max-width: 900px;
 
-.view-project-title {
-  font-family: Roboto Serif;
-  font-size: 42px;
-  font-weight: 100;
-  margin: 0;
-  text-align: center;
-}
+    .project-name {
+      font-family: 'Roboto Serif' sans-serif;
+      font-size: 42px;
+      font-weight: 100;
+      text-align: center;
+      margin: 0;
+    }
 
-.view-navigate-back {
-  position: absolute;
-  left: 100px;
-}
-
-.link-view-navigate-back {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.icon-view-navigate-back {
-  width: 20px;
-  vertical-align: middle;
-}
-
-.summary-wrapper {
-  width: 100%;
-  display: inline-flex;
-  justify-content: center;
-}
-
-.summary-repo {
-  display: flex;
-  flex-direction: column;
-  color: black;
-  width: 400px;
-
-  span {
-    font-size: 14px;
-    font-weight: 100;
-    margin-bottom: 8px;
+    .project-skills {
+      font-family: Roboto Serif;
+      font-size: 24px;
+      font-weight: 100;
+      text-align: center;
+      margin: 20px 0 0;
+    }
   }
-}
 
-.summary-repo-activity {
-  color: black;
-  font-size: 16px;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
+  .project-content {
+    display: flex;
+    flex-direction: column;
 
-.summary-language-chart-wrapper {
-  font-weight: 100;
-}
+    .project-content-details {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      flex: 1;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+        rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
-.summary-chart {
-  display: flex;
-  flex-direction: column;
-}
+      .project-content-details-header {
+        align-items: center;
+        justify-content: center;
+        background-color: #3f51b5;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        background-color: $blue;
 
-.summary-language-chart-title {
-  color: black;
-  font-size: 16px;
-  font-weight: 900;
-}
+        .project-content-details-title {
+          color: #fff;
+          font-family: 'Roboto', sans-serif;
+          margin-left: 15px;
+          font-size: 18px;
+          font-weight: 300;
+        }
+      }
+    }
 
-.summary-languages-none-found {
-  color: black;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-.readme {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
+    .project-view-readme {
+      max-width: 700px;
+      padding: 50px;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    }
+  }
 }
