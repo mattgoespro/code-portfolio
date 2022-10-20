@@ -36,7 +36,7 @@ const _technologies = (
       <Card className="card">
         <div className="technology-card">
           <div className="technology-name react">React</div>
-          <div className="card-title-divider"></div>
+          <div></div>
           <img src="images/logos/react.png" alt="react" />
         </div>
       </Card>

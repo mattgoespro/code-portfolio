@@ -45,11 +45,13 @@ export function ProjectListView() {
         {error && <ProjectPageLoadError />}
         {!error && !loaderVisible && (
           <>
-            <div className="project-intro">
-              <h1 className="title-intro">
+            <div className="project-list-intro">
+              <h1 className="project-list-intro-title">
                 Here are some of my most noteworthy projects up-to-date
               </h1>
-              <h2 className="title-intro-2">All are available to view on my GitHub profile</h2>
+              <h2 className="project-list-intro-subtitle">
+                All are available to view on my GitHub profile
+              </h2>
             </div>
             <div className="project-list">
               {projects

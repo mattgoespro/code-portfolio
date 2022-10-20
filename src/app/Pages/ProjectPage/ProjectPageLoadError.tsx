@@ -9,7 +9,6 @@ export function ProjectPageLoadError() {
           Please try again later, or contact me directly on my socials.
         </div>
       </div>
-      <div className="divider"></div>
     </div>
   );
 }

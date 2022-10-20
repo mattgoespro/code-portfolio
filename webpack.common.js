@@ -21,8 +21,8 @@ module.exports = function (_env, argv) {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
       plugins: [new TsconfigPathsPlugin()],
       alias: {
-        shared: path.resolve(__dirname, 'src/assets/styles/shared.scss'),
-        colors: path.resolve(__dirname, 'src/assets/styles/colors.scss')
+        shared: path.resolve(__dirname, 'src/assets/styles/_shared.scss'),
+        colors: path.resolve(__dirname, 'src/assets/styles/_colors.scss')
       }
     },
     plugins: [

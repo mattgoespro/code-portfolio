@@ -64,20 +64,22 @@ export function ProjectView() {
         <>
           <div className="project-intro">
             <h1 className="project-name">{project.portfolioSpec.name}</h1>
-            <div className="project-skills">Skills</div>
           </div>
           <div className="project-content">
-            <div className="project-content-details">
-              <div className="project-content-details-header">
-                <div className="project-content-details-title">Project Details</div>
-              </div>
-              <div className="project-content-sections">
-                <div>
+            <div className="project-content-sections">
+              <div className="project-content-section">
+                <div className="project-content-section-title">Project Details</div>
+                <div className="project-content-section-content">
                   <ProjectRepositoryStats project={project} />
                 </div>
               </div>
-              <div>
-                <ProjectLanguageChart languages={projectLanguages} />
+            </div>
+            <div className="project-content-sections">
+              <div className="project-content-section">
+                <div className="project-content-section-title">Programming Languages Used</div>
+                <div className="project-content-section-content">
+                  <ProjectLanguageChart languages={projectLanguages} />
+                </div>
               </div>
             </div>
             <div className="project-view-readme">

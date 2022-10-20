@@ -10,12 +10,12 @@ export function HomePage() {
             Hello <span>World!</span>
           </div>
         }
-        subtitle="Allow me to introduce myself."
+        subtitle="Allow me to introduce myself"
         backgroundImage="images/knysna-harbour-banner.jpg"
         backgroundImageAdjust={true}
       />
-      <div className="welcome-page">
-        <h1 className="title-intro">The Intro</h1>
+      {/* <div className="welcome-page">
+        <h1>The Intro</h1>
         <p>
           I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
           make a difference in the software industry.
@@ -25,7 +25,7 @@ export function HomePage() {
           Software Engineering professional, as well as for anyone wanting to keep in touch with
           what I work in on my free time.
         </p>
-      </div>
+      </div> */}
     </>
   );
 }

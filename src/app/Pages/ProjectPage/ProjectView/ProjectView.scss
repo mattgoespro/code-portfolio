@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'shared';
 
 .project-view-page {
   margin: 100px auto;
@@ -8,7 +9,17 @@
   width: 80%;
 
   .project-intro {
+    position: relative;
     max-width: 900px;
+    margin-bottom: 100px;
+
+    &:after {
+      border-bottom: 1px solid #d9d9d9;
+      content: '';
+      position: absolute;
+      width: 100%;
+      bottom: -40px;
+    }
 
     .project-name {
       font-family: 'Roboto Serif' sans-serif;
@@ -17,49 +28,11 @@
       text-align: center;
       margin: 0;
     }
-
-    .project-skills {
-      font-family: Roboto Serif;
-      font-size: 24px;
-      font-weight: 100;
-      text-align: center;
-      margin: 20px 0 0;
-    }
   }
 
   .project-content {
     display: flex;
     flex-direction: column;
-
-    .project-content-details {
-      margin-top: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 10px;
-      flex: 1;
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-        rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-
-      .project-content-details-header {
-        align-items: center;
-        justify-content: center;
-        background-color: #3f51b5;
-        display: flex;
-        height: 50px;
-        width: 100%;
-        background-color: $blue;
-
-        .project-content-details-title {
-          color: #fff;
-          font-family: 'Roboto', sans-serif;
-          margin-left: 15px;
-          font-size: 18px;
-          font-weight: 300;
-        }
-      }
-    }
 
     .project-view-readme {
       max-width: 700px;

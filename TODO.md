@@ -40,7 +40,7 @@
 - Backend API request limit is reached
 - Project Page
   - GitHub repo is not initialized
-  - No skills (possibly just ignore the project on the backend then)
+  - No portfolio.json or fields missing
   - Language pie chart has no languages
   - README does not exist
   - README is empty

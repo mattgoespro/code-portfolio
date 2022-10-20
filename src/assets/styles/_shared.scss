@@ -1,4 +1,4 @@
-@import './react-horizontal-scrolling.scss';
+@import 'colors';
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -20,8 +20,11 @@
   }
 }
 
-.divider {
-  height: 2px;
-  border-bottom: 1px solid rgb(211, 211, 211);
-  margin: 20px;
+@mixin divider-bottom {
+  &::after {
+    border-bottom: 1px solid $light;
+    width: 50%;
+    position: absolute;
+    content: '';
+  }
 }
