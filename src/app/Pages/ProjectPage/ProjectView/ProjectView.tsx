@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from '@shared/redux/hooks/UseHook';
 import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
-import { RepositoryDetails, RepositoryLanguages } from '@mattgoespro/hoppingmode-web';
+import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import { Buffer } from 'buffer';
 import { ProjectPageLoadError } from '../ProjectPageLoadError';
 import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
@@ -18,9 +18,9 @@ export function ProjectView() {
   const { projectName } = useParams();
   const dispatch = useAppDispatch();
 
-  const [project, setProject] = useState<RepositoryDetails>(null);
+  const [project, setProject] = useState<Repository>(null);
   const [loadingProject, setLoadingProject] = useState(true);
-  const [projectLanguages, setProjectLanguages] = useState<RepositoryLanguages>(null);
+  const [projectLanguages, setProjectLanguages] = useState<ProgrammingLanguages>(null);
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -30,10 +30,10 @@ export function ProjectView() {
     setLoadingProject(true);
 
     Promise.all([
-      axios.get<RepositoryDetails>(`/api/repos/${projectName}`, {
+      axios.get<Repository>(`/api/repos/${projectName}`, {
         signal: abortController.signal
       }),
-      axios.get<RepositoryLanguages>(`/api/repos/${projectName}/languages`, {
+      axios.get<ProgrammingLanguages>(`/api/repos/${projectName}/languages`, {
         signal: abortController.signal
       })
     ])
@@ -63,7 +63,7 @@ export function ProjectView() {
       {!error && !loadingProject && (
         <>
           <div className="project-intro">
-            <h1 className="project-name">{project.portfolioSpec.name}</h1>
+            <h1 className="project-name">{project.projectSpec.title}</h1>
           </div>
           <div className="project-content">
             <div className="project-content-sections">
@@ -83,7 +83,12 @@ export function ProjectView() {
               </div>
             </div>
             <div className="project-view-readme">
-              <ProjectReadme readmeContent={Buffer.from(project.readmeDoc, 'base64').toString()} />
+              <ProjectReadme
+                readmeContent={Buffer.from(
+                  project.readme.content,
+                  project.readme.encoding
+                ).toString()}
+              />
             </div>
           </div>
         </>

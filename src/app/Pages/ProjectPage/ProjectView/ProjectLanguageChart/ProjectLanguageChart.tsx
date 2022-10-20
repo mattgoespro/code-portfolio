@@ -1,4 +1,4 @@
-import { RepositoryLanguages } from '@mattgoespro/hoppingmode-web';
+import { ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import './ProjectLanguageChart.scss';
 import { Pie } from 'react-chartjs-2';
 import { ChartData, ChartOptions } from 'chart.js';
@@ -9,7 +9,7 @@ export const chartColors = ['#ffb74d', '#aed581', '#4db6ac', '#4fc3f7', '#ba68c8
 export const chartHoverColors = ['#ff9800', '#8bc34a', '#009688', '#03a9f4', '#9c27b0', '#e91e63'];
 
 interface ProjectLanguageChartProps {
-  languages: RepositoryLanguages;
+  languages: ProgrammingLanguages;
 }
 
 export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
@@ -46,7 +46,7 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
     }
   };
 
-  function createChartData(languages: RepositoryLanguages): ChartData<'pie'> {
+  function createChartData(languages: ProgrammingLanguages): ChartData<'pie'> {
     return {
       labels: Object.keys(languages),
       datasets: [
