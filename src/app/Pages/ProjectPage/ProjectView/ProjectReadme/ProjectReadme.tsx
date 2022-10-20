@@ -35,6 +35,10 @@ export function ProjectReadme(props: ProjectReadmeProps) {
                 break;
               case 'li':
                 domNode.attribs['class'] = 'markdown-section-content';
+                break;
+              case 'em': {
+                return <code>{(domNode.children[0] as any).data}</code>;
+              }
             }
 
             return domNode;

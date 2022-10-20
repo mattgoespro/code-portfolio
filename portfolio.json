@@ -1,6 +1,6 @@
 {
-  "name": "hoppingmode-web-frontend - A Code Portfolio Showcase",
-  "skills": [
+  "title": "hoppingmode-web-frontend - A Code Portfolio Showcase",
+  "technicalSkills": [
     "Docker",
     "docker-compose",
     "node.js",

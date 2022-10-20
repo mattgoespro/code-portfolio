@@ -30,7 +30,6 @@ export function ProjectListItem(props: ProjectListItemProps) {
         </div>
       </div>
       <div className="description-wrapper">
-        <div className="title-description">Description</div>
         <div className="description">{props.description || <i>Not available.</i>}</div>
       </div>
     </div>
