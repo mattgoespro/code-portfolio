@@ -5,10 +5,10 @@ import {
 } from '@shared/redux/reducers/loading-overlay-slice';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import './ProjectListView.scss';
 import { ProjectListItem } from './ProjectListItem/ProjectListItem';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
 import { ProjectPageLoadError } from '../ProjectPageLoadError';
+import styles from './ProjectListView.module.scss';
 
 export function ProjectListView() {
   const dispatch = useAppDispatch();
@@ -41,19 +41,19 @@ export function ProjectListView() {
 
   return (
     <>
-      <div className="project-list">
+      <div className={styles.wrapper}>
         {error && <ProjectPageLoadError />}
         {!error && !loaderVisible && (
           <>
-            <div className="project-list-intro">
-              <h1 className="project-list-intro-title">
+            <div className={styles.intro}>
+              <h1 className={styles['intro-title']}>
                 Here are some of my most noteworthy projects up-to-date
               </h1>
-              <h2 className="project-list-intro-subtitle">
+              <h2 className={styles['intro-subtitle']}>
                 All are available to view on my GitHub profile
               </h2>
             </div>
-            <div className="project-list">
+            <div className={styles['project-list']}>
               {projects
                 .filter((p) => p.pinned)
                 .map((project) => {
@@ -68,7 +68,7 @@ export function ProjectListView() {
                   );
                 })}
             </div>
-            <div className="project-list">
+            <div className={styles['project-list']}>
               {projects
                 .filter((p) => !p.pinned)
                 .map((project) => {

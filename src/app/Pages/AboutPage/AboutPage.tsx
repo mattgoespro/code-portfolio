@@ -1,15 +1,15 @@
-import './AboutPage.scss';
+import styles from './AboutPage.module.scss';
 
 export function AboutPage() {
   return (
-    <div className="about-wrapper">
-      <div className="about-content-wrapper">
+    <div className={styles.wrapper}>
+      <div className={styles['content-wrapper']}>
         <img
-          className="about-profile-image"
+          className={styles['profile-image']}
           src="images/face-profile.jpg"
           alt="profile-image"
         ></img>
-        <div className="about-text-content">
+        <div className={styles['text-content']}>
           <p>Now a little bit about me.</p>
           <p>I am a proud South African, born and bred.</p>
           <p>
@@ -37,22 +37,21 @@ export function AboutPage() {
             which include:
           </p>
           <ul>
-            <li className="list-item">
-              <span>Web apps and microservices</span>
+            <li>
+              <span>Web apps and micro-services</span>
             </li>
-            <li className="list-item">
+            <li>
               <span>Mobile</span>
             </li>
-            <li className="list-item">
+            <li>
               <span>Gaming</span>
             </li>
           </ul>
           <p>
             When I&apos;m not at the computer with 20+ Google Chrome tabs open during a debug
             session, you may find me at the beach, on the slopes of the alps, grabbing a beer on a
-            night out with friends, or playing my favourite video games.
+            night out with friends, or playing my favorite video games.
           </p>
-          <div className="about-info"></div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
-import './ProjectLanguageChart.scss';
 import { Pie } from 'react-chartjs-2';
 import { ChartData, ChartOptions } from 'chart.js';
+import styles from './ProjectLanguageChart.module.scss';
 import 'chart.js/auto';
 
 // I'd be crazy to know more than 6 languages, right?

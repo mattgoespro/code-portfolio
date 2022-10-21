@@ -2,7 +2,7 @@ import { GitHub, LinkedIn } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import './PageNavigator.scss';
+import styles from './PageNavigator.module.scss';
 
 interface PageNavigatorProps {
   landingPage: JSX.Element;
@@ -12,41 +12,45 @@ export function PageNavigator(props: PageNavigatorProps) {
   const location = useLocation();
 
   return (
-    <div className="shell">
+    <div className={styles.shell}>
       <SpinnerLoadingOverlay />
       <nav>
-        <div className="nav-left">
-          <Link className="nav-link" to="/">
+        <div className={styles['nav-left']}>
+          <Link className={styles['nav-link']} to="/">
             Home
           </Link>
-          <Link className="nav-link" to="/projects/list">
+          <Link className={styles['nav-link']} to="/projects/list">
             Projects
           </Link>
-          <Link className="nav-link" to="/about">
+          <Link className={styles['nav-link']} to="/about">
             About
           </Link>
         </div>
-        <div className="nav-social-icons">
+        <div className={styles['nav-social-icons']}>
           <a
-            className="nav-link-social"
+            className={styles['nav-link-social']}
             title="Download CV"
             href="https://github.com/mattgoespro/public-resources/raw/master/docs/MattYoungCurriculumVitae.pdf"
           >
-            <FileOpenIcon className="nav-icon-cv-download" fontSize="medium" />
+            <FileOpenIcon className={styles['nav-icon-cv-download']} fontSize="medium" />
           </a>
           <a
-            className="nav-link-social"
+            className={styles['nav-link-social']}
             href="https://www.linkedin.com/in/matt-young-691b48189/"
             target="tab"
           >
             <LinkedIn className="nav-icon-linkedin" fontSize="medium" />
           </a>
-          <a className="nav-link-social" href="https://github.com/mattgoespro" target="tab">
-            <GitHub className="nav-icon-github" fontSize="medium" />
+          <a
+            className={styles['nav-link-social']}
+            href="https://github.com/mattgoespro"
+            target="tab"
+          >
+            <GitHub className={styles['nav-icon-github']} fontSize="medium" />
           </a>
         </div>
       </nav>
-      <div className="content-outlet">
+      <div className={styles['content-outlet']}>
         {location.pathname === '/' && props.landingPage}
         <Outlet />
       </div>

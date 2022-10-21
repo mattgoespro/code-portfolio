@@ -1,19 +1,19 @@
-.about-wrapper {
+.wrapper {
   background-color: #f9f2eb;
   min-width: 70%;
   width: 70%;
   margin: auto;
 
-  .about-content-wrapper {
+  .content-wrapper {
     padding: 20px;
 
-    .about-profile-image {
+    .profile-image {
       float: right;
       margin: 0 20px;
       width: 300px;
       border-radius: 5px;
 
-      .about-text-content {
+      .text-content {
         text-align: justify;
 
         p {
@@ -30,12 +30,14 @@
   width: 100%;
 }
 
-.list-item {
-  font-size: 15px;
-  font-family: Garamond;
-  color: #000038;
-
-  &::marker {
+ul {
+  li {
+    font-size: 15px;
+    font-family: Garamond;
     color: #000038;
+
+    &::marker {
+      color: #000038;
+    }
   }
 }

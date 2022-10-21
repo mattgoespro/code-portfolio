@@ -1,14 +1,14 @@
 @import 'colors';
 @import 'shared';
 
-.project-view-page {
+.wrapper {
   margin: 100px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 80%;
 
-  .project-intro {
+  .intro {
     position: relative;
     max-width: 900px;
     margin-bottom: 100px;
@@ -21,7 +21,7 @@
       bottom: -40px;
     }
 
-    .project-name {
+    .name {
       font-family: 'Roboto Serif' sans-serif;
       font-size: 42px;
       font-weight: 100;
@@ -30,14 +30,21 @@
     }
   }
 
-  .project-content {
+  .content {
     display: flex;
     flex-direction: column;
 
-    .project-view-readme {
+    .readme {
       max-width: 700px;
       padding: 50px;
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    }
+
+    .readme-unavailable {
+      text-align: center;
+      font-family: 'Roboto';
+      margin-top: 20px;
+      color: #1f1f1f;
     }
   }
 }

@@ -1,5 +1,5 @@
 import Card from '@mui/material/Card';
-import './TechnologySection.scss';
+import styles from './TechnologySection.module.scss';
 
 const _languages = (
   <div>

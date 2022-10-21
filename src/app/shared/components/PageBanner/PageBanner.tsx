@@ -1,4 +1,4 @@
-import './PageBanner.scss';
+import styles from './PageBanner.module.scss';
 
 interface PageBannerProps {
   title: string | JSX.Element;
@@ -11,7 +11,7 @@ interface PageBannerProps {
 
 export function PageBanner(props: PageBannerProps) {
   return (
-    <div className="banner" style={{ backgroundColor: props.backgroundColor }}>
+    <div className={styles.banner} style={{ backgroundColor: props.backgroundColor }}>
       {props.backgroundColor == null && props.backgroundImage != null && (
         <img
           className={props.backgroundImageAdjust ? 'banner-image' : ''}
@@ -19,11 +19,11 @@ export function PageBanner(props: PageBannerProps) {
           alt="banner-image"
         ></img>
       )}
-      <div className="banner-title-wrapper">
-        <div className="banner-title" style={{ color: props.titleColor }}>
+      <div className={styles['title-wrapper']}>
+        <div className={styles.title} style={{ color: props.titleColor }}>
           {props.title}
         </div>
-        <div className="banner-subtitle">{props.subtitle}</div>
+        <div className={styles.subtitle}>{props.subtitle}</div>
       </div>
     </div>
   );

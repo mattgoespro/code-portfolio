@@ -1,16 +1,16 @@
 @import 'shared';
 
-.project-list {
+.wrapper {
   margin: 100px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 80%;
 
-  .project-list-intro {
+  .intro {
     max-width: 900px;
 
-    .project-list-intro-title {
+    .intro-title {
       font-family: 'Roboto Serif', sans-serif;
       font-size: 42px;
       font-weight: 100;
@@ -18,12 +18,20 @@
       margin: 0;
     }
 
-    .project-list-intro-subtitle {
+    .intro-subtitle {
       font-family: 'Roboto Serif', sans-serif;
       font-size: 24px;
       font-weight: 100;
       text-align: center;
       margin: 20px 0 0;
     }
+  }
+
+  .project-list {
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
   }
 }

@@ -1,14 +1,14 @@
 @import 'shared';
 @import 'colors';
 
-.project-card {
+.card {
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
   max-width: 400px;
   flex: 1;
   flex-basis: 33%;
   margin: 10px;
 
-  .project-card-title {
+  .title {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,15 +24,15 @@
     color: $blue;
     border-bottom: 1px solid #d9d9d9;
 
-    .project-name {
+    .name {
       margin-bottom: 10px;
     }
 
-    .project-nav-links {
+    .nav-links {
       display: flex;
       justify-content: center;
 
-      .btn-project-nav-link {
+      .btn-nav-link {
         color: $blue !important;
         font-size: 14px;
         font-weight: 600;
@@ -58,44 +58,36 @@
   .description-wrapper {
     padding: 15px;
 
-    .title-description {
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 18px;
-      color: black;
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
     .description {
       color: black;
       font-size: 16px;
       font-weight: 300;
     }
   }
-}
 
-.project-card.pinned {
-  .project-card-title {
-    color: white !important;
-    font-weight: 300;
-    background-color: $blue;
-
-    .project-name {
-      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.43);
-    }
-
-    .btn-project-nav-link {
+  &.pinned {
+    .title {
       color: white !important;
       font-weight: 300;
-      border-bottom: 1px solid white;
+      background-color: $blue;
 
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.4);
+      .name {
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.43);
       }
-    }
 
-    .lnk-view-details {
-      color: white;
+      .btn-nav-link {
+        color: white !important;
+        font-weight: 300;
+        border-bottom: 1px solid white;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      .lnk-view-details {
+        color: white;
+      }
     }
   }
 }

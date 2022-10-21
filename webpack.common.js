@@ -39,7 +39,8 @@ module.exports = function (_env, argv) {
       new MiniCssExtractPlugin({
         filename: 'assets/styles/css/[name].[contenthash:8].css',
         chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css'
-      })
+      }),
+      new webpack.WatchIgnorePlugin([/scss\.d\.ts$/])
     ],
     optimization: {
       minimize: true,
@@ -78,7 +79,7 @@ module.exports = function (_env, argv) {
           ]
         },
         {
-          test: /\.(ts|tsx)$/,
+          test: /\.ts(x)?$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
@@ -89,32 +90,34 @@ module.exports = function (_env, argv) {
           }
         },
         {
-          test: /\.css$/,
-          exclude: '/node_modules/',
-          use: [
-            {
-              loader: 'style-loader'
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1
-              }
-            },
-            'postcss-loader'
-          ]
-        },
-        {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
-            'css-loader',
             {
-              loader: 'sass-loader',
+              loader: '@teamsupercell/typings-for-css-modules-loader',
               options: {
-                implementation: require('sass')
+                formatter: 'prettier',
+                prettierConfigFile: path.resolve(__dirname, './prettierrc')
               }
-            }
+            },
+            {
+              loader: 'css-loader',
+              options: { modules: true }
+            },
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.css$/,
+          exclude: '/node_modules/',
+          use: [
+            MiniCssExtractPlugin.loader,
+            { loader: '@teamsupercell/typings-for-css-modules-loader', options: {} },
+            {
+              loader: 'css-loader',
+              options: { implementation: require('sass'), modules: true }
+            },
+            'postcss-loader'
           ]
         }
       ]

@@ -1,5 +1,5 @@
 import { PageBanner } from '@shared/components/PageBanner/PageBanner';
-import './HomePage.scss';
+import styles from './HomePage.module.scss';
 
 export function HomePage() {
   return (

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './ProjectView.scss';
 import {
   hideLoadingOverlay,
   showLoadingOverlay
@@ -13,6 +12,7 @@ import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import { Buffer } from 'buffer';
 import { ProjectPageLoadError } from '../ProjectPageLoadError';
 import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
+import styles from './ProjectView.module.scss';
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -58,28 +58,30 @@ export function ProjectView() {
   }, []);
 
   return (
-    <div className="project-view-page">
+    <div className={styles.wrapper}>
       {error && <ProjectPageLoadError />}
       {!error && !loadingProject && (
         <>
-          <div className="project-intro">
-            <h1 className="project-name">{project.projectSpec.title}</h1>
+          <div className={styles.intro}>
+            <h1 className={styles.name}>{project.projectSpec.title}</h1>
           </div>
-          <div className="project-content">
-            <div className="project-content-section">
+          <div className={styles.content}>
+            <div className={styles['content-section']}>
               <ProjectRepositoryStats project={project} />
             </div>
-            <div className="project-content-section">
+            <div className={styles['content-section']}>
               <ProjectLanguageChart languages={projectLanguages} />
             </div>
-            <div className="project-view-readme">
-              <ProjectReadme
-                readmeContent={Buffer.from(
-                  project.readme.content,
-                  project.readme.encoding
-                ).toString()}
-              />
-            </div>
+            {(project.readme && (
+              <div className={styles.readme}>
+                <ProjectReadme
+                  readmeContent={Buffer.from(
+                    project.readme.content,
+                    project.readme.encoding
+                  ).toString()}
+                />
+              </div>
+            )) || <div className="readme-unavailable"></div>}
           </div>
         </>
       )}
