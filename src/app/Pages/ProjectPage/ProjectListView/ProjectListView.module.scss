@@ -1,4 +1,9 @@
+@import 'colors';
 @import 'shared';
+
+:root {
+  $grey: #a0a0a0;
+}
 
 .wrapper {
   margin: 100px auto;
@@ -27,11 +32,41 @@
     }
   }
 
+  .intro-divider {
+    width: 100%;
+    height: 1px;
+    margin: 50px;
+    border-bottom: 1px solid $light;
+  }
+
+  .pinned-projects-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 300;
+  }
+
   .project-list {
-    margin: 100px auto;
+    margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 80%;
+  }
+
+  .loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .loader-text {
+      position: relative;
+      color: $grey;
+      font-family: 'Roboto', sans-serif;
+      font-size: 28px;
+      font-weight: 300;
+      margin-top: 100px;
+      margin-bottom: 10px;
+    }
   }
 }

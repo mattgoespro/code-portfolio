@@ -2,8 +2,12 @@ declare namespace ProjectListViewModuleScssNamespace {
   export interface IProjectListViewModuleScss {
     fadeIn: string;
     intro: string;
+    'intro-divider': string;
     'intro-subtitle': string;
     'intro-title': string;
+    loader: string;
+    'loader-text': string;
+    'pinned-projects-title': string;
     'project-list': string;
     wrapper: string;
   }

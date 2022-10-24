@@ -39,8 +39,7 @@ module.exports = function (_env, argv) {
       new MiniCssExtractPlugin({
         filename: 'assets/styles/css/[name].[contenthash:8].css',
         chunkFilename: 'assets/styles/css/[name].[contenthash:8].chunk.css'
-      }),
-      new webpack.WatchIgnorePlugin([/scss\.d\.ts$/])
+      })
     ],
     optimization: {
       minimize: true,

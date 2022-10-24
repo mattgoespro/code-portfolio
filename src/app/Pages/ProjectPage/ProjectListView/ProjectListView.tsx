@@ -1,36 +1,30 @@
-import { useAppDispatch, useAppSelector } from '@shared/redux/hooks/UseHook';
-import {
-  hideLoadingOverlay,
-  showLoadingOverlay
-} from '@shared/redux/reducers/loading-overlay-slice';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { ProjectListItem } from './ProjectListItem/ProjectListItem';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
 import { ProjectPageLoadError } from '../ProjectPageLoadError';
 import styles from './ProjectListView.module.scss';
+import { PulseLoader } from 'react-spinners';
 
 export function ProjectListView() {
-  const dispatch = useAppDispatch();
-  const loaderVisible = useAppSelector((state) => state.loadingOverlay.visible);
+  const [fetchingProjects, setFetchingProjects] = useState(true);
 
   const [projects, setProjects] = useState<RepositorySummary[]>([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     const abortController = new AbortController();
-
-    dispatch(showLoadingOverlay());
+    setFetchingProjects(true);
 
     axios
       .get<RepositorySummary[]>('/api/repos', { signal: abortController.signal })
       .then((resp) => {
         setProjects(resp.data);
-        dispatch(hideLoadingOverlay());
+        setFetchingProjects(false);
         setError(false);
       })
       .catch(() => {
-        dispatch(hideLoadingOverlay());
+        setFetchingProjects(false);
         setError(true);
       });
 
@@ -39,11 +33,21 @@ export function ProjectListView() {
     };
   }, []);
 
+  function getProjectFetchLoader() {
+    return (
+      <div className={styles.loader}>
+        <div className={styles['loader-text']}>fetching projects</div>
+        <PulseLoader loading={fetchingProjects} color="#575757" size="10px" speedMultiplier={0.7} />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className={styles.wrapper}>
         {error && <ProjectPageLoadError />}
-        {!error && !loaderVisible && (
+        {fetchingProjects && getProjectFetchLoader()}
+        {!error && !fetchingProjects && (
           <>
             <div className={styles.intro}>
               <h1 className={styles['intro-title']}>
@@ -53,6 +57,8 @@ export function ProjectListView() {
                 All are available to view on my GitHub profile
               </h2>
             </div>
+            <div className={styles['intro-divider']}></div>
+            <div className={styles['pinned-projects-title']}>Pinned Projects</div>
             <div className={styles['project-list']}>
               {projects
                 .filter((p) => p.pinned)
