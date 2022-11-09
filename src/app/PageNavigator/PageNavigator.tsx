@@ -15,38 +15,44 @@ export function PageNavigator(props: PageNavigatorProps) {
     <div className={styles.shell}>
       <SpinnerLoadingOverlay />
       <nav>
-        <div className={styles['nav-left']}>
-          <Link className={styles['nav-link']} to="/">
-            Home
-          </Link>
-          <Link className={styles['nav-link']} to="/projects/list">
-            Projects
-          </Link>
-          <Link className={styles['nav-link']} to="/about">
-            About
-          </Link>
-        </div>
-        <div className={styles['nav-social-icons']}>
+        <ul>
+          <li>
+            <Link className={styles['page-link']} to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className={styles['page-link']} to="/projects/list">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link className={styles['page-link']} to="/about">
+              About
+            </Link>
+          </li>
+        </ul>
+        <div className={styles['social-icons']}>
           <a
-            className={styles['nav-link-social']}
+            className={styles['social-icon-link']}
             title="Download CV"
             href="https://github.com/mattgoespro/public-resources/raw/master/docs/MattYoungCurriculumVitae.pdf"
           >
-            <FileOpenIcon className={styles['nav-icon-cv-download']} fontSize="medium" />
+            <FileOpenIcon className={styles['social-icon']} fontSize="medium" />
           </a>
           <a
-            className={styles['nav-link-social']}
+            className={styles['social-icon-link']}
             href="https://www.linkedin.com/in/matt-young-691b48189/"
             target="tab"
           >
-            <LinkedIn className="nav-icon-linkedin" fontSize="medium" />
+            <LinkedIn className={styles['social-icon']} fontSize="medium" />
           </a>
           <a
-            className={styles['nav-link-social']}
+            className={styles['social-icon-link']}
             href="https://github.com/mattgoespro"
             target="tab"
           >
-            <GitHub className={styles['nav-icon-github']} fontSize="medium" />
+            <GitHub className={styles['social-icon']} fontSize="medium" />
           </a>
         </div>
       </nav>

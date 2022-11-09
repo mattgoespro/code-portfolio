@@ -4,7 +4,6 @@ declare namespace ProjectReadmeModuleScssNamespace {
     'section-subtitle': string;
     'section-title': string;
     title: string;
-    'title-font': string;
   }
 }
 

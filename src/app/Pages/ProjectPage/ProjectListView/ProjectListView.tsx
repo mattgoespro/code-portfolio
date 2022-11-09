@@ -36,8 +36,7 @@ export function ProjectListView() {
   function getProjectFetchLoader() {
     return (
       <div className={styles.loader}>
-        <div className={styles['loader-text']}>fetching projects</div>
-        <PulseLoader loading={fetchingProjects} color="#575757" size="10px" speedMultiplier={0.7} />
+        <PulseLoader loading={fetchingProjects} color="#ffb700" size="20px" speedMultiplier={0.7} />
       </div>
     );
   }
@@ -51,14 +50,11 @@ export function ProjectListView() {
           <>
             <div className={styles.intro}>
               <h1 className={styles['intro-title']}>
-                Here are some of my most noteworthy projects up-to-date
+                My most noteworthy work gets automatically listed here.
               </h1>
-              <h2 className={styles['intro-subtitle']}>
-                All are available to view on my GitHub profile
-              </h2>
+              <h2 className={styles['intro-subtitle']}>Source code available on GitHub</h2>
             </div>
             <div className={styles['intro-divider']}></div>
-            <div className={styles['pinned-projects-title']}>Pinned Projects</div>
             <div className={styles['project-list']}>
               {projects
                 .filter((p) => p.pinned)

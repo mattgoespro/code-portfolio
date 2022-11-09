@@ -1,7 +1,6 @@
 import { ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import { Pie } from 'react-chartjs-2';
 import { ChartData, ChartOptions } from 'chart.js';
-import styles from './ProjectLanguageChart.module.scss';
 import 'chart.js/auto';
 
 // I'd be crazy to know more than 6 languages, right?
@@ -22,11 +21,12 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
           font: {
             family: 'Nunito Sans',
             size: 14,
-            weight: 'bold'
+            weight: '100'
           },
           boxWidth: 20,
           boxHeight: 20,
-          padding: 5
+          padding: 5,
+          color: 'white'
         }
       },
       tooltip: {

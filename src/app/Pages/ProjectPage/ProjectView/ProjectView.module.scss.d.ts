@@ -1,7 +1,9 @@
 declare namespace ProjectViewModuleScssNamespace {
   export interface IProjectViewModuleScss {
     content: string;
+    'content-section': string;
     fadeIn: string;
+    info: string;
     intro: string;
     name: string;
     readme: string;

@@ -2,15 +2,13 @@ declare namespace PageNavigatorModuleScssNamespace {
   export interface IPageNavigatorModuleScss {
     'content-outlet': string;
     fadeIn: string;
-    'nav-icon-cv-download': string;
-    'nav-icon-github': string;
-    'nav-icon-linkedin': string;
-    'nav-left': string;
-    'nav-link': string;
     'nav-link-hover': string;
-    'nav-link-social': string;
-    'nav-social-icons': string;
+    'nav-text-hover-color-change': string;
+    'page-link': string;
     shell: string;
+    'social-icon': string;
+    'social-icon-link': string;
+    'social-icons': string;
   }
 }
 

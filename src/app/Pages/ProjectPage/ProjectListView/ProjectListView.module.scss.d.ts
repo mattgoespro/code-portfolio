@@ -6,8 +6,6 @@ declare namespace ProjectListViewModuleScssNamespace {
     'intro-subtitle': string;
     'intro-title': string;
     loader: string;
-    'loader-text': string;
-    'pinned-projects-title': string;
     'project-list': string;
     wrapper: string;
   }

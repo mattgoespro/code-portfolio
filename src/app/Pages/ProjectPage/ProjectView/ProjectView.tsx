@@ -11,7 +11,7 @@ import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import { Buffer } from 'buffer';
 import { ProjectPageLoadError } from '../ProjectPageLoadError';
-import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
+import { ProjectRepositoryInfo } from './ProjectRepositoryStats/ProjectRepositoryInfo';
 import styles from './ProjectView.module.scss';
 
 export function ProjectView() {
@@ -66,11 +66,13 @@ export function ProjectView() {
             <h1 className={styles.name}>{project.projectSpec.title}</h1>
           </div>
           <div className={styles.content}>
-            <div className={styles['content-section']}>
-              <ProjectRepositoryStats project={project} />
-            </div>
-            <div className={styles['content-section']}>
-              <ProjectLanguageChart languages={projectLanguages} />
+            <div className={styles.info}>
+              <div className={styles['content-section']}>
+                <ProjectRepositoryInfo project={project} />
+              </div>
+              <div className={styles['content-section']}>
+                <ProjectLanguageChart languages={projectLanguages} />
+              </div>
             </div>
             {(project.readme && (
               <div className={styles.readme}>

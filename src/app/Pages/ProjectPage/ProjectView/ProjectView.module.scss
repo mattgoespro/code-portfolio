@@ -33,9 +33,29 @@
   .content {
     display: flex;
     flex-direction: column;
+    max-width: 700px;
+
+    .info {
+      display: flex;
+      margin-bottom: 10px;
+
+      .content-section {
+        flex: 1 1 100%;
+        padding: 30px;
+        background-color: $blue;
+        color: white;
+
+        &:first-child {
+          margin-right: 5px;
+        }
+
+        &:nth-child(2) {
+          margin-left: 5px;
+        }
+      }
+    }
 
     .readme {
-      max-width: 700px;
       padding: 50px;
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     }
