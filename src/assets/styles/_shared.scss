@@ -20,11 +20,29 @@
   }
 }
 
-@mixin divider-bottom {
-  &::after {
-    border-bottom: 1px solid $light;
-    width: 50%;
+/*
+ * Creates an underline with a specified thickness, color, and width 
+ * beneath a block element with relative position.
+ */
+@mixin underline($thickness, $color, $width) {
+  &:after {
     position: absolute;
     content: '';
+    height: 1px;
+    border-bottom: $thickness solid $color;
+    width: $width;
+    bottom: 0;
+    left: calc((100% - $width) / 2);
   }
+}
+
+/*
+ * Style of long bodies of text.
+ */
+@mixin article-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.714;
+  color: rgba(0, 0, 0, 0.87);
 }

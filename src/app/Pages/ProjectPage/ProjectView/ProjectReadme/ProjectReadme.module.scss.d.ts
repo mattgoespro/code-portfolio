@@ -1,5 +1,6 @@
 declare namespace ProjectReadmeModuleScssNamespace {
   export interface IProjectReadmeModuleScss {
+    fadeIn: string;
     'section-content': string;
     'section-subtitle': string;
     'section-title': string;
