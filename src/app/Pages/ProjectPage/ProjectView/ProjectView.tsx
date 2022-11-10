@@ -83,7 +83,7 @@ export function ProjectView() {
                   ).toString()}
                 />
               </div>
-            )) || <div className="readme-unavailable"></div>}
+            )) || <div className={styles['readme-unavailable']}></div>}
           </div>
         </>
       )}

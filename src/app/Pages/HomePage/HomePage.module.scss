@@ -1,2 +1,165 @@
-.test {
+@import 'colors';
+@import 'shared';
+
+/*
+ * Brand colors of technologies, sampled from  
+ * their logos.
+ */
+$typescript: #3178c6;
+$java: #0074bd;
+$c-sharp: #6d429c;
+$angular: #dd0031;
+$react: #61dafb;
+$node: #3e863d;
+$spring: #6db33f;
+$postgresql: #35688f;
+
+:root {
+  --skill-title-divider-color: black;
+}
+
+:export {
+  color-typescript: $typescript;
+  color-java: $java;
+  color-c-sharp: $c-sharp;
+  color-angular: $angular;
+  color-react: $react;
+  color-node: $node;
+  color-spring: $spring;
+  color-postgresql: $postgresql;
+}
+
+.title-typescript {
+  color: $typescript;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.title-java {
+  color: $java;
+}
+
+.title-c-sharp {
+  color: $c-sharp;
+}
+
+.title-angular {
+  color: $angular;
+}
+
+.title-node {
+  color: $node;
+}
+
+.title-react {
+  color: $react;
+}
+
+.title-spring {
+  color: $spring;
+}
+
+.title-postgresql {
+  color: $postgresql;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  margin: 50px auto;
+
+  .intro {
+    font-family: 'Roboto', sans-serif;
+    margin: 50px 0 200px;
+    text-align: center;
+    max-width: 600px;
+
+    h1 {
+      font-size: 46px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 300;
+    }
+
+    h3 {
+      font-size: 26px;
+      font-weight: 300;
+    }
+  }
+
+  .skill-sets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .skill-set-wrapper {
+      width: 100%;
+      margin-bottom: 200px;
+
+      .skill-title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 26px;
+        font-weight: 300;
+        text-align: center;
+        max-width: 60%;
+        margin: auto;
+      }
+
+      .skill-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        box-sizing: border-box;
+
+        .skill-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex-wrap: wrap;
+          flex: 1 1 100%;
+          max-width: 150px;
+          margin: 10px;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+          .skill-name {
+            position: relative;
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+          }
+
+          .skill-title-divider {
+            @include divider(1px, var(--skill-title-divider-color), 10px);
+          }
+
+          img {
+            width: 100px;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+    .others {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .other {
+        width: 40px;
+        margin: 20px;
+      }
+    }
+  }
 }

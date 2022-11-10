@@ -20,18 +20,25 @@
   }
 }
 
+@mixin divider($thickness, $color, $margin-top) {
+  height: 1px;
+  border-bottom: $thickness solid $color;
+  width: 100%;
+  margin-top: $margin-top;
+}
+
 /*
  * Creates an underline with a specified thickness, color, and width 
  * beneath a block element with relative position.
  */
-@mixin underline($thickness, $color, $width) {
+@mixin underline($thickness, $color, $width, $padding-top) {
   &:after {
     position: absolute;
     content: '';
     height: 1px;
     border-bottom: $thickness solid $color;
     width: $width;
-    bottom: 0;
+    bottom: -$padding-top;
     left: calc((100% - $width) / 2);
   }
 }

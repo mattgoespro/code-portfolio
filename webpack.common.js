@@ -111,11 +111,8 @@ module.exports = function (_env, argv) {
           exclude: '/node_modules/',
           use: [
             MiniCssExtractPlugin.loader,
-            { loader: '@teamsupercell/typings-for-css-modules-loader', options: {} },
-            {
-              loader: 'css-loader',
-              options: { implementation: require('sass'), modules: true }
-            },
+            '@teamsupercell/typings-for-css-modules-loader',
+            'css-loader',
             'postcss-loader'
           ]
         }

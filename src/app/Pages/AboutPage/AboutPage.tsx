@@ -7,7 +7,7 @@ export function AboutPage() {
       <PageBanner
         title="About Me"
         subtitle="My history and how I got here"
-        backgroundImage="/images/gamer-setup-banner.jpg"
+        backgroundImage="images/page-banners/gamer-setup-banner.jpg"
         backgroundImageAdjust={true}
       />
       <div className={styles.wrapper}>
@@ -29,7 +29,7 @@ export function AboutPage() {
           </div>
           <img
             className={styles['img-profile']}
-            src="images/face-profile.jpg"
+            src="images/misc/face-profile.jpg"
             alt="profile-image"
           ></img>
         </div>
@@ -80,7 +80,7 @@ export function AboutPage() {
           <ul>
             <li>Web applications</li>
             <li>
-              Mobile development (see my published Android/iOS application{' '}
+              Mobile development (see my published Android/iOS application,{' '}
               <a
                 className={styles['smellsense-link']}
                 href="https://mattgoespro.github.io/smellsense-site/"
@@ -88,6 +88,7 @@ export function AboutPage() {
               >
                 SmellSense
               </a>
+              )
             </li>
             <li>Game Development</li>
           </ul>
