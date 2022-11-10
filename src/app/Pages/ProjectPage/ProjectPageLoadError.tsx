@@ -3,11 +3,10 @@ import styles from './ProjectPageLoadError.module.scss';
 export function ProjectPageLoadError() {
   return (
     <div className={styles.wrapper}>
-      <div className={styles['err-msg']}>
-        Oops! My projects are unable to be displayed at this time.
-      </div>
-      <div className={styles['err-msg-try-again']}>
-        Please try again later, or contact me directly on my socials.
+      <img src="/images/misc/failfish.png" alt="failfish" />
+      <div className={styles.error}>
+        <div className={styles['err-msg']}>Oops! The projects failed to load.</div>
+        <div className={styles['err-msg-try-later']}>Please try again later.</div>
       </div>
     </div>
   );

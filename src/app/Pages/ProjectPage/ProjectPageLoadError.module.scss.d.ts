@@ -1,7 +1,8 @@
 declare namespace ProjectPageLoadErrorModuleScssNamespace {
   export interface IProjectPageLoadErrorModuleScss {
     'err-msg': string;
-    'err-msg-try-again': string;
+    'err-msg-try-later': string;
+    error: string;
     wrapper: string;
   }
 }

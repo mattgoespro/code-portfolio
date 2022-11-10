@@ -46,7 +46,7 @@ export function HomePage() {
                 {section.skill}
               </div>
               <div {...styleSkillTitleDivider(styles[`color-${section.id}`])}></div>
-              <img src={`images/logos/${section.id}.png`} alt={section.id} />
+              <img src={`/images/logos/${section.id}.png`} alt={section.id} />
             </div>
           );
         })}
@@ -59,18 +59,18 @@ export function HomePage() {
       <div>
         <img
           className={styles.other}
-          src="images/logos/docker.png"
+          src="/images/logos/docker.png"
           alt="Docker"
           {...skillScrollIn(1)}
         />
       </div>
       <div>
-        <img className={styles.other} src="images/logos/aws.png" alt="AWS" {...skillScrollIn(2)} />
+        <img className={styles.other} src="/images/logos/aws.png" alt="AWS" {...skillScrollIn(2)} />
       </div>
       <div>
         <img
           className={styles.other}
-          src="images/logos/kafka.png"
+          src="/images/logos/kafka.png"
           alt="Kafka"
           {...skillScrollIn(3)}
         />
@@ -87,7 +87,7 @@ export function HomePage() {
           </div>
         }
         subtitle="Allow me to introduce myself"
-        backgroundImage="images/page-banners/knysna-harbour-banner.jpg"
+        backgroundImage="/images/page-banners/knysna-harbour-banner.jpg"
         backgroundImageAdjust={true}
       />
       <div className={styles.wrapper}>

@@ -1,7 +1,8 @@
 import { ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, ChartOptions, ChartData } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import { ChartData, ChartOptions } from 'chart.js';
-import 'chart.js/auto';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 // I'd be crazy to know more than 6 languages, right?
 export const chartColors = ['#ffb74d', '#aed581', '#4db6ac', '#4fc3f7', '#ba68c8', '#f06292'];

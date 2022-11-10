@@ -8,14 +8,12 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function (_env, argv) {
-  const buildMode = argv.mode;
-
   return {
     entry: './src/main.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[chunkhash].js',
-      publicPath: 'public/'
+      publicPath: '/'
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],

@@ -1,4 +1,4 @@
-# IMPORTANT!
+# IMPORTANT
 
 ## NGINX
 
@@ -19,19 +19,17 @@
 - Minimize bundle sizes
 - Remove unused CSS styles
 
-# Nice To Have
+## Nice To Have
 
-## Responsive Design
+- ESLint import ordering rules.
+
+### Responsive Design
 
 - Responsive components for different media sizes.
 
-## Encapsulated Component Styles
+### Testing Edge Cases
 
-- Switch to **scss** **modules** to prevent style leakage bugs.
-
-## Testing Edge Cases
-
-### Handle cases where:
+Handle cases where
 
 - User navigates to unknown route
 - Repo does not exist during view/refresh/navigate
@@ -44,7 +42,3 @@
   - Language pie chart has no languages
   - README does not exist
   - README is empty
-
-# Not Very Important
-
-- ESLint import ordering rules.

@@ -7,7 +7,7 @@ export function AboutPage() {
       <PageBanner
         title="About Me"
         subtitle="My history and how I got here"
-        backgroundImage="images/page-banners/gamer-setup-banner.jpg"
+        backgroundImage="/images/page-banners/gamer-setup-banner.jpg"
         backgroundImageAdjust={true}
       />
       <div className={styles.wrapper}>
@@ -29,7 +29,7 @@ export function AboutPage() {
           </div>
           <img
             className={styles['img-profile']}
-            src="images/misc/face-profile.jpg"
+            src="/images/misc/face-profile.jpg"
             alt="profile-image"
           ></img>
         </div>
