@@ -4,6 +4,7 @@ module.exports = (_env, _argv) => {
   const webpackCommon = require('./webpack.common')(_env, _argv);
 
   return merge(webpackCommon, {
+    mode: 'production',
     devtool: 'inline-source-map',
     devServer: {
       proxy: {

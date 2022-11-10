@@ -5,6 +5,7 @@ module.exports = (env, argv) => {
   const webpackCommon = require('./webpack.common')(env, argv);
 
   return merge(webpackCommon, {
+    mode: 'development',
     devtool: 'source-map',
     plugins: [
       // new BundleAnalyzerPlugin({

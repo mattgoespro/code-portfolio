@@ -15,7 +15,7 @@ module.exports = function (_env, argv) {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[chunkhash].js',
-      publicPath: '/'
+      publicPath: 'public/'
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -27,7 +27,6 @@ module.exports = function (_env, argv) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(buildMode),
         __REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })'
       }),
       new ForkTsCheckerPlugin({ async: false }),
