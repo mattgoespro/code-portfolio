@@ -14,18 +14,13 @@ export function HomePage() {
         backgroundImage="images/knysna-harbour-banner.jpg"
         backgroundImageAdjust={true}
       />
-      {/* <div className="welcome-page">
+      <div>
         <h1>The Intro</h1>
         <p>
           I am an aspiring Full-Stack Software Engineer - a young, self-driven go-getter looking to
           make a difference in the software industry.
         </p>
-        <p>
-          This digital portfolio serves as an outlet to demonstrate my skills as a creative and a
-          Software Engineering professional, as well as for anyone wanting to keep in touch with
-          what I work in on my free time.
-        </p>
-      </div> */}
+      </div>
     </>
   );
 }
