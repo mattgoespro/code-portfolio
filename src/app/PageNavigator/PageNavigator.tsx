@@ -1,6 +1,9 @@
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
+import { hideLoadingOverlay } from '@shared/redux/reducers/loading-overlay-slice';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import styles from './PageNavigator.module.scss';
 
@@ -10,6 +13,13 @@ interface PageNavigatorProps {
 
 export function PageNavigator(props: PageNavigatorProps) {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!location.pathname.startsWith('/projects')) {
+      dispatch(hideLoadingOverlay());
+    }
+  }, [location]);
 
   return (
     <div className={styles.shell}>

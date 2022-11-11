@@ -120,7 +120,8 @@ module.exports = function (_env, argv) {
       historyApiFallback: true,
       open: ['http://localhost:4000'],
       client: {
-        overlay: true
+        overlay: true,
+        progress: true
       },
       proxy: {
         '/api': {

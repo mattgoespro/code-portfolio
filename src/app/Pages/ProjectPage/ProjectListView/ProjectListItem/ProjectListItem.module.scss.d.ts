@@ -3,8 +3,8 @@ declare namespace ProjectListItemModuleScssNamespace {
     blue: string;
     'btn-nav-link': string;
     card: string;
-    darkBlue: string;
-    darkGrey: string;
+    'dark-blue': string;
+    darkgrey: string;
     description: string;
     'description-wrapper': string;
     fadeIn: string;
@@ -13,7 +13,10 @@ declare namespace ProjectListItemModuleScssNamespace {
     'lnk-view-details': string;
     name: string;
     'nav-links': string;
-    pageBackground: string;
+    orange: string;
+    pagebackground: string;
+    pink: string;
+    pinkdark: string;
     pinned: string;
     title: string;
   }

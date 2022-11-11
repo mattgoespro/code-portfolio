@@ -5,6 +5,10 @@
 - Unity Engine
 - Move Docker to _technologies_ from _other_
 
+## View Repo
+
+- Add portfolio skills from backend endpoint.
+
 ## NGINX
 
 - Enable HTTPS using SSL certificates.

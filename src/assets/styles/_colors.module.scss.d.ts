@@ -1,11 +1,14 @@
 declare namespace ColorsModuleScssNamespace {
   export interface IColorsModuleScss {
     blue: string;
-    darkBlue: string;
-    darkGrey: string;
+    'dark-blue': string;
+    darkgrey: string;
     grey: string;
     light: string;
-    pageBackground: string;
+    orange: string;
+    pagebackground: string;
+    pink: string;
+    pinkdark: string;
   }
 }
 

@@ -38,18 +38,77 @@
       }
     }
 
-    .list-divider {
+    .pinned-project-list {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin: 0 auto;
+      width: 80%;
+
+      .title-pinned {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        > div,
+        div:last-child {
+          @include divider(2px, $blue, 10px);
+        }
+
+        .pinned-icon {
+          transform: rotate(90deg);
+          color: $orange;
+        }
+
+        h1 {
+          letter-spacing: 2px;
+          font-size: 36px;
+          font-weight: 300;
+          color: $dark-grey;
+        }
+      }
+    }
+
+    .unpinned-project-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+      width: 80%;
+
+      .title-unpinned {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        > div,
+        div:last-child {
+          @include divider(2px, $light, 10px);
+        }
+
+        .unpinned-icon {
+          transform: rotate(90deg);
+          color: $dark-grey;
+        }
+
+        h1 {
+          letter-spacing: 2px;
+          font-size: 36px;
+          font-weight: 300;
+          margin: 25px 0;
+          color: $dark-grey;
+        }
+      }
     }
 
     .project-list {
-      margin: 50px auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      width: 80%;
     }
 
     .loader {

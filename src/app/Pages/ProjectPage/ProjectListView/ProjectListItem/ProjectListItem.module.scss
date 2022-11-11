@@ -2,11 +2,13 @@
 @import 'colors';
 
 .card {
-  box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
+  box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px 0px, rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
   max-width: 400px;
   flex: 1;
   flex-basis: 33%;
   margin: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
   .title {
     display: flex;
@@ -23,6 +25,8 @@
     text-align: center;
     color: $blue;
     border-bottom: 1px solid $light;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 
     .name {
       margin-bottom: 10px;
