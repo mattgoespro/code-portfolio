@@ -11,19 +11,39 @@ $light-grey: #d9d9d9;
 $dark-blue: #253d74;
 $dark-grey: #3a3a3a;
 
-// Components
-$page-background: $light;
-$hyperlink: #3367d6;
-$title: $dark-grey;
-$subtitle: $grey;
+// Content
+$context-page-background: $light;
+
+// Typography
+$text-hyperlink: #3367d6;
+$text-title: $dark-grey;
+$text-subtitle: $grey;
+
+$theme: (
+  color-blue: $blue,
+  color-orange: $orange,
+  color-grey: $grey,
+  color-dark-blue: $dark-blue,
+  color-dark-grey: $dark-grey,
+  color-light: $light,
+  color-light-grey: $light-grey,
+  color-text-title: $text-title,
+  color-text-subtitle: $text-subtitle,
+  color-text-hyperlink: $hyper,
+  color-content-page-background: $context-page-background
+);
 
 :export {
-  brand-light: $light-grey;
-  brand-extra-light: $light;
-  brand-grey: $grey;
-  brand-dark-grey: $dark-grey;
-  brand-orange: $orange;
-  brand-blue: $blue;
-  dark-blue: $dark-blue;
-  page-background: $page-background;
+  color-light: $light-grey;
+  color-extra-light: $light;
+  color-grey: $grey;
+  color-dark-grey: $dark-grey;
+  color-orange: $orange;
+  color-blue: $blue;
+  color-dark-blue: $dark-blue;
+  color-dark-grey: $dark-grey;
+  color-hyperlink: $text-hyperlink;
+  color-title: $angular;
+  color-page-background: $context-page-background;
+  theme: $theme;
 }

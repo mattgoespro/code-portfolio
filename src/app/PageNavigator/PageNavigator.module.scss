@@ -1,5 +1,6 @@
-@import 'colors';
-@import 'shared';
+@use 'colors';
+
+$nav-height: 50px;
 
 .shell {
   display: flex;
@@ -10,10 +11,10 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: #00000029 0px 3px 6px, #0000003b 0px 3px 6px;
   z-index: 2;
-  height: 50px;
+  height: $nav-height;
 
   ul {
     font-family: sans-serif;
@@ -37,7 +38,7 @@ nav {
     letter-spacing: 1px;
     height: 100%;
     padding: 0 15px 0 15px;
-    color: black;
+    color: #000000;
     transition: background-color 0.1s;
     position: relative;
     border-radius: 5px;
@@ -45,7 +46,7 @@ nav {
     &:hover {
       background-color: transparent;
       cursor: pointer;
-      color: white;
+      color: #ffffff;
       animation-name: nav-text-hover-color-change;
       animation-duration: 100ms;
       animation-fill-mode: forwards;
@@ -59,7 +60,7 @@ nav {
       left: 0;
       height: 100%;
       width: 100%;
-      background: linear-gradient(white 50%, $orange 50%);
+      background: linear-gradient(#ffffff 50%, colors.$orange 50%);
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       background-size: 200% 200%;
@@ -75,7 +76,7 @@ nav {
     }
 
     &:visited {
-      color: black;
+      color: #000000;
     }
   }
 
@@ -97,10 +98,10 @@ nav {
       }
 
       .social-icon {
-        color: black !important;
+        color: #000000 !important;
 
         &:hover {
-          color: lighten($color: black, $amount: 10%) !important;
+          color: lighten($color: #000000, $amount: 10%) !important;
         }
       }
     }
@@ -109,6 +110,7 @@ nav {
 
 .content-outlet {
   position: relative;
+  min-height: calc(100vh - $nav-height);
 }
 
 @-webkit-keyframes nav-link-hover {
@@ -122,11 +124,11 @@ nav {
 
 @keyframes nav-text-hover-color-change {
   from {
-    color: black;
+    color: #000000;
   }
 
   to {
-    color: white;
+    color: #ffffff;
   }
 }
 

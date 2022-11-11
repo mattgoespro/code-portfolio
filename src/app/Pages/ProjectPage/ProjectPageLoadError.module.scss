@@ -1,28 +1,37 @@
-@import 'colors';
+@use 'colors';
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin: calc(100vh - 55%) auto 0;
+  max-width: 50%;
 
   .error {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
 
     .err-msg {
+      font-family: 'Nunito Sans', sans-serif;
       font-size: 48px;
-      color: $title;
+      font-weight: 100;
+      color: colors.$text-title;
+      margin-bottom: 10px;
+
+      span {
+        color: colors.$blue;
+      }
     }
 
     .err-msg-try-later {
-      font-size: 32px;
-      margin-top: 20px;
-      color: $subtitle;
+      font-family: 'Roboto', sans-serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: colors.$text-subtitle;
+      margin-top: 0;
     }
   }
 
   img {
-    max-width: 300px;
+    max-width: 150px;
   }
 }

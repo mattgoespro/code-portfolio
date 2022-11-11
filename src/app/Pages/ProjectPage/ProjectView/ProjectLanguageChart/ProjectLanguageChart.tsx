@@ -27,7 +27,7 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
           boxWidth: 20,
           boxHeight: 20,
           padding: 5,
-          color: 'white'
+          color: '#ffffff'
         }
       },
       tooltip: {

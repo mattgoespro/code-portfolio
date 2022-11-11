@@ -15,7 +15,7 @@ class SpinnerLoadingOverlay extends Component<{ visible?: boolean }> {
     return (
       <LoadingOverlay
         active={true}
-        spinner={<Spinner color="white" />}
+        spinner={<Spinner color="#ffffff" />}
         styles={{
           wrapper: () => {
             return {

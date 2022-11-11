@@ -5,8 +5,10 @@ export function ProjectPageLoadError() {
     <div className={styles.wrapper}>
       <img src="/images/misc/failfish.png" alt="failfish" />
       <div className={styles.error}>
-        <div className={styles['err-msg']}>Oops! The projects failed to load.</div>
-        <div className={styles['err-msg-try-later']}>Please try again later.</div>
+        <h1 className={styles['err-msg']}>
+          <span>Oops!</span> The projects failed to load.
+        </h1>
+        <h2 className={styles['err-msg-try-later']}>Please try again later.</h2>
       </div>
     </div>
   );

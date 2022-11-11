@@ -12,7 +12,7 @@ export function DotDivider(props: DotDividerProps) {
         width: size,
         height: size,
         borderRadius: size,
-        backgroundColor: props.color || 'black',
+        backgroundColor: props.color || '#000000',
         margin: '0px 10px'
       }}
     ></div>

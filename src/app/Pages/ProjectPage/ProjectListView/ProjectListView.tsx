@@ -45,9 +45,9 @@ export function ProjectListView() {
 
   return (
     <>
-      <div className={styles.wrapper}>
-        {error && <ProjectPageLoadError />}
-        {!error && !fetchingProjects && (
+      {error && <ProjectPageLoadError />}
+      {!error && !fetchingProjects && (
+        <div className={styles.wrapper}>
           <div className={styles['page-content']}>
             <div className={styles.intro}>
               <h1 className={styles['intro-title']}>Browse Projects</h1>
@@ -103,8 +103,8 @@ export function ProjectListView() {
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }
