@@ -37,14 +37,14 @@ export function HomePage() {
     };
   }
 
-  function createSkillSection(...sections: { id: string; skill: string }[]) {
+  function createSkillSection(...sections: { id: string; name: string }[]) {
     return (
       <div className={styles['skill-section']}>
         {sections.map((section, index) => {
           return (
-            <div key={section.skill} className={styles['skill-card']} {...skillScrollIn(index + 1)}>
+            <div key={section.name} className={styles['skill-card']} {...skillScrollIn(index + 1)}>
               <div className={`${styles['skill-name']} ${styles[`title-${section.id}`]}`}>
-                {section.skill}
+                {section.name}
               </div>
               <div {...styleSkillTitleDivider(styles[`color-${section.id}`])}></div>
               <img src={`/images/logos/${section.id}.png`} alt={section.id} />
@@ -55,36 +55,26 @@ export function HomePage() {
     );
   }
 
-  const others = (
-    <div className={styles.others}>
-      <div>
-        <img
-          className={styles.other}
-          src="/images/logos/docker.png"
-          alt="Docker"
-          {...skillScrollIn(1)}
-        />
+  function createOthersSection(...others: { id: string; name: string }[]) {
+    return (
+      <div className={styles.others}>
+        {others.map((other) => {
+          return (
+            <div key={other.id}>
+              <Tooltip title={other.name}>
+                <img
+                  className={styles.other}
+                  src={`/images/logos/${other.id}.png`}
+                  alt="Git"
+                  {...skillScrollIn(1)}
+                />
+              </Tooltip>
+            </div>
+          );
+        })}
       </div>
-      <div>
-        <Tooltip title="Amazon Web Services">
-          <img
-            className={styles.other}
-            src="/images/logos/aws.png"
-            alt="AWS"
-            {...skillScrollIn(2)}
-          />
-        </Tooltip>
-      </div>
-      <div>
-        <img
-          className={styles.other}
-          src="/images/logos/kafka.png"
-          alt="Kafka"
-          {...skillScrollIn(3)}
-        />
-      </div>
-    </div>
-  );
+    );
+  }
 
   return (
     <>
@@ -102,7 +92,10 @@ export function HomePage() {
         <div className={styles['page-content']}>
           <div className={styles.intro}>
             <h1>My name is Matt</h1>
-            <h2>I am an aspiring Full-Stack Software Engineer</h2>
+            <h2>
+              I am a self-taught full-stack Software Engineer, specializing in Progressive Web
+              Applications and scalable microservice architectures.
+            </h2>
             <h3>
               A young, self-driven go-getter looking to make a difference in the software industry.
             </h3>
@@ -113,9 +106,10 @@ export function HomePage() {
                 I have experience developing software in a variety of different languages...
               </h3>
               {createSkillSection(
-                { id: 'typescript', skill: 'TypeScript' },
-                { id: 'java', skill: 'Java' },
-                { id: 'c-sharp', skill: '.NET' }
+                { id: 'typescript', name: 'TypeScript' },
+                { id: 'java', name: 'Java' },
+                { id: 'c-sharp', name: '.NET' },
+                { id: 'dart', name: 'Dart' }
               )}
             </div>
             <div className={styles['skill-set-wrapper']}>
@@ -123,18 +117,33 @@ export function HomePage() {
                 across multiple software development technologies...
               </h3>
               {createSkillSection(
-                { id: 'react', skill: 'React' },
-                { id: 'angular', skill: 'Angular' },
-                { id: 'node', skill: 'Node' },
-                { id: 'spring', skill: 'Spring' },
-                { id: 'postgresql', skill: 'PostgreSQL' }
+                { id: 'node', name: 'Node' },
+                { id: 'react', name: 'React' },
+                { id: 'angular', name: 'Angular' },
+                { id: 'docker', name: 'Docker' },
+                { id: 'spring', name: 'Spring' },
+                { id: 'postgresql', name: 'PostgreSQL' },
+                { id: 'flutter', name: 'Flutter' }
               )}
             </div>
             <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
               <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                and have had exposure to some other useful tools
+                and other essential developer tools
               </h3>
-              {others}
+              {createOthersSection(
+                {
+                  id: 'git',
+                  name: 'Git'
+                },
+                {
+                  id: 'aws',
+                  name: 'Amazon Web Services'
+                },
+                {
+                  id: 'kafka',
+                  name: 'Kafka'
+                }
+              )}
             </div>
           </div>
         </div>

@@ -1,17 +1,17 @@
 declare namespace ProjectPageLoadErrorModuleScssNamespace {
   export interface IProjectPageLoadErrorModuleScss {
-    blue: string;
+    'brand-blue': string;
+    'brand-dark-grey': string;
+    'brand-extra-light': string;
+    'brand-grey': string;
+    'brand-light': string;
+    'brand-orange': string;
+    'brand-pink': string;
     'dark-blue': string;
-    darkgrey: string;
     'err-msg': string;
     'err-msg-try-later': string;
     error: string;
-    grey: string;
-    light: string;
-    orange: string;
-    pagebackground: string;
-    pink: string;
-    pinkdark: string;
+    'page-background': string;
     wrapper: string;
   }
 }

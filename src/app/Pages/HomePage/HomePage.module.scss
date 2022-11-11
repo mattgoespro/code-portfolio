@@ -1,6 +1,10 @@
 @import 'colors';
 @import 'shared';
 
+:root {
+  --skill-title-divider-color: black;
+}
+
 /*
  * Brand colors of technologies, sampled from  
  * their logos.
@@ -10,13 +14,16 @@ $java: #0074bd;
 $c-sharp: #6d429c;
 $angular: #dd0031;
 $react: #61dafb;
-$node: #3e863d;
-$spring: #6db33f;
+$node: #6c9f67;
+$spring: #73b34a;
 $postgresql: #35688f;
+$docker: #289aea;
+$dart: #36b9f4;
+$flutter: #5ac7f6;
 
-:root {
-  --skill-title-divider-color: black;
-}
+///
+/// Expose color variables to React component
+///
 
 :export {
   color-typescript: $typescript;
@@ -27,6 +34,9 @@ $postgresql: #35688f;
   color-node: $node;
   color-spring: $spring;
   color-postgresql: $postgresql;
+  color-docker: $docker;
+  color-dart: $dart;
+  color-flutter: $flutter;
 }
 
 .title-typescript {
@@ -35,6 +45,14 @@ $postgresql: #35688f;
   span {
     font-weight: bold;
   }
+}
+
+.title-flutter {
+  color: $flutter;
+}
+
+.title-dart {
+  color: $dart;
 }
 
 .title-java {
@@ -63,6 +81,10 @@ $postgresql: #35688f;
 
 .title-postgresql {
   color: $postgresql;
+}
+
+.title-docker {
+  color: $docker;
 }
 
 .wrapper {
@@ -140,7 +162,7 @@ $postgresql: #35688f;
               position: relative;
               font-size: 24px;
               text-align: center;
-              font-weight: bold;
+              font-weight: 400;
               margin: 10px 0;
             }
 

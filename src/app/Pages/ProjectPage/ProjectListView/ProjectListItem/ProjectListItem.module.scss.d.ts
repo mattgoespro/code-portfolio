@@ -1,22 +1,22 @@
 declare namespace ProjectListItemModuleScssNamespace {
   export interface IProjectListItemModuleScss {
-    blue: string;
+    'brand-blue': string;
+    'brand-dark-grey': string;
+    'brand-extra-light': string;
+    'brand-grey': string;
+    'brand-light': string;
+    'brand-orange': string;
+    'brand-pink': string;
     'btn-nav-link': string;
     card: string;
     'dark-blue': string;
-    darkgrey: string;
     description: string;
     'description-wrapper': string;
     fadeIn: string;
-    grey: string;
-    light: string;
     'lnk-view-details': string;
     name: string;
     'nav-links': string;
-    orange: string;
-    pagebackground: string;
-    pink: string;
-    pinkdark: string;
+    'page-background': string;
     pinned: string;
     title: string;
   }

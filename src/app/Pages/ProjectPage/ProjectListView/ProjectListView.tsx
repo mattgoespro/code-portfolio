@@ -49,9 +49,7 @@ export function ProjectListView() {
         {!error && !fetchingProjects && (
           <div className={styles['page-content']}>
             <div className={styles.intro}>
-              <h1 className={styles['intro-title']}>
-                My public projects are listed here automatically
-              </h1>
+              <h1 className={styles['intro-title']}>Browse Projects</h1>
               <h2 className={styles['intro-subtitle']}>Source code available on GitHub</h2>
             </div>
             <div className={styles['pinned-project-list']}>

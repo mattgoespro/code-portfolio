@@ -4,19 +4,20 @@ $light: #d9d9d9;
 $extra-light: #f5f5f5;
 $grey: #575757;
 $dark-grey: #3a3a3a;
-$page-background: $extra-light;
 $pink: #e91e63;
 $orange: #f57c00;
 
+$page-background: $extra-light;
+$hyperlink: #3367d6;
+
 :export {
-  light: $light;
-  $extraLight: $extra-light;
-  grey: $grey;
-  darkgrey: $dark-grey;
-  orange: $orange;
-  blue: $blue;
+  brand-light: $light;
+  brand-extra-light: $extra-light;
+  brand-grey: $grey;
+  brand-dark-grey: $dark-grey;
+  brand-orange: $orange;
+  brand-blue: $blue;
   dark-blue: $dark-blue;
-  pagebackground: $page-background;
-  pink: $pink;
-  pinkdark: #a00037;
+  page-background: $page-background;
+  brand-pink: $pink;
 }

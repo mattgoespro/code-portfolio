@@ -1,18 +1,18 @@
 declare namespace AboutPageModuleScssNamespace {
   export interface IAboutPageModuleScss {
-    blue: string;
+    'brand-blue': string;
+    'brand-dark-grey': string;
+    'brand-extra-light': string;
+    'brand-grey': string;
+    'brand-light': string;
+    'brand-orange': string;
+    'brand-pink': string;
     content: string;
     'dark-blue': string;
-    darkgrey: string;
     fadeIn: string;
-    grey: string;
     header: string;
     'img-profile': string;
-    light: string;
-    orange: string;
-    pagebackground: string;
-    pink: string;
-    pinkdark: string;
+    'page-background': string;
     separator: string;
     'smellsense-link': string;
     'subtitle-personality': string;

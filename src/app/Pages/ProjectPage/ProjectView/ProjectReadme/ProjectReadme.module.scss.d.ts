@@ -1,15 +1,15 @@
 declare namespace ProjectReadmeModuleScssNamespace {
   export interface IProjectReadmeModuleScss {
-    blue: string;
+    'brand-blue': string;
+    'brand-dark-grey': string;
+    'brand-extra-light': string;
+    'brand-grey': string;
+    'brand-light': string;
+    'brand-orange': string;
+    'brand-pink': string;
     'dark-blue': string;
-    darkgrey: string;
     fadeIn: string;
-    grey: string;
-    light: string;
-    orange: string;
-    pagebackground: string;
-    pink: string;
-    pinkdark: string;
+    'page-background': string;
     'section-content': string;
     'section-subtitle': string;
     'section-title': string;

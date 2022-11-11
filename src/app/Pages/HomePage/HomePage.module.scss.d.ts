@@ -1,8 +1,17 @@
 declare namespace HomePageModuleScssNamespace {
   export interface IHomePageModuleScss {
-    blue: string;
+    'brand-blue': string;
+    'brand-dark-grey': string;
+    'brand-extra-light': string;
+    'brand-grey': string;
+    'brand-light': string;
+    'brand-orange': string;
+    'brand-pink': string;
     'color-angular': string;
     'color-c-sharp': string;
+    'color-dart': string;
+    'color-docker': string;
+    'color-flutter': string;
     'color-java': string;
     'color-node': string;
     'color-postgresql': string;
@@ -10,18 +19,12 @@ declare namespace HomePageModuleScssNamespace {
     'color-spring': string;
     'color-typescript': string;
     'dark-blue': string;
-    darkgrey: string;
     fadeIn: string;
-    grey: string;
     intro: string;
-    light: string;
-    orange: string;
     other: string;
     others: string;
+    'page-background': string;
     'page-content': string;
-    pagebackground: string;
-    pink: string;
-    pinkdark: string;
     'skill-card': string;
     'skill-name': string;
     'skill-section': string;
@@ -31,6 +34,9 @@ declare namespace HomePageModuleScssNamespace {
     'skill-title-divider': string;
     'title-angular': string;
     'title-c-sharp': string;
+    'title-dart': string;
+    'title-docker': string;
+    'title-flutter': string;
     'title-java': string;
     'title-node': string;
     'title-postgresql': string;

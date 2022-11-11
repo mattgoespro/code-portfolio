@@ -16,7 +16,7 @@
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      border-bottom: 1px solid #000f78;
+      border-bottom: 1px solid $dark-blue;
 
       .title {
         font-family: 'Roboto', sans-serif;
@@ -65,7 +65,7 @@
 
     .smellsense-link {
       text-decoration: none;
-      color: #3367d6;
+      color: $hyperlink;
     }
   }
 }
