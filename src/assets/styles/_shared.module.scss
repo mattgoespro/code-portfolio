@@ -53,3 +53,13 @@
   line-height: 1.714;
   color: rgba(0, 0, 0, 0.87);
 }
+
+@mixin page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
+  margin: auto;
+  background-color: white;
+}

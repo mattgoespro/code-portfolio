@@ -6,7 +6,6 @@ declare namespace PageNavigatorModuleScssNamespace {
     'brand-grey': string;
     'brand-light': string;
     'brand-orange': string;
-    'brand-pink': string;
     'content-outlet': string;
     'dark-blue': string;
     fadeIn: string;

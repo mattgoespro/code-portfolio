@@ -6,7 +6,6 @@ declare namespace AboutPageModuleScssNamespace {
     'brand-grey': string;
     'brand-light': string;
     'brand-orange': string;
-    'brand-pink': string;
     content: string;
     'dark-blue': string;
     fadeIn: string;

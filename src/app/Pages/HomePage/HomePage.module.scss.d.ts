@@ -6,7 +6,6 @@ declare namespace HomePageModuleScssNamespace {
     'brand-grey': string;
     'brand-light': string;
     'brand-orange': string;
-    'brand-pink': string;
     'color-angular': string;
     'color-c-sharp': string;
     'color-dart': string;

@@ -1,23 +1,29 @@
+// Standard
 $blue: #315ab7;
-$dark-blue: #253d74;
-$light: #d9d9d9;
-$extra-light: #f5f5f5;
-$grey: #575757;
-$dark-grey: #3a3a3a;
-$pink: #e91e63;
 $orange: #f57c00;
+$grey: #575757;
 
-$page-background: $extra-light;
+// Light
+$light: #f5f5f5;
+$light-grey: #d9d9d9;
+
+// Dark
+$dark-blue: #253d74;
+$dark-grey: #3a3a3a;
+
+// Components
+$page-background: $light;
 $hyperlink: #3367d6;
+$title: $dark-grey;
+$subtitle: $grey;
 
 :export {
-  brand-light: $light;
-  brand-extra-light: $extra-light;
+  brand-light: $light-grey;
+  brand-extra-light: $light;
   brand-grey: $grey;
   brand-dark-grey: $dark-grey;
   brand-orange: $orange;
   brand-blue: $blue;
   dark-blue: $dark-blue;
   page-background: $page-background;
-  brand-pink: $pink;
 }

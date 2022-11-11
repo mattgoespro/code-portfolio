@@ -1,12 +1,15 @@
 import { PageBanner } from '@shared/components/PageBanner/PageBanner';
-import { CSSProperties, useEffect } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import styles from './HomePage.module.scss';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Tooltip from '@mui/material/Tooltip';
 
 export function HomePage() {
+  const [viewSkills, setViewSkills] = useState(false);
+
   useEffect(() => {
+    // Initialize animate-on-scroll engine.
     AOS.init();
   }, []);
 
@@ -91,73 +94,69 @@ export function HomePage() {
       <div className={styles.wrapper}>
         <div className={styles['page-content']}>
           <div className={styles.intro}>
-            <h1>My name is Matt</h1>
-            <h2>
-              I am a self-taught full-stack Software Engineer, specializing in Progressive Web
-              Applications and scalable microservice architectures.
-            </h2>
-            <h3>
-              A young, self-driven go-getter looking to make a difference in the software industry.
-            </h3>
+            <h1>Hey, my name is Matt</h1>
+            <h2>Thank you for visiting my online portfolio showcase</h2>
           </div>
-          <div className={styles['skill-sets']}>
-            <div className={styles['skill-set-wrapper']}>
-              <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                I have experience developing software in a variety of different languages...
-              </h3>
-              {createSkillSection(
-                { id: 'typescript', name: 'TypeScript' },
-                { id: 'java', name: 'Java' },
-                { id: 'c-sharp', name: '.NET' },
-                { id: 'dart', name: 'Dart' }
-              )}
+          {viewSkills && (
+            <div className={styles['skill-sets']}>
+              <div className={styles['skill-set-wrapper']}>
+                <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
+                  I have experience developing software in a variety of different languages...
+                </h3>
+                {createSkillSection(
+                  { id: 'typescript', name: 'TypeScript' },
+                  { id: 'java', name: 'Java' },
+                  { id: 'c-sharp', name: '.NET' },
+                  { id: 'dart', name: 'Dart' }
+                )}
+              </div>
+              <div className={styles['skill-set-wrapper']}>
+                <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
+                  in a variety of ecosystems...
+                </h3>
+                {createSkillSection(
+                  { id: 'node', name: 'Node' },
+                  { id: 'react', name: 'React' },
+                  { id: 'angular', name: 'Angular' },
+                  { id: 'docker', name: 'Docker' },
+                  { id: 'spring', name: 'Spring' },
+                  { id: 'postgresql', name: 'PostgreSQL' },
+                  { id: 'flutter', name: 'Flutter' }
+                )}
+              </div>
+              <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
+                <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
+                  working with a selection of industry standard tooling
+                </h3>
+                {createOthersSection(
+                  {
+                    id: 'git',
+                    name: 'Git'
+                  },
+                  {
+                    id: 'aws',
+                    name: 'Amazon Web Services'
+                  },
+                  {
+                    id: 'webpack',
+                    name: 'webpack'
+                  },
+                  {
+                    id: 'docker-compose',
+                    name: 'docker-compose'
+                  },
+                  {
+                    id: 'nginx',
+                    name: 'nginx'
+                  },
+                  {
+                    id: 'kafka',
+                    name: 'Kafka'
+                  }
+                )}
+              </div>
             </div>
-            <div className={styles['skill-set-wrapper']}>
-              <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                in a variety of ecosystems...
-              </h3>
-              {createSkillSection(
-                { id: 'node', name: 'Node' },
-                { id: 'react', name: 'React' },
-                { id: 'angular', name: 'Angular' },
-                { id: 'docker', name: 'Docker' },
-                { id: 'spring', name: 'Spring' },
-                { id: 'postgresql', name: 'PostgreSQL' },
-                { id: 'flutter', name: 'Flutter' }
-              )}
-            </div>
-            <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
-              <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                working with a selection of industry standard tooling
-              </h3>
-              {createOthersSection(
-                {
-                  id: 'git',
-                  name: 'Git'
-                },
-                {
-                  id: 'aws',
-                  name: 'Amazon Web Services'
-                },
-                {
-                  id: 'webpack',
-                  name: 'webpack'
-                },
-                {
-                  id: 'docker-compose',
-                  name: 'docker-compose'
-                },
-                {
-                  id: 'nginx',
-                  name: 'nginx'
-                },
-                {
-                  id: 'kafka',
-                  name: 'Kafka'
-                }
-              )}
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </>

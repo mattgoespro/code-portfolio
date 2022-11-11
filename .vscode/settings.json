@@ -1,21 +1,17 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
   "files.exclude": {
     "node_modules": true
   },
   "files.watcherExclude": {
     "node_modules": true,
-    "dist": true,
-    ".git": true
+    "dist": true
   },
   "search.exclude": {
     "node_modules": true,
     "dist": true,
-    ".git": true
+    "**/*.scss.d.ts": true
   },
-  "files.eol": "\n",
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.alwaysShowStatus": true,
@@ -31,5 +27,7 @@
   "[nginx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "cSpell.ignorePaths": ["package.json", "package-lock.json", "node_modules"]
 }

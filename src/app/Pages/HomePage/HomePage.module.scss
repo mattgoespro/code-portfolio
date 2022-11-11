@@ -83,13 +83,7 @@ $flutter: #5ac7f6;
   background-color: $page-background;
 
   .page-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 70%;
-    margin: auto;
-    background-color: white;
+    @include page-content;
 
     .intro {
       font-family: 'Roboto', sans-serif;
@@ -99,16 +93,15 @@ $flutter: #5ac7f6;
 
       h1 {
         font-size: 46px;
+        font-family: 'Nunito Sans';
+        font-weight: 400;
       }
 
       h2 {
-        font-size: 32px;
+        font-size: 28px;
+        font-family: Roboto;
         font-weight: 300;
-      }
-
-      h3 {
-        font-size: 26px;
-        font-weight: 300;
+        color: $subtitle;
       }
     }
 
@@ -123,11 +116,11 @@ $flutter: #5ac7f6;
         margin-bottom: 150px;
 
         .skill-title {
-          font-family: Roboto, sans-serif;
-          font-size: 42px;
+          font-family: 'Nunito Sans', sans-serif;
+          font-size: 36px;
           font-weight: 300;
           margin: auto;
-          max-width: 60%;
+          max-width: 80%;
           text-align: center;
         }
 

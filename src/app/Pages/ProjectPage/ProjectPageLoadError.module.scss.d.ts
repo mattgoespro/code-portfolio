@@ -6,7 +6,6 @@ declare namespace ProjectPageLoadErrorModuleScssNamespace {
     'brand-grey': string;
     'brand-light': string;
     'brand-orange': string;
-    'brand-pink': string;
     'dark-blue': string;
     'err-msg': string;
     'err-msg-try-later': string;

@@ -5,13 +5,7 @@
   background-color: $page-background;
 
   .page-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 70%;
-    margin: auto;
-    background-color: white;
+    @include page-content;
 
     .intro {
       margin-top: 50px;
@@ -20,6 +14,7 @@
         font-family: 'Roboto Serif', sans-serif;
         font-size: 42px;
         font-weight: 100;
+        color: $title;
         text-align: center;
         margin: auto;
       }
@@ -28,7 +23,7 @@
         font-family: 'Roboto', sans-serif;
         font-size: 22px;
         font-weight: 300;
-        color: $grey;
+        color: $subtitle;
         text-align: center;
         margin: 20px 0 0;
         text-decoration: underline;
@@ -65,7 +60,7 @@
           letter-spacing: 2px;
           font-size: 36px;
           font-weight: 300;
-          color: $dark-grey;
+          color: $title;
         }
       }
     }
@@ -86,7 +81,7 @@
 
         > div,
         div:last-child {
-          @include divider(2px, $light, 10px);
+          @include divider(2px, $light-grey, 10px);
         }
 
         .unpinned-icon {
@@ -99,7 +94,7 @@
           font-size: 36px;
           font-weight: 300;
           margin: 25px 0;
-          color: $dark-grey;
+          color: $title;
         }
       }
     }

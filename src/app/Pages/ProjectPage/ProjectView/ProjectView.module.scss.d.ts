@@ -6,7 +6,6 @@ declare namespace ProjectViewModuleScssNamespace {
     'brand-grey': string;
     'brand-light': string;
     'brand-orange': string;
-    'brand-pink': string;
     content: string;
     'content-section': string;
     'dark-blue': string;
