@@ -7,8 +7,8 @@
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "baseUrl": "./",
     "paths": {
       "@shared/components/*": ["./src/app/shared/components/*"],
