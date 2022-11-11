@@ -6,7 +6,7 @@ export function AboutPage() {
     <>
       <PageBanner
         title="About Me"
-        subtitle="My history and how I got here"
+        subtitle="My journey to software engineering"
         backgroundImage="/images/page-banners/gamer-setup-banner.jpg"
         backgroundImageAdjust={true}
       />

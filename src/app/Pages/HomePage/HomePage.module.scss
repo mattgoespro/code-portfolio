@@ -66,99 +66,105 @@ $postgresql: #35688f;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 80%;
-  margin: 50px auto;
+  background-color: $page-background;
 
-  .intro {
-    font-family: 'Roboto', sans-serif;
-    margin: 50px 0 200px;
-    text-align: center;
-    max-width: 600px;
-
-    h1 {
-      font-size: 46px;
-    }
-
-    h2 {
-      font-size: 32px;
-      font-weight: 300;
-    }
-
-    h3 {
-      font-size: 26px;
-      font-weight: 300;
-    }
-  }
-
-  .skill-sets {
+  .page-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 70%;
+    margin: auto;
+    background-color: white;
 
-    .skill-set-wrapper {
-      width: 100%;
-      margin-bottom: 200px;
+    .intro {
+      font-family: 'Roboto', sans-serif;
+      margin: 50px 0 200px;
+      text-align: center;
+      max-width: 600px;
 
-      .skill-title {
-        font-family: 'Roboto', sans-serif;
-        font-size: 26px;
-        font-weight: 300;
-        text-align: center;
-        max-width: 60%;
-        margin: auto;
+      h1 {
+        font-size: 46px;
       }
 
-      .skill-section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 20px;
-        box-sizing: border-box;
+      h2 {
+        font-size: 32px;
+        font-weight: 300;
+      }
 
-        .skill-card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          flex-wrap: wrap;
-          flex: 1 1 100%;
-          max-width: 150px;
-          margin: 10px;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-
-          .skill-name {
-            position: relative;
-            font-size: 24px;
-            text-align: center;
-            font-weight: bold;
-          }
-
-          .skill-title-divider {
-            @include divider(1px, var(--skill-title-divider-color), 10px);
-          }
-
-          img {
-            width: 100px;
-            margin-top: 20px;
-          }
-        }
+      h3 {
+        font-size: 26px;
+        font-weight: 300;
       }
     }
 
-    .others {
+    .skill-sets {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
 
-      .other {
-        width: 40px;
-        margin: 20px;
+      .skill-set-wrapper {
+        width: 100%;
+        margin-bottom: 200px;
+
+        .skill-title {
+          font-family: 'Roboto', sans-serif;
+          font-size: 26px;
+          font-weight: 300;
+          text-align: center;
+          max-width: 60%;
+          margin: auto;
+        }
+
+        .skill-section {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-top: 20px;
+          box-sizing: border-box;
+
+          .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            flex: 1 1 100%;
+            max-width: 150px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+              rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+            .skill-name {
+              position: relative;
+              font-size: 24px;
+              text-align: center;
+              font-weight: bold;
+              margin: 10px 0;
+            }
+
+            .skill-title-divider {
+              @include divider(1px, var(--skill-title-divider-color), 0);
+            }
+
+            img {
+              width: 100px;
+              margin: 15px 0;
+            }
+          }
+        }
+      }
+
+      .others {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .other {
+          width: 40px;
+          margin: 20px;
+        }
       }
     }
   }

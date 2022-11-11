@@ -3,6 +3,7 @@ import { CSSProperties, useEffect } from 'react';
 import styles from './HomePage.module.scss';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import Tooltip from '@mui/material/Tooltip';
 
 export function HomePage() {
   useEffect(() => {
@@ -65,7 +66,14 @@ export function HomePage() {
         />
       </div>
       <div>
-        <img className={styles.other} src="/images/logos/aws.png" alt="AWS" {...skillScrollIn(2)} />
+        <Tooltip title="Amazon Web Services">
+          <img
+            className={styles.other}
+            src="/images/logos/aws.png"
+            alt="AWS"
+            {...skillScrollIn(2)}
+          />
+        </Tooltip>
       </div>
       <div>
         <img
@@ -91,41 +99,43 @@ export function HomePage() {
         backgroundImageAdjust={true}
       />
       <div className={styles.wrapper}>
-        <div className={styles.intro}>
-          <h1>My name is Matt</h1>
-          <h2>I am an aspiring Full-Stack Software Engineer</h2>
-          <h3>
-            A young, self-driven go-getter looking to make a difference in the software industry.
-          </h3>
-        </div>
-        <div className={styles['skill-sets']}>
-          <div className={styles['skill-set-wrapper']}>
-            <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-              I have experience programming in a variety of different languages
+        <div className={styles['page-content']}>
+          <div className={styles.intro}>
+            <h1>My name is Matt</h1>
+            <h2>I am an aspiring Full-Stack Software Engineer</h2>
+            <h3>
+              A young, self-driven go-getter looking to make a difference in the software industry.
             </h3>
-            {createSkillSection(
-              { id: 'typescript', skill: 'TypeScript' },
-              { id: 'java', skill: 'Java' },
-              { id: 'c-sharp', skill: '.NET' }
-            )}
           </div>
-          <div className={styles['skill-set-wrapper']}>
-            <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-              across multiple software development technologies
-            </h3>
-            {createSkillSection(
-              { id: 'react', skill: 'React' },
-              { id: 'angular', skill: 'Angular' },
-              { id: 'node', skill: 'Node' },
-              { id: 'spring', skill: 'Spring' },
-              { id: 'postgresql', skill: 'PostgreSQL' }
-            )}
-          </div>
-          <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
-            <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-              and touched upon a few other useful tools and technologies
-            </h3>
-            {others}
+          <div className={styles['skill-sets']}>
+            <div className={styles['skill-set-wrapper']}>
+              <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
+                I have experience developing software in a variety of different languages...
+              </h3>
+              {createSkillSection(
+                { id: 'typescript', skill: 'TypeScript' },
+                { id: 'java', skill: 'Java' },
+                { id: 'c-sharp', skill: '.NET' }
+              )}
+            </div>
+            <div className={styles['skill-set-wrapper']}>
+              <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
+                across multiple software development technologies...
+              </h3>
+              {createSkillSection(
+                { id: 'react', skill: 'React' },
+                { id: 'angular', skill: 'Angular' },
+                { id: 'node', skill: 'Node' },
+                { id: 'spring', skill: 'Spring' },
+                { id: 'postgresql', skill: 'PostgreSQL' }
+              )}
+            </div>
+            <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
+              <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
+                and have had exposure to some other useful tools
+              </h3>
+              {others}
+            </div>
           </div>
         </div>
       </div>

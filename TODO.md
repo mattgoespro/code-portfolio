@@ -1,5 +1,10 @@
 # IMPORTANT
 
+## Technologies
+
+- Unity Engine
+- Move Docker to _technologies_ from _other_
+
 ## NGINX
 
 - Enable HTTPS using SSL certificates.
@@ -8,11 +13,6 @@
 
 - Cache API responses using React-Redux
   - Important for ProjectPage
-
-## Bugs
-
-- Image assets from Webpack **_publicPath_** not being bundled in build.
-- **STILL AN ISSUE?** Frontend in Docker Container base URL displays nothing.
 
 ## Optimization
 

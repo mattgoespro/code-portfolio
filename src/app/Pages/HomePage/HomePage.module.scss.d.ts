@@ -1,5 +1,6 @@
 declare namespace HomePageModuleScssNamespace {
   export interface IHomePageModuleScss {
+    blue: string;
     'color-angular': string;
     'color-c-sharp': string;
     'color-java': string;
@@ -8,10 +9,16 @@ declare namespace HomePageModuleScssNamespace {
     'color-react': string;
     'color-spring': string;
     'color-typescript': string;
+    darkBlue: string;
+    darkGrey: string;
     fadeIn: string;
+    grey: string;
     intro: string;
+    light: string;
     other: string;
     others: string;
+    'page-content': string;
+    pageBackground: string;
     'skill-card': string;
     'skill-name': string;
     'skill-section': string;

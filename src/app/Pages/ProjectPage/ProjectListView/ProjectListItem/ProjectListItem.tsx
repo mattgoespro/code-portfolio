@@ -11,7 +11,7 @@ interface ProjectListItemProps {
 
 export function ProjectListItem(props: ProjectListItemProps) {
   return (
-    <div className={`${styles.card} ${props.pinned ? styles.pinned : ''}`}>
+    <div className={`${styles.card}` + `${props.pinned ? ` ${styles.pinned}` : ''}`}>
       <div className={styles.title}>
         <div className={styles.name}>{props.name}</div>
         <div className={styles['nav-links']}>

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2015",
     "lib": ["es2017", "dom"],
-    "module": "esnext",
+    "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
     "jsx": "react-jsx",
@@ -12,7 +12,8 @@
     "baseUrl": "./",
     "paths": {
       "@shared/components/*": ["./src/app/shared/components/*"],
-      "@shared/redux/*": ["./src/app/shared/redux/*"]
+      "@shared/redux/*": ["./src/app/shared/redux/*"],
+      "@shared/styles/*": ["./src/assets/styles/*"]
     }
   },
   "include": ["src/**/*"],

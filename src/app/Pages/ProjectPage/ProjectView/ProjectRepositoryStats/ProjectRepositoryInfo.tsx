@@ -16,7 +16,7 @@ export function ProjectRepositoryInfo(props: ProjectRepositoryInfoProps) {
           Date Created: <i>{new Date(props.project.stats.createdTimestamp).toUTCString()}</i>
         </div>
         <div className={styles.activity}>
-          Last Updated: <i>{new Date(props.project.stats.createdTimestamp).toUTCString()}</i>
+          Last Updated: <i>{new Date(props.project.stats.updatedTimestamp).toUTCString()}</i>
         </div>
       </div>
     </div>
