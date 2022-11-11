@@ -1,6 +1,24 @@
 @import 'shared';
 @import 'colors';
 
+@mixin header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  padding: 20px;
+}
+
+@mixin project-name {
+  font-family: 'Roboto Flex';
+  font-size: 26px;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-align: center;
+}
+
 .card {
   box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px 0px, rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
   max-width: 400px;
@@ -10,77 +28,36 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto Flex';
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    min-height: 90px;
-    padding: 20px;
-    text-align: center;
-    color: $blue;
+  .header {
+    @include header();
     border-bottom: 1px solid $light-grey;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 
-    .name {
-      margin-bottom: 10px;
+    .project-name {
+      @include project-name();
+      font-weight: 600;
+      color: $blue;
     }
 
-    .nav-links {
-      display: flex;
-      justify-content: center;
-
-      .btn-nav-link {
-        color: $blue !important;
-        font-size: 14px;
-        font-weight: 600;
-        font-family: 'Raleway';
-        padding: 2px 5px;
-        margin: 0 5px;
-        border-bottom: 1px solid $blue;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-
-        &:hover {
-          background-color: rgba(74, 131, 255, 0.4);
-        }
-      }
-
-      .lnk-view-details {
-        text-decoration: none;
-        color: $blue;
-      }
+    .github-link {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: $orange;
     }
   }
 
   &.pinned {
-    .title {
-      color: white;
-      font-weight: 300;
+    .header {
+      @include header();
       background-color: $blue;
 
-      .name {
-        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.43);
-      }
-
-      .btn-nav-link {
-        color: white !important;
+      .project-name {
+        @include project-name();
         font-weight: 300;
-        border-bottom: 1px solid white;
-
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.4);
-        }
-      }
-
-      .lnk-view-details {
         color: white;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.43);
       }
     }
   }
@@ -92,6 +69,33 @@
       color: black;
       font-size: 16px;
       font-weight: 300;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+
+    .btn-action {
+      color: $blue !important;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Raleway';
+      padding: 2px 5px;
+      margin: 0 5px;
+      border-bottom: 1px solid $blue;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &:hover {
+        background-color: rgba(74, 131, 255, 0.4);
+      }
+    }
+
+    .btn-action-view-details {
+      text-decoration: none;
+      color: $blue;
     }
   }
 }

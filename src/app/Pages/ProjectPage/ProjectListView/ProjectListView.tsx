@@ -10,6 +10,7 @@ import {
   showLoadingOverlay
 } from '@shared/redux/reducers/loading-overlay-slice';
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 
 export function ProjectListView() {
   const dispatch = useAppDispatch();
@@ -56,7 +57,10 @@ export function ProjectListView() {
               <div className={styles['title-pinned']}>
                 <div></div>
                 <h1>Pinned</h1>
-                <LabelImportantIcon className={styles['pinned-icon']} fontSize="large" />
+                <MilitaryTechIcon
+                  className={styles['pinned-icon']}
+                  sx={{ fontSize: 32, color: 'gold' }}
+                />
                 <div></div>
               </div>
               <div className={styles['project-list']}>
