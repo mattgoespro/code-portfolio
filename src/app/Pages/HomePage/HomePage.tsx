@@ -114,7 +114,7 @@ export function HomePage() {
             </div>
             <div className={styles['skill-set-wrapper']}>
               <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                across multiple software development technologies...
+                in a variety of ecosystems...
               </h3>
               {createSkillSection(
                 { id: 'node', name: 'Node' },
@@ -128,7 +128,7 @@ export function HomePage() {
             </div>
             <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
               <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                and other essential developer tools
+                working with a selection of industry standard tooling
               </h3>
               {createOthersSection(
                 {
@@ -138,6 +138,18 @@ export function HomePage() {
                 {
                   id: 'aws',
                   name: 'Amazon Web Services'
+                },
+                {
+                  id: 'webpack',
+                  name: 'webpack'
+                },
+                {
+                  id: 'docker-compose',
+                  name: 'docker-compose'
+                },
+                {
+                  id: 'nginx',
+                  name: 'nginx'
                 },
                 {
                   id: 'kafka',

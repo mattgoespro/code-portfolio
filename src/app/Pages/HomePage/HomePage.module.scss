@@ -5,10 +5,8 @@
   --skill-title-divider-color: black;
 }
 
-/*
- * Brand colors of technologies, sampled from  
- * their logos.
- */
+// Brand colors of technologies sampled from their logos.
+
 $typescript: #3178c6;
 $java: #0074bd;
 $c-sharp: #6d429c;
@@ -21,9 +19,7 @@ $docker: #289aea;
 $dart: #36b9f4;
 $flutter: #5ac7f6;
 
-///
-/// Expose color variables to React component
-///
+// Export colors to typescript component
 
 :export {
   color-typescript: $typescript;
@@ -41,10 +37,6 @@ $flutter: #5ac7f6;
 
 .title-typescript {
   color: $typescript;
-
-  span {
-    font-weight: bold;
-  }
 }
 
 .title-flutter {
@@ -128,15 +120,15 @@ $flutter: #5ac7f6;
 
       .skill-set-wrapper {
         width: 100%;
-        margin-bottom: 200px;
+        margin-bottom: 150px;
 
         .skill-title {
-          font-family: 'Roboto', sans-serif;
-          font-size: 26px;
+          font-family: Roboto, sans-serif;
+          font-size: 42px;
           font-weight: 300;
-          text-align: center;
-          max-width: 60%;
           margin: auto;
+          max-width: 60%;
+          text-align: center;
         }
 
         .skill-section {
@@ -184,7 +176,7 @@ $flutter: #5ac7f6;
         justify-content: center;
 
         .other {
-          width: 40px;
+          width: 60px;
           margin: 20px;
         }
       }
