@@ -12,7 +12,7 @@ $dark-blue: #253d74;
 $dark-grey: #3a3a3a;
 
 // Content
-$context-page-background: $light;
+$content-page-background: $light;
 
 // Typography
 $text-hyperlink: #3367d6;
@@ -29,8 +29,8 @@ $theme: (
   color-light-grey: $light-grey,
   color-text-title: $text-title,
   color-text-subtitle: $text-subtitle,
-  color-text-hyperlink: $hyper,
-  color-content-page-background: $context-page-background
+  color-text-hyperlink: $text-hyperlink,
+  color-content-page-background: $content-page-background
 );
 
 :export {
@@ -43,7 +43,6 @@ $theme: (
   color-dark-blue: $dark-blue;
   color-dark-grey: $dark-grey;
   color-hyperlink: $text-hyperlink;
-  color-title: $angular;
-  color-page-background: $context-page-background;
-  theme: $theme;
+  color-title: $text-title;
+  color-page-background: $content-page-background;
 }

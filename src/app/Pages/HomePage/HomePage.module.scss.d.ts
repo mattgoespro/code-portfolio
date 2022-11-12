@@ -1,28 +1,30 @@
 declare namespace HomePageModuleScssNamespace {
   export interface IHomePageModuleScss {
-    'brand-blue': string;
-    'brand-dark-grey': string;
-    'brand-extra-light': string;
-    'brand-grey': string;
-    'brand-light': string;
-    'brand-orange': string;
     'color-angular': string;
+    'color-blue': string;
     'color-c-sharp': string;
+    'color-dark-blue': string;
+    'color-dark-grey': string;
     'color-dart': string;
     'color-docker': string;
+    'color-extra-light': string;
     'color-flutter': string;
+    'color-grey': string;
+    'color-hyperlink': string;
     'color-java': string;
+    'color-light': string;
     'color-node': string;
+    'color-orange': string;
+    'color-page-background': string;
     'color-postgresql': string;
     'color-react': string;
     'color-spring': string;
+    'color-title': string;
     'color-typescript': string;
-    'dark-blue': string;
     fadeIn: string;
     intro: string;
     other: string;
     others: string;
-    'page-background': string;
     'page-content': string;
     'skill-card': string;
     'skill-name': string;

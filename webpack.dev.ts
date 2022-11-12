@@ -16,8 +16,7 @@ export default merge(baseConfig, {
     historyApiFallback: true,
     open: ['http://localhost:4000'],
     client: {
-      overlay: true,
-      progress: true
+      overlay: true
     },
     proxy: {
       '/api': {

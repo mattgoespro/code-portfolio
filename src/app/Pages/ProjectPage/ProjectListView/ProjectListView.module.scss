@@ -2,7 +2,7 @@
 @import 'shared';
 
 .wrapper {
-  background-color: $page-background;
+  background-color: $content-page-background;
 
   .page-content {
     @include page-content;
@@ -14,7 +14,7 @@
         font-family: 'Roboto Serif', sans-serif;
         font-size: 42px;
         font-weight: 100;
-        color: $title;
+        color: $text-title;
         text-align: center;
         margin: auto;
       }
@@ -23,7 +23,7 @@
         font-family: 'Roboto', sans-serif;
         font-size: 22px;
         font-weight: 300;
-        color: $subtitle;
+        color: $text-subtitle;
         text-align: center;
         margin: 20px 0 0;
         text-decoration: underline;
@@ -59,7 +59,7 @@
           letter-spacing: 2px;
           font-size: 36px;
           font-weight: 300;
-          color: $title;
+          color: $text-title;
         }
       }
     }
@@ -93,7 +93,7 @@
           font-size: 36px;
           font-weight: 300;
           margin: 25px 0;
-          color: $title;
+          color: $text-title;
         }
       }
     }

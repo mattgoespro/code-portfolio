@@ -80,7 +80,7 @@ $flutter: #5ac7f6;
 }
 
 .wrapper {
-  background-color: $page-background;
+  background-color: $content-page-background;
 
   .page-content {
     @include page-content;
@@ -101,7 +101,7 @@ $flutter: #5ac7f6;
         font-size: 28px;
         font-family: Roboto;
         font-weight: 300;
-        color: $subtitle;
+        color: $text-subtitle;
       }
     }
 

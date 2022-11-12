@@ -1,17 +1,18 @@
 declare namespace PageNavigatorModuleScssNamespace {
   export interface IPageNavigatorModuleScss {
-    'brand-blue': string;
-    'brand-dark-grey': string;
-    'brand-extra-light': string;
-    'brand-grey': string;
-    'brand-light': string;
-    'brand-orange': string;
+    'color-blue': string;
+    'color-dark-blue': string;
+    'color-dark-grey': string;
+    'color-extra-light': string;
+    'color-grey': string;
+    'color-hyperlink': string;
+    'color-light': string;
+    'color-orange': string;
+    'color-page-background': string;
+    'color-title': string;
     'content-outlet': string;
-    'dark-blue': string;
-    fadeIn: string;
     'nav-link-hover': string;
     'nav-text-hover-color-change': string;
-    'page-background': string;
     'page-link': string;
     shell: string;
     'social-icon': string;
