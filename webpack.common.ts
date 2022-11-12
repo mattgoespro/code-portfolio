@@ -18,9 +18,9 @@ const baseConfig: Configuration = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],
     alias: {
-      styles: path.resolve(__dirname, 'src/assets/styles/_index.scss'),
-      shared: path.resolve(__dirname, 'src/assets/styles/_shared.module.scss'),
-      colors: path.resolve(__dirname, 'src/assets/styles/_colors.module.scss')
+      colors: path.resolve(__dirname, 'src/assets/styles/abstracts/_colors.module.scss'),
+      mixins: path.resolve(__dirname, 'src/assets/styles/abstracts/_mixins.module.scss'),
+      shared: path.resolve(__dirname, 'src/assets/styles/abstracts/_shared.module.scss')
     }
   },
   plugins: [

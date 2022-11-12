@@ -10,7 +10,6 @@ declare namespace ProjectListViewModuleScssNamespace {
     'color-orange': string;
     'color-page-background': string;
     'color-title': string;
-    fadeIn: string;
     intro: string;
     'intro-subtitle': string;
     'intro-title': string;

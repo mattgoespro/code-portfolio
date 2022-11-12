@@ -1,7 +1,7 @@
 import LoadingOverlay from 'react-loading-overlay-ts';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { RootState } from '@shared/redux/store';
+import { RootState } from '@redux/store';
 import { Spinner } from '../Spinner/Spinner';
 
 class SpinnerLoadingOverlay extends Component<{ visible?: boolean }> {

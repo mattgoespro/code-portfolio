@@ -11,7 +11,6 @@ declare namespace AboutPageModuleScssNamespace {
     'color-page-background': string;
     'color-title': string;
     content: string;
-    fadeIn: string;
     header: string;
     'img-profile': string;
     separator: string;

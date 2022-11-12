@@ -4,11 +4,8 @@ import { ProjectListItem } from './ProjectListItem/ProjectListItem';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
 import { ProjectPageLoadError } from '../ProjectPageLoadError';
 import styles from './ProjectListView.module.scss';
-import { useAppDispatch } from '@shared/redux/hooks/UseHook';
-import {
-  hideLoadingOverlay,
-  showLoadingOverlay
-} from '@shared/redux/reducers/loading-overlay-slice';
+import { useAppDispatch } from '@redux/hooks/use';
+import { hideLoadingOverlay, showLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 

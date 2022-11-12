@@ -1,7 +1,7 @@
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
-import { hideLoadingOverlay } from '@shared/redux/reducers/loading-overlay-slice';
+import { hideLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Outlet, useLocation } from 'react-router-dom';

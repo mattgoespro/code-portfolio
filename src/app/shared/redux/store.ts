@@ -1,5 +1,5 @@
 import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
-import loadingOverlayReducer from './reducers/loading-overlay-slice';
+import loadingOverlayReducer from './Reducers/loading-overlay-slice';
 import thunkMiddleware from 'redux-thunk';
 
 export const store = configureStore({

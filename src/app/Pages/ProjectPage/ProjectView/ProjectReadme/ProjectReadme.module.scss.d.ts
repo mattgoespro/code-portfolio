@@ -10,7 +10,6 @@ declare namespace ProjectReadmeModuleScssNamespace {
     'color-orange': string;
     'color-page-background': string;
     'color-title': string;
-    fadeIn: string;
     'section-content': string;
     'section-subtitle': string;
     'section-title': string;

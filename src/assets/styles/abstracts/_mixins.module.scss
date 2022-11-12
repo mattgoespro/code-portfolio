@@ -1,21 +1,22 @@
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+/*
+ * Style of long bodies of text.
+ */
+@mixin article-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.714;
+  color: rgba(0, 0, 0, 0.87);
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+@mixin page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
+  margin: auto;
+  background-color: #ffffff;
 }
 
 @mixin divider($thickness, $color, $margin) {
@@ -39,25 +40,4 @@
     bottom: -$padding-top;
     left: calc((100% - $width) / 2);
   }
-}
-
-/*
- * Style of long bodies of text.
- */
-@mixin article-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.714;
-  color: rgba(0, 0, 0, 0.87);
-}
-
-@mixin page-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 60%;
-  margin: auto;
-  background-color: #ffffff;
 }

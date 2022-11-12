@@ -21,7 +21,6 @@ declare namespace HomePageModuleScssNamespace {
     'color-spring': string;
     'color-title': string;
     'color-typescript': string;
-    fadeIn: string;
     intro: string;
     other: string;
     others: string;

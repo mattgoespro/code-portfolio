@@ -11,9 +11,11 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@shared/components/*": ["./src/app/shared/components/*"],
-      "@shared/redux/*": ["./src/app/shared/redux/*"],
-      "@shared/styles/*": ["./src/assets/styles/*"]
+      "@shared/components/*": ["./src/app/Shared/Components/*"],
+      "@shared/styles/*": ["./src/assets/styles/*"],
+      "@redux/store": ["./src/app/Shared/Redux/store.ts"],
+      "@redux/hooks/*": ["./src/app/Shared/Redux/Hooks/*"],
+      "@redux/reducers/*": ["./src/app/Shared/Redux/Reducers/*"]
     }
   },
   "include": ["src/**/*"],

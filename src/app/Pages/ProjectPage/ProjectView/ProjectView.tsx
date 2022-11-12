@@ -1,11 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-  hideLoadingOverlay,
-  showLoadingOverlay
-} from '@shared/redux/reducers/loading-overlay-slice';
-import { useAppDispatch } from '@shared/redux/hooks/UseHook';
+import { hideLoadingOverlay, showLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
+import { useAppDispatch } from '@redux/hooks/use';
 import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
