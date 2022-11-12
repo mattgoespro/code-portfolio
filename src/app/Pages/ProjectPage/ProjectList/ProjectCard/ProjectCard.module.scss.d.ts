@@ -1,5 +1,5 @@
-declare namespace ProjectListItemModuleScssNamespace {
-  export interface IProjectListItemModuleScss {
+declare namespace ProjectCardModuleScssNamespace {
+  export interface IProjectCardModuleScss {
     actions: string;
     'btn-action': string;
     'btn-action-view-details': string;
@@ -24,9 +24,9 @@ declare namespace ProjectListItemModuleScssNamespace {
   }
 }
 
-declare const ProjectListItemModuleScssModule: ProjectListItemModuleScssNamespace.IProjectListItemModuleScss & {
+declare const ProjectCardModuleScssModule: ProjectCardModuleScssNamespace.IProjectCardModuleScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: ProjectListItemModuleScssNamespace.IProjectListItemModuleScss;
+  locals: ProjectCardModuleScssNamespace.IProjectCardModuleScss;
 };
 
-export = ProjectListItemModuleScssModule;
+export = ProjectCardModuleScssModule;

@@ -1,5 +1,5 @@
-declare namespace ProjectPageLoadErrorModuleScssNamespace {
-  export interface IProjectPageLoadErrorModuleScss {
+declare namespace ProjectListRequestFailureModuleScssNamespace {
+  export interface IProjectListRequestFailureModuleScss {
     'color-blue': string;
     'color-dark-blue': string;
     'color-dark-grey': string;
@@ -17,9 +17,9 @@ declare namespace ProjectPageLoadErrorModuleScssNamespace {
   }
 }
 
-declare const ProjectPageLoadErrorModuleScssModule: ProjectPageLoadErrorModuleScssNamespace.IProjectPageLoadErrorModuleScss & {
+declare const ProjectListRequestFailureModuleScssModule: ProjectListRequestFailureModuleScssNamespace.IProjectListRequestFailureModuleScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: ProjectPageLoadErrorModuleScssNamespace.IProjectPageLoadErrorModuleScss;
+  locals: ProjectListRequestFailureModuleScssNamespace.IProjectListRequestFailureModuleScss;
 };
 
-export = ProjectPageLoadErrorModuleScssModule;
+export = ProjectListRequestFailureModuleScssModule;

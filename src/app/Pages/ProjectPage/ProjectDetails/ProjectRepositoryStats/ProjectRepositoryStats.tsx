@@ -1,11 +1,11 @@
 import { Repository } from '@mattgoespro/hoppingmode-web';
-import styles from './ProjectRepositoryInfo.module.scss';
+import styles from './ProjectRepositoryStats.module.scss';
 
-interface ProjectRepositoryInfoProps {
+interface ProjectRepositoryStatsProps {
   project: Repository;
 }
 
-export function ProjectRepositoryInfo(props: ProjectRepositoryInfoProps) {
+export function ProjectRepositoryStats(props: ProjectRepositoryStatsProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles['activity-title']}>

@@ -1,5 +1,5 @@
-declare namespace ProjectViewModuleScssNamespace {
-  export interface IProjectViewModuleScss {
+declare namespace ProjectDetailsModuleScssNamespace {
+  export interface IProjectDetailsModuleScss {
     'color-blue': string;
     'color-dark-blue': string;
     'color-dark-grey': string;
@@ -22,9 +22,9 @@ declare namespace ProjectViewModuleScssNamespace {
   }
 }
 
-declare const ProjectViewModuleScssModule: ProjectViewModuleScssNamespace.IProjectViewModuleScss & {
+declare const ProjectDetailsModuleScssModule: ProjectDetailsModuleScssNamespace.IProjectDetailsModuleScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: ProjectViewModuleScssNamespace.IProjectViewModuleScss;
+  locals: ProjectDetailsModuleScssNamespace.IProjectDetailsModuleScss;
 };
 
-export = ProjectViewModuleScssModule;
+export = ProjectDetailsModuleScssModule;

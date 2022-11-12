@@ -7,9 +7,9 @@ import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChar
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import { Buffer } from 'buffer';
-import { ProjectPageLoadError } from '../ProjectPageLoadError';
-import { ProjectRepositoryInfo } from './ProjectRepositoryStats/ProjectRepositoryInfo';
-import styles from './ProjectView.module.scss';
+import styles from './ProjectDetails.module.scss';
+import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
+import { ProjectListRequestFailure } from '../ProjectList/ProjectListRequestFailure/ProjectListRequestFailure';
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -56,7 +56,7 @@ export function ProjectView() {
 
   return (
     <div className={styles.wrapper}>
-      {error && <ProjectPageLoadError />}
+      {error && <ProjectListRequestFailure />}
       {!error && !loadingProject && (
         <>
           <div className={styles.intro}>
@@ -65,7 +65,7 @@ export function ProjectView() {
           <div className={styles.content}>
             <div className={styles.info}>
               <div className={styles['content-section']}>
-                <ProjectRepositoryInfo project={project} />
+                <ProjectRepositoryStats project={project} />
               </div>
               <div className={styles['content-section']}>
                 <ProjectLanguageChart languages={projectLanguages} />

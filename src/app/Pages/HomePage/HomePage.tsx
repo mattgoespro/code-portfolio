@@ -50,7 +50,7 @@ export function HomePage() {
                 {section.name}
               </div>
               <div {...styleSkillTitleDivider(styles[`color-${section.id}`])}></div>
-              <img src={`/images/logos/${section.id}.png`} alt={section.id} />
+              <img src={`/assets/images/logos/${section.id}.png`} alt={section.id} />
             </div>
           );
         })}
@@ -67,7 +67,7 @@ export function HomePage() {
               <Tooltip title={other.name}>
                 <img
                   className={styles.other}
-                  src={`/images/logos/${other.id}.png`}
+                  src={`/assets/images/logos/${other.id}.png`}
                   alt="Git"
                   {...skillScrollIn(1)}
                 />
@@ -88,7 +88,7 @@ export function HomePage() {
           </div>
         }
         subtitle="Allow me to introduce myself"
-        backgroundImage="/images/page-banners/knysna-harbour-banner.jpg"
+        backgroundImage="/assets/images/page-banners/knysna-harbour-banner.jpg"
         backgroundImageAdjust={true}
       />
       <div className={styles.wrapper}>

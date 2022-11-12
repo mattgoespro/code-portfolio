@@ -1,9 +1,9 @@
-import styles from './ProjectPageLoadError.module.scss';
+import styles from './ProjectListRequestFailure.module.scss';
 
-export function ProjectPageLoadError() {
+export function ProjectListRequestFailure() {
   return (
     <div className={styles.wrapper}>
-      <img src="/images/misc/failfish.png" alt="failfish" />
+      <img src="/assets/images/misc/failfish.png" alt="failfish" />
       <div className={styles.error}>
         <h1 className={styles['err-msg']}>
           <span>Oops!</span> The projects failed to load.

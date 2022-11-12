@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { ProjectListItem } from './ProjectListItem/ProjectListItem';
+import { ProjectCard } from './ProjectCard/ProjectCard';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
-import { ProjectPageLoadError } from '../ProjectPageLoadError';
-import styles from './ProjectListView.module.scss';
+import styles from './ProjectList.module.scss';
 import { useAppDispatch } from '@redux/hooks/use';
 import { hideLoadingOverlay, showLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import { ProjectListRequestFailure } from './ProjectListRequestFailure/ProjectListRequestFailure';
 
-export function ProjectListView() {
+export function ProjectList() {
   const dispatch = useAppDispatch();
 
   const [fetchingProjects, setFetchingProjects] = useState(true);
@@ -42,7 +42,7 @@ export function ProjectListView() {
 
   return (
     <>
-      {error && <ProjectPageLoadError />}
+      {error && <ProjectListRequestFailure />}
       {!error && !fetchingProjects && (
         <div className={styles.wrapper}>
           <div className={styles['page-content']}>
@@ -65,7 +65,7 @@ export function ProjectListView() {
                   .filter((p) => p.pinned)
                   .map((project) => {
                     return (
-                      <ProjectListItem
+                      <ProjectCard
                         key={project.name}
                         name={project.name}
                         pinned={true}
@@ -88,7 +88,7 @@ export function ProjectListView() {
                   .filter((p) => !p.pinned)
                   .map((project) => {
                     return (
-                      <ProjectListItem
+                      <ProjectCard
                         key={project.name}
                         name={project.name}
                         pinned={false}
