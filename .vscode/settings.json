@@ -1,8 +1,5 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
   "files.exclude": {
     "node_modules": true
   },
@@ -18,8 +15,6 @@
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "eslint.format.enable": true,
-  "eslint.codeActionsOnSave.mode": "problems",
   "eslint.alwaysShowStatus": true,
   "eslint.lintTask.enable": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
