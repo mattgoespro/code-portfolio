@@ -1,42 +1,58 @@
-@import 'colors';
-@import 'mixins';
+@import 'colors', 'mixins';
 
 :root {
-  --skill-title-divider-color: #000000;
+  --color-label-underline: #000000;
 }
 
 // Brand colors of technologies sampled from their logos.
-
+$javascript: #dab92d;
 $typescript: #3178c6;
-$java: #0074bd;
+$java: #e6202e;
 $c-sharp: #6d429c;
+$dart: #36b9f4;
+$sass: #e98db8;
+
 $angular: #dd0031;
-$react: #61dafb;
+$react: #00aedf;
 $node: #6c9f67;
 $spring: #73b34a;
 $postgresql: #35688f;
+$express: #333331;
 $docker: #289aea;
-$dart: #36b9f4;
-$flutter: #5ac7f6;
+$flutter: #015898;
 
 // Export colors to typescript component
-
 :export {
+  color-javascript: $javascript;
   color-typescript: $typescript;
+  color-sass: $sass;
   color-java: $java;
   color-c-sharp: $c-sharp;
   color-angular: $angular;
   color-react: $react;
   color-node: $node;
   color-spring: $spring;
+  color-express: $express;
   color-postgresql: $postgresql;
   color-docker: $docker;
   color-dart: $dart;
   color-flutter: $flutter;
 }
 
+.title-express {
+  color: $express;
+}
+
+.title-javascript {
+  color: $javascript;
+}
+
 .title-typescript {
   color: $typescript;
+}
+
+.title-sass {
+  color: $sass;
 }
 
 .title-flutter {
@@ -80,99 +96,90 @@ $flutter: #5ac7f6;
 }
 
 .wrapper {
-  background-color: $content-page-background;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
 
   .page-content {
     @include page-content;
 
     .intro {
-      font-family: 'Roboto', sans-serif;
-      margin: 50px 0 200px;
-      text-align: center;
-      max-width: 600px;
+      margin: 100px 0 0;
+      width: 100%;
 
       h1 {
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 46px;
-        font-family: 'Nunito Sans';
         font-weight: 400;
+        color: $text-title;
+        text-align: center;
       }
 
       h2 {
+        font-family: 'Roboto', sans-serif;
         font-size: 28px;
-        font-family: Roboto;
         font-weight: 300;
         color: $text-subtitle;
+        text-align: center;
       }
     }
 
-    .skill-sets {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    .titled-content-list {
+      margin: 30px;
 
-      .skill-set-wrapper {
-        width: 100%;
-        margin-bottom: 150px;
-
-        .skill-title {
-          font-family: 'Nunito Sans', sans-serif;
-          font-size: 36px;
-          font-weight: 300;
-          margin: auto;
-          max-width: 80%;
-          text-align: center;
-        }
-
-        .skill-section {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin-top: 20px;
-          box-sizing: border-box;
-
-          .skill-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-wrap: wrap;
-            flex: 1 1 100%;
-            max-width: 150px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-              rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-
-            .skill-name {
-              position: relative;
-              font-size: 24px;
-              text-align: center;
-              font-weight: 400;
-              margin: 10px 0;
-            }
-
-            .skill-title-divider {
-              @include divider(1px, var(--skill-title-divider-color), 0);
-            }
-
-            img {
-              width: 100px;
-              margin: 15px 0;
-            }
-          }
-        }
+      .title {
+        font-family: 'Nunito Sans', sans-serif;
+        color: $text-title;
+        font-size: 38px;
+        font-weight: 400;
+        margin: 0 auto 20px;
+        max-width: 90%;
+        text-align: center;
       }
 
-      .others {
+      .list {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
-        .other {
-          width: 60px;
-          margin: 20px;
-        }
       }
     }
   }
+}
+
+.software-skill-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 20px;
+  max-width: 150px;
+
+  .skill-img {
+    width: 50px;
+    margin: 15px 0;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7px;
+
+    .label-text {
+      font-size: 26px;
+      text-align: center;
+      font-weight: 400;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    .label-underline {
+      @include divider(3px, var(--color-label-underline), 0);
+    }
+  }
+}
+
+.skill-tool-img {
+  width: 40px;
+  margin: 20px;
 }

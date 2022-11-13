@@ -29,7 +29,7 @@ export function AboutPage() {
           </div>
           <img
             className={styles['img-profile']}
-            src="/assets/images/misc/face-profile.jpg"
+            src="/assets/images/misc/face-portrait.jpg"
             alt="profile-image"
           ></img>
         </div>
@@ -55,8 +55,8 @@ export function AboutPage() {
             the same time). The server went on to integrate my own custom plugins, and while doing
             so, eventually became one of the top 5 Minecraft servers worldwide by number of
             concurrent players. I was thrilled experiencing others enjoying the fruits of my labour.
-            It was at this time that my &apos;code-brain&apos; unlocked, and I knew there and then
-            that this was what I was destined to do.
+            It was at this time that my 'code-brain' unlocked, and I knew there and then that this
+            was what I was destined to do.
           </p>
           <p>Funnily, I ended up graduating top of my programming class.</p>
           <p>
@@ -93,10 +93,10 @@ export function AboutPage() {
             <li>Game Development</li>
           </ul>
           <p>
-            When I&apos;m not at the computer with 20+ Google Chrome tabs open during a debug
-            session, you may find me at the beach, grabbing a beer on a night out with friends,
-            catching up on the latest memes, watching my favourite internet personalities, or
-            enjoying a relaxing gaming session.
+            When I'm not at the computer with 20+ Google Chrome tabs open during a debug session,
+            you may find me at the beach, grabbing a beer on a night out with friends, catching up
+            on the latest memes, watching my favourite internet personalities, or enjoying a
+            relaxing gaming session.
           </p>
         </div>
       </div>

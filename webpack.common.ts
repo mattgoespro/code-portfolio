@@ -59,13 +59,6 @@ const baseConfig: Configuration = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(jpeg|png)$/i,
-      //   loader: 'file-loader',
-      //   options: {
-      //     name: '/images/[name].[ext]'
-      //   }
-      // },
       {
         test: /\.svg$/,
         use: [

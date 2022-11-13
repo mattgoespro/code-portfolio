@@ -16,7 +16,6 @@ declare namespace ProjectCardModuleScssNamespace {
     'color-title': string;
     description: string;
     'description-wrapper': string;
-    fadeIn: string;
     'github-link': string;
     header: string;
     pinned: string;

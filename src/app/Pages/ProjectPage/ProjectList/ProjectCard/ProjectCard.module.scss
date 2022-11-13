@@ -1,5 +1,4 @@
-@import 'shared';
-@import 'colors';
+@import 'colors', 'mixins';
 
 @mixin header {
   position: relative;

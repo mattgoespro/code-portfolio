@@ -1,16 +1,10 @@
 import { merge } from 'webpack-merge';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import baseConfig from './webpack.common';
 import 'webpack-dev-server';
 
 export default merge(baseConfig, {
   mode: 'development',
   devtool: 'source-map',
-  plugins: [
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
-  ],
   devServer: {
     compress: true,
     historyApiFallback: true,

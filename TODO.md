@@ -1,5 +1,9 @@
 # IMPORTANT
 
+## Bugs
+
+- Home page div containing intro wont grow its height to bottom of screen, causing the background color to be cut off.
+
 ## View Repo
 
 - Add portfolio skills from backend endpoint.
@@ -24,7 +28,7 @@
 
 ### Responsive Design
 
-- Responsive components for different media sizes.
+Absolute minimum handheld device width is 280px.
 
 ### Testing Edge Cases
 

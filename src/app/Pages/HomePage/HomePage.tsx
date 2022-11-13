@@ -1,82 +1,182 @@
 import { PageBanner } from '@shared/components/PageBanner/PageBanner';
-import { CSSProperties, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './HomePage.module.scss';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Tooltip from '@mui/material/Tooltip';
+import { setStyleVariableColor } from 'src/app/Shared/utility';
+// import ResumeIcon from 'src/assets/icons/resume.svg';
+
+/**
+ * @param resourceIdentifier The identifier for a stylesheet variable or image
+ * asset name.
+ */
+interface SoftwareSkills {
+  resourceIdentifier: string;
+  label: string | JSX.Element;
+}
+
+function ScrollTrigger(props: { triggerName: string }) {
+  return <div id={props.triggerName}></div>;
+}
 
 export function HomePage() {
-  const [viewSkills, setViewSkills] = useState(false);
+  const devLanguages: SoftwareSkills[] = [
+    {
+      resourceIdentifier: 'javascript',
+      label: (
+        <>
+          Java<strong>Script</strong>
+        </>
+      )
+    },
+    {
+      resourceIdentifier: 'typescript',
+      label: (
+        <>
+          Type<strong>Script</strong>
+        </>
+      )
+    },
+    {
+      resourceIdentifier: 'sass',
+      label: 'SASS'
+    },
+    { resourceIdentifier: 'java', label: 'Java' },
+    {
+      resourceIdentifier: 'c-sharp',
+      label: (
+        <>
+          .<strong>NET</strong>
+        </>
+      )
+    },
+    { resourceIdentifier: 'dart', label: 'Dart' }
+  ];
+  const devFrameworks: SoftwareSkills[] = [
+    { resourceIdentifier: 'node', label: 'Node' },
+    { resourceIdentifier: 'react', label: 'React' },
+    { resourceIdentifier: 'angular', label: 'Angular' },
+    { resourceIdentifier: 'postgresql', label: 'PostgreSQL' },
+    { resourceIdentifier: 'docker', label: 'Docker' },
+    { resourceIdentifier: 'spring', label: 'Spring' },
+    {
+      resourceIdentifier: 'express',
+      label: (
+        <>
+          express<strong>js</strong>
+        </>
+      )
+    },
+    { resourceIdentifier: 'flutter', label: 'Flutter' }
+  ];
+  const devTools: SoftwareSkills[] = [
+    {
+      resourceIdentifier: 'html',
+      label: 'HTML'
+    },
+    {
+      resourceIdentifier: 'CSS',
+      label: 'CSS'
+    },
+    {
+      resourceIdentifier: 'git',
+      label: 'Git'
+    },
+    {
+      resourceIdentifier: 'aws',
+      label: 'Amazon Web Services'
+    },
+    {
+      resourceIdentifier: 'webpack',
+      label: 'webpack'
+    },
+    {
+      resourceIdentifier: 'docker-compose',
+      label: 'docker-compose'
+    },
+    {
+      resourceIdentifier: 'nginx',
+      label: 'nginx'
+    },
+    {
+      resourceIdentifier: 'kafka',
+      label: 'Kafka'
+    }
+  ];
 
   useEffect(() => {
     // Initialize animate-on-scroll engine.
     AOS.init();
   }, []);
 
-  function styleSkillTitleDivider(color: string) {
+  const titleFadeInDelay = 100;
+
+  function skillTitleFadeIn(triggerName: string) {
     return {
-      style: {
-        '--skill-title-divider-color': color
-      } as CSSProperties,
-      className: styles['skill-title-divider']
+      'data-aos': 'fade-left',
+      'data-aos-anchor': `#${triggerName}`,
+      'data-aos-anchor-placement': 'center',
+      'data-aos-offset': 400,
+      'data-aos-duration': 400,
+      'data-aos-delay': titleFadeInDelay
     };
   }
 
-  const titleFadeInDelay = 100;
-
-  const skillTitleFadeIn = {
-    'data-aos': 'fade-up',
-    'data-aos-offset': 400,
-    'data-aos-duration': 400,
-    'data-aos-delay': titleFadeInDelay
-  };
-
-  function skillScrollIn(index: number) {
+  function skillScrollIn(index: number, triggerName: string) {
     return {
       'data-aos': 'fade-left',
-      'data-aos-offset': '400',
-      'data-aos-duration': '400',
+      'data-aos-anchor': `#${triggerName}`,
+      'data-aos-anchor-placement': 'center',
+      'data-aos-offset': 400,
+      'data-aos-duration': 400,
       'data-aos-delay': titleFadeInDelay + 300 + 100 * index
     };
   }
 
-  function createSkillSection(...sections: { id: string; name: string }[]) {
-    return (
-      <div className={styles['skill-section']}>
-        {sections.map((section, index) => {
-          return (
-            <div key={section.name} className={styles['skill-card']} {...skillScrollIn(index + 1)}>
-              <div className={`${styles['skill-name']} ${styles[`title-${section.id}`]}`}>
-                {section.name}
-              </div>
-              <div {...styleSkillTitleDivider(styles[`color-${section.id}`])}></div>
-              <img src={`/assets/images/logos/${section.id}.png`} alt={section.id} />
-            </div>
-          );
-        })}
-      </div>
-    );
+  function getSoftwareSkillList(list: SoftwareSkills[], scrollTrigger: string) {
+    return list.map((item, index) => {
+      return (
+        <div
+          key={item.resourceIdentifier}
+          className={styles['software-skill-wrapper']}
+          {...skillScrollIn(index + 1, scrollTrigger)}
+        >
+          <img
+            className={styles['skill-img']}
+            src={`/assets/images/logos/${item.resourceIdentifier}.png`}
+            alt={item.resourceIdentifier}
+          />
+          <div className={`${styles['label']} ${styles[`title-${item.resourceIdentifier}`]}`}>
+            <div className={styles['label-text']}>{item.label}</div>
+            <div
+              className={styles['label-underline']}
+              style={setStyleVariableColor(
+                'color-label-underline',
+                styles[`color-${item.resourceIdentifier}`]
+              )}
+            ></div>
+          </div>
+        </div>
+      );
+    });
   }
 
-  function createOthersSection(...others: { id: string; name: string }[]) {
-    return (
-      <div className={styles.others}>
-        {others.map((other) => {
-          return (
-            <div key={other.id}>
-              <Tooltip title={other.name}>
-                <img
-                  className={styles.other}
-                  src={`/assets/images/logos/${other.id}.png`}
-                  alt="Git"
-                  {...skillScrollIn(1)}
-                />
-              </Tooltip>
-            </div>
-          );
-        })}
-      </div>
-    );
+  function getSoftwareToolsList(list: SoftwareSkills[], anchorId: string) {
+    return list.map((item) => {
+      return (
+        <div key={item.resourceIdentifier}>
+          <Tooltip title={item.label}>
+            <img
+              className={styles['skill-tool-img']}
+              src={`/assets/images/logos/${item.resourceIdentifier}.png`}
+              alt="Git"
+              {...skillScrollIn(1, anchorId)}
+            />
+          </Tooltip>
+        </div>
+      );
+    });
   }
 
   return (
@@ -94,69 +194,33 @@ export function HomePage() {
       <div className={styles.wrapper}>
         <div className={styles['page-content']}>
           <div className={styles.intro}>
-            <h1>Hey, my name is Matt</h1>
-            <h2>Thank you for visiting my online portfolio showcase</h2>
+            <h1>I'm Matt - a full-stack Software Engineer</h1>
+            <h2>The central hub of all things me</h2>
           </div>
-          {viewSkills && (
-            <div className={styles['skill-sets']}>
-              <div className={styles['skill-set-wrapper']}>
-                <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                  I have experience developing software in a variety of different languages...
-                </h3>
-                {createSkillSection(
-                  { id: 'typescript', name: 'TypeScript' },
-                  { id: 'java', name: 'Java' },
-                  { id: 'c-sharp', name: '.NET' },
-                  { id: 'dart', name: 'Dart' }
-                )}
-              </div>
-              <div className={styles['skill-set-wrapper']}>
-                <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                  in a variety of ecosystems...
-                </h3>
-                {createSkillSection(
-                  { id: 'node', name: 'Node' },
-                  { id: 'react', name: 'React' },
-                  { id: 'angular', name: 'Angular' },
-                  { id: 'docker', name: 'Docker' },
-                  { id: 'spring', name: 'Spring' },
-                  { id: 'postgresql', name: 'PostgreSQL' },
-                  { id: 'flutter', name: 'Flutter' }
-                )}
-              </div>
-              <div className={styles['skill-set-wrapper']} data-aos="fade-zoom-in">
-                <h3 className={styles['skill-title']} {...skillTitleFadeIn}>
-                  working with a selection of industry standard tooling
-                </h3>
-                {createOthersSection(
-                  {
-                    id: 'git',
-                    name: 'Git'
-                  },
-                  {
-                    id: 'aws',
-                    name: 'Amazon Web Services'
-                  },
-                  {
-                    id: 'webpack',
-                    name: 'webpack'
-                  },
-                  {
-                    id: 'docker-compose',
-                    name: 'docker-compose'
-                  },
-                  {
-                    id: 'nginx',
-                    name: 'nginx'
-                  },
-                  {
-                    id: 'kafka',
-                    name: 'Kafka'
-                  }
-                )}
-              </div>
+          <div className={styles['titled-content-list']}>
+            <h3 className={styles['title']} {...skillTitleFadeIn('languages')}>
+              I've developed in a variety of software languages
+            </h3>
+            {/* <div id="anchor-languages"></div> */}
+            <ScrollTrigger triggerName="languages" />
+            <div className={styles['list']}>{getSoftwareSkillList(devLanguages, 'languages')}</div>
+          </div>
+          <div className={styles['titled-content-list']}>
+            <h3 className={styles['title']} {...skillTitleFadeIn('frameworks')}>
+              Across multiple frameworks
+            </h3>
+            <ScrollTrigger triggerName="frameworks" />
+            <div className={styles['list']}>
+              {getSoftwareSkillList(devFrameworks, 'frameworks')}
             </div>
-          )}
+          </div>
+          <div className={styles['titled-content-list']}>
+            <h3 className={styles['title']} {...skillTitleFadeIn('others')}>
+              Alongside a selection of popular industry standard tools
+            </h3>
+            <ScrollTrigger triggerName="others" />
+            <div className={styles['list']}>{getSoftwareToolsList(devTools, 'others')}</div>
+          </div>
         </div>
       </div>
     </>

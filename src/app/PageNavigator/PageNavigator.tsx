@@ -1,5 +1,4 @@
 import { GitHub, LinkedIn } from '@mui/icons-material';
-import FileOpenIcon from '@mui/icons-material/FileOpen';
 import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
 import { hideLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import { useEffect } from 'react';
@@ -43,13 +42,6 @@ export function PageNavigator(props: PageNavigatorProps) {
           </li>
         </ul>
         <div className={styles['social-icons']}>
-          <a
-            className={styles['social-icon-link']}
-            title="Download CV"
-            href="https://github.com/mattgoespro/public-resources/raw/master/docs/MattYoungCurriculumVitae.pdf"
-          >
-            <FileOpenIcon className={styles['social-icon']} fontSize="medium" />
-          </a>
           <a
             className={styles['social-icon-link']}
             href="https://www.linkedin.com/in/matt-young-691b48189/"

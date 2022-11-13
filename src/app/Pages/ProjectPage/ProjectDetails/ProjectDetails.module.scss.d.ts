@@ -12,7 +12,6 @@ declare namespace ProjectDetailsModuleScssNamespace {
     'color-title': string;
     content: string;
     'content-section': string;
-    fadeIn: string;
     info: string;
     intro: string;
     name: string;
