@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Tooltip from '@mui/material/Tooltip';
 import { setStyleVariableColor } from 'src/app/Shared/utility';
+import { Button } from '@mui/material';
 // import ResumeIcon from 'src/assets/icons/resume.svg';
 
 /**
@@ -195,13 +196,23 @@ export function HomePage() {
         <div className={styles['page-content']}>
           <div className={styles.intro}>
             <h1>I'm Matt - a full-stack Software Engineer</h1>
-            <h2>The central hub of all things me</h2>
+            <h2>Thanks for taking an interest in my work</h2>
+            <div className={styles['intro-hire']}>
+              <h3>Hiring?</h3>
+              <Button
+                className={styles['download-resume']}
+                disableRipple
+                href="/assets/docs/resume.pdf"
+                download={true}
+              >
+                Download Resume
+              </Button>
+            </div>
           </div>
           <div className={styles['titled-content-list']}>
             <h3 className={styles['title']} {...skillTitleFadeIn('languages')}>
-              I've developed in a variety of software languages
+              I've developed software in a variety of programming languages
             </h3>
-            {/* <div id="anchor-languages"></div> */}
             <ScrollTrigger triggerName="languages" />
             <div className={styles['list']}>{getSoftwareSkillList(devLanguages, 'languages')}</div>
           </div>

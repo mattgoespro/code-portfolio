@@ -18,13 +18,16 @@ declare namespace HomePageModuleScssNamespace {
     'color-node': string;
     'color-orange': string;
     'color-page-background': string;
+    'color-pink': string;
     'color-postgresql': string;
     'color-react': string;
     'color-sass': string;
     'color-spring': string;
     'color-title': string;
     'color-typescript': string;
+    'download-resume': string;
     intro: string;
+    'intro-hire': string;
     label: string;
     'label-text': string;
     'label-underline': string;

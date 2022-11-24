@@ -9,6 +9,7 @@ declare namespace ProjectDetailsModuleScssNamespace {
     'color-light': string;
     'color-orange': string;
     'color-page-background': string;
+    'color-pink': string;
     'color-title': string;
     content: string;
     'content-section': string;

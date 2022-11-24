@@ -105,6 +105,7 @@ $flutter: #015898;
     .intro {
       margin: 100px 0 0;
       width: 100%;
+      margin-bottom: 100px;
 
       h1 {
         font-family: 'Nunito Sans', sans-serif;
@@ -112,6 +113,7 @@ $flutter: #015898;
         font-weight: 400;
         color: $text-title;
         text-align: center;
+        margin-bottom: 10px;
       }
 
       h2 {
@@ -120,6 +122,29 @@ $flutter: #015898;
         font-weight: 300;
         color: $text-subtitle;
         text-align: center;
+        margin-top: 0;
+      }
+
+      .intro-hire {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          font-family: 'Roboto', sans-serif;
+          font-size: 26px;
+          font-weight: 400;
+          color: $text-subtitle;
+          text-align: center;
+          margin: 0;
+        }
+
+        .download-resume {
+          color: #ffffff !important;
+          margin-left: 10px;
+          font-size: 12px;
+          background-color: #ec407a;
+        }
       }
     }
 
@@ -151,7 +176,7 @@ $flutter: #015898;
   align-items: center;
   border-radius: 10px;
   margin: 0 20px;
-  max-width: 150px;
+  max-width: 200px;
 
   .skill-img {
     width: 50px;

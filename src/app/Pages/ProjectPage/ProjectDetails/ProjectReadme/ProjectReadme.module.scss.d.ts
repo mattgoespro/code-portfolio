@@ -9,6 +9,7 @@ declare namespace ProjectReadmeModuleScssNamespace {
     'color-light': string;
     'color-orange': string;
     'color-page-background': string;
+    'color-pink': string;
     'color-title': string;
     'section-content': string;
     'section-subtitle': string;

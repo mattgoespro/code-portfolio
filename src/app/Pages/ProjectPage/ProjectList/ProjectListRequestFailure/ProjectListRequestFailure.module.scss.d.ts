@@ -9,6 +9,7 @@ declare namespace ProjectListRequestFailureModuleScssNamespace {
     'color-light': string;
     'color-orange': string;
     'color-page-background': string;
+    'color-pink': string;
     'color-title': string;
     'err-msg': string;
     'err-msg-try-later': string;
