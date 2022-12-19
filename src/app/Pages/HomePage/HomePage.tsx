@@ -6,7 +6,6 @@ import AOS from 'aos';
 import Tooltip from '@mui/material/Tooltip';
 import { setStyleVariableColor } from 'src/app/Shared/utility';
 import { Button } from '@mui/material';
-// import ResumeIcon from 'src/assets/icons/resume.svg';
 
 /**
  * @param resourceIdentifier The identifier for a stylesheet variable or image
@@ -211,7 +210,7 @@ export function HomePage() {
           </div>
           <div className={styles['titled-content-list']}>
             <h3 className={styles['title']} {...skillTitleFadeIn('languages')}>
-              I've developed software in a variety of programming languages
+              I've developed software in a variety of different programming languages
             </h3>
             <ScrollTrigger triggerName="languages" />
             <div className={styles['list']}>{getSoftwareSkillList(devLanguages, 'languages')}</div>

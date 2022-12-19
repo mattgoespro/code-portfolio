@@ -60,7 +60,7 @@ export function ProjectView() {
       {!error && !loadingProject && (
         <>
           <div className={styles.intro}>
-            <h1 className={styles.name}>{project.projectSpec.title}</h1>
+            <h1 className={styles.name}>{project.projectSpec?.title || project.name}</h1>
           </div>
           <div className={styles.content}>
             <div className={styles.info}>
