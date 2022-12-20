@@ -96,76 +96,43 @@ $flutter: #015898;
 }
 
 .wrapper {
-  margin-bottom: 100px;
-  padding-bottom: 100px;
-
-  .page-content {
-    @include page-content;
-
-    .intro {
-      margin: 100px 0 0;
-      width: 100%;
-      margin-bottom: 100px;
-
-      h1 {
-        font-family: 'Nunito Sans', sans-serif;
-        font-size: 46px;
-        font-weight: 400;
-        color: $text-title;
-        text-align: center;
-        margin-bottom: 10px;
-      }
-
-      h2 {
-        font-family: 'Roboto', sans-serif;
-        font-size: 28px;
-        font-weight: 300;
-        color: $text-subtitle;
-        text-align: center;
-        margin-top: 0;
-      }
-
-      .intro-hire {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        h3 {
-          font-family: 'Roboto', sans-serif;
-          font-size: 26px;
-          font-weight: 400;
-          color: $text-subtitle;
-          text-align: center;
-          margin: 0;
-        }
-
-        .download-resume {
-          color: #ffffff !important;
-          margin-left: 10px;
-          font-size: 12px;
-          background-color: #ec407a;
-        }
-      }
+  .intro {
+    h1 {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 46px;
+      font-weight: 400;
+      color: $text-title;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    .titled-content-list {
-      margin: 30px;
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: $text-subtitle;
+      text-align: center;
+      margin-top: 0;
+    }
+  }
 
-      .title {
-        font-family: 'Nunito Sans', sans-serif;
-        color: $text-title;
-        font-size: 38px;
-        font-weight: 400;
-        margin: 0 auto 20px;
-        max-width: 90%;
-        text-align: center;
-      }
+  .titled-content-list {
+    margin: 30px;
 
-      .list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    .title {
+      font-family: 'Nunito Sans', sans-serif;
+      color: $text-title;
+      font-size: 38px;
+      font-weight: 400;
+      margin: 0 auto 20px;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 }

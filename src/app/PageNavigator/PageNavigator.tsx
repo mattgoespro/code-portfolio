@@ -1,5 +1,4 @@
 import { GitHub, LinkedIn } from '@mui/icons-material';
-import SpinnerLoadingOverlay from '@shared/components/SpinnerLoadingOverlay/SpinnerLoadingOverlay';
 import { hideLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -21,9 +20,8 @@ export function PageNavigator(props: PageNavigatorProps) {
   }, [location]);
 
   return (
-    <div className={styles.shell}>
-      <SpinnerLoadingOverlay />
-      <nav>
+    <>
+      <div className={styles['side-nav']}>
         <ul>
           <li>
             <Link className={styles['page-link']} to="/">
@@ -40,28 +38,29 @@ export function PageNavigator(props: PageNavigatorProps) {
               About
             </Link>
           </li>
+
+          <div className={styles['social-icons']}>
+            <a
+              className={styles['social-icon-link']}
+              href="https://www.linkedin.com/in/matt-young-691b48189/"
+              target="tab"
+            >
+              <LinkedIn className={styles['social-icon']} fontSize="medium" />
+            </a>
+            <a
+              className={styles['social-icon-link']}
+              href="https://github.com/mattgoespro"
+              target="tab"
+            >
+              <GitHub className={styles['social-icon']} fontSize="medium" />
+            </a>
+          </div>
         </ul>
-        <div className={styles['social-icons']}>
-          <a
-            className={styles['social-icon-link']}
-            href="https://www.linkedin.com/in/matt-young-691b48189/"
-            target="tab"
-          >
-            <LinkedIn className={styles['social-icon']} fontSize="medium" />
-          </a>
-          <a
-            className={styles['social-icon-link']}
-            href="https://github.com/mattgoespro"
-            target="tab"
-          >
-            <GitHub className={styles['social-icon']} fontSize="medium" />
-          </a>
-        </div>
-      </nav>
+      </div>
       <div className={styles['content-outlet']}>
         {location.pathname === '/' && props.landingPage}
         <Outlet />
       </div>
-    </div>
+    </>
   );
 }

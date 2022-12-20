@@ -25,14 +25,11 @@ declare namespace HomePageModuleScssNamespace {
     'color-spring': string;
     'color-title': string;
     'color-typescript': string;
-    'download-resume': string;
     intro: string;
-    'intro-hire': string;
     label: string;
     'label-text': string;
     'label-underline': string;
     list: string;
-    'page-content': string;
     'skill-img': string;
     'skill-tool-img': string;
     'software-skill-wrapper': string;
