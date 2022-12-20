@@ -4,7 +4,6 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Tooltip from '@mui/material/Tooltip';
 import { setStyleVariableColor } from 'src/app/Shared/utility';
-import { display } from '@mui/system';
 
 /**
  * @param resourceIdentifier The identifier for a stylesheet variable or image
@@ -180,11 +179,14 @@ export function HomePage() {
 
   return (
     <div className={styles.wrapper}>
-      {/* <div className={styles.intro}>
-        <h1>I'm Matt - a full-stack Software Engineer</h1>
-        <h2>Thanks for taking an interest in my work</h2>
+      <img src="/assets/images/hoppingmode.png" className={styles['banner-logo']} />
+
+      <div className={styles.intro}>
+        <div className={styles.header}>
+          <h1>Hey.</h1>
+        </div>
       </div>
-      <div className={styles['titled-content-list']}>
+      {/* <div className={styles['titled-content-list']}>
         <h3 className={styles['title']} {...skillTitleFadeIn('languages')}>
           I've developed software in a variety of different programming languages
         </h3>
@@ -205,25 +207,8 @@ export function HomePage() {
         <ScrollTrigger triggerName="others" />
         <div className={styles['list']}>{getSoftwareToolsList(devTools, 'others')}</div>
       </div> */}
-      <div>
-        {/* <svg
-          id="visual"
-          viewBox="0 0 900 600"
-          width="900"
-          height="600"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          version="1.1"
-        >
-          <rect x="0" y="0" width="900" height="600" fill="#253d74"></rect>
-          <path
-            d="M0 215L37.5 236.7C75 258.3 150 301.7 225 323.3C300 345 375 345 450 320.3C525 295.7 600 246.3 675 252.5C750 258.7 825 320.3 862.5 351.2L900 382L900 0L862.5 0C825 0 750 0 675 0C600 0 525 0 450 0C375 0 300 0 225 0C150 0 75 0 37.5 0L0 0Z"
-            fill="#ffffff"
-            stroke-linecap="round"
-            stroke-linejoin="miter"
-          ></path>
-        </svg> */}
-      </div>
+
+      <div className={styles['layered-wave']}></div>
     </div>
   );
 }

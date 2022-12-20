@@ -95,15 +95,41 @@ $flutter: #015898;
   color: $docker;
 }
 
+.layered-wave {
+  top: 0;
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('./layered-waves.svg');
+}
+
 .wrapper {
+  position: relative;
+
+  .banner-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: rotate(45deg) translate(70px, 80px);
+  }
+
   .intro {
-    h1 {
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 46px;
-      font-weight: 400;
-      color: $text-title;
-      text-align: center;
-      margin-bottom: 10px;
+    position: absolute;
+    margin-left: 50%;
+
+    .header {
+      display: flex;
+
+      h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 96px;
+        font-weight: 100;
+        color: $light;
+        text-align: center;
+        margin-bottom: 10px;
+      }
     }
 
     h2 {

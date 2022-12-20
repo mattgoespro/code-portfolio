@@ -3,6 +3,7 @@ import { hideLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import SidebarLogo from './sidebar-logo.svg';
 import styles from './PageNavigator.module.scss';
 
 interface PageNavigatorProps {
@@ -22,40 +23,43 @@ export function PageNavigator(props: PageNavigatorProps) {
   return (
     <>
       <div className={styles['side-nav']}>
-        <ul>
-          <li>
+        <div className={styles['side-nav-logo']}>
+          <SidebarLogo />
+        </div>
+        <ul className={styles['side-nav-page-links']}>
+          <li className={styles['page-link-item']}>
             <Link className={styles['page-link']} to="/">
               Home
             </Link>
           </li>
-          <li>
+          <li className={styles['page-link-item']}>
             <Link className={styles['page-link']} to="/projects/list">
               Projects
             </Link>
           </li>
-          <li>
+          <li className={styles['page-link-item']}>
             <Link className={styles['page-link']} to="/about">
               About
             </Link>
           </li>
-
-          <div className={styles['social-icons']}>
-            <a
-              className={styles['social-icon-link']}
-              href="https://www.linkedin.com/in/matt-young-691b48189/"
-              target="tab"
-            >
-              <LinkedIn className={styles['social-icon']} fontSize="medium" />
-            </a>
-            <a
-              className={styles['social-icon-link']}
-              href="https://github.com/mattgoespro"
-              target="tab"
-            >
-              <GitHub className={styles['social-icon']} fontSize="medium" />
-            </a>
-          </div>
         </ul>
+        <div className={styles['side-nav-section-divider']}></div>
+        <div className={styles['social-icons']}>
+          <a
+            className={styles['social-icon-link']}
+            href="https://www.linkedin.com/in/matt-young-691b48189/"
+            target="tab"
+          >
+            <LinkedIn className={styles['social-icon']} fontSize="large" />
+          </a>
+          <a
+            className={styles['social-icon-link']}
+            href="https://github.com/mattgoespro"
+            target="tab"
+          >
+            <GitHub className={styles['social-icon']} fontSize="large" />
+          </a>
+        </div>
       </div>
       <div className={styles['content-outlet']}>
         {location.pathname === '/' && props.landingPage}

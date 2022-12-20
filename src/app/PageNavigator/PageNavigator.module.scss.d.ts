@@ -11,10 +11,12 @@ declare namespace PageNavigatorModuleScssNamespace {
     'color-page-background': string;
     'color-pink': string;
     'color-title': string;
-    'nav-link-hover': string;
-    'nav-text-hover-color-change': string;
     'page-link': string;
+    'page-link-item': string;
     'side-nav': string;
+    'side-nav-logo': string;
+    'side-nav-page-links': string;
+    'side-nav-section-divider': string;
     'social-icon': string;
     'social-icon-link': string;
     'social-icons': string;

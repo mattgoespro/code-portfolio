@@ -3,7 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { App } from './app/App';
 
-createRoot(document.getElementById('root')).render(
+const appRoot = document.getElementById('root');
+
+createRoot(appRoot).render(
   <Provider store={store}>
     <App />
   </Provider>
