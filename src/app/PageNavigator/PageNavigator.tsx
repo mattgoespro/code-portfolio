@@ -61,10 +61,8 @@ export function PageNavigator(props: PageNavigatorProps) {
           </a>
         </div>
       </div>
-      <div className={styles['content-outlet']}>
-        {location.pathname === '/' && props.landingPage}
-        <Outlet />
-      </div>
+      {location.pathname === '/' && props.landingPage}
+      <Outlet />
     </>
   );
 }

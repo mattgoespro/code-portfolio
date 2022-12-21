@@ -178,14 +178,20 @@ export function HomePage() {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <img src="/assets/images/hoppingmode.png" className={styles['banner-logo']} />
-
-      <div className={styles.intro}>
-        <div className={styles.header}>
-          <h1>Hey.</h1>
+    <>
+      <div className={styles.banner}>
+        <div className={styles['banner-bg']}></div>
+        <div className={styles['banner-content']}>
+          <div className={styles['banner-text']}>
+            <h1>Hey</h1>
+            <h2>I'm Matt, and this is my little corner of the web.</h2>
+          </div>
+          <div className={styles['banner-logo']}>
+            <img src="/assets/images/hoppingmode-logo.png" />
+          </div>
         </div>
       </div>
+
       {/* <div className={styles['titled-content-list']}>
         <h3 className={styles['title']} {...skillTitleFadeIn('languages')}>
           I've developed software in a variety of different programming languages
@@ -207,8 +213,6 @@ export function HomePage() {
         <ScrollTrigger triggerName="others" />
         <div className={styles['list']}>{getSoftwareToolsList(devTools, 'others')}</div>
       </div> */}
-
-      <div className={styles['layered-wave']}></div>
-    </div>
+    </>
   );
 }

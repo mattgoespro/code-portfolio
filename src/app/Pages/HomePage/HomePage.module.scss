@@ -39,6 +39,7 @@ $flutter: #015898;
   color-flutter: $flutter;
 }
 
+// TODO: Remove all these classes
 .title-express {
   color: $express;
 }
@@ -95,71 +96,77 @@ $flutter: #015898;
   color: $docker;
 }
 
-.layered-wave {
-  top: 0;
-  aspect-ratio: 960/300;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-image: url('./layered-waves.svg');
-}
-
-.wrapper {
+.banner {
   position: relative;
+  display: flex;
+  justify-content: center;
 
-  .banner-logo {
+  .banner-bg {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    transform: rotate(45deg) translate(70px, 80px);
+    width: 100%;
+    aspect-ratio: 960/300;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('./HomePageBanner.svg');
   }
 
-  .intro {
+  .banner-content {
     position: absolute;
-    margin-left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transform: translate(0, 30%);
 
-    .header {
+    .banner-text {
       display: flex;
+      flex-direction: column;
+      max-width: 400px;
 
-      h1 {
-        font-family: 'Roboto', sans-serif;
-        font-size: 96px;
-        font-weight: 100;
+      h1,
+      h2 {
+        font-family: 'Nunito', sans-serif;
         color: $light;
         text-align: center;
-        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 96px;
+        font-weight: 300;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 28px;
+        font-weight: 100;
+        margin-bottom: 0 0 10px;
       }
     }
 
-    h2 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 28px;
-      font-weight: 300;
-      color: $text-subtitle;
-      text-align: center;
-      margin-top: 0;
+    .banner-logo img {
+      width: 100%;
     }
   }
+}
 
-  .titled-content-list {
-    margin: 30px;
+.titled-content-list {
+  margin: 30px;
 
-    .title {
-      font-family: 'Nunito Sans', sans-serif;
-      color: $text-title;
-      font-size: 38px;
-      font-weight: 400;
-      margin: 0 auto 20px;
-      max-width: 90%;
-      text-align: center;
-    }
+  .title {
+    font-family: 'Nunito Sans', sans-serif;
+    color: $text-title;
+    font-size: 38px;
+    font-weight: 400;
+    margin: 0 auto 20px;
+    max-width: 90%;
+    text-align: center;
+  }
 
-    .list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
