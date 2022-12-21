@@ -1,8 +1,9 @@
 # IMPORTANT
 
-## Bugs
+## Sizing unit
 
-- Home page div containing intro wont grow its height to bottom of screen, causing the background color to be cut off.
+- Convert font-size units from _px_ to _rem_.
+- Convert margin and padding units from _px_ to _em_.
 
 ## View Repo
 
@@ -30,7 +31,7 @@
 
 Absolute minimum handheld device width is 280px.
 
-### Testing Edge Cases
+## Testing Edge Cases
 
 Handle cases where
 

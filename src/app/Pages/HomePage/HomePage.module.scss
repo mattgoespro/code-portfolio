@@ -1,4 +1,4 @@
-@import 'colors', 'mixins';
+@import 'colors', 'mixins', 'navigation';
 
 :root {
   --color-label-underline: #000000;
@@ -104,6 +104,7 @@ $flutter: #015898;
   .banner-bg {
     position: absolute;
     width: 100%;
+    height: 100vh;
     aspect-ratio: 960/300;
     background-repeat: no-repeat;
     background-position: center;
@@ -113,16 +114,19 @@ $flutter: #015898;
 
   .banner-content {
     position: absolute;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    transform: translate(0, 30%);
+    top: 30%;
+    left: calc(50% + $nav-width);
+    transform: translate(-50%, -50%);
 
     .banner-text {
+      grid-column: 1;
       display: flex;
       flex-direction: column;
-      max-width: 400px;
+      max-width: 25rem;
+      margin-right: 5em;
 
       h1,
       h2 {
@@ -132,19 +136,20 @@ $flutter: #015898;
       }
 
       h1 {
-        font-size: 96px;
+        font-size: 9rem;
         font-weight: 300;
         margin: 0;
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 2rem;
         font-weight: 100;
         margin-bottom: 0 0 10px;
       }
     }
 
     .banner-logo img {
+      grid-column: 2;
       width: 100%;
     }
   }

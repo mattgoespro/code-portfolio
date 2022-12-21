@@ -6,6 +6,28 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import ForkTsCheckerPlugin from 'fork-ts-checker-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+import fs from 'fs';
+
+function generateStylesheetAliases() {
+  const aliases = {};
+  const basePath = 'src/assets/styles/';
+  const stylesheetTypes = fs.readdirSync(path.resolve(__dirname, 'src/assets/styles/'));
+
+  for (const stylesheetType of stylesheetTypes) {
+    const stylesheets = fs.readdirSync(
+      path.resolve(__dirname, `src/assets/styles/${stylesheetType}/`)
+    );
+
+    for (const stylesheet of stylesheets.filter((s) => !s.includes('.d.ts'))) {
+      aliases[stylesheet.substring(1, stylesheet.indexOf('.'))] = path.resolve(
+        __dirname,
+        `${basePath}/${stylesheetType}/${stylesheet}`
+      );
+    }
+  }
+
+  return aliases;
+}
 
 const baseConfig: Configuration = {
   entry: './src/main.tsx',
@@ -18,9 +40,7 @@ const baseConfig: Configuration = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],
     alias: {
-      colors: path.resolve(__dirname, 'src/assets/styles/abstracts/_colors.module.scss'),
-      mixins: path.resolve(__dirname, 'src/assets/styles/abstracts/_mixins.module.scss'),
-      shared: path.resolve(__dirname, 'src/assets/styles/abstracts/_shared.module.scss')
+      ...generateStylesheetAliases()
     }
   },
   plugins: [

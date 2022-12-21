@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "ms-azuretools.vscode-docker",
     "ahmadalli.vscode-nginx-conf",
-    "christian-kohler.npm-intellisense"
+    "christian-kohler.npm-intellisense",
+    "cipchk.cssrem"
   ]
 }

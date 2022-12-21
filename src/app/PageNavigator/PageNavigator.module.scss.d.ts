@@ -1,16 +1,5 @@
 declare namespace PageNavigatorModuleScssNamespace {
   export interface IPageNavigatorModuleScss {
-    'color-blue': string;
-    'color-dark-blue': string;
-    'color-dark-grey': string;
-    'color-extra-light': string;
-    'color-grey': string;
-    'color-hyperlink': string;
-    'color-light': string;
-    'color-orange': string;
-    'color-page-background': string;
-    'color-pink': string;
-    'color-title': string;
     'page-link': string;
     'page-link-item': string;
     'side-nav': string;

@@ -180,14 +180,15 @@ export function HomePage() {
   return (
     <>
       <div className={styles.banner}>
-        <div className={styles['banner-bg']}></div>
-        <div className={styles['banner-content']}>
-          <div className={styles['banner-text']}>
-            <h1>Hey</h1>
-            <h2>I'm Matt, and this is my little corner of the web.</h2>
-          </div>
-          <div className={styles['banner-logo']}>
-            <img src="/assets/images/hoppingmode-logo.png" />
+        <div className={styles['banner-bg']}>
+          <div className={styles['banner-content']}>
+            <div className={styles['banner-text']}>
+              <h1>Hey</h1>
+              <h2>I'm Matt, and this is my little corner of the web.</h2>
+            </div>
+            <div className={styles['banner-logo']}>
+              <img src="/assets/images/hoppingmode-logo.png" />
+            </div>
           </div>
         </div>
       </div>

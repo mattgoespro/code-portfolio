@@ -4,17 +4,6 @@ declare namespace ProjectCardModuleScssNamespace {
     'btn-action': string;
     'btn-action-view-details': string;
     card: string;
-    'color-blue': string;
-    'color-dark-blue': string;
-    'color-dark-grey': string;
-    'color-extra-light': string;
-    'color-grey': string;
-    'color-hyperlink': string;
-    'color-light': string;
-    'color-orange': string;
-    'color-page-background': string;
-    'color-pink': string;
-    'color-title': string;
     description: string;
     'description-wrapper': string;
     'github-link': string;
