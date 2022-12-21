@@ -4,6 +4,7 @@ declare namespace HomePageModuleScssNamespace {
     'banner-bg': string;
     'banner-content': string;
     'banner-logo': string;
+    'banner-logo-alias': string;
     'banner-text': string;
     'color-angular': string;
     'color-c-sharp': string;

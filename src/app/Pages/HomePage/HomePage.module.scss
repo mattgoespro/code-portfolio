@@ -114,24 +114,23 @@ $flutter: #015898;
 
   .banner-content {
     position: absolute;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     top: 30%;
     left: calc(50% + $nav-width);
     transform: translate(-50%, -50%);
+    color: $light;
 
     .banner-text {
-      grid-column: 1;
       display: flex;
       flex-direction: column;
       max-width: 25rem;
-      margin-right: 5em;
 
       h1,
       h2 {
-        font-family: 'Nunito', sans-serif;
-        color: $light;
+        font-family: 'Source Code Pro', 'Nunito', sans-serif;
         text-align: center;
       }
 
@@ -144,13 +143,24 @@ $flutter: #015898;
       h2 {
         font-size: 2rem;
         font-weight: 100;
-        margin-bottom: 0 0 10px;
+        margin: 0;
       }
     }
 
     .banner-logo img {
-      grid-column: 2;
       width: 100%;
+    }
+
+    .banner-logo-alias {
+      font-family: 'Source Code Pro';
+      font-size: 1.5rem;
+      font-weight: 100;
+      margin-top: 4rem;
+
+      span {
+        font-weight: 400;
+        color: $orange;
+      }
     }
   }
 }
