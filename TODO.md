@@ -3,7 +3,7 @@
 ## Sizing unit
 
 - Convert font-size units from _px_ to _rem_.
-- Convert margin and padding units from _px_ to _em_.
+- Imported nav bar SVG styles (like hover) not applying
 
 ## View Repo
 
