@@ -189,7 +189,9 @@ export function HomePage() {
                 Online, I go by the alias <span>hoppingmode</span>.
               </div>
             </div>
-            <img src="/assets/images/hoppingmode-logo.png" />
+            <div className={styles['banner-logo']}>
+              <img src="/assets/images/hoppingmode-logo.png" />
+            </div>
           </div>
         </div>
       </div>

@@ -10,13 +10,11 @@ import fs from 'fs';
 
 function generateStylesheetAliases() {
   const aliases = {};
-  const basePath = 'src/assets/styles/';
-  const stylesheetTypes = fs.readdirSync(path.resolve(__dirname, 'src/assets/styles/'));
+  const basePath = 'src/assets/styles';
+  const stylesheetTypes = fs.readdirSync(path.resolve(__dirname, basePath));
 
   for (const stylesheetType of stylesheetTypes) {
-    const stylesheets = fs.readdirSync(
-      path.resolve(__dirname, `src/assets/styles/${stylesheetType}/`)
-    );
+    const stylesheets = fs.readdirSync(path.resolve(__dirname, `${basePath}/${stylesheetType}/`));
 
     for (const stylesheet of stylesheets.filter((s) => !s.includes('.d.ts'))) {
       aliases[stylesheet.substring(1, stylesheet.indexOf('.'))] = path.resolve(
