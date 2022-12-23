@@ -45,44 +45,21 @@ export function PageNavigator(props: PageNavigatorProps) {
         <div className={styles.divider}></div>
         <ul className={styles.socials}>
           <li>
-            <a
-              className={styles['social-icon-link']}
-              href="https://www.linkedin.com/in/matt-young-691b48189/"
-              target="tab"
-            >
-              <LinkedInLogo social-icon />
+            <a href="https://www.linkedin.com/in/matt-young-691b48189/" target="tab">
+              <LinkedInLogo social-icon="true" />
             </a>
           </li>
           <li>
-            <a
-              className={styles['social-icon-link']}
-              href="https://github.com/mattgoespro"
-              target="tab"
-            >
-              <GitHubLogo social-icon />
+            <a href="https://github.com/mattgoespro" target="tab">
+              <GitHubLogo social-icon="true" />
             </a>
           </li>
         </ul>
-        {/* <div className={styles['side-nav-section-divider']}></div>
-        <div className={styles['social-icons']}>
-          <a
-            className={styles['social-icon-link']}
-            href="https://www.linkedin.com/in/matt-young-691b48189/"
-            target="tab"
-          >
-            <LinkedInLogo social-icon />
-          </a>
-          <a
-            className={styles['social-icon-link']}
-            href="https://github.com/mattgoespro"
-            target="tab"
-          >
-            <GitHubLogo social-icon />
-          </a>
-        </div> */}
       </div>
-      {location.pathname === '/' && props.landingPage}
-      <Outlet />
+      <div className={styles['page-content']}>
+        {location.pathname === '/' && props.landingPage}
+        <Outlet />
+      </div>
     </>
   );
 }

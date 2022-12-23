@@ -1,7 +1,6 @@
 declare namespace HomePageModuleScssNamespace {
   export interface IHomePageModuleScss {
     banner: string;
-    'banner-bg': string;
     'banner-content': string;
     'banner-logo': string;
     'banner-logo-alias': string;
@@ -20,6 +19,8 @@ declare namespace HomePageModuleScssNamespace {
     'color-sass': string;
     'color-spring': string;
     'color-typescript': string;
+    'content-wave-divider': string;
+    'home-page': string;
     label: string;
     'label-text': string;
     'label-underline': string;
@@ -28,20 +29,6 @@ declare namespace HomePageModuleScssNamespace {
     'skill-tool-img': string;
     'software-skill-wrapper': string;
     title: string;
-    'title-angular': string;
-    'title-c-sharp': string;
-    'title-dart': string;
-    'title-docker': string;
-    'title-express': string;
-    'title-flutter': string;
-    'title-java': string;
-    'title-javascript': string;
-    'title-node': string;
-    'title-postgresql': string;
-    'title-react': string;
-    'title-sass': string;
-    'title-spring': string;
-    'title-typescript': string;
     'titled-content-list': string;
   }
 }

@@ -5,163 +5,91 @@
 }
 
 // Brand colors of technologies sampled from their logos.
-$javascript: #dab92d;
-$typescript: #3178c6;
-$java: #e6202e;
-$c-sharp: #6d429c;
-$dart: #36b9f4;
-$sass: #e98db8;
-
-$angular: #dd0031;
-$react: #00aedf;
-$node: #6c9f67;
-$spring: #73b34a;
-$postgresql: #35688f;
-$express: #333331;
-$docker: #289aea;
-$flutter: #015898;
-
-// Export colors to typescript component
 :export {
-  color-javascript: $javascript;
-  color-typescript: $typescript;
-  color-sass: $sass;
-  color-java: $java;
-  color-c-sharp: $c-sharp;
-  color-angular: $angular;
-  color-react: $react;
-  color-node: $node;
-  color-spring: $spring;
-  color-express: $express;
-  color-postgresql: $postgresql;
-  color-docker: $docker;
-  color-dart: $dart;
-  color-flutter: $flutter;
+  color-javascript: #dab92d;
+  color-typescript: #3178c6;
+  color-sass: #e98db8;
+  color-java: #e6202e;
+  color-c-sharp: #6d429c;
+  color-angular: #dd0031;
+  color-react: #00aedf;
+  color-node: #6c9f67;
+  color-spring: #73b34a;
+  color-express: #333331;
+  color-postgresql: #35688f;
+  color-docker: #289aea;
+  color-dart: #36b9f4;
+  color-flutter: #015898;
 }
 
-// TODO: Remove all these classes
-.title-express {
-  color: $express;
+.home-page {
+  background-color: #001220;
 }
 
-.title-javascript {
-  color: $javascript;
-}
-
-.title-typescript {
-  color: $typescript;
-}
-
-.title-sass {
-  color: $sass;
-}
-
-.title-flutter {
-  color: $flutter;
-}
-
-.title-dart {
-  color: $dart;
-}
-
-.title-java {
-  color: $java;
-}
-
-.title-c-sharp {
-  color: $c-sharp;
-}
-
-.title-angular {
-  color: $angular;
-}
-
-.title-node {
-  color: $node;
-}
-
-.title-react {
-  color: $react;
-}
-
-.title-spring {
-  color: $spring;
-}
-
-.title-postgresql {
-  color: $postgresql;
-}
-
-.title-docker {
-  color: $docker;
+.content-wave-divider {
+  width: 100%;
+  aspect-ratio: 900/450;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('./HomePageBanner.svg');
 }
 
 .banner {
-  position: relative;
   display: flex;
   justify-content: center;
+}
 
-  .banner-bg {
-    width: 100%;
-    height: 100vh;
-    aspect-ratio: 960/300;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url('./HomePageBanner.svg');
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+
+  h1,
+  h2 {
+    font-family: 'Source Code Pro', 'Nunito', sans-serif;
+    text-align: left;
   }
 
-  .banner-content {
-    align-items: center;
-    color: #f5f5f5;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 50px;
+  h1 {
+    font-size: 9rem;
+    font-weight: 300;
+    margin: 0 0 2rem;
+  }
 
-    .banner-text {
-      display: flex;
-      flex-direction: column;
-      max-width: 30%;
+  h2 {
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 0;
+  }
+}
 
-      h1,
-      h2 {
-        font-family: 'Source Code Pro', 'Nunito', sans-serif;
-        text-align: left;
-      }
+.banner-content {
+  align-items: center;
+  color: #f5f5f5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
 
-      h1 {
-        font-size: 9rem;
-        font-weight: 300;
-        margin: 0 0 2rem;
-      }
+  .banner-logo {
+    max-width: 500px;
+    margin-left: 100px;
 
-      h2 {
-        font-size: 2rem;
-        font-weight: 100;
-        margin: 0;
-      }
+    img {
+      width: 100%;
     }
+  }
 
-    .banner-logo {
-      max-width: 500px;
-      margin-left: 100px;
+  .banner-logo-alias {
+    font-family: 'Source Code Pro';
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin-top: 4rem;
 
-      img {
-        width: 100%;
-      }
-    }
-
-    .banner-logo-alias {
-      font-family: 'Source Code Pro';
-      font-size: 1.5rem;
-      font-weight: 100;
-      margin-top: 4rem;
-
-      span {
-        font-weight: 400;
-        color: $orange;
-      }
+    span {
+      font-weight: 400;
+      color: $orange;
     }
   }
 }

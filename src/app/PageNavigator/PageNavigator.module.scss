@@ -1,5 +1,9 @@
 @import 'colors', 'navigation';
 
+.page-content {
+  margin-left: $nav-width;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -93,11 +97,17 @@ ul {
       border-radius: 5px;
       margin-bottom: 20px;
 
-      [social-icon] {
-        color: $dark-orange;
+      a {
+        display: flex;
 
-        &:hover {
-          fill: $light !important;
+        [social-icon='true'] {
+          width: 2rem;
+          height: 2rem;
+          fill: $light;
+
+          &:hover {
+            fill: $light;
+          }
         }
       }
     }
