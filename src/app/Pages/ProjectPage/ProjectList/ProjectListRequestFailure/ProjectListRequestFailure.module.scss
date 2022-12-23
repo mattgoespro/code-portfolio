@@ -1,4 +1,4 @@
-@use 'colors';
+@import 'colors';
 
 .wrapper {
   display: flex;
@@ -16,12 +16,12 @@
       font-family: 'Nunito Sans', sans-serif;
       font-size: 48px;
       font-weight: 100;
-      color: colors.$text-title;
+      color: $text-title;
       margin-bottom: 10px;
 
       span {
         font-weight: 300;
-        color: colors.$blue;
+        color: $blue;
       }
     }
 
@@ -29,7 +29,7 @@
       font-family: 'Roboto', sans-serif;
       font-size: 28px;
       font-weight: 300;
-      color: colors.$text-subtitle;
+      color: $text-subtitle;
       margin-top: 0;
     }
   }

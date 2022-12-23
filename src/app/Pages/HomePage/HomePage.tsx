@@ -185,13 +185,11 @@ export function HomePage() {
             <div className={styles['banner-text']}>
               <h1>Hey</h1>
               <h2>I'm Matt, and this is my little corner of the web.</h2>
+              <div className={styles['banner-logo-alias']}>
+                Online, I go by the alias <span>hoppingmode</span>.
+              </div>
             </div>
-            <div className={styles['banner-logo']}>
-              <img src="/assets/images/hoppingmode-logo.png" />
-            </div>
-            <div className={styles['banner-logo-alias']}>
-              Online, I go by <span>hoppingmode</span>
-            </div>
+            <img src="/assets/images/hoppingmode-logo.png" />
           </div>
         </div>
       </div>

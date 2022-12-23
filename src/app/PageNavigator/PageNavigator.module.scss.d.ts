@@ -1,14 +1,10 @@
 declare namespace PageNavigatorModuleScssNamespace {
   export interface IPageNavigatorModuleScss {
-    'page-link': string;
-    'page-link-item': string;
+    divider: string;
+    'header-logo': string;
+    'page-links': string;
     'side-nav': string;
-    'side-nav-logo': string;
-    'side-nav-page-links': string;
-    'side-nav-section-divider': string;
-    'social-icon': string;
-    'social-icon-link': string;
-    'social-icons': string;
+    socials: string;
   }
 }
 
