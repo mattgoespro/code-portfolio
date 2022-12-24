@@ -20,16 +20,20 @@ declare namespace HomePageModuleScssNamespace {
     'color-spring': string;
     'color-typescript': string;
     'content-wave-divider': string;
+    'content-wave-divider-end': string;
+    'framework-list': string;
+    'framework-skills': string;
     'home-page': string;
-    label: string;
-    'label-text': string;
-    'label-underline': string;
-    list: string;
-    'skill-img': string;
+    language: string;
+    'language-icon': string;
+    'language-list': string;
+    'language-list-item': string;
+    'language-name': string;
+    'language-name-underline': string;
+    'language-skills': string;
+    'other-list': string;
+    'other-skills': string;
     'skill-tool-img': string;
-    'software-skill-wrapper': string;
-    title: string;
-    'titled-content-list': string;
   }
 }
 

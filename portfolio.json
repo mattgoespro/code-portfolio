@@ -1,13 +1,4 @@
 {
   "title": "hoppingmode-web-frontend - A Code Portfolio Showcase",
-  "technicalSkills": [
-    "Docker",
-    "docker-compose",
-    "node.js",
-    "nginx",
-    "PostCSS",
-    "React",
-    "React Redux",
-    "Webpack"
-  ]
+  "technicalSkills": ["React", "nodejs", "SASS", "Docker", "docker-compose", "nginx", "Webpack"]
 }

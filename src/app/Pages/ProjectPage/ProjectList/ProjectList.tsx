@@ -3,22 +3,17 @@ import { useState, useEffect } from 'react';
 import { ProjectCard } from './ProjectCard/ProjectCard';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
 import styles from './ProjectList.module.scss';
-import { useAppDispatch } from '@redux/hooks/use';
-import { hideLoadingOverlay, showLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import { ProjectListRequestFailure } from './ProjectListRequestFailure/ProjectListRequestFailure';
 
 export function ProjectList() {
-  const dispatch = useAppDispatch();
-
   const [fetchingProjects, setFetchingProjects] = useState(true);
   const [projects, setProjects] = useState<RepositorySummary[]>([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     const abortController = new AbortController();
-    dispatch(showLoadingOverlay());
     setFetchingProjects(true);
 
     axios
@@ -26,12 +21,10 @@ export function ProjectList() {
       .then((resp) => {
         setProjects(resp.data);
         setFetchingProjects(false);
-        dispatch(hideLoadingOverlay());
         setError(false);
       })
       .catch(() => {
         setFetchingProjects(false);
-        dispatch(hideLoadingOverlay());
         setError(true);
       });
 

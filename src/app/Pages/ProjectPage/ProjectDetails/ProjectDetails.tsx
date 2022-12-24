@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { hideLoadingOverlay, showLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
-import { useAppDispatch } from '@redux/hooks/use';
 import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
@@ -23,7 +21,6 @@ export function ProjectView() {
   useEffect(() => {
     const abortController = new AbortController();
 
-    dispatch(showLoadingOverlay());
     setLoadingProject(true);
 
     Promise.all([
@@ -38,7 +35,6 @@ export function ProjectView() {
         setError(null);
         setProject(resp[0].data);
         setProjectLanguages(resp[1].data);
-        dispatch(hideLoadingOverlay());
         setLoadingProject(false);
       })
       .catch((err) => {

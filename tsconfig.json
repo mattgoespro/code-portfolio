@@ -12,10 +12,7 @@
     "baseUrl": "./",
     "paths": {
       "@shared/components/*": ["./src/app/Shared/Components/*"],
-      "@icons/*": ["./src/assets/icons/*"],
-      "@redux/store": ["./src/app/Shared/Redux/store.ts"],
-      "@redux/hooks/*": ["./src/app/Shared/Redux/Hooks/*"],
-      "@redux/reducers/*": ["./src/app/Shared/Redux/Reducers/*"]
+      "@icons/*": ["./src/assets/icons/*"]
     }
   },
   "include": ["src/**/*"],

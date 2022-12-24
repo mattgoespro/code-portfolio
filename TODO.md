@@ -13,11 +13,6 @@
 
 - Enable HTTPS using SSL certificates.
 
-## API Response Caching
-
-- Cache API responses using React-Redux
-  - Important for ProjectPage
-
 ## Optimization
 
 - Minimize bundle sizes

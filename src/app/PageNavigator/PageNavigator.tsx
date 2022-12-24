@@ -1,6 +1,3 @@
-import { hideLoadingOverlay } from '@redux/reducers/loading-overlay-slice';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import NavHeaderLogo from '@icons/nav-header.svg';
 import LinkedInLogo from '@icons/linkedin.svg';
@@ -13,13 +10,6 @@ interface PageNavigatorProps {
 
 export function PageNavigator(props: PageNavigatorProps) {
   const location = useLocation();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!location.pathname.startsWith('/projects')) {
-      dispatch(hideLoadingOverlay());
-    }
-  }, [location]);
 
   return (
     <>
