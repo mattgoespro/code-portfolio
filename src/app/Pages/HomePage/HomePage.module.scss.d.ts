@@ -6,6 +6,7 @@ declare namespace HomePageModuleScssNamespace {
     'banner-logo': string;
     'banner-logo-alias': string;
     'banner-text': string;
+    'bottom-wave-blue': string;
     'color-angular': string;
     'color-c-sharp': string;
     'color-dart': string;
@@ -20,11 +21,10 @@ declare namespace HomePageModuleScssNamespace {
     'color-sass': string;
     'color-spring': string;
     'color-typescript': string;
-    'content-wave-divider': string;
-    'content-wave-divider-end': string;
     'home-page': string;
-    'other-list': string;
-    'other-skills': string;
+    'others-list': string;
+    'others-section': string;
+    'others-text': string;
     skill: string;
     'skill-brand-icon': string;
     'skill-list': string;
@@ -34,6 +34,8 @@ declare namespace HomePageModuleScssNamespace {
     'skill-tool-img': string;
     'skills-section': string;
     'skills-section-languages': string;
+    'top-wave-blue': string;
+    'top-wave-orange': string;
   }
 }
 

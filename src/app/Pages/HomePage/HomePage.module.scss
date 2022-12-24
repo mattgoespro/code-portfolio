@@ -2,18 +2,19 @@
 @import 'colors', 'mixins', 'navigation', 'page';
 
 :root {
-  // Sets the text underline color of a skill list item
-  // from the component
+  // Sets the text underline color of a skill list item from the component
   --skill-name-underline-color: #000000;
 }
+
+$section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
 
 :export {
   color-javascript: #dab92d;
   color-typescript: #86c0ff;
   color-sass: #e98db8;
-  color-java: #ff7979;
+  color-java: #ff2b2b;
   color-c-sharp: #dd77ff;
-  color-angular: #ff7979;
+  color-angular: #ff2b2b;
   color-react: #00aedf;
   color-node: #6c9f67;
   color-spring: #73b34a;
@@ -33,7 +34,7 @@
   margin: 0 0 50px;
 }
 
-@mixin wave($aspect-ratio, $wave-source) {
+@mixin wave-border($aspect-ratio, $wave-source) {
   width: 100%;
   aspect-ratio: $aspect-ratio;
   background-repeat: no-repeat;
@@ -48,7 +49,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'Source Code Pro', 'Nunito', sans-serif;
-  height: 500px;
+  height: 400px;
 
   h3 {
     @include skill-section-title;
@@ -66,13 +67,16 @@
   background-color: $content-page-background;
 }
 
-.content-wave-divider {
-  @include wave(math.div(1920, 400), './WaveDivider.svg');
-  margin-top: 50px;
+.bottom-wave-blue {
+  @include wave-border(math.div(1920, 400), './assets/BottomWaveBlue.svg');
 }
 
-.content-wave-divider-end {
-  @include wave(math.div(1920, 100), './WaveDividerBottom.svg');
+.top-wave-blue {
+  @include wave-border(math.div(1920, 400), './assets/TopWaveBlue.svg');
+}
+
+.top-wave-orange {
+  @include wave-border(math.div(1920, 400), './assets/TopWaveOrange.svg');
 }
 
 .banner-logo {
@@ -86,10 +90,12 @@
 
 .banner-logo-alias {
   font-family: 'Source Code Pro', 'Nunito', sans-serif;
-  font-size: 1.5rem;
   font-weight: 100;
+  font-size: 2rem;
+  font-weight: 100;
+  margin-top: 8rem;
+  margin-bottom: 7rem;
   color: $light;
-  margin-top: 10rem;
 
   span.alias {
     font-weight: 400;
@@ -109,7 +115,7 @@
   background-color: #0066ff;
 
   h3 {
-    text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+    text-shadow: $section-title-text-shadow;
   }
 }
 
@@ -146,15 +152,25 @@
   }
 }
 
-.other-skills {
-  @include skills();
+.others-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
   padding-bottom: 200px;
 
-  .other-list {
+  .others-text {
+    text-align: justify;
+
+    h3 {
+      @include skill-section-title;
+      max-width: 400px;
+    }
+  }
+
+  .others-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 600px;
+    max-width: 400px;
 
     .skill-tool-img {
       width: 40px;

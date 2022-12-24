@@ -1,6 +1,6 @@
 import styles from './HomePage.module.scss';
 import Tooltip from '@mui/material/Tooltip';
-import { devFrameworks, devLanguages, devTools, SoftwareEngineeringSkills } from './Skills';
+import { devFrameworks, devLanguages, devTools, SoftwareEngineeringSkills } from './HomePage.model';
 import { scrollAnimateIn } from '@shared/utility/AnimateOnScroll';
 import { setStyleVariableColor } from '@shared/utility/Utility';
 
@@ -15,7 +15,6 @@ export function HomePage() {
   function skillTitleScrollFade(anchor: string, scrollOffset?: number) {
     return scrollAnimateIn({
       anchor,
-      anchorPlacement: 'center-center',
       animation: 'fade-left',
       animationDuration: SKILL_TITLE_ANIMATE_DURATION,
       animationDelay: SKILL_TITLE_ANIMATE_DELAY,
@@ -68,8 +67,8 @@ export function HomePage() {
     });
   }
 
-  function createToolsList(list: SoftwareEngineeringSkills[], anchorId: string) {
-    return list.map((item) => {
+  function othersList(list: SoftwareEngineeringSkills[], anchorId: string) {
+    return list.map((item, index) => {
       return (
         <div key={item.resourceIdentifier}>
           <Tooltip title={item.label}>
@@ -77,7 +76,7 @@ export function HomePage() {
               className={styles['skill-tool-img']}
               src={`/assets/images/logos/${item.resourceIdentifier}.png`}
               alt="Git"
-              {...skillListItemScrollFade(1, anchorId)}
+              {...skillListItemScrollFade(index, anchorId)}
             />
           </Tooltip>
         </div>
@@ -116,39 +115,38 @@ export function HomePage() {
           (addStyleClass ? ` ${styles[`skills-section-${skillType}`]}` : '')
         }
       >
-        <h3 {...skillTitleScrollFade(skillType)}>{text}</h3>
+        <h3 id="title" {...skillTitleScrollFade(skillType)}>
+          {text}
+        </h3>
         <div className={styles['skill-list']}>{skillList(skills, skillType)}</div>
       </div>
     );
   }
 
-  const otherSkills = (
-    <div id="others" className={styles['other-skills']}>
-      <h3 {...skillTitleScrollFade('others', 400)}>
-        Alongside a selection of popular industry standard tools
-      </h3>
-      <div className={styles['other-list']}>{createToolsList(devTools, 'others')}</div>
-    </div>
-  );
-
   return (
     <div className={styles['home-page']}>
       {banner}
-      <div className={styles['content-wave-divider']}></div>
+      <div className={styles['top-wave-blue']}></div>
       {skillSection(
         'languages',
-        `I've developed software in a variety of different programming languages`,
+        `I have professional and personal experience programming in a variety of programming languages`,
         devLanguages,
         true
       )}
-      <div className={styles['content-wave-divider-end']}></div>
+      <div className={styles['bottom-wave-blue']}></div>
       {skillSection(
         'frameworks',
-        `I've worked with a variety of development frameworks`,
+        `Across a multitude of software development frameworks`,
         devFrameworks
       )}
-      <div></div>
-      {otherSkills}
+      <div className={styles['others-section']}>
+        <div className={styles['others-text']}>
+          <h3 {...skillTitleScrollFade('others', 400)}>
+            Alongside a selection of industry standard tools
+          </h3>
+        </div>
+        <div className={styles['others-list']}>{othersList(devTools, 'others')}</div>
+      </div>
     </div>
   );
 }

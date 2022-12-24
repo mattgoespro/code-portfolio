@@ -12,9 +12,12 @@ $light-grey: #d9d9d9;
 $dark-blue: #253d74;
 $dark-orange: #f4602c;
 $dark-grey: #3a3a3a;
+$navy-blue: #001220;
 
 // Content
-$content-page-background: #001220;
+$content-page-background: $navy-blue;
+$wave-divider-start: $navy-blue;
+$wave-divider-end: #0066ff;
 
 // Typography
 $text-hyperlink: #3367d6;
