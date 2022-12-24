@@ -1,28 +1,30 @@
 @use 'sass:math';
-@import 'colors', 'mixins', 'navigation';
+@import 'colors', 'mixins', 'navigation', 'page';
 
 :root {
-  --language-name-underline-color: #000000;
+  // Sets the text underline color of a skill list item
+  // from the component
+  --skill-name-underline-color: #000000;
 }
 
 :export {
   color-javascript: #dab92d;
-  color-typescript: #3178c6;
+  color-typescript: #86c0ff;
   color-sass: #e98db8;
-  color-java: #e6202e;
-  color-c-sharp: #6d429c;
-  color-angular: #dd0031;
+  color-java: #ff7979;
+  color-c-sharp: #dd77ff;
+  color-angular: #ff7979;
   color-react: #00aedf;
   color-node: #6c9f67;
   color-spring: #73b34a;
   color-express: #b7b7b7;
-  color-postgresql: #35688f;
+  color-postgresql: #9cbad1;
   color-docker: #289aea;
   color-dart: #36b9f4;
-  color-flutter: #015898;
+  color-flutter: #5ac7f6;
 }
 
-@mixin section-fade-text {
+@mixin skill-section-title {
   max-width: 700px;
   text-align: center;
   font-size: 2rem;
@@ -40,8 +42,28 @@
   background-image: url($wave-source);
 }
 
+@mixin skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Source Code Pro', 'Nunito', sans-serif;
+  height: 500px;
+
+  h3 {
+    @include skill-section-title;
+  }
+}
+
+@mixin skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+}
+
 .home-page {
-  background-color: #001220;
+  background-color: $content-page-background;
 }
 
 .content-wave-divider {
@@ -51,37 +73,6 @@
 
 .content-wave-divider-end {
   @include wave(math.div(1920, 100), './WaveDividerBottom.svg');
-}
-
-.banner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.banner-text {
-  display: flex;
-  flex-direction: column;
-  max-width: 30%;
-
-  h1,
-  h2 {
-    font-family: 'Source Code Pro', 'Nunito', sans-serif;
-    text-align: left;
-  }
-
-  h1 {
-    font-size: 9rem;
-    font-weight: 300;
-    margin: 0 0 2rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 100;
-    margin: 0;
-  }
 }
 
 .banner-logo {
@@ -100,44 +91,29 @@
   color: $light;
   margin-top: 10rem;
 
-  span {
+  span.alias {
     font-weight: 400;
     color: $orange;
   }
 }
 
-.banner-content {
-  align-items: center;
-  color: #f5f5f5;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 50px;
+.skills-section {
+  @include skills();
+
+  .skill-list {
+    @include skill-list();
+  }
 }
 
-.language-skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Source Code Pro', 'Nunito', sans-serif;
+.skills-section-languages {
   background-color: #0066ff;
-  height: 500px;
 
   h3 {
-    @include section-fade-text;
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
-  }
-
-  .language-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 600px;
   }
 }
 
-.language-list-item {
+.skill-list-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,60 +124,31 @@
   border: 2px solid $light;
   border-radius: 10px;
 
-  .language-icon img {
+  .skill-brand-icon img {
     width: 36px;
   }
 
-  .language {
+  .skill {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
     margin-left: 8px;
 
-    .language-name {
+    .skill-name {
       font-size: 1rem;
       font-weight: 500;
     }
 
-    .language-name-underline {
-      @include divider(3px, var(--language-name-underline-color), 0);
+    .skill-name-underline {
+      @include divider(3px, var(--skill-name-underline-color), 0);
     }
   }
 }
 
-.framework-skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Source Code Pro', 'Nunito', sans-serif;
-  height: 500px;
-
-  h3 {
-    @include section-fade-text;
-  }
-
-  .framework-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 800px;
-  }
-}
-
 .other-skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Source Code Pro', 'Nunito', sans-serif;
-  height: 500px;
-  margin-bottom: 200px;
-
-  h3 {
-    @include section-fade-text;
-  }
+  @include skills();
+  padding-bottom: 200px;
 
   .other-list {
     display: flex;

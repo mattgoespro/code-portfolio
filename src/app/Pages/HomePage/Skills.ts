@@ -2,14 +2,12 @@
  * @param resourceIdentifier The identifier for a stylesheet variable or image
  * asset name.
  */
-export interface SoftwareSkills {
+export interface SoftwareEngineeringSkills {
   resourceIdentifier: string;
   label: string;
 }
 
-const titleFadeInDelay = 100;
-
-export const devLanguages: SoftwareSkills[] = [
+export const devLanguages: SoftwareEngineeringSkills[] = [
   {
     resourceIdentifier: 'javascript',
     label: 'JavaScript'
@@ -30,7 +28,7 @@ export const devLanguages: SoftwareSkills[] = [
   { resourceIdentifier: 'dart', label: 'Dart' }
 ];
 
-export const devFrameworks: SoftwareSkills[] = [
+export const devFrameworks: SoftwareEngineeringSkills[] = [
   { resourceIdentifier: 'node', label: 'Node' },
   { resourceIdentifier: 'react', label: 'React' },
   { resourceIdentifier: 'angular', label: 'Angular' },
@@ -44,7 +42,7 @@ export const devFrameworks: SoftwareSkills[] = [
   { resourceIdentifier: 'flutter', label: 'Flutter' }
 ];
 
-export const devTools: SoftwareSkills[] = [
+export const devTools: SoftwareEngineeringSkills[] = [
   {
     resourceIdentifier: 'html',
     label: 'HTML'
@@ -78,25 +76,3 @@ export const devTools: SoftwareSkills[] = [
     label: 'Kafka'
   }
 ];
-
-export function skillTitleFadeIn(triggerName: string) {
-  return {
-    'data-aos': 'fade-left',
-    'data-aos-anchor': `#${triggerName}`,
-    'data-aos-anchor-placement': 'center',
-    'data-aos-offset': 400,
-    'data-aos-duration': 400,
-    'data-aos-delay': titleFadeInDelay
-  };
-}
-
-export function skillScrollIn(index: number, triggerName: string) {
-  return {
-    'data-aos': 'fade-left',
-    'data-aos-anchor': `#${triggerName}`,
-    'data-aos-anchor-placement': 'center',
-    'data-aos-offset': 400,
-    'data-aos-duration': 400,
-    'data-aos-delay': titleFadeInDelay + 300 + 100 * index
-  };
-}

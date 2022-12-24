@@ -5,8 +5,12 @@ import { HomePage } from './Pages/HomePage/HomePage';
 import { ProjectList } from './Pages/ProjectPage/ProjectList/ProjectList';
 import { ProjectPage } from './Pages/ProjectPage/ProjectPage';
 import { ProjectView } from './Pages/ProjectPage/ProjectDetails/ProjectDetails';
+import AnimationOnScroll from 'aos';
+import 'aos/dist/aos.css';
 
 export function App() {
+  AnimationOnScroll.init();
+
   return (
     <BrowserRouter>
       <Routes>

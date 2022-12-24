@@ -11,7 +11,6 @@ import { ProjectListRequestFailure } from '../ProjectList/ProjectListRequestFail
 
 export function ProjectView() {
   const { projectName } = useParams();
-  const dispatch = useAppDispatch();
 
   const [project, setProject] = useState<Repository>(null);
   const [loadingProject, setLoadingProject] = useState(true);
@@ -41,7 +40,6 @@ export function ProjectView() {
         setError(err);
         setProject(null);
         setProjectLanguages(null);
-        dispatch(hideLoadingOverlay());
         setLoadingProject(false);
       });
 

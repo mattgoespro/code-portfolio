@@ -1,0 +1,15 @@
+@import 'colors', 'page';
+
+.project-page {
+  background-color: $content-page-background;
+}
+
+.banner-text {
+  @extend .banner-text;
+  max-width: 100%;
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+}

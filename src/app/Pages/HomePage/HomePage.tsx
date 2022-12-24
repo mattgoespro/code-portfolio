@@ -1,51 +1,68 @@
-import { useEffect } from 'react';
 import styles from './HomePage.module.scss';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 import Tooltip from '@mui/material/Tooltip';
-import { setStyleVariableColor } from 'src/app/Shared/utility';
-import {
-  devFrameworks,
-  devLanguages,
-  devTools,
-  skillScrollIn,
-  skillTitleFadeIn,
-  SoftwareSkills
-} from './Skills';
+import { devFrameworks, devLanguages, devTools, SoftwareEngineeringSkills } from './Skills';
+import { scrollAnimateIn } from '@shared/utility/AnimateOnScroll';
+import { setStyleVariableColor } from '@shared/utility/Utility';
 
-function ScrollTrigger(props: { triggerName: string }) {
-  return <div id={props.triggerName}></div>;
-}
+type TechnicalSkillType = 'languages' | 'frameworks' | 'other';
 
 export function HomePage() {
-  useEffect(() => {
-    // Initialize animate-on-scroll engine.
-    AOS.init();
-  }, []);
+  const SKILL_TITLE_ANIMATE_DELAY = 100;
+  const SKILL_TITLE_ANIMATE_DURATION = 400;
+  const SKILL_CONTENT_ANIMATE_LAG = 400;
+  const SKILL_CONTENT_ANIMATE_SPEED = 100;
 
-  function getLanguageList(list: SoftwareSkills[], scrollTrigger: string) {
+  function ScrollAnimationTrigger(props: { anchor: string }) {
+    return <div id={props.anchor}></div>;
+  }
+
+  function skillTitleScrollFade(anchor: string, scrollOffset?: number) {
+    return scrollAnimateIn({
+      anchor,
+      anchorPlacement: 'center-center',
+      animation: 'fade-left',
+      animationDuration: SKILL_TITLE_ANIMATE_DURATION,
+      animationDelay: SKILL_TITLE_ANIMATE_DELAY,
+      scrollOffset: scrollOffset || 400
+    });
+  }
+
+  function skillListItemScrollFade(itemIndex: number, anchor: string) {
+    return scrollAnimateIn({
+      anchor,
+      animation: 'fade-left',
+      animationDuration: SKILL_TITLE_ANIMATE_DURATION,
+      easing: 'ease',
+      animationDelay:
+        SKILL_TITLE_ANIMATE_DELAY +
+        SKILL_CONTENT_ANIMATE_LAG +
+        SKILL_CONTENT_ANIMATE_SPEED * itemIndex
+    });
+  }
+
+  function skillList(list: SoftwareEngineeringSkills[], scrollTrigger: TechnicalSkillType) {
     return list.map((item, index) => {
       return (
         <div
           key={item.resourceIdentifier}
-          className={styles['language-list-item']}
-          {...skillScrollIn(index + 1, scrollTrigger)}
+          className={styles['skill-list-item']}
+          {...skillListItemScrollFade(index + 1, scrollTrigger)}
         >
-          <div className={styles['language-icon']}>
+          <div className={styles['skill-brand-icon']}>
             <img
               src={`/assets/images/logos/${item.resourceIdentifier}.png`}
               alt={item.resourceIdentifier}
             />
           </div>
           <div
-            className={styles.language}
+            className={styles.skill}
             style={{ color: styles[`color-${item.resourceIdentifier}`] }}
           >
-            <div className={styles['language-name']}>{item.label}</div>
+            <div className={styles['skill-name']}>{item.label}</div>
             <div
-              className={styles['language-name-underline']}
+              className={styles['skill-name-underline']}
               style={setStyleVariableColor(
-                'language-name-underline-color',
+                'skill-name-underline-color',
                 styles[`color-${item.resourceIdentifier}`]
               )}
             ></div>
@@ -55,7 +72,7 @@ export function HomePage() {
     });
   }
 
-  function getToolsList(list: SoftwareSkills[], anchorId: string) {
+  function createToolsList(list: SoftwareEngineeringSkills[], anchorId: string) {
     return list.map((item) => {
       return (
         <div key={item.resourceIdentifier}>
@@ -64,7 +81,7 @@ export function HomePage() {
               className={styles['skill-tool-img']}
               src={`/assets/images/logos/${item.resourceIdentifier}.png`}
               alt="Git"
-              {...skillScrollIn(1, anchorId)}
+              {...skillListItemScrollFade(1, anchorId)}
             />
           </Tooltip>
         </div>
@@ -84,38 +101,38 @@ export function HomePage() {
         </div>
       </div>
       <div className={styles['banner-logo-alias']}>
-        Online, I go by the alias <span>hoppingmode</span>.
+        Online, I go by the alias <span className={styles.alias}>hoppingmode</span>.
       </div>
     </div>
   );
 
-  const languageSkills = (
-    <div className={styles['language-skills']}>
-      <h3 {...skillTitleFadeIn('languages')}>
-        I've developed software in a variety of different programming languages
-      </h3>
-      <ScrollTrigger triggerName="languages" />
-      <div className={styles['language-list']}>{getLanguageList(devLanguages, 'languages')}</div>
-    </div>
-  );
-
-  const frameworkSkills = (
-    <div className={styles['framework-skills']}>
-      <h3 {...skillTitleFadeIn('frameworks')}>
-        I've worked with a variety of development frameworks
-      </h3>
-      <ScrollTrigger triggerName="frameworks" />
-      <div className={styles['framework-list']}>{getLanguageList(devFrameworks, 'frameworks')}</div>
-    </div>
-  );
+  function skillSection(
+    skillType: TechnicalSkillType,
+    text: string,
+    skills: SoftwareEngineeringSkills[],
+    addStyleClass?: boolean
+  ) {
+    return (
+      <div
+        className={
+          `${styles['skills-section']}` +
+          (addStyleClass ? ` ${styles[`skills-section-${skillType}`]}` : '')
+        }
+      >
+        <h3 {...skillTitleScrollFade(skillType)}>{text}</h3>
+        <ScrollAnimationTrigger anchor={skillType} />
+        <div className={styles['skill-list']}>{skillList(skills, skillType)}</div>
+      </div>
+    );
+  }
 
   const otherSkills = (
     <div className={styles['other-skills']}>
-      <h3 {...skillTitleFadeIn('others')}>
+      <h3 {...skillTitleScrollFade('others', 400)}>
         Alongside a selection of popular industry standard tools
       </h3>
-      <ScrollTrigger triggerName="others" />
-      <div className={styles['other-list']}>{getToolsList(devTools, 'others')}</div>
+      <ScrollAnimationTrigger anchor="others" />
+      <div className={styles['other-list']}>{createToolsList(devTools, 'others')}</div>
     </div>
   );
 
@@ -123,9 +140,18 @@ export function HomePage() {
     <div className={styles['home-page']}>
       {banner}
       <div className={styles['content-wave-divider']}></div>
-      {languageSkills}
+      {skillSection(
+        'languages',
+        `I've developed software in a variety of different programming languages`,
+        devLanguages,
+        true
+      )}
       <div className={styles['content-wave-divider-end']}></div>
-      {frameworkSkills}
+      {skillSection(
+        'frameworks',
+        `I've worked with a variety of development frameworks`,
+        devFrameworks
+      )}
       <div></div>
       {otherSkills}
     </div>

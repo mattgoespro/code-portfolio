@@ -38,7 +38,3 @@ class SpinnerLoadingOverlay extends Component<{ visible?: boolean }> {
     );
   }
 }
-
-export default connect((state: RootState) => ({ visible: state.loadingOverlay.visible }))(
-  SpinnerLoadingOverlay
-);
