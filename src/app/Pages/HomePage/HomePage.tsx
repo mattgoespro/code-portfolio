@@ -12,10 +12,6 @@ export function HomePage() {
   const SKILL_CONTENT_ANIMATE_LAG = 400;
   const SKILL_CONTENT_ANIMATE_SPEED = 100;
 
-  function ScrollAnimationTrigger(props: { anchor: string }) {
-    return <div id={props.anchor}></div>;
-  }
-
   function skillTitleScrollFade(anchor: string, scrollOffset?: number) {
     return scrollAnimateIn({
       anchor,
@@ -114,24 +110,23 @@ export function HomePage() {
   ) {
     return (
       <div
+        id={skillType}
         className={
           `${styles['skills-section']}` +
           (addStyleClass ? ` ${styles[`skills-section-${skillType}`]}` : '')
         }
       >
         <h3 {...skillTitleScrollFade(skillType)}>{text}</h3>
-        <ScrollAnimationTrigger anchor={skillType} />
         <div className={styles['skill-list']}>{skillList(skills, skillType)}</div>
       </div>
     );
   }
 
   const otherSkills = (
-    <div className={styles['other-skills']}>
+    <div id="others" className={styles['other-skills']}>
       <h3 {...skillTitleScrollFade('others', 400)}>
         Alongside a selection of popular industry standard tools
       </h3>
-      <ScrollAnimationTrigger anchor="others" />
       <div className={styles['other-list']}>{createToolsList(devTools, 'others')}</div>
     </div>
   );
