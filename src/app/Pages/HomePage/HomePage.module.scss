@@ -1,19 +1,23 @@
 @use 'sass:math';
-@import 'colors', 'mixins', 'navigation', 'page';
+@import 'colors', 'mixins', 'navigation', 'page', 'animations';
 
 :root {
-  // Sets the text underline color of a skill list item from the component
-  --skill-name-underline-color: #000000;
+  --skill-name-underline-color: transparent;
+  --skill-box-border-color: #ffffff;
 }
 
 $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
 
 :export {
+  // Languages
   color-javascript: #dab92d;
   color-typescript: #86c0ff;
   color-sass: #e98db8;
   color-java: #ff2b2b;
   color-c-sharp: #dd77ff;
+  color-dart: #36b9f4;
+
+  // Frameworks
   color-angular: #ff2b2b;
   color-react: #00aedf;
   color-node: #6c9f67;
@@ -21,8 +25,10 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
   color-express: #b7b7b7;
   color-postgresql: #9cbad1;
   color-docker: #289aea;
-  color-dart: #36b9f4;
   color-flutter: #5ac7f6;
+
+  // Other
+  border-color-experienced: $orange;
 }
 
 @mixin skill-section-title {
@@ -123,12 +129,34 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Nunito', sans-serif;
   max-width: 200px;
   margin: 5px;
   padding: 15px;
   background-color: #002a54;
-  border: 2px solid $light;
+  border: 2px solid var(--skill-box-border-color);
   border-radius: 10px;
+
+  &[experienced]:hover::before {
+    content: 'Work Experience';
+    position: absolute;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: $light;
+    white-space: nowrap;
+    bottom: 110%;
+    background-color: #001220;
+    border: 2px solid $orange;
+    border-radius: 25px;
+    padding: 10px;
+    animation-name: fade-in-grow;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
 
   .skill-brand-icon img {
     width: 36px;
@@ -154,13 +182,13 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
 
 .others-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 200px;
   padding-bottom: 200px;
 
   .others-text {
-    text-align: justify;
-
     h3 {
       @include skill-section-title;
       max-width: 400px;

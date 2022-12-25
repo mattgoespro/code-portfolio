@@ -1,7 +1,16 @@
 import { CSSProperties } from 'react';
 
-export function setStyleVariableColor(variable: string, color: string): CSSProperties {
+interface StylesheetVariable {
+  name: string;
+  value: string;
+}
+
+export function setStylesheetVariables(...variables: StylesheetVariable[]): CSSProperties {
   const style = {};
-  style[`--${variable}`] = color;
+
+  for (const variable of variables) {
+    style[`--${variable.name}`] = variable.value;
+  }
+
   return style;
 }

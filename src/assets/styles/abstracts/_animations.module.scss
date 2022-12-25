@@ -1,19 +1,11 @@
-@-webkit-keyframes fadeIn {
-  0% {
+@keyframes fade-in-grow {
+  from {
     opacity: 0;
+    transform: scale(0);
   }
 
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
+  to {
+    opacity: 100%;
+    transform: scale(100%);
   }
 }

@@ -4,75 +4,79 @@
  */
 export interface SoftwareEngineeringSkills {
   resourceIdentifier: string;
-  label: string;
+  name: string;
+  experienced?: boolean;
 }
 
 export const devLanguages: SoftwareEngineeringSkills[] = [
+  { resourceIdentifier: 'java', name: 'Java', experienced: true },
   {
     resourceIdentifier: 'javascript',
-    label: 'JavaScript'
+    name: 'JavaScript',
+    experienced: true
   },
   {
     resourceIdentifier: 'typescript',
-    label: 'TypeScript'
+    name: 'TypeScript',
+    experienced: true
   },
   {
     resourceIdentifier: 'sass',
-    label: 'SASS'
+    name: 'SASS',
+    experienced: true
   },
-  { resourceIdentifier: 'java', label: 'Java' },
   {
     resourceIdentifier: 'c-sharp',
-    label: '.NET'
+    name: '.NET'
   },
-  { resourceIdentifier: 'dart', label: 'Dart' }
+  { resourceIdentifier: 'dart', name: 'Dart' }
 ];
 
 export const devFrameworks: SoftwareEngineeringSkills[] = [
-  { resourceIdentifier: 'node', label: 'Node' },
-  { resourceIdentifier: 'react', label: 'React' },
-  { resourceIdentifier: 'angular', label: 'Angular' },
-  { resourceIdentifier: 'postgresql', label: 'PostgreSQL' },
-  { resourceIdentifier: 'docker', label: 'Docker' },
-  { resourceIdentifier: 'spring', label: 'Spring' },
+  { resourceIdentifier: 'node', name: 'Node', experienced: true },
+  { resourceIdentifier: 'react', name: 'React', experienced: true },
+  { resourceIdentifier: 'angular', name: 'Angular', experienced: true },
+  { resourceIdentifier: 'postgresql', name: 'PostgreSQL', experienced: true },
+  { resourceIdentifier: 'docker', name: 'Docker', experienced: true },
+  { resourceIdentifier: 'spring', name: 'Spring', experienced: true },
   {
     resourceIdentifier: 'express',
-    label: 'express.js'
+    name: 'express.js'
   },
-  { resourceIdentifier: 'flutter', label: 'Flutter' }
+  { resourceIdentifier: 'flutter', name: 'Flutter' }
 ];
 
 export const devTools: SoftwareEngineeringSkills[] = [
   {
     resourceIdentifier: 'html',
-    label: 'HTML'
+    name: 'HTML'
   },
   {
     resourceIdentifier: 'CSS',
-    label: 'CSS'
+    name: 'CSS'
   },
   {
     resourceIdentifier: 'git',
-    label: 'Git'
+    name: 'Git'
   },
   {
     resourceIdentifier: 'aws',
-    label: 'Amazon Web Services'
+    name: 'Amazon Web Services'
   },
   {
     resourceIdentifier: 'webpack',
-    label: 'webpack'
+    name: 'webpack'
   },
   {
     resourceIdentifier: 'docker-compose',
-    label: 'docker-compose'
+    name: 'docker-compose'
   },
   {
     resourceIdentifier: 'nginx',
-    label: 'nginx'
+    name: 'nginx'
   },
   {
     resourceIdentifier: 'kafka',
-    label: 'Kafka'
+    name: 'Kafka'
   }
 ];

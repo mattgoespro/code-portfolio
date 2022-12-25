@@ -6,6 +6,7 @@ declare namespace HomePageModuleScssNamespace {
     'banner-logo': string;
     'banner-logo-alias': string;
     'banner-text': string;
+    'border-color-experienced': string;
     'bottom-wave-blue': string;
     'color-angular': string;
     'color-c-sharp': string;
@@ -21,6 +22,7 @@ declare namespace HomePageModuleScssNamespace {
     'color-sass': string;
     'color-spring': string;
     'color-typescript': string;
+    'fade-in-grow': string;
     'home-page': string;
     'others-list': string;
     'others-section': string;

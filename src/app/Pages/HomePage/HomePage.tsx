@@ -2,7 +2,7 @@ import styles from './HomePage.module.scss';
 import Tooltip from '@mui/material/Tooltip';
 import { devFrameworks, devLanguages, devTools, SoftwareEngineeringSkills } from './HomePage.model';
 import { scrollAnimateIn } from '@shared/utility/AnimateOnScroll';
-import { setStyleVariableColor } from '@shared/utility/Utility';
+import { setStylesheetVariables } from '@shared/utility/Utility';
 
 type TechnicalSkillType = 'languages' | 'frameworks' | 'other';
 
@@ -36,30 +36,41 @@ export function HomePage() {
   }
 
   function skillList(list: SoftwareEngineeringSkills[], scrollTrigger: TechnicalSkillType) {
-    return list.map((item, index) => {
+    return list.map((skill, index) => {
+      const attrs = {};
+
+      if (skill.experienced) {
+        attrs['experienced'] = '';
+        attrs['style'] = setStylesheetVariables({
+          name: 'skill-box-border-color',
+          value: styles['border-color-experienced']
+        });
+      }
+
       return (
         <div
-          key={item.resourceIdentifier}
+          key={skill.resourceIdentifier}
           className={styles['skill-list-item']}
+          {...attrs}
           {...skillListItemScrollFade(index + 1, scrollTrigger)}
         >
           <div className={styles['skill-brand-icon']}>
             <img
-              src={`/assets/images/logos/${item.resourceIdentifier}.png`}
-              alt={item.resourceIdentifier}
+              src={`/assets/images/logos/${skill.resourceIdentifier}.png`}
+              alt={skill.resourceIdentifier}
             />
           </div>
           <div
             className={styles.skill}
-            style={{ color: styles[`color-${item.resourceIdentifier}`] }}
+            style={{ color: styles[`color-${skill.resourceIdentifier}`] }}
           >
-            <div className={styles['skill-name']}>{item.label}</div>
+            <div className={styles['skill-name']}>{skill.name}</div>
             <div
               className={styles['skill-name-underline']}
-              style={setStyleVariableColor(
-                'skill-name-underline-color',
-                styles[`color-${item.resourceIdentifier}`]
-              )}
+              style={setStylesheetVariables({
+                name: 'skill-name-underline-color',
+                value: styles[`color-${skill.resourceIdentifier}`]
+              })}
             ></div>
           </div>
         </div>
@@ -71,7 +82,7 @@ export function HomePage() {
     return list.map((item, index) => {
       return (
         <div key={item.resourceIdentifier}>
-          <Tooltip title={item.label}>
+          <Tooltip title={item.name}>
             <img
               className={styles['skill-tool-img']}
               src={`/assets/images/logos/${item.resourceIdentifier}.png`}
@@ -141,7 +152,7 @@ export function HomePage() {
       )}
       <div className={styles['others-section']}>
         <div className={styles['others-text']}>
-          <h3 {...skillTitleScrollFade('others', 400)}>
+          <h3 id="others" {...skillTitleScrollFade('others', 0)}>
             Alongside a selection of industry standard tools
           </h3>
         </div>
