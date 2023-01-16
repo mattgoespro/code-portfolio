@@ -1,70 +1,93 @@
-@import 'colors', 'mixins';
+@import 'colors', 'mixins', 'page';
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 60%;
-  margin: 80px auto 80px;
+.about-page {
+  background-color: $content-page-background;
 
-  .header {
+  .about {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Source Code Pro', 'Nunito', sans-serif;
 
-    .title-header {
+    .head {
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
       border-bottom: 1px solid $dark-blue;
 
-      .title {
-        font-family: 'Roboto', sans-serif;
-        font-size: 96px;
+      .name {
+        font-family: 'Source Code Pro', 'Nunito', sans-serif;
+        font-size: 6rem;
         font-weight: 200;
         color: $blue;
-        margin: 0;
+        margin: 0 14px 0;
       }
 
-      .subtitle-profession {
-        font-family: 'Roboto', sans-serif;
-        font-size: 48px;
-        font-weight: 200;
-        margin-top: 0;
-        margin-bottom: 10px;
-      }
-
-      .subtitle-personality {
+      .character-traits {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Nunito Sans';
-        font-size: 22px;
-        font-weight: 300;
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.375rem;
+        font-weight: 100;
+        color: #a7a7a7;
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
 
         .separator {
-          width: 5px;
-          height: 5px;
-          border-radius: 5px;
-          background-color: $blue;
+          width: 8px;
+          height: 8px;
+          border-radius: 8px;
+          background-color: #0058c1;
           margin: 0 10px;
         }
       }
     }
-  }
 
-  .img-profile {
-    border-radius: 10px;
-    height: 400px;
-    margin-left: 30px;
-  }
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      margin: 3rem 10rem;
+      font-family: 'Nunito', sans-serif;
 
-  .content {
-    @include article-text;
-    margin-top: 20px;
+      // p {
+      //   color: $light;
+      //   line-height: 2rem;
+      //   margin-top: 0;
+      // }
 
-    .smellsense-link {
-      text-decoration: none;
-      color: $text-hyperlink;
+      .summary-header {
+        display: flex;
+
+        .summary-text {
+          @include article-text(1.5rem, 200, $light);
+          flex: 1 1 100%;
+        }
+
+        img {
+          flex: 1 1 100%;
+          border-radius: 2rem;
+        }
+      }
+
+      .detailed-info {
+        p {
+          color: $light;
+          font-size: 1rem;
+          font-weight: 100;
+          line-height: 2rem;
+          margin-top: 0;
+        }
+
+        .smellsense-link {
+          text-decoration: none;
+          color: $text-hyperlink;
+        }
+      }
     }
   }
 }

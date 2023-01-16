@@ -25,6 +25,6 @@
 }
 
 .section-content {
-  @include article-text;
+  @include article-text(1rem, 1rem, $light);
   margin: 8px 0 8px 0;
 }

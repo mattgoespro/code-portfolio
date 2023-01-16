@@ -1,12 +1,12 @@
 /*
  * Style of long bodies of text.
  */
-@mixin article-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.714;
-  color: rgba(0, 0, 0, 0.87);
+@mixin article-text($font-size, $font-weight, $color) {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  line-height: 1.5;
 }
 
 @mixin page-content {
