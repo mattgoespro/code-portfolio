@@ -7,7 +7,7 @@ import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
 import { Buffer } from 'buffer';
 import styles from './ProjectDetails.module.scss';
 import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
-import { ProjectListRequestFailure } from '../ProjectList/ProjectListRequestFailure/ProjectListRequestFailure';
+import { ProjectRequestFailure } from '../ProjectList/ProjectListRequestFailure/ProjectListRequestFailure';
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -50,32 +50,35 @@ export function ProjectView() {
 
   return (
     <div className={styles.wrapper}>
-      {error && <ProjectListRequestFailure />}
+      {error && (
+        <ProjectRequestFailure
+          errorMessage={
+            <div>
+              <span>Oops!</span> Failed to load project details
+            </div>
+          }
+        />
+      )}
       {!error && !loadingProject && (
         <>
-          <div className={styles.intro}>
-            <h1 className={styles.name}>{project.projectSpec?.title || project.name}</h1>
-          </div>
-          <div className={styles.content}>
-            <div className={styles.info}>
-              <div className={styles['content-section']}>
-                <ProjectRepositoryStats project={project} />
-              </div>
-              <div className={styles['content-section']}>
-                <ProjectLanguageChart languages={projectLanguages} />
-              </div>
+          <div className={styles.stats}>
+            <div className={styles['stats-card']}>
+              <ProjectRepositoryStats project={project} />
             </div>
-            {(project.readme && (
-              <div className={styles.readme}>
-                <ProjectReadme
-                  readmeContent={Buffer.from(
-                    project.readme.content,
-                    project.readme.encoding
-                  ).toString()}
-                />
-              </div>
-            )) || <div className={styles['readme-unavailable']}></div>}
+            <div className={styles['language-card']}>
+              <ProjectLanguageChart languages={projectLanguages} />
+            </div>
           </div>
+          {(project.readme && (
+            <div>
+              <ProjectReadme
+                readmeContent={Buffer.from(
+                  project.readme.content,
+                  project.readme.encoding
+                ).toString()}
+              />
+            </div>
+          )) || <div className={styles['readme-unavailable']}></div>}
         </>
       )}
     </div>

@@ -41,3 +41,13 @@
     left: calc((100% - $width) / 2);
   }
 }
+
+@mixin wave-border($aspect-ratio, $wave-source) {
+  width: 100%;
+  aspect-ratio: $aspect-ratio;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url($wave-source);
+  background-color: $light;
+}

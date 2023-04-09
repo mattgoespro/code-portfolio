@@ -1,113 +1,73 @@
 @import 'colors', 'mixins';
 
-.wrapper {
-  background-color: $content-page-background;
+.pinned-project-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0;
+  width: 80%;
 
-  .page-content {
-    @include page-content;
+  .title-pinned {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
-    .intro {
-      margin-top: 50px;
-
-      .intro-title {
-        font-family: 'Roboto Serif', sans-serif;
-        font-size: 42px;
-        font-weight: 100;
-        color: $text-title;
-        text-align: center;
-        margin: auto;
-      }
-
-      .intro-subtitle {
-        font-family: 'Roboto', sans-serif;
-        font-size: 22px;
-        font-weight: 300;
-        color: $text-subtitle;
-        text-align: center;
-        margin: 20px 0 0;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-thickness: 1px;
-      }
+    > div,
+    div:last-child {
+      @include divider(2px, $blue, 10px);
     }
 
-    .pinned-project-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 20px auto 0;
-      width: 80%;
-
-      .title-pinned {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-        > div,
-        div:last-child {
-          @include divider(2px, $blue, 10px);
-        }
-
-        .pinned-icon {
-          color: $orange;
-        }
-
-        h1 {
-          letter-spacing: 2px;
-          font-size: 36px;
-          font-weight: 300;
-          color: $text-title;
-        }
-      }
+    .pinned-icon {
+      color: $orange;
     }
 
-    .unpinned-project-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 50px auto;
-      width: 80%;
-
-      .title-unpinned {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-        > div,
-        div:last-child {
-          @include divider(2px, $light-grey, 10px);
-        }
-
-        .unpinned-icon {
-          transform: rotate(90deg);
-          color: $dark-grey;
-        }
-
-        h1 {
-          letter-spacing: 2px;
-          font-size: 36px;
-          font-weight: 300;
-          margin: 25px 0;
-          color: $text-title;
-        }
-      }
-    }
-
-    .project-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .loader {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    h1 {
+      letter-spacing: 2px;
+      font-size: 36px;
+      font-weight: 300;
+      color: $text-title;
     }
   }
+}
+
+.unpinned-project-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  width: 80%;
+
+  .title-unpinned {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    > div,
+    div:last-child {
+      @include divider(2px, $light-grey, 10px);
+    }
+
+    .unpinned-icon {
+      transform: rotate(90deg);
+      color: $dark-grey;
+    }
+
+    h1 {
+      letter-spacing: 2px;
+      font-size: 36px;
+      font-weight: 300;
+      margin: 25px 0;
+      color: $text-title;
+    }
+  }
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

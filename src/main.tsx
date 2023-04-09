@@ -1,9 +1,10 @@
 import { createRoot } from 'react-dom/client';
-import { App } from './app/App';
+import { RouterProvider } from 'react-router-dom';
+import router from './app/Router';
 
 const appRoot = document.getElementById('root');
 
-createRoot(appRoot).render(<App />);
+createRoot(appRoot).render(<RouterProvider router={router} />);
 
 // Scroll to top on page refresh
 window.onbeforeunload = function () {

@@ -20,28 +20,27 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
         position: 'left',
         labels: {
           font: {
-            family: 'Nunito Sans',
-            size: 14,
+            family: 'Nunito',
+            size: 16,
             weight: '100'
           },
           boxWidth: 20,
           boxHeight: 20,
-          padding: 5,
-          color: '#ffffff'
+          padding: 15,
+          color: '#ffffff',
+          filter: (item) => item.index < 4
         }
       },
       tooltip: {
         bodyFont: {
-          family: 'Nunito Sans',
-          size: 14,
-          weight: '300'
+          family: 'Nunito',
+          size: 16,
+          weight: '100'
         },
         boxPadding: 10,
         boxHeight: 25,
         callbacks: {
-          label: (chartSection) => {
-            return `${chartSection.label}: ${chartSection.raw}%`;
-          }
+          label: (chartSection) => `${chartSection.raw}%`
         }
       }
     }
@@ -63,7 +62,13 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
   return (
     <>
       {Object.keys(props.languages).length > 0 && (
-        <Pie data={createChartData(props.languages)} options={options}></Pie>
+        <Pie
+          data={createChartData(props.languages)}
+          options={options}
+          style={{
+            display: 'flex'
+          }}
+        ></Pie>
       )}
     </>
   );

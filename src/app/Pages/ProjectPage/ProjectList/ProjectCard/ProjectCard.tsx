@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button, Link as ExternalLink } from '@mui/material';
 import styles from './ProjectCard.module.scss';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 interface ProjectCardProps {
   name: string;
@@ -13,27 +12,22 @@ interface ProjectCardProps {
 export function ProjectCard(props: ProjectCardProps) {
   return (
     <div className={`${styles.card}` + `${props.pinned ? ` ${styles.pinned}` : ''}`}>
-      <div className={styles.header}>
+      <div className={styles.title}>
         <ExternalLink
-          className={styles['github-link']}
           href={props.githubUrl}
           target="tab"
           underline="none"
+          className={styles['project-name']}
         >
-          <OpenInNewIcon fontSize="medium" />
+          {props.name}
         </ExternalLink>
-        <div className={styles['project-name']}>{props.name}</div>
       </div>
-      <div className={styles['description-wrapper']}>
-        <div className={styles.description}>{props.description || <i>Not available.</i>}</div>
-      </div>
-      <div className={styles['actions']}>
-        <Button className={styles['btn-action']}>
-          <Link className={styles['btn-action-view-details']} to={`/projects/${props.name}`}>
-            Details
-          </Link>
-        </Button>
-      </div>
+      <div className={styles.description}>{props.description || <i>Not available.</i>}</div>
+      <Button className={styles['btn-action']}>
+        <Link className={styles['btn-action-view-details']} to={`/projects/${props.name}`}>
+          Details
+        </Link>
+      </Button>
     </div>
   );
 }

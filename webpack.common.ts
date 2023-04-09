@@ -38,7 +38,8 @@ const baseConfig: Configuration = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],
     alias: {
-      ...generateStylesheetAliases()
+      ...generateStylesheetAliases(),
+      svg: path.resolve(__dirname, 'src/assets/svg')
     }
   },
   plugins: [

@@ -1,93 +1,138 @@
+@use 'sass:math';
 @import 'colors', 'mixins', 'page';
 
 .about-page {
-  background-color: $content-page-background;
+  display: flex;
+  flex-direction: column;
+  background-color: $light;
+}
 
-  .about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.page-header-wave {
+  @include wave-border(math.div(1920, 400), 'svg/BottomWaveWhite.svg');
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $navy-blue;
+  height: 20rem;
+
+  .name {
+    text-align: center;
     font-family: 'Source Code Pro', 'Nunito', sans-serif;
+    font-size: 6rem;
+    font-weight: 200;
+    color: $blue;
+    margin: 0 14px 0;
 
-    .head {
+    span {
+      color: $light;
+    }
+  }
+
+  .character-traits-list {
+    margin-top: 10px;
+
+    .character-traits {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 100;
+      color: $light;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .separator {
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        background-color: $dark-orange;
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  max-width: 50rem;
+  margin: auto;
+
+  .summary-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include underline(2px, $light-grey, 100%, 2.5rem);
+
+    .summary-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: center;
-      border-bottom: 1px solid $dark-blue;
+      margin: 3.125rem;
+      max-width: 18.75rem;
 
-      .name {
-        font-family: 'Source Code Pro', 'Nunito', sans-serif;
-        font-size: 6rem;
-        font-weight: 200;
-        color: $blue;
-        margin: 0 14px 0;
+      .summary-text-heading {
+        font-size: 2.375rem;
       }
 
-      .character-traits {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Nunito', sans-serif;
-        font-size: 1.375rem;
-        font-weight: 100;
-        color: #a7a7a7;
-        margin-bottom: 10px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        .separator {
-          width: 8px;
-          height: 8px;
-          border-radius: 8px;
-          background-color: #0058c1;
-          margin: 0 10px;
-        }
+      .summary-text-info {
+        @include article-text(1.125rem, 400, #000);
       }
     }
 
-    .about-me {
+    img {
+      width: 30%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .detailed-info {
+    margin: 6.25rem 0 6.25rem 0;
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 2rem;
+      color: $dark-grey;
+      margin-top: 0;
+      text-align: justify;
+    }
+
+    .uct-caption {
+      float: left;
       display: flex;
       flex-direction: column;
-      margin: 3rem 10rem;
-      font-family: 'Nunito', sans-serif;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1.25rem;
 
-      // p {
-      //   color: $light;
-      //   line-height: 2rem;
-      //   margin-top: 0;
-      // }
-
-      .summary-header {
-        display: flex;
-
-        .summary-text {
-          @include article-text(1.5rem, 200, $light);
-          flex: 1 1 100%;
-        }
-
-        img {
-          flex: 1 1 100%;
-          border-radius: 2rem;
-        }
+      img {
+        max-width: 18.75rem;
+        border-radius: 10px;
       }
 
-      .detailed-info {
-        p {
-          color: $light;
-          font-size: 1rem;
-          font-weight: 100;
-          line-height: 2rem;
-          margin-top: 0;
-        }
-
-        .smellsense-link {
-          text-decoration: none;
-          color: $text-hyperlink;
-        }
+      label {
+        margin-top: 0.625rem;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: $grey;
       }
+    }
+
+    .smellsense-link {
+      text-decoration: none;
+      color: $text-hyperlink;
     }
   }
 }

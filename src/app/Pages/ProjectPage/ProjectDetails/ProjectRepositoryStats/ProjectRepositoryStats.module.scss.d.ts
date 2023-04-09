@@ -2,8 +2,6 @@ declare namespace ProjectRepositoryStatsModuleScssNamespace {
   export interface IProjectRepositoryStatsModuleScss {
     activity: string;
     'activity-title': string;
-    content: string;
-    wrapper: string;
   }
 }
 
