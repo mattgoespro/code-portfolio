@@ -3,15 +3,17 @@ import styles from './AboutPage.module.scss';
 export function AboutPage() {
   return (
     <div className={styles['about-page']}>
-      <div className={styles.about}>
-        <div className={styles.head}>
-          <h1 className={styles.name}>Matthew Young</h1>
+      <div className={styles['page-header']}>
+        <h1 className={styles.name}>
+          Matthew <span>Young</span>
+        </h1>
+        <div className={styles['character-traits-list']}>
           <div className={styles['character-traits']}>
             <div>Challenge Seeker</div>
             <div className={styles.separator}></div>
             <div>Go-Getter</div>
             <div className={styles.separator}></div>
-            <div>Scholar</div>
+            <div>Avid Learner</div>
           </div>
           <div className={styles['character-traits']}>
             <div>Adventurer</div>
@@ -19,94 +21,91 @@ export function AboutPage() {
             <div>Dreamer</div>
           </div>
         </div>
-        <div className={styles['about-me']}>
-          <div className={styles['summary-header']}>
-            <p className={styles['summary-text']}>
-              Hey! My name is Matthew Young, I am 26 years of age and currently living in Cape Town,
-              South Africa. Welcome to my humble abode hidden in my tiny corner of the web. I have
-              been working as a Software Engineer for close to 4 years, and am lucky enough to have
-              turned my passion into my livelihood.
-            </p>
-            <img src="/assets/images/misc/face-portrait.jpg" alt="profile-img" />
-          </div>
-          <div>
-            <p>
-              My web page serves as a portfolio piece itself, as well as to showcase my most
-              noteworthy software projects over my tenure as a programmer, as well as to learn,
-              develop, and improve my skills as a UX designer and full-stack developer.
-            </p>
-            <p>
-              If you found my web page from my resume, thank you for taking an interest in me as a
-              professional. If not, you can gain a good feel of what I am all about by taking a
-              browse around my portfolio. browsing my projects: my personality, professional skills,
-              interests, and extracurricular activities. about, or to simply take a tour of just
-              taking a tour of my portfolio.
-            </p>
-            <p>
-              Technology has been my passion started at a young age, when CRT monitors, dialup
-              internet, and encyclopedia software dominated my time. My love of technology grew into
-              my teenage years where I would discover and divulge myself in copious amounts of
-              online multiplayer PC gaming. The fantasy to one day create games ultimately became
-              the catalyst to my growth as a programmer.
-            </p>
-            <p>
-              After enrolling in my selected Information Technology classes at the age of 16, I was
-              ready to take on the world, but things did not turn out as easy as I expected. After
-              under-performing and not meeting my own expectations, a shadow of doubt was cast as to
-              whether I was cut out for this kind of work and considered dropping it altogether.
-              Little did I know that a new and up and coming sandbox game I was obsessed with would
-              change the course of my entire life - Minecraft.
-            </p>
-            <p>
-              Minecraft - being developed in Java - had an outstanding server plugin community, so I
-              began to fiddle around and see what I could do (a good friend started a public server
-              at the same time). The server went on to integrate my own custom plugins, and while
-              doing so, eventually became one of the top 5 Minecraft servers worldwide by number of
-              concurrent players. I was thrilled experiencing others enjoying the fruits of my
-              labour. It was at this time that my 'code-brain' unlocked, and I knew there and then
-              that this was what I was destined to do.
-            </p>
-            <p>Funnily, I ended up graduating top of my programming class.</p>
-            <p>
-              In 2015, I began my tertiary education at the University of Cape Town. In 2019, I
-              graduated with an Honours degree, majoring in Computer Science and Computer Games
-              Development.
-            </p>
-            <p>
-              I have been working professionally as a Software Engineer for ~4 years. I am currently
-              involved in the FinTech sector, focusing on developing state of the art web-services
-              to facilitate distribution of terminal configuration to merchant retail stores over
-              the internet at a monumental scale. There is a chance you have used my code without
-              realizing it!
-            </p>
-            <p>
-              I have a passion for learning and extreme drive for success. Programming has become a
-              large part of my life, both professionally and personally; I find great pleasure in
-              learning about, designing, engineering, and delivering cutting-edge software products
-              across a wide range of platforms, some of which include:
-            </p>
-            <ul>
-              <li>Web applications</li>
-              <li>
-                Mobile development (see my published Android/iOS application,{' '}
-                <a
-                  className={styles['smellsense-link']}
-                  href="https://mattgoespro.github.io/smellsense-site/"
-                  target="tab"
-                >
-                  SmellSense
-                </a>
-                )
-              </li>
-              <li>Game Development</li>
-            </ul>
-            <p>
-              When I'm not at the computer with 20+ Google Chrome tabs open during a debug session,
-              you may find me at the beach, grabbing a beer on a night out with friends, catching up
-              on the latest memes, watching my favourite internet personalities, or enjoying a
-              relaxing gaming session.
+      </div>
+      <div className={styles['page-header-wave']}></div>
+      <div className={styles['about-me']}>
+        <div className={styles['summary-header']}>
+          <div className={styles['summary-text']}>
+            <h1 className={styles['summary-text-heading']}>Hi, I'm Matt.</h1>
+            <p className={styles['summary-text-info']}>
+              This is my online portfolio, where you can get an inside look into my skills as a
+              Software Engineer, and see what I've been working on outside of my professional
+              career.
             </p>
           </div>
+          <img src="/assets/images/misc/portrait.jpg" alt="profile-img" />
+        </div>
+        <div className={styles['detailed-info']}>
+          <p>
+            I am 27 years of age currently living in Cape Town, South Africa. I have been working as
+            a full-stack Software Engineer for close to 4 years.
+          </p>
+          <p>
+            I've showed in technology for as long as I can remember (when CRT monitors, dial-up
+            internet, and encyclopedia software dominated) . My love of technology grew into my
+            teenage years, when I would discover and divulge in copious amounts of online
+            multiplayer PC gaming. The dream to one day create video games for everyone to enjoy as
+            much as I did ultimately became the prime inspiration to pursue programming as a career.
+          </p>
+          <div className={styles['uct-caption']}>
+            <img src="/assets/images/misc/university-of-cape-town.jpg" alt="uct" />
+            <label>University of Cape Town</label>
+          </div>
+          <p>
+            After enrolling in my highschool Information Technology class at the age of 16, I was
+            ready to take on the programming world head-on, but things did not turn out as easy as I
+            was expecting. After underperforming in class, struggling to grasp and comprehend
+            programming fundamentals, a shadow of doubt was cast on the prospect of pursuing my
+            dream. Was I cut out for this kind of work? I considered dropping programming
+            altogether.
+          </p>
+          <p>
+            Little did I know that a new and up and coming sandbox game I had been obsessed about
+            would change the course of my programming journey - Minecraft.
+          </p>
+          <p>
+            Minecraft - developed in Java - had an outstanding server plugin community, so I began
+            to fiddle around, creating small plugins to test my capabilities. A good friend of mine
+            had started a public Minecraft server around the same time, which went on to integrate
+            and use the custom plugins I had written for it. The server eventually became one of the
+            top 5 most played-on Minecraft servers worldwide, and I was thrilled to see other
+            players having fun with the plugins that I had written. It was at this time when
+            something clicked in my head; my 'code-brain' unlocked, and I knew this was what I
+            wanted to do for a living.
+          </p>
+          <p>I ended up graduating top of my programming class by the end of highschool.</p>
+          <p>
+            In 2015 I enrolled at the University of Cape Town majoring in Computer Science with a
+            double major in Games Development. In 2019 I graduated with an honours degree in my
+            chosen majors.
+          </p>
+          <p>
+            I have been working professionally as a full-stack Software Engineer for around 4 years.
+            I am currently working in the FinTech industry, focusing on developing state of the art
+            web services that facilitate distribution of point-of-sale terminal configuration over
+            the internet to merchant retail stores, all at a global scale. There is a chance you
+            have used my code without realizing it!
+          </p>
+          <p>
+            I have a passion for learning and an overwhelming drive for success. Programming has
+            become a quintessential part of my life, both professionally and personally. I find
+            great pleasure in studying, designing, prototyping, engineering, and delivering
+            cutting-edge software solutions across a wide range of platforms including the web,
+            mobile (
+            <a
+              className={styles['smellsense-link']}
+              href="https://mattgoespro.github.io/smellsense-site/"
+              target="tab"
+            >
+              SmellSense
+            </a>
+            ), and gaming.
+          </p>
+          <p>
+            When I'm not at the computer with 20+ Google Chrome tabs open during a debug session,
+            you may find me at the beach, catching up on the latest memes, watching my favourite
+            internet personalities on Twitch or YouTube, or enjoying a relaxing gaming session.
+          </p>
         </div>
       </div>
     </div>

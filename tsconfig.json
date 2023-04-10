@@ -13,7 +13,6 @@
     "paths": {
       "@shared/components/*": ["./src/app/Shared/Components/*"],
       "@shared/utility/*": ["./src/app/Shared/Utility/*"],
-
       "@icons/*": ["./src/assets/icons/*"]
     }
   },

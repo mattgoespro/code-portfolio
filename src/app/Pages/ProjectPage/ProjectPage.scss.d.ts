@@ -3,6 +3,9 @@ declare namespace ProjectPageScssNamespace {
     banner: string;
     'banner-content': string;
     'banner-text': string;
+    'header-subtitle': string;
+    'header-title': string;
+    'page-header': string;
     'project-page': string;
   }
 }

@@ -1,16 +1,15 @@
-.wrapper {
-  .activity-title {
-    font-size: 24px;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-  }
+.activity-title {
+  font-family: 'Nunito';
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
 
-  .content {
-    .activity {
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 200;
-      margin: 5px;
-    }
-  }
+.activity {
+  font-family: 'Nunito';
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  margin: 5px;
 }

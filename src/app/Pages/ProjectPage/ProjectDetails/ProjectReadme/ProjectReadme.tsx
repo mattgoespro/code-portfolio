@@ -32,6 +32,9 @@ export function ProjectReadme(props: ProjectReadmeProps) {
               case 'li':
                 domNode.attribs.class = styles['section-content'];
                 break;
+              case 'a':
+                domNode.attribs.class = styles['section-link'];
+                break;
             }
 
             return domNode;

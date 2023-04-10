@@ -1,71 +1,49 @@
 @import 'colors', 'mixins';
 
 .wrapper {
-  margin: 100px auto;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  margin: 0 auto 200px auto;
+  max-width: 60%;
 
-  .intro {
+  .project-name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 100;
+    text-align: center;
+    color: $light;
+    margin: 50px;
+  }
+
+  .stats {
+    display: flex;
+    margin-bottom: 50px;
+    color: $light;
     position: relative;
-    max-width: 900px;
-    margin-bottom: 100px;
 
-    &:after {
-      border-bottom: 1px solid $light-grey;
-      content: '';
-      position: absolute;
-      width: 100%;
-      bottom: -40px;
+    .stats-card,
+    .language-card {
+      flex: 1 1 100%;
+      padding: 20px;
+      border: 1px solid $light;
+      border-radius: 10px;
     }
 
-    .name {
-      font-family: 'Roboto Serif' sans-serif;
-      font-size: 42px;
-      font-weight: 100;
-      text-align: center;
-      margin: 0;
+    .stats-card {
+      margin: 10px 10px 10px 0;
+    }
+
+    .language-card {
+      margin: 10px 10px 10px 0;
     }
   }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    max-width: 700px;
-
-    .info {
-      display: flex;
-      margin-bottom: 10px;
-
-      .content-section {
-        flex: 1 1 100%;
-        padding: 30px;
-        background-color: $blue;
-        color: #ffffff;
-
-        &:first-child {
-          margin-right: 5px;
-        }
-
-        &:nth-child(2) {
-          margin-left: 5px;
-        }
-      }
-    }
-
-    .readme {
-      padding: 50px;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    }
-
-    .readme-unavailable {
-      text-align: center;
-      font-family: 'Roboto';
-      margin-top: 20px;
-      color: $dark-grey;
-    }
+  .readme-unavailable {
+    text-align: center;
+    font-family: 'Roboto';
+    margin-top: 20px;
+    color: $dark-grey;
   }
 }

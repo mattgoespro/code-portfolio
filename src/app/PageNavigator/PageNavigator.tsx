@@ -3,12 +3,16 @@ import NavHeaderLogo from '@icons/nav-header.svg';
 import LinkedInLogo from '@icons/linkedin.svg';
 import GitHubLogo from '@icons/github.svg';
 import styles from './PageNavigator.module.scss';
+import AnimationOnScroll from 'aos';
+import 'aos/dist/aos.css';
 
 interface PageNavigatorProps {
   landingPage: JSX.Element;
 }
 
 export function PageNavigator(props: PageNavigatorProps) {
+  AnimationOnScroll.init();
+
   const location = useLocation();
 
   return (
@@ -22,7 +26,7 @@ export function PageNavigator(props: PageNavigatorProps) {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link className={styles['page-link']} to="/projects/list">
+            <Link className={styles['page-link']} to="/projects">
               Projects
             </Link>
           </li>

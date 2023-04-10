@@ -1,15 +1,32 @@
-@import 'colors', 'page';
+@use 'sass:math';
+@import 'colors', 'mixins', 'page';
 
 .project-page {
   background-color: $content-page-background;
+  min-height: 100vh;
 }
 
-.banner-text {
-  @extend .banner-text;
-  max-width: 100%;
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 25rem;
 
-  h1,
-  h2 {
+  .header-title {
+    font-family: 'Source Code Pro', 'Nunito', sans-serif;
     text-align: center;
+    font-size: 6rem;
+    font-weight: 200;
+    margin: 0 0 2rem;
+    color: $light;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Code Pro', 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 0;
+    color: $light;
   }
 }
