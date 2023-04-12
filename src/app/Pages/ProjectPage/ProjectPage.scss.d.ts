@@ -9,6 +9,7 @@ declare namespace ProjectPageScssNamespace {
     'page-header-wave': string;
     'project-load-error': string;
     'project-load-error-overlay': string;
+    'project-load-error-overlay-fade': string;
     'project-page': string;
   }
 }

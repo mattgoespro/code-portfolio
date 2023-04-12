@@ -65,18 +65,15 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
 }
 
 .bottom-wave-blue {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/brandeisblue-richblack.svg');
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/blue-navy.svg');
 }
 
 .top-wave-blue {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/richblack-brandeisblue.svg');
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/navy-blue.svg');
 }
 
 .top-wave-orange {
-  @include wave-border(
-    math.div(1920, 400),
-    'svg/curves/layered-waves/richblack-halloweenorange.svg'
-  );
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/navy-orange.svg');
 }
 
 .banner-logo {

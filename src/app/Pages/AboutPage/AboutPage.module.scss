@@ -6,14 +6,14 @@
 }
 
 .page-header-wave {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/richblack-white.svg');
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/navy-white.svg');
 }
 
 .page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: $wave-curve-richblack;
+  background-color: $wave-curve-navy;
   height: 20rem;
 
   .name {

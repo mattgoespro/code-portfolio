@@ -6,15 +6,15 @@
 }
 
 .page-header-wave {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/midnightblue-richblack.svg');
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/blue-navy.svg');
 }
 
 .page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: $wave-curve-blue;
   height: 20rem;
-  background-color: $wave-curve-brandeisblue;
 
   .header-title {
     font-family: 'Source Code Pro', 'Nunito', sans-serif;
@@ -35,11 +35,26 @@
   }
 }
 
+@keyframes project-load-error-overlay-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+$error-animation-duration: 300ms;
+
 .project-load-error {
+  opacity: 0;
   position: absolute;
   z-index: 2;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
+  animation: project-load-error-overlay-fade $error-animation-duration ease-out;
+  animation-fill-mode: forwards;
 }
 
 .project-load-error-overlay {
@@ -51,4 +66,5 @@
   filter: brightness(55%);
   width: calc(100vw - $nav-width);
   height: 100vh;
+  animation: project-load-error-overlay-fade $error-animation-duration ease-out;
 }

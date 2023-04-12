@@ -34,7 +34,6 @@ export function ProjectPage() {
         )}
       </div>
       <div className={styles['page-header-wave']}></div>
-
       <Outlet context={onError} />
     </div>
   );
