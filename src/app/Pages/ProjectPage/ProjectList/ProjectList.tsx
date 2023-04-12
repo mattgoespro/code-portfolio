@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { ProjectCard } from './ProjectCard/ProjectCard';
 import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
 import styles from './ProjectList.module.scss';
-import { ProjectRequestFailure } from './ProjectListRequestFailure/ProjectListRequestFailure';
+import { useOutletContext } from 'react-router-dom';
 
 export function ProjectList() {
   const [fetchingProjects, setFetchingProjects] = useState(true);
   const [projects, setProjects] = useState<RepositorySummary[]>([]);
   const [error, setError] = useState(false);
+  const cont = useOutletContext<(err: boolean) => void>();
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -20,10 +21,12 @@ export function ProjectList() {
         setProjects(resp.data);
         setFetchingProjects(false);
         setError(false);
+        cont(false);
       })
       .catch(() => {
         setFetchingProjects(false);
         setError(true);
+        cont(true);
       });
 
     return () => {
@@ -33,15 +36,6 @@ export function ProjectList() {
 
   return (
     <>
-      {error && (
-        <ProjectRequestFailure
-          errorMessage={
-            <div>
-              <span>Oops!</span> The projects failed to load
-            </div>
-          }
-        />
-      )}
       {!error && !fetchingProjects && (
         <>
           <div className={styles['pinned-project-list']}>

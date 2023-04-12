@@ -1,16 +1,20 @@
 @use 'sass:math';
-@import 'colors', 'mixins', 'page';
+@import 'colors', 'mixins', 'page', 'navigation';
 
 .project-page {
   background-color: $content-page-background;
-  min-height: 100vh;
+}
+
+.page-header-wave {
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/midnightblue-richblack.svg');
 }
 
 .page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 25rem;
+  height: 20rem;
+  background-color: $wave-curve-brandeisblue;
 
   .header-title {
     font-family: 'Source Code Pro', 'Nunito', sans-serif;
@@ -29,4 +33,22 @@
     margin: 0;
     color: $light;
   }
+}
+
+.project-load-error {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+}
+
+.project-load-error-overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(9px);
+  filter: brightness(55%);
+  width: calc(100vw - $nav-width);
+  height: 100vh;
 }

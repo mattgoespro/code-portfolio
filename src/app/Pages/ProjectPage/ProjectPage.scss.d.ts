@@ -6,6 +6,9 @@ declare namespace ProjectPageScssNamespace {
     'header-subtitle': string;
     'header-title': string;
     'page-header': string;
+    'page-header-wave': string;
+    'project-load-error': string;
+    'project-load-error-overlay': string;
     'project-page': string;
   }
 }

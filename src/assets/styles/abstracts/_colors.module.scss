@@ -14,14 +14,33 @@ $light-grey: #d9d9d9;
 $dark-blue: #253d74;
 $dark-orange: #f4602c;
 $dark-grey: #3a3a3a;
-$navy-blue: #001220;
+$dark-blue-black: #001220;
 
 // Content
-$content-page-background: $navy-blue;
-$wave-divider-start: $navy-blue;
-$wave-divider-end: #0066ff;
+$content-page-background: $dark-blue-black;
 
 // Typography
 $text-hyperlink: #3367d6;
 $text-title: $dark-grey;
 $text-subtitle: $grey;
+
+/////////////////////////////////////
+///
+///     Wave Curve Generation
+///
+///     App dimensions: width - 1920px,  height - 400px
+///
+///     Shape:
+///       - Balance: full
+///       - Wave count: 6
+///       - Complexity: 12
+///       - Contrast: 6
+///       - Overlap: 0
+///
+
+/// Curve start-end colors colors
+$wave-curve-richblack: $dark-blue-black;
+$wave-curve-halloweenorange: $dark-orange;
+$wave-curve-brandeisblue: #0066ff;
+$wave-curve-midnight: #00408b;
+$wave-curve-light: $light;

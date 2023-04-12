@@ -1,5 +1,3 @@
-import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
-import axios from 'axios';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { PageNavigator } from './PageNavigator/PageNavigator';
 import { AboutPage } from './Pages/AboutPage/AboutPage';

@@ -2,20 +2,18 @@
 @import 'colors', 'mixins', 'page';
 
 .about-page {
-  display: flex;
-  flex-direction: column;
   background-color: $light;
 }
 
 .page-header-wave {
-  @include wave-border(math.div(1920, 400), 'svg/BottomWaveWhite.svg');
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/richblack-white.svg');
 }
 
 .page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: $navy-blue;
+  background-color: $wave-curve-richblack;
   height: 20rem;
 
   .name {
@@ -24,7 +22,7 @@
     font-size: 6rem;
     font-weight: 200;
     color: $blue;
-    margin: 0 14px 0;
+    margin: 0 0 2rem;
 
     span {
       color: $light;
@@ -32,14 +30,12 @@
   }
 
   .character-traits-list {
-    margin-top: 10px;
-
     .character-traits {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.125rem;
+      font-family: 'Source Code Pro', 'Nunito', sans-serif;
+      font-size: 2rem;
       font-weight: 100;
       color: $light;
       margin-bottom: 10px;
