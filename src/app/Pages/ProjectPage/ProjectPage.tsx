@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { ProjectRequestFailure } from './ProjectList/ProjectListRequestFailure/ProjectListRequestFailure';
+import { Link as ExternalLink } from '@mui/material';
+
 import styles from './ProjectPage.scss';
 
 export function ProjectPage() {
@@ -31,7 +33,19 @@ export function ProjectPage() {
       <div className={styles['page-header']}>
         <h1 className={styles['header-title']}>{params.projectName || 'Projects'}</h1>
         {!params.projectName && (
-          <h2 className={styles['header-subtitle']}>All projects are available on GitHub</h2>
+          <h2 className={styles['header-subtitle']}>
+            Available on{' '}
+            <span>
+              <ExternalLink
+                href="https://github.com/mattgoespro"
+                target="tab"
+                underline="none"
+                className={styles['github-profile']}
+              >
+                GitHub
+              </ExternalLink>
+            </span>
+          </h2>
         )}
       </div>
       <div className={styles['page-header-wave-bottom']}></div>

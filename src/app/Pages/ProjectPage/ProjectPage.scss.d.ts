@@ -1,5 +1,6 @@
 declare namespace ProjectPageScssNamespace {
   export interface IProjectPageScss {
+    'github-profile': string;
     'header-subtitle': string;
     'header-title': string;
     'page-header': string;

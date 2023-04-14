@@ -136,6 +136,7 @@ export function HomePage() {
 
   return (
     <div className={styles['home-page']}>
+      <div className={styles['page-header-wave-top']}></div>
       {banner}
       <div className={styles['top-wave-blue']}></div>
       {skillSection(

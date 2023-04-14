@@ -14,19 +14,17 @@
 }
 
 .page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: $wave-curve-navy;
   height: 20rem;
 
   .name {
-    text-align: center;
     font-family: 'Source Code Pro', 'Nunito', sans-serif;
+    text-align: center;
     font-size: 6rem;
     font-weight: 200;
+    letter-spacing: 10px;
     color: $blue;
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
 
     span {
       color: $light;
@@ -38,10 +36,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Source Code Pro', 'Nunito', sans-serif;
-      font-size: 2rem;
-      font-weight: 100;
-      color: $light;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 2px;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: $light-grey;
       margin-bottom: 10px;
 
       &:last-child {
@@ -52,7 +51,7 @@
         width: 8px;
         height: 8px;
         border-radius: 8px;
-        background-color: $dark-orange;
+        background-color: $dark-grey;
         margin: 0 10px;
       }
     }
