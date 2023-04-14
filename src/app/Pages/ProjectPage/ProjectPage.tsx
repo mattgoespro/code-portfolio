@@ -13,6 +13,7 @@ export function ProjectPage() {
 
   return (
     <div className={styles['project-page']}>
+      <div className={styles['page-header-wave-top']}></div>
       {error && (
         <>
           <div className={styles['project-load-error-overlay']}></div>
@@ -28,12 +29,12 @@ export function ProjectPage() {
         </>
       )}
       <div className={styles['page-header']}>
-        <h1 className={styles['header-title']}>{params.projectName || 'My Projects'}</h1>
+        <h1 className={styles['header-title']}>{params.projectName || 'Projects'}</h1>
         {!params.projectName && (
           <h2 className={styles['header-subtitle']}>All projects are available on GitHub</h2>
         )}
       </div>
-      <div className={styles['page-header-wave']}></div>
+      <div className={styles['page-header-wave-bottom']}></div>
       <Outlet context={onError} />
     </div>
   );

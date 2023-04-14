@@ -1,19 +1,23 @@
 @use 'sass:math';
-@import 'colors', 'mixins', 'page', 'navigation';
+@import 'colors', 'mixins', 'navigation';
 
 .project-page {
   background-color: $content-page-background;
 }
 
-.page-header-wave {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/blue-navy.svg');
+.page-header-wave-top {
+  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/navy-white.svg');
+}
+
+.page-header-wave-bottom {
+  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/white-navy.svg');
 }
 
 .page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: $wave-curve-blue;
+  background-color: $light;
   height: 20rem;
 
   .header-title {
@@ -22,16 +26,16 @@
     font-size: 6rem;
     font-weight: 200;
     margin: 0 0 2rem;
-    color: $light;
+    color: darken($orange, 15%);
   }
 
   .header-subtitle {
     font-family: 'Source Code Pro', 'Nunito', sans-serif;
     text-align: center;
     font-size: 2rem;
-    font-weight: 100;
+    font-weight: 300;
     margin: 0;
-    color: $light;
+    color: $dark-grey;
   }
 }
 

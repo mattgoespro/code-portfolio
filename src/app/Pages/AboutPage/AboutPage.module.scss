@@ -1,16 +1,16 @@
 @use 'sass:math';
-@import 'colors', 'mixins', 'page';
+@import 'colors', 'mixins';
 
 .about-page {
   background-color: $light;
 }
 
 .page-header-wave-top {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/orange-navy-2.svg');
+  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/orange-navy.svg');
 }
 
-.page-header-wave {
-  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/navy-white.svg');
+.page-header-wave-bottom {
+  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/navy-white.svg');
 }
 
 .page-header {
@@ -26,7 +26,7 @@
     font-size: 6rem;
     font-weight: 200;
     color: $blue;
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
 
     span {
       color: $light;

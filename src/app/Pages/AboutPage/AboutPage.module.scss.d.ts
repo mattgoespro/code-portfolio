@@ -2,15 +2,12 @@ declare namespace AboutPageModuleScssNamespace {
   export interface IAboutPageModuleScss {
     'about-me': string;
     'about-page': string;
-    banner: string;
-    'banner-content': string;
-    'banner-text': string;
     'character-traits': string;
     'character-traits-list': string;
     'detailed-info': string;
     name: string;
     'page-header': string;
-    'page-header-wave': string;
+    'page-header-wave-bottom': string;
     'page-header-wave-top': string;
     separator: string;
     'smellsense-link': string;

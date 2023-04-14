@@ -23,7 +23,7 @@ export function AboutPage() {
           </div>
         </div>
       </div>
-      <div className={styles['page-header-wave']}></div>
+      <div className={styles['page-header-wave-bottom']}></div>
       <div className={styles['about-me']}>
         <div className={styles['summary-header']}>
           <div className={styles['summary-text']}>
