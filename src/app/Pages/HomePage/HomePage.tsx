@@ -40,7 +40,7 @@ export function HomePage() {
       const attrs = {};
 
       if (skill.experienced) {
-        attrs['experienced'] = '';
+        attrs['experienced'] = `${skill.yearsExperience} yrs`;
         attrs['style'] = setStylesheetVariables({
           name: 'skill-box-border-color',
           value: styles['border-color-experienced']
@@ -95,20 +95,16 @@ export function HomePage() {
     });
   }
 
-  const banner = (
-    <div className={styles.banner}>
-      <div className={styles['banner-content']}>
-        <div className={styles['banner-text']}>
-          <h1>Hey</h1>
-          <h2>I'm Matt, and this is my little corner of the web.</h2>
-        </div>
-        <div className={styles['banner-logo']}>
-          <img src="/assets/images/hoppingmode-logo.png" />
-        </div>
+  const introduction = (
+    <div className={styles.introduction}>
+      <div className={styles['introduction-text']}>
+        <h1>Hey</h1>
+        <h2>I'm Matt, and this is my little corner of the web.</h2>
+        <h3>
+          Online, I go by the alias <span className={styles.alias}>hoppingmode</span>.
+        </h3>
       </div>
-      <div className={styles['banner-logo-alias']}>
-        Online, I go by the alias <span className={styles.alias}>hoppingmode</span>.
-      </div>
+      <img className={styles.logo} src="/assets/images/hoppingmode-logo.png" />
     </div>
   );
 
@@ -122,11 +118,10 @@ export function HomePage() {
       <div
         id={skillType}
         className={
-          `${styles['skills-section']}` +
-          (addStyleClass ? ` ${styles[`skills-section-${skillType}`]}` : '')
+          `${styles['skill-section']}` + (addStyleClass ? ` ${styles[`${skillType}`]}` : '')
         }
       >
-        <h3 id="title" {...skillTitleScrollFade(skillType)}>
+        <h3 className={styles['section-text']} {...skillTitleScrollFade(skillType)}>
           {text}
         </h3>
         <div className={styles['skill-list']}>{skillList(skills, skillType)}</div>
@@ -136,20 +131,21 @@ export function HomePage() {
 
   return (
     <div className={styles['home-page']}>
-      <div className={styles['page-header-wave-top']}></div>
-      {banner}
-      <div className={styles['top-wave-blue']}></div>
+      <div className={styles['page-wave-top']}></div>
+      {introduction}
+      <div className={styles['languages-wave-top']}></div>
       {skillSection(
         'languages',
-        `I have professional and personal experience programming in a variety of programming languages`,
+        `I have professional and personal experience working with a variety of programming languages`,
         devLanguages,
         true
       )}
-      <div className={styles['bottom-wave-blue']}></div>
+      <div className={styles['languages-wave-bottom']}></div>
       {skillSection(
         'frameworks',
         `Across a multitude of software development frameworks`,
-        devFrameworks
+        devFrameworks,
+        true
       )}
       <div className={styles['others-section']}>
         <div className={styles['others-text']}>

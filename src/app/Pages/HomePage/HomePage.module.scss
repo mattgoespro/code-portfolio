@@ -6,16 +6,14 @@
   --skill-box-border-color: #ffffff;
 }
 
-$section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
-
 :export {
   // Languages
-  color-javascript: #dab92d;
-  color-typescript: #86c0ff;
-  color-sass: #e98db8;
-  color-java: #ff2b2b;
-  color-c-sharp: #dd77ff;
-  color-dart: #36b9f4;
+  color-javascript: darken(#dab73d, 10%);
+  color-typescript: darken(#317ac3, 10%);
+  color-sass: darken(#e98db8, 10%);
+  color-java: darken($red, 10%);
+  color-c-sharp: darken(#59308e, 10%);
+  color-dart: darken(#36b9f4, 10%);
 
   // Frameworks
   color-angular: #ff2b2b;
@@ -28,135 +26,98 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
   color-flutter: #5ac7f6;
 
   // Other
-  border-color-experienced: $orange;
+  border-color-experienced: #317ac3;
 }
 
-.banner-content {
-  align-items: center;
-  color: #f5f5f5;
+.page-wave-top {
+  @include wave-border(math.div(1920, 300), 'svg/border-waves/orange-navy.svg');
+}
+
+.languages-wave-top {
+  @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-white.svg');
+}
+
+.languages-wave-bottom {
+  @include wave-border(math.div(1920, 300), 'svg/border-waves/white-navy.svg');
+}
+
+.introduction {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 50px;
-}
-
-.banner {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
+  height: 31.25rem;
 
-.banner-text {
-  display: flex;
-  flex-direction: column;
-  max-width: 30%;
+  .logo {
+    max-width: 500px;
+  }
 
-  h1,
-  h2 {
+  .introduction-text {
     font-family: 'Source Code Pro', 'Nunito', sans-serif;
     text-align: left;
-  }
+    color: $light;
+    max-width: 30rem;
 
-  h1 {
-    font-size: 9rem;
-    font-weight: 300;
-    margin: 0 0 2rem;
-  }
+    h1 {
+      font-size: 6rem;
+      font-weight: 300;
+      margin: 0 0 1.25rem;
+    }
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 100;
-    margin: 0;
+    h2,
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 100;
+      margin: 0 0 1.25rem;
+    }
+
+    span.alias {
+      font-weight: 400;
+      color: $orange;
+    }
   }
 }
 
-@mixin skill-section-title {
-  max-width: 700px;
-  text-align: center;
-  font-size: 2rem;
+@mixin section-text {
+  font-family: 'Quicksand', 'Nunito', sans-serif;
+  font-size: 32px;
   font-weight: 300;
-  color: $light;
-  margin: 0 0 50px;
+  max-width: 56.25rem;
+  text-align: center;
+  margin: 0 0 25px;
 }
 
-@mixin skills {
+@mixin section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Source Code Pro', 'Nunito', sans-serif;
   height: 400px;
+}
 
-  h3 {
-    @include skill-section-title;
+.skill-section {
+  @include section;
+
+  &.languages {
+    background-color: $light !important;
+
+    .section-text {
+      @include section-text;
+    }
   }
-}
 
-@mixin skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 800px;
-}
+  &.frameworks {
+    .section-text {
+      @include section-text;
+    }
 
-.home-page {
-  background-color: $content-page-background;
-}
-
-.page-header-wave-top {
-  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/orange-navy.svg');
-}
-
-.bottom-wave-blue {
-  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/blue-navy.svg');
-}
-
-.top-wave-blue {
-  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/navy-blue.svg');
-}
-
-.top-wave-orange {
-  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/navy-orange.svg');
-}
-
-.banner-logo {
-  max-width: 500px;
-  margin-left: 100px;
-
-  img {
-    width: 100%;
+    color: $light;
   }
-}
-
-.banner-logo-alias {
-  font-family: 'Source Code Pro', 'Nunito', sans-serif;
-  font-weight: 100;
-  font-size: 2rem;
-  font-weight: 100;
-  margin-top: 8rem;
-  margin-bottom: 7rem;
-  color: $light;
-
-  span.alias {
-    font-weight: 400;
-    color: $orange;
-  }
-}
-
-.skills-section {
-  @include skills();
 
   .skill-list {
-    @include skill-list();
-  }
-}
-
-.skills-section-languages {
-  background-color: #0066ff;
-
-  h3 {
-    text-shadow: $section-title-text-shadow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
   }
 }
 
@@ -164,29 +125,30 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Nunito', sans-serif;
-  max-width: 200px;
+  max-width: 100px;
   margin: 5px;
   padding: 15px;
-  background-color: #002a54;
-  border: 2px solid var(--skill-box-border-color);
-  border-radius: 10px;
+  border: 3px solid #8d8d8d;
+  border-radius: 20px;
+
+  &[experienced] {
+    border-color: var(--skill-box-border-color);
+  }
 
   &[experienced]:hover::before {
-    content: 'Work Experience';
+    content: attr(experienced);
     position: absolute;
-    align-items: center;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 300;
-    letter-spacing: 1px;
+    background-color: $blue;
+    min-width: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
     color: $light;
+    text-align: center;
     white-space: nowrap;
     bottom: 110%;
-    background-color: #001220;
-    border: 2px solid $orange;
-    border-radius: 25px;
-    padding: 10px;
+    border-radius: 12px;
+    padding: 7px;
     animation-name: fade-in-grow;
     animation-duration: 200ms;
     animation-timing-function: ease-out;
@@ -194,7 +156,7 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
   }
 
   .skill-brand-icon img {
-    width: 36px;
+    max-width: 28px;
   }
 
   .skill {
@@ -205,8 +167,9 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
     margin-left: 8px;
 
     .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
     }
 
     .skill-name-underline {
@@ -225,9 +188,10 @@ $section-title-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
 
   .others-text {
     h3 {
-      @include skill-section-title;
+      @include section-text;
       max-width: 400px;
       line-height: 1.5;
+      color: $light;
     }
   }
 

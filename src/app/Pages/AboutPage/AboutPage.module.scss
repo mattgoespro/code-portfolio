@@ -6,15 +6,19 @@
 }
 
 .page-header-wave-top {
-  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/orange-navy.svg');
+  @include wave-border(math.div(1920, 300), 'svg/border-waves/orange-navy.svg');
 }
 
 .page-header-wave-bottom {
-  @include wave-border(math.div(1920, 300), 'svg/curves/layered-waves/navy-white.svg');
+  @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-white.svg');
 }
 
 .page-header {
-  background-color: $wave-curve-navy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $navy;
   height: 20rem;
 
   .name {

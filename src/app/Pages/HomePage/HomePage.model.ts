@@ -6,24 +6,28 @@ export interface SoftwareEngineeringSkills {
   resourceIdentifier: string;
   name: string;
   experienced?: boolean;
+  yearsExperience?: number;
 }
 
 export const devLanguages: SoftwareEngineeringSkills[] = [
-  { resourceIdentifier: 'java', name: 'Java', experienced: true },
+  { resourceIdentifier: 'java', name: 'Java', experienced: true, yearsExperience: 4 },
   {
     resourceIdentifier: 'javascript',
     name: 'JavaScript',
-    experienced: true
+    experienced: true,
+    yearsExperience: 3.5
   },
   {
     resourceIdentifier: 'typescript',
     name: 'TypeScript',
-    experienced: true
+    experienced: true,
+    yearsExperience: 3.5
   },
   {
     resourceIdentifier: 'sass',
     name: 'SASS',
-    experienced: true
+    experienced: true,
+    yearsExperience: 3.5
   },
   {
     resourceIdentifier: 'c-sharp',
@@ -33,12 +37,12 @@ export const devLanguages: SoftwareEngineeringSkills[] = [
 ];
 
 export const devFrameworks: SoftwareEngineeringSkills[] = [
-  { resourceIdentifier: 'node', name: 'Node', experienced: true },
-  { resourceIdentifier: 'react', name: 'React', experienced: true },
-  { resourceIdentifier: 'angular', name: 'Angular', experienced: true },
-  { resourceIdentifier: 'postgresql', name: 'PostgreSQL', experienced: true },
-  { resourceIdentifier: 'docker', name: 'Docker', experienced: true },
-  { resourceIdentifier: 'spring', name: 'Spring', experienced: true },
+  { resourceIdentifier: 'node', name: 'Node', experienced: true, yearsExperience: 3.5 },
+  { resourceIdentifier: 'react', name: 'React', experienced: true, yearsExperience: 2 },
+  { resourceIdentifier: 'angular', name: 'Angular', experienced: true, yearsExperience: 3.5 },
+  { resourceIdentifier: 'postgresql', name: 'PostgreSQL', experienced: true, yearsExperience: 4 },
+  { resourceIdentifier: 'docker', name: 'Docker', experienced: true, yearsExperience: 2 },
+  { resourceIdentifier: 'spring', name: 'Spring', experienced: true, yearsExperience: 3 },
   {
     resourceIdentifier: 'express',
     name: 'express.js'

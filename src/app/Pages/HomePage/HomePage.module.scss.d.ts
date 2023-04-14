@@ -1,13 +1,7 @@
 declare namespace HomePageModuleScssNamespace {
   export interface IHomePageModuleScss {
     alias: string;
-    banner: string;
-    'banner-content': string;
-    'banner-logo': string;
-    'banner-logo-alias': string;
-    'banner-text': string;
     'border-color-experienced': string;
-    'bottom-wave-blue': string;
     'color-angular': string;
     'color-c-sharp': string;
     'color-dart': string;
@@ -23,22 +17,26 @@ declare namespace HomePageModuleScssNamespace {
     'color-spring': string;
     'color-typescript': string;
     'fade-in-grow': string;
-    'home-page': string;
+    frameworks: string;
+    introduction: string;
+    'introduction-text': string;
+    languages: string;
+    'languages-wave-bottom': string;
+    'languages-wave-top': string;
+    logo: string;
     'others-list': string;
     'others-section': string;
     'others-text': string;
-    'page-header-wave-top': string;
+    'page-wave-top': string;
+    'section-text': string;
     skill: string;
     'skill-brand-icon': string;
     'skill-list': string;
     'skill-list-item': string;
     'skill-name': string;
     'skill-name-underline': string;
+    'skill-section': string;
     'skill-tool-img': string;
-    'skills-section': string;
-    'skills-section-languages': string;
-    'top-wave-blue': string;
-    'top-wave-orange': string;
   }
 }
 
