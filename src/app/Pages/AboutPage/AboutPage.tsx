@@ -3,6 +3,7 @@ import styles from './AboutPage.module.scss';
 export function AboutPage() {
   return (
     <div className={styles['about-page']}>
+      <div className={styles['page-header-wave-top']}></div>
       <div className={styles['page-header']}>
         <h1 className={styles.name}>
           Matthew <span>Young</span>

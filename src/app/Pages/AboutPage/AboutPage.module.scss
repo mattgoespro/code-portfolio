@@ -5,6 +5,10 @@
   background-color: $light;
 }
 
+.page-header-wave-top {
+  @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/orange-navy-2.svg');
+}
+
 .page-header-wave {
   @include wave-border(math.div(1920, 400), 'svg/curves/layered-waves/navy-white.svg');
 }

@@ -11,6 +11,7 @@ declare namespace AboutPageModuleScssNamespace {
     name: string;
     'page-header': string;
     'page-header-wave': string;
+    'page-header-wave-top': string;
     separator: string;
     'smellsense-link': string;
     'summary-header': string;
