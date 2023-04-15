@@ -3,8 +3,6 @@ import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlPlugin from 'html-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import ForkTsCheckerPlugin from 'fork-ts-checker-webpack-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import fs from 'fs';
 
@@ -46,7 +44,6 @@ const baseConfig: Configuration = {
     new webpack.DefinePlugin({
       __REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })'
     }),
-    new ForkTsCheckerPlugin({ async: false }),
     new HtmlPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
       favicon: path.resolve(__dirname, 'public/favicon.ico'),
@@ -59,7 +56,7 @@ const baseConfig: Configuration = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    minimizer: [new TerserPlugin()],
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {

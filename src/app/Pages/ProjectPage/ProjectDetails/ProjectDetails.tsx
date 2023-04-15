@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
 import { ProjectReadme } from './ProjectReadme/ProjectReadme';
 import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
-import { Buffer } from 'buffer';
+import base64 from 'base-64';
 import styles from './ProjectDetails.module.scss';
 import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
-import { ProjectRequestFailure } from '../ProjectList/ProjectListRequestFailure/ProjectListRequestFailure';
+import { ProjectRequestFailure } from '../ProjectListRequestFailure/ProjectListRequestFailure';
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -71,12 +71,7 @@ export function ProjectView() {
           </div>
           {(project.readme && (
             <div>
-              <ProjectReadme
-                readmeContent={Buffer.from(
-                  project.readme.content,
-                  project.readme.encoding
-                ).toString()}
-              />
+              <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
             </div>
           )) || <div className={styles['readme-unavailable']}></div>}
         </>

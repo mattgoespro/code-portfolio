@@ -1,5 +1,5 @@
 # Build frontend
-FROM tiangolo/node-frontend:latest as build-stage
+FROM node:19-alpine3.16 as build-stage
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY . ./
 RUN npm run build
 
 # Copy nginx configuration
-FROM nginx:1.15
+FROM nginx:1.19.10-alpine
 
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 COPY --from=build-stage /app/public/assets/ /usr/share/nginx/html/assets
