@@ -1,11 +1,11 @@
 declare namespace ProjectCardModuleScssNamespace {
   export interface IProjectCardModuleScss {
-    'btn-action': string;
-    'btn-action-view-details': string;
+    "btn-action": string;
+    "btn-action-view-details": string;
     card: string;
     description: string;
     pinned: string;
-    'project-name': string;
+    "project-name": string;
     title: string;
   }
 }

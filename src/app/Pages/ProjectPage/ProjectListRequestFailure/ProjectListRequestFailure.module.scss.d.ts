@@ -1,7 +1,7 @@
 declare namespace ProjectListRequestFailureModuleScssNamespace {
   export interface IProjectListRequestFailureModuleScss {
-    'err-msg': string;
-    'err-msg-try-later': string;
+    "err-msg": string;
+    "err-msg-try-later": string;
     error: string;
     wrapper: string;
   }

@@ -1,9 +1,9 @@
 declare namespace ProjectReadmeModuleScssNamespace {
   export interface IProjectReadmeModuleScss {
-    'section-content': string;
-    'section-link': string;
-    'section-subtitle': string;
-    'section-title': string;
+    "section-content": string;
+    "section-link": string;
+    "section-subtitle": string;
+    "section-title": string;
     title: string;
   }
 }

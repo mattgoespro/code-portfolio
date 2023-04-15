@@ -1,5 +1,5 @@
-@import "colors", "mixins", "navigation";
 @use "sass:math";
+@import "colors", "mixins", "navigation";
 
 .project-page {
   background-color: $content-page-background;

@@ -1,15 +1,15 @@
 declare namespace ProjectPageScssNamespace {
   export interface IProjectPageScss {
-    'github-profile': string;
-    'header-subtitle': string;
-    'header-title': string;
-    'page-header': string;
-    'page-header-wave-bottom': string;
-    'page-header-wave-top': string;
-    'project-load-error': string;
-    'project-load-error-overlay': string;
-    'project-load-error-overlay-fade': string;
-    'project-page': string;
+    "github-profile": string;
+    "header-subtitle": string;
+    "header-title": string;
+    "page-header": string;
+    "page-header-wave-bottom": string;
+    "page-header-wave-top": string;
+    "project-load-error": string;
+    "project-load-error-overlay": string;
+    "project-load-error-overlay-fade": string;
+    "project-page": string;
   }
 }
 
