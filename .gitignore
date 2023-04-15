@@ -11,6 +11,7 @@
 /dist
 
 ## Misc
+nginx/ssl
 
 # Environment
 .DS_Store
