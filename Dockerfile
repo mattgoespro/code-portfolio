@@ -23,4 +23,4 @@ COPY ./nginx/default.conf /etc/nginx/conf.d/
 COPY ./nginx/ssl/hoppingmode.com.key /etc/nginx/ssl/
 COPY ./nginx/ssl/hoppingmode.com.crt /etc/nginx/ssl/
 
-CMD [ "nginx" ]
+CMD [ "nginx", "-g", "daemon off;" ]
