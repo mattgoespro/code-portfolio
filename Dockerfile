@@ -21,6 +21,7 @@ RUN mkdir /etc/nginx/ssl/
 COPY ./nginx/default.conf /etc/nginx/conf.d/
 COPY ./nginx/ssl/bundle.crt /etc/nginx/ssl
 COPY ./nginx/ssl/hoppingmode.com.key /etc/nginx/ssl/
+COPY ./nginx/ssl/hoppingmode.com_root.crt /etc/nginx/ssl/
 COPY ./nginx/ssl/hoppingmode.com.crt /etc/nginx/ssl/
 
 CMD [ "nginx", "-g", "daemon off;" ]
