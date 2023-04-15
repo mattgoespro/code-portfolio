@@ -9,6 +9,8 @@ export interface SoftwareEngineeringSkills {
   yearsExperience?: number;
 }
 
+export type TechnicalSkillType = 'languages' | 'frameworks' | 'other';
+
 export const devLanguages: SoftwareEngineeringSkills[] = [
   { resourceIdentifier: 'java', name: 'Java', experienced: true, yearsExperience: 4 },
   {

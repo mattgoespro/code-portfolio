@@ -45,14 +45,21 @@
   @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-blue.svg');
 }
 
+//1224
+
 .introduction {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   height: 31.25rem;
 
   .logo {
     max-width: 500px;
+
+    @media screen and (max-width: 1224px) {
+      max-width: 350px;
+    }
   }
 
   .introduction-text {

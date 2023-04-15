@@ -1,42 +1,12 @@
 import styles from './HomePage.module.scss';
 import Tooltip from '@mui/material/Tooltip';
 import { devFrameworks, devLanguages, devTools, SoftwareEngineeringSkills } from './HomePage.model';
-import { scrollAnimateIn } from '@shared/utility/AnimateOnScroll';
 import { setStylesheetVariables } from '@shared/utility/Utility';
+import { skillListItemScrollFade, skillTitleScrollFade } from './SkillSection';
 
 type TechnicalSkillType = 'languages' | 'frameworks' | 'other';
 
 export function HomePage() {
-  const SKILL_TITLE_ANIMATE_DELAY = 100;
-  const SKILL_TITLE_ANIMATE_DURATION = 400;
-  const SKILL_CONTENT_ANIMATE_LAG = 400;
-  const SKILL_CONTENT_ANIMATE_SPEED = 100;
-
-  function skillTitleScrollFade(anchor: string, scrollOffset?: number) {
-    return scrollAnimateIn({
-      anchor,
-      animation: 'fade-left',
-      animationDuration: SKILL_TITLE_ANIMATE_DURATION,
-      animationDelay: SKILL_TITLE_ANIMATE_DELAY,
-      scrollOffset: scrollOffset || 400,
-      once: true
-    });
-  }
-
-  function skillListItemScrollFade(itemIndex: number, anchor: string) {
-    return scrollAnimateIn({
-      anchor,
-      animation: 'fade-left',
-      animationDuration: SKILL_TITLE_ANIMATE_DURATION,
-      easing: 'ease',
-      animationDelay:
-        SKILL_TITLE_ANIMATE_DELAY +
-        SKILL_CONTENT_ANIMATE_LAG +
-        SKILL_CONTENT_ANIMATE_SPEED * itemIndex,
-      once: true
-    });
-  }
-
   function skillList(list: SoftwareEngineeringSkills[], scrollTrigger: TechnicalSkillType) {
     return list.map((skill, index) => {
       const attrs = {};

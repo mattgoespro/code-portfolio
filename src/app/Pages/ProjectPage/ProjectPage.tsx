@@ -15,7 +15,6 @@ export function ProjectPage() {
 
   return (
     <div className={styles['project-page']}>
-      <div className={styles['page-header-wave-top']}></div>
       {error && (
         <>
           <div className={styles['project-load-error-overlay']}></div>
@@ -30,6 +29,8 @@ export function ProjectPage() {
           </div>
         </>
       )}
+      <div className={styles['page-header-wave-top']}></div>
+
       <div className={styles['page-header']}>
         <h1 className={styles['header-title']}>{params.projectName || 'Projects'}</h1>
         {!params.projectName && (
