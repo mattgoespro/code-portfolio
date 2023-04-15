@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.ts --port 4000 --env api-target=http://localhost:8080",
-    "build": "rm -rf ./dist && webpack --config webpack.prod.ts",
+    "build": "webpack --config webpack.prod.ts",
     "eslint": "eslint src",
     "postcss": "postcss src/**/*.scss --replace --no-map",
     "docker:build": "docker build . -t hoppingmode-web/frontend",

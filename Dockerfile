@@ -17,9 +17,10 @@ FROM nginx:1.19.10-alpine
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 COPY --from=build-stage /app/public/assets/ /usr/share/nginx/html/assets
 
+RUN mkdir /etc/nginx/ssl/
 COPY ./nginx/default.conf /etc/nginx/conf.d/
 COPY ./nginx/ssl/bundle.crt /etc/nginx/ssl
-COPY ./nginx/ssl/hoppingmode.com.key /etc/nginx/ssl
-COPY ./nginx/ssl/hoppingmode.com.crt /etc/nginx/ssl
+COPY ./nginx/ssl/hoppingmode.com.key /etc/nginx/ssl/
+COPY ./nginx/ssl/hoppingmode.com.crt /etc/nginx/ssl/
 
 CMD [ "nginx", "-g", "daemon off;" ]
