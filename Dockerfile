@@ -14,8 +14,7 @@ RUN npm run build
 # Copy nginx configuration
 FROM nginx:1.19.10-alpine
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 443:443
 
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 COPY --from=build-stage /app/public/assets/ /usr/share/nginx/html/assets
