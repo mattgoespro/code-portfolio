@@ -1,6 +1,6 @@
-import HTMLReactParser, { Element } from 'html-react-parser';
-import MarkdownIt from 'markdown-it';
-import styles from './ProjectReadme.module.scss';
+import HTMLReactParser, { Element } from "html-react-parser";
+import MarkdownIt from "markdown-it";
+import styles from "./ProjectReadme.module.scss";
 
 interface ProjectReadmeProps {
   readmeContent: string;
@@ -16,24 +16,24 @@ export function ProjectReadme(props: ProjectReadmeProps) {
         replace: (domNode) => {
           if (domNode instanceof Element) {
             switch (domNode.name) {
-              case 'h1':
+              case "h1":
                 domNode.attribs.class = styles.title;
                 break;
-              case 'h2':
-                domNode.attribs.class = styles['section-title'];
+              case "h2":
+                domNode.attribs.class = styles["section-title"];
                 break;
-              case 'h3':
-                domNode.attribs.class = styles['section-subtitle'];
+              case "h3":
+                domNode.attribs.class = styles["section-subtitle"];
                 break;
-              case 'ul':
-                domNode.attribs.class = styles['section-content'];
+              case "ul":
+                domNode.attribs.class = styles["section-content"];
                 break;
-              case 'p':
-              case 'li':
-                domNode.attribs.class = styles['section-content'];
+              case "p":
+              case "li":
+                domNode.attribs.class = styles["section-content"];
                 break;
-              case 'a':
-                domNode.attribs.class = styles['section-link'];
+              case "a":
+                domNode.attribs.class = styles["section-link"];
                 break;
             }
 

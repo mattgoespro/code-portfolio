@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { ProjectCard } from './ProjectCard/ProjectCard';
-import { RepositorySummary } from '@mattgoespro/hoppingmode-web';
-import styles from './ProjectList.module.scss';
-import { useOutletContext } from 'react-router-dom';
-import { scrollAnimateIn } from '@shared/utility/AnimateOnScroll';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { ProjectCard } from "./ProjectCard/ProjectCard";
+import { RepositorySummary } from "@mattgoespro/hoppingmode-web";
+import styles from "./ProjectList.module.scss";
+import { useOutletContext } from "react-router-dom";
+import { scrollAnimateIn } from "@shared/utility/AnimateOnScroll";
 
 export function ProjectList() {
   const [fetchingProjects, setFetchingProjects] = useState(true);
@@ -22,7 +22,7 @@ export function ProjectList() {
     setFetchingProjects(true);
 
     axios
-      .get<RepositorySummary[]>('/api/repos', { signal: abortController.signal })
+      .get<RepositorySummary[]>("/api/repos", { signal: abortController.signal })
       .then((resp) => {
         setProjects(resp.data);
         setFetchingProjects(false);
@@ -46,10 +46,10 @@ export function ProjectList() {
         <>
           <div
             id="pinned-scroll-trigger"
-            className={styles['pinned-project-list']}
+            className={styles["pinned-project-list"]}
             {...scrollAnimateIn({
-              anchor: 'pinned-scroll-trigger',
-              animation: 'fade',
+              anchor: "pinned-scroll-trigger",
+              animation: "fade",
               animationDuration: 400,
               animationDelay: 400,
               scrollOffset: 600,
@@ -57,11 +57,11 @@ export function ProjectList() {
             })}
           >
             <h1
-              className={`${styles['project-list-title']} ${styles['pinned-project-list-title']}`}
+              className={`${styles["project-list-title"]} ${styles["pinned-project-list-title"]}`}
             >
               Pinned GitHub Repositories
             </h1>
-            <div className={styles['project-list']}>
+            <div className={styles["project-list"]}>
               {projects
                 .filter((p) => p.pinned)
                 .map((project, index) => {
@@ -69,8 +69,8 @@ export function ProjectList() {
                     <div
                       key={project.name}
                       {...scrollAnimateIn({
-                        anchor: 'pinned-scroll-trigger',
-                        animation: 'fade-left',
+                        anchor: "pinned-scroll-trigger",
+                        animation: "fade-left",
                         animationDuration: LIST_ITEM_ANIMATE_DURATION,
                         animationDelay:
                           LIST_ITEM_ANIMATE_DELAY +
@@ -93,18 +93,18 @@ export function ProjectList() {
           </div>
           <div
             id="unpinned-scroll-trigger"
-            className={styles['unpinned-project-list']}
+            className={styles["unpinned-project-list"]}
             {...scrollAnimateIn({
-              anchor: 'unpinned-scroll-trigger',
-              animation: 'fade',
+              anchor: "unpinned-scroll-trigger",
+              animation: "fade",
               animationDuration: 400,
               animationDelay: 400,
               scrollOffset: 400,
               once: true
             })}
           >
-            <h1 className={styles['project-list-title']}>GitHub Repositories</h1>
-            <div className={styles['project-list']}>
+            <h1 className={styles["project-list-title"]}>GitHub Repositories</h1>
+            <div className={styles["project-list"]}>
               {projects
                 .filter((p) => !p.pinned)
                 .map((project, index) => {
@@ -112,8 +112,8 @@ export function ProjectList() {
                     <div
                       key={project.name}
                       {...scrollAnimateIn({
-                        anchor: 'unpinned-scroll-trigger',
-                        animation: 'fade-left',
+                        anchor: "unpinned-scroll-trigger",
+                        animation: "fade-left",
                         animationDuration: LIST_ITEM_ANIMATE_DURATION,
                         animationDelay:
                           LIST_ITEM_ANIMATE_DELAY +

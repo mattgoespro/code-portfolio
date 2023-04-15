@@ -1,5 +1,5 @@
-@use 'sass:math';
-@import 'colors', 'mixins', 'navigation', 'animations';
+@import "colors", "mixins", "navigation", "animations";
+@use "sass:math";
 
 :root {
   --skill-name-underline-color: transparent;
@@ -30,19 +30,19 @@
 }
 
 .page-wave-top {
-  @include wave-border(math.div(1920, 300), 'svg/border-waves/orange-navy.svg');
+  @include wave-border(math.div(1920, 300), "svg/border-waves/orange-navy.svg");
 }
 
 .languages-wave-top {
-  @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-white.svg');
+  @include wave-border(math.div(1920, 300), "svg/border-waves/navy-white.svg");
 }
 
 .languages-wave-bottom {
-  @include wave-border(math.div(1920, 300), 'svg/border-waves/white-navy.svg');
+  @include wave-border(math.div(1920, 300), "svg/border-waves/white-navy.svg");
 }
 
 .others-wave-top {
-  @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-blue.svg');
+  @include wave-border(math.div(1920, 300), "svg/border-waves/navy-blue.svg");
 }
 
 //1224
@@ -63,7 +63,7 @@
   }
 
   .introduction-text {
-    font-family: 'Source Code Pro', 'Nunito', sans-serif;
+    font-family: "Source Code Pro", "Nunito", sans-serif;
     text-align: left;
     color: $light;
     max-width: 30rem;
@@ -89,7 +89,7 @@
 }
 
 @mixin section-text {
-  font-family: 'Quicksand', 'Nunito', sans-serif;
+  font-family: "Quicksand", "Nunito", sans-serif;
   font-size: 32px;
   font-weight: 300;
   max-width: 56.25rem;
@@ -151,7 +151,7 @@
     position: absolute;
     background-color: $blue;
     min-width: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: $light;
@@ -178,7 +178,7 @@
     margin-left: 8px;
 
     .skill-name {
-      font-family: 'Quicksand', sans-serif;
+      font-family: "Quicksand", sans-serif;
       font-size: 14px;
       font-weight: bold;
     }

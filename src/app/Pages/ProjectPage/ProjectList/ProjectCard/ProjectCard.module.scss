@@ -1,4 +1,4 @@
-@import 'colors', 'mixins';
+@import "colors", "mixins";
 
 @mixin title($divider-color) {
   position: relative;
@@ -12,7 +12,7 @@
 }
 
 @mixin project-name {
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-size: 1.125rem;
   letter-spacing: 1px;
   line-height: 1.2;
@@ -57,7 +57,7 @@
   }
 
   .description {
-    font-family: 'Nunito';
+    font-family: "Nunito";
     margin: 15px;
     color: $light;
     font-size: 0.875rem;

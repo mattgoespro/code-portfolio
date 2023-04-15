@@ -1,16 +1,16 @@
-@use 'sass:math';
-@import 'colors', 'mixins';
+@import "colors", "mixins";
+@use "sass:math";
 
 .about-page {
   background-color: $light;
 }
 
 .page-header-wave-top {
-  @include wave-border(math.div(1920, 300), 'svg/border-waves/orange-navy.svg');
+  @include wave-border(math.div(1920, 300), "svg/border-waves/orange-navy.svg");
 }
 
 .page-header-wave-bottom {
-  @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-white.svg');
+  @include wave-border(math.div(1920, 300), "svg/border-waves/navy-white.svg");
 }
 
 .page-header {
@@ -22,7 +22,7 @@
   height: 20rem;
 
   .name {
-    font-family: 'Source Code Pro', 'Nunito', sans-serif;
+    font-family: "Source Code Pro", "Nunito", sans-serif;
     text-align: center;
     font-size: 6rem;
     font-weight: 200;
@@ -40,7 +40,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       letter-spacing: 2px;
       font-size: 1.5rem;
       font-weight: 300;
@@ -65,7 +65,7 @@
 .about-me {
   display: flex;
   flex-direction: column;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   max-width: 50rem;
   margin: auto;
 

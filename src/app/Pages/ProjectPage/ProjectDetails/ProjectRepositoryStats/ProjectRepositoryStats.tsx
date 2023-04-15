@@ -1,5 +1,5 @@
-import { Repository } from '@mattgoespro/hoppingmode-web';
-import styles from './ProjectRepositoryStats.module.scss';
+import { Repository } from "@mattgoespro/hoppingmode-web";
+import styles from "./ProjectRepositoryStats.module.scss";
 
 interface ProjectRepositoryStatsProps {
   project: Repository;
@@ -8,7 +8,7 @@ interface ProjectRepositoryStatsProps {
 export function ProjectRepositoryStats(props: ProjectRepositoryStatsProps) {
   return (
     <div>
-      <div className={styles['activity-title']}>Stats</div>
+      <div className={styles["activity-title"]}>Stats</div>
       <div className={styles.activity}>
         Date created: <i>{new Date(props.project.stats.createdTimestamp).toUTCString()}</i>
       </div>

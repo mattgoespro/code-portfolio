@@ -1,10 +1,10 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import NavHeaderLogo from '@icons/nav-header.svg';
-import LinkedInLogo from '@icons/linkedin.svg';
-import GitHubLogo from '@icons/github.svg';
-import styles from './PageNavigator.module.scss';
-import AnimationOnScroll from 'aos';
-import 'aos/dist/aos.css';
+import { Link, Outlet, useLocation } from "react-router-dom";
+import NavHeaderLogo from "@icons/nav-header.svg";
+import LinkedInLogo from "@icons/linkedin.svg";
+import GitHubLogo from "@icons/github.svg";
+import styles from "./PageNavigator.module.scss";
+import AnimationOnScroll from "aos";
+import "aos/dist/aos.css";
 
 interface PageNavigatorProps {
   landingPage: JSX.Element;
@@ -17,21 +17,21 @@ export function PageNavigator(props: PageNavigatorProps) {
 
   return (
     <>
-      <div className={styles['side-nav']}>
-        <div className={styles['header-logo']}>
+      <div className={styles["side-nav"]}>
+        <div className={styles["header-logo"]}>
           <NavHeaderLogo />
         </div>
-        <ul className={styles['page-links']}>
+        <ul className={styles["page-links"]}>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link className={styles['page-link']} to="/projects">
+            <Link className={styles["page-link"]} to="/projects">
               Projects
             </Link>
           </li>
           <li>
-            <Link className={styles['page-link']} to="/about">
+            <Link className={styles["page-link"]} to="/about">
               About
             </Link>
           </li>
@@ -50,8 +50,8 @@ export function PageNavigator(props: PageNavigatorProps) {
           </li>
         </ul>
       </div>
-      <div className={styles['page-content']}>
-        {location.pathname === '/' && props.landingPage}
+      <div className={styles["page-content"]}>
+        {location.pathname === "/" && props.landingPage}
         <Outlet />
       </div>
     </>

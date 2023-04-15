@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
-import { ProjectRequestFailure } from './ProjectListRequestFailure/ProjectListRequestFailure';
-import { Link as ExternalLink } from '@mui/material';
+import { useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
+import { ProjectRequestFailure } from "./ProjectListRequestFailure/ProjectListRequestFailure";
+import { Link as ExternalLink } from "@mui/material";
 
-import styles from './ProjectPage.scss';
+import styles from "./ProjectPage.scss";
 
 export function ProjectPage() {
   const params = useParams();
@@ -14,11 +14,11 @@ export function ProjectPage() {
   };
 
   return (
-    <div className={styles['project-page']}>
+    <div className={styles["project-page"]}>
       {error && (
         <>
-          <div className={styles['project-load-error-overlay']}></div>
-          <div className={styles['project-load-error']}>
+          <div className={styles["project-load-error-overlay"]}></div>
+          <div className={styles["project-load-error"]}>
             <ProjectRequestFailure
               errorMessage={
                 <div>
@@ -29,19 +29,19 @@ export function ProjectPage() {
           </div>
         </>
       )}
-      <div className={styles['page-header-wave-top']}></div>
+      <div className={styles["page-header-wave-top"]}></div>
 
-      <div className={styles['page-header']}>
-        <h1 className={styles['header-title']}>{params.projectName || 'Projects'}</h1>
+      <div className={styles["page-header"]}>
+        <h1 className={styles["header-title"]}>{params.projectName || "Projects"}</h1>
         {!params.projectName && (
-          <h2 className={styles['header-subtitle']}>
-            Available on{' '}
+          <h2 className={styles["header-subtitle"]}>
+            Available on{" "}
             <span>
               <ExternalLink
                 href="https://github.com/mattgoespro"
                 target="tab"
                 underline="none"
-                className={styles['github-profile']}
+                className={styles["github-profile"]}
               >
                 GitHub
               </ExternalLink>
@@ -49,7 +49,7 @@ export function ProjectPage() {
           </h2>
         )}
       </div>
-      <div className={styles['page-header-wave-bottom']}></div>
+      <div className={styles["page-header-wave-bottom"]}></div>
       <Outlet context={onError} />
     </div>
   );

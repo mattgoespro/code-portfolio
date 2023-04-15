@@ -1,4 +1,4 @@
-import styles from './ProjectListRequestFailure.module.scss';
+import styles from "./ProjectListRequestFailure.module.scss";
 
 interface ProjectRequestFailureProps {
   errorMessage: JSX.Element;
@@ -12,8 +12,8 @@ export function ProjectRequestFailure(props: ProjectRequestFailureProps) {
         alt="project-list-request-failure"
       />
       <div className={styles.error}>
-        <h1 className={styles['err-msg']}>{props.errorMessage}</h1>
-        <h2 className={styles['err-msg-try-later']}>Please try again later</h2>
+        <h1 className={styles["err-msg"]}>{props.errorMessage}</h1>
+        <h2 className={styles["err-msg-try-later"]}>Please try again later</h2>
       </div>
     </div>
   );

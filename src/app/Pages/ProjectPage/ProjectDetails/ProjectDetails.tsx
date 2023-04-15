@@ -1,13 +1,13 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { ProjectLanguageChart } from './ProjectLanguageChart/ProjectLanguageChart';
-import { ProjectReadme } from './ProjectReadme/ProjectReadme';
-import { Repository, ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
-import base64 from 'base-64';
-import styles from './ProjectDetails.module.scss';
-import { ProjectRepositoryStats } from './ProjectRepositoryStats/ProjectRepositoryStats';
-import { ProjectRequestFailure } from '../ProjectListRequestFailure/ProjectListRequestFailure';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { ProjectLanguageChart } from "./ProjectLanguageChart/ProjectLanguageChart";
+import { ProjectReadme } from "./ProjectReadme/ProjectReadme";
+import { Repository, ProgrammingLanguages } from "@mattgoespro/hoppingmode-web";
+import base64 from "base-64";
+import styles from "./ProjectDetails.module.scss";
+import { ProjectRepositoryStats } from "./ProjectRepositoryStats/ProjectRepositoryStats";
+import { ProjectRequestFailure } from "../ProjectListRequestFailure/ProjectListRequestFailure";
 
 export function ProjectView() {
   const { projectName } = useParams();
@@ -62,10 +62,10 @@ export function ProjectView() {
       {!error && !loadingProject && (
         <>
           <div className={styles.stats}>
-            <div className={styles['stats-card']}>
+            <div className={styles["stats-card"]}>
               <ProjectRepositoryStats project={project} />
             </div>
-            <div className={styles['language-card']}>
+            <div className={styles["language-card"]}>
               <ProjectLanguageChart languages={projectLanguages} />
             </div>
           </div>
@@ -73,7 +73,7 @@ export function ProjectView() {
             <div>
               <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
             </div>
-          )) || <div className={styles['readme-unavailable']}></div>}
+          )) || <div className={styles["readme-unavailable"]}></div>}
         </>
       )}
     </div>

@@ -1,4 +1,4 @@
-@import 'colors', 'navigation';
+@import "colors", "navigation";
 
 .wrapper {
   display: flex;
@@ -11,7 +11,7 @@
     max-width: 300px;
 
     .err-msg {
-      font-family: 'Quicksand', sans-serif;
+      font-family: "Quicksand", sans-serif;
       font-size: 3rem;
       font-weight: 100;
       color: $light;
@@ -28,7 +28,7 @@
     }
 
     .err-msg-try-later {
-      font-family: 'Quicksand', sans-serif;
+      font-family: "Quicksand", sans-serif;
       font-size: 1.5rem;
       font-weight: 300;
       letter-spacing: 1px;

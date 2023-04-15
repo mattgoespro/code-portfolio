@@ -1,4 +1,4 @@
-import { ProgrammingLanguages } from '@mattgoespro/hoppingmode-web';
+import { ProgrammingLanguages } from "@mattgoespro/hoppingmode-web";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -7,43 +7,43 @@ import {
   ChartOptions,
   ChartData,
   LinearScale
-} from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+} from "chart.js";
+import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, LinearScale, Tooltip, Legend);
 
 // I'd be crazy to know more than 6 languages, right?
-export const chartColors = ['#ffb74d', '#aed581', '#4db6ac', '#4fc3f7', '#ba68c8', '#f06292'];
-export const chartHoverColors = ['#ff9800', '#8bc34a', '#009688', '#03a9f4', '#9c27b0', '#e91e63'];
+export const chartColors = ["#ffb74d", "#aed581", "#4db6ac", "#4fc3f7", "#ba68c8", "#f06292"];
+export const chartHoverColors = ["#ff9800", "#8bc34a", "#009688", "#03a9f4", "#9c27b0", "#e91e63"];
 
 interface ProjectLanguageChartProps {
   languages: ProgrammingLanguages;
 }
 
 export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
-  const options: ChartOptions<'pie'> = {
+  const options: ChartOptions<"pie"> = {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'left',
+        position: "left",
         labels: {
           font: {
-            family: 'Nunito',
+            family: "Nunito",
             size: 16,
-            weight: '100'
+            weight: "100"
           },
           boxWidth: 20,
           boxHeight: 20,
           padding: 15,
-          color: '#ffffff',
+          color: "#ffffff",
           filter: (item) => item.index < 4
         }
       },
       tooltip: {
         bodyFont: {
-          family: 'Nunito',
+          family: "Nunito",
           size: 16,
-          weight: '100'
+          weight: "100"
         },
         boxPadding: 10,
         boxHeight: 25,
@@ -54,7 +54,7 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
     }
   };
 
-  function createChartData(languages: ProgrammingLanguages): ChartData<'pie'> {
+  function createChartData(languages: ProgrammingLanguages): ChartData<"pie"> {
     return {
       labels: Object.keys(languages),
       datasets: [
@@ -74,7 +74,7 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
           data={createChartData(props.languages)}
           options={options}
           style={{
-            display: 'flex'
+            display: "flex"
           }}
         ></Pie>
       )}
