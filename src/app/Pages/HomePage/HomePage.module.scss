@@ -41,6 +41,10 @@
   @include wave-border(math.div(1920, 300), 'svg/border-waves/white-navy.svg');
 }
 
+.others-wave-top {
+  @include wave-border(math.div(1920, 300), 'svg/border-waves/navy-blue.svg');
+}
+
 .introduction {
   display: flex;
   justify-content: center;
@@ -183,10 +187,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
   padding-bottom: 200px;
+  background-color: $blue;
 
   .others-text {
+    margin-top: 100px;
+
     h3 {
       @include section-text;
       max-width: 400px;
@@ -197,6 +203,7 @@
 
   .others-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     max-width: 400px;
 

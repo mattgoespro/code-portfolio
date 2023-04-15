@@ -27,6 +27,7 @@ declare namespace HomePageModuleScssNamespace {
     'others-list': string;
     'others-section': string;
     'others-text': string;
+    'others-wave-top': string;
     'page-wave-top': string;
     'section-text': string;
     skill: string;

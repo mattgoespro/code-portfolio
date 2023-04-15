@@ -1,5 +1,16 @@
 @import 'colors', 'mixins';
 
+.project-list-title {
+  font-family: Source Code Pro;
+  font-size: 42px;
+  font-weight: 300;
+  color: $light;
+}
+
+.pinned-project-list-title {
+  color: $yellow;
+}
+
 .pinned-project-list {
   display: flex;
   flex-direction: column;
@@ -37,7 +48,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px auto;
+  margin: 50px auto 400px;
   width: 80%;
 
   .title-unpinned {

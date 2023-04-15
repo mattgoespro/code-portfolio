@@ -2,6 +2,7 @@ import { anchorPlacementOptions as AnchorPlacement, easingOptions as EasingOptio
 
 // See https://www.npmjs.com/package/aos#-animations
 export type FadeAnimation =
+  | 'fade'
   | 'fade-up'
   | 'fade-down'
   | 'fade-left'
@@ -21,6 +22,7 @@ interface ScrollAnimationOptions {
   anchorPlacement?: AnchorPlacement;
   animationDelay?: number;
   scrollOffset?: number;
+  once?: boolean;
 }
 
 export function scrollAnimateIn(options: ScrollAnimationOptions) {
@@ -31,14 +33,15 @@ export function scrollAnimateIn(options: ScrollAnimationOptions) {
     'data-aos-easing': options.easing || 'ease-in-out',
     'data-aos-anchor': `#${options.anchor}`,
     'data-aos-anchor-placement': options.anchorPlacement || 'center',
-    'data-aos-offset': options.scrollOffset || 400
+    'data-aos-offset': options.scrollOffset || 400,
+    'data-aos-once': options.once
   };
 }
 
-// export function animateFadeIn(triggerName: string, animation: FadeAnimation, offset?: number) {
+// export function animateFadeIn(options: ScrollAnimationOptions) {
 //   return {
-//     'data-aos': 'fade-left',
-//     'data-aos-anchor': `#${triggerName}`,
+//     'data-aos': 'fade',
+//     'data-aos-anchor': `#${options.anchor}`,
 //     'data-aos-anchor-placement': 'center',
 //     'data-aos-offset': offset || 400,
 //     'data-aos-duration': SECTION_TITLE_FADE_DURATION,

@@ -18,7 +18,8 @@ export function HomePage() {
       animation: 'fade-left',
       animationDuration: SKILL_TITLE_ANIMATE_DURATION,
       animationDelay: SKILL_TITLE_ANIMATE_DELAY,
-      scrollOffset: scrollOffset || 400
+      scrollOffset: scrollOffset || 400,
+      once: true
     });
   }
 
@@ -31,7 +32,8 @@ export function HomePage() {
       animationDelay:
         SKILL_TITLE_ANIMATE_DELAY +
         SKILL_CONTENT_ANIMATE_LAG +
-        SKILL_CONTENT_ANIMATE_SPEED * itemIndex
+        SKILL_CONTENT_ANIMATE_SPEED * itemIndex,
+      once: true
     });
   }
 
@@ -147,6 +149,7 @@ export function HomePage() {
         devFrameworks,
         true
       )}
+      <div className={styles['others-wave-top']}></div>
       <div className={styles['others-section']}>
         <div className={styles['others-text']}>
           <h3 id="others" {...skillTitleScrollFade('others', 0)}>
