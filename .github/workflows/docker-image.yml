@@ -25,6 +25,9 @@ jobs:
           NGINX_SSL_PRIVATE_KEY: ${{ secrets.NGINX_SSL_PRIVATE_KEY }}
           NGINX_SSL_CERT: ${{ secrets.NGINX_SSL_CERT }}
         run: |
+          ls /home/runner/work/hoppingmode-web-frontend/hoppingmode-web-frontend && 
+          echo "$NGINX_SSL_PRIVATE_KEY" &&
+          echo "$NGINX_SSL_CERT" &&
           echo "$NGINX_SSL_PRIVATE_KEY" | base64 --decode > /home/runner/work/hoppingmode-web-frontend/hoppingmode-web-frontend/nginx/ssl/hoppingmode.com.key &&
           echo "$NGINX_SSL_CERT" | base64 --decode > /home/runner/work/hoppingmode-web-frontend/hoppingmode-web-frontend/nginx/ssl/hoppingmode.com.crt
       - name: Build and push
