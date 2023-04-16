@@ -22,12 +22,12 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Write SSL key file
         env:
+          REPO_NAME: hoppingmode-web-frontend
           NGINX_SSL_PRIVATE_KEY: ${{ secrets.NGINX_SSL_PRIVATE_KEY }}
           NGINX_SSL_CERT: ${{ secrets.NGINX_SSL_CERT }}
         run: |
-          echo ${HOME} &&
-          echo "$NGINX_SSL_PRIVATE_KEY" | base64 --decode > ${HOME}/nginx/ssl/hoppingmode.com.key &&
-          echo "$NGINX_SSL_CERT" | base64 --decode > ${HOME}/nginx/ssl/hoppingmode.com.crt
+          echo "$NGINX_SSL_PRIVATE_KEY" | base64 --decode > /home/runner/work/$REPO_NAME/$REPO_NAME/nginx/ssl/hoppingmode.com.key &&
+          echo "$NGINX_SSL_CERT" | base64 --decode > /home/runner/work/$REPO_NAME/$REPO_NAME/nginx/ssl/hoppingmode.com.crt
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
@@ -35,7 +35,3 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
-      - name: Clean up
-        run: |
-          rm ${HOME}/nginx/ssl/hoppingmode.com.key
-          rm ${HOME}/nginx/ssl/hoppingmode.com.crt

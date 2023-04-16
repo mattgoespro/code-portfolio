@@ -11,7 +11,8 @@
 /dist
 
 ## Misc
-nginx/ssl
+nginx/ssl/*.key
+nginx/ssl/*.crt
 
 # Environment
 .DS_Store
