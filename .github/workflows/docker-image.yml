@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - name: Write SSL key file
+      - name: Decode and write nginx SSL key certificate to files
         env:
           NGINX_SSL_PRIVATE_KEY: ${{ secrets.NGINX_SSL_PRIVATE_KEY }}
           NGINX_SSL_CERT: ${{ secrets.NGINX_SSL_CERT }}
