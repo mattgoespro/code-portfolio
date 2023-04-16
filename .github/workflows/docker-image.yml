@@ -25,8 +25,8 @@ jobs:
           NGINX_SSL_PRIVATE_KEY: ${{ secrets.NGINX_SSL_PRIVATE_KEY }}
           NGINX_SSL_CERT: ${{ secrets.NGINX_SSL_CERT }}
         run: |
-          echo "${NGINX_SSL_PRIVATE_KEY}" | base64 --decode > /home/runner/work/hoppingmode-web-frontend/hoppingmode-web-frontend/nginx/ssl/hoppingmode.com.key &&
-          echo "${NGINX_SSL_CERT}" | base64 --decode > /home/runner/work/hoppingmode-web-frontend/hoppingmode-web-frontend/nginx/ssl/hoppingmode.com.crt
+          echo "${NGINX_SSL_PRIVATE_KEY}" | base64 --decode > /home/runner/work/${{ github.repository }}/${{ github.repository }}/nginx/ssl/hoppingmode.com.key &&
+          echo "${NGINX_SSL_CERT}" | base64 --decode > /home/runner/work/${{ github.repository }}/${{ github.repository }}/nginx/ssl/hoppingmode.com.crt
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
