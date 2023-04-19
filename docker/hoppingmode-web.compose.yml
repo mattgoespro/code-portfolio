@@ -2,20 +2,18 @@ version: "3"
 
 services:
   frontend:
-    image: hoppingmode-web/frontend
+    image: ${HW_IMAGE_FRONTEND}
     depends_on:
       - "api"
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ${HOME}/.nginx/ssl:/etc/nginx/ssl/
     networks:
       - portfolio-website
     extra_hosts:
       - host.docker.internal:host-gateway
   api:
-    image: hoppingmode-web/api
+    image: ${HW_IMAGE_API}
     ports:
       - "8080:3000"
     networks:
