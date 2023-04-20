@@ -34,6 +34,7 @@ export function ProjectReadme(props: ProjectReadmeProps) {
                 break;
               case "a":
                 domNode.attribs.class = styles["section-link"];
+                domNode.attribs.target = "tab";
                 break;
             }
 
