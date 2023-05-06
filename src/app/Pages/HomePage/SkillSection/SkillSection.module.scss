@@ -1,0 +1,34 @@
+@import "colors";
+
+@mixin header {
+  font-family: "Quicksand", "Nunito", sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  max-width: 56.25rem;
+  text-align: center;
+  margin: 0 0 25px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+  .header {
+    font-family: "Quicksand", "Nunito", sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    max-width: 56.25rem;
+    text-align: center;
+    margin: 0 0 25px;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 800px;
+  }
+}

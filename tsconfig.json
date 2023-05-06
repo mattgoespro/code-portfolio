@@ -11,9 +11,8 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@shared/components/*": ["./src/app/Shared/Components/*"],
-      "@shared/utility/*": ["./src/app/Shared/Utility/*"],
-      "@icons/*": ["./src/assets/icons/*"]
+      "@Shared/Utility/*": ["./src/app/Shared/Utility/*"],
+      "@Icons/*": ["./src/assets/icons/*"]
     }
   },
   "include": ["src/**/*"],

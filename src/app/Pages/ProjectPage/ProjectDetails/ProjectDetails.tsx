@@ -7,7 +7,7 @@ import { Repository, ProgrammingLanguages } from "@mattgoespro/hoppingmode-web";
 import base64 from "base-64";
 import styles from "./ProjectDetails.module.scss";
 import { ProjectRepositoryStats } from "./ProjectRepositoryStats/ProjectRepositoryStats";
-import { ProjectRequestFailure } from "../ProjectListRequestFailure/ProjectListRequestFailure";
+import { ProjectRequestFailure } from "../ProjectRequestFailure/ProjectRequestFailure";
 
 export function ProjectView() {
   const { projectName } = useParams();

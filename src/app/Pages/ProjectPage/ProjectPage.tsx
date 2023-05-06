@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
-import { ProjectRequestFailure } from "./ProjectListRequestFailure/ProjectListRequestFailure";
+import { ProjectRequestFailure } from "./ProjectRequestFailure/ProjectRequestFailure";
 import { Link as ExternalLink } from "@mui/material";
 
 import styles from "./ProjectPage.scss";

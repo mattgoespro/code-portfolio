@@ -1,4 +1,4 @@
-import { scrollAnimateIn } from "@shared/utility/AnimateOnScroll";
+import { scrollAnimateIn } from "@Shared/Utility/AnimateOnScroll";
 
 export const SKILL_TITLE_ANIMATE_DELAY = 100;
 export const SKILL_TITLE_ANIMATE_DURATION = 400;

@@ -1,0 +1,73 @@
+@import "colors", "mixins", "animations";
+
+:root {
+  --name-underline-color: transparent;
+}
+
+$experience-border-color: #317ac3;
+
+:export {
+  experience-border-color: $experience-border-color;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -ms-flex-align: center;
+  max-width: 100px;
+  margin: 5px;
+  padding: 15px;
+  border: 3px solid #8d8d8d;
+  border-radius: 20px;
+
+  .brand-icon {
+    display: flex;
+
+    img {
+      max-width: 28px;
+    }
+  }
+
+  .skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    margin-left: 8px;
+
+    &[experience]:hover::before {
+      content: attr(experience);
+      cursor: pointer;
+      position: absolute;
+      background-color: $blue;
+      min-width: 20px;
+      font-family: "Roboto", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: $light;
+      text-align: center;
+      white-space: nowrap;
+      margin-bottom: 110px;
+      border-radius: 12px;
+      padding: 7px;
+    }
+
+    .name {
+      font-family: "Quicksand", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .name-underline {
+      @include divider(3px, var(--name-underline-color), 0);
+    }
+  }
+}
+
+.slide-in {
+  animation-name: fade-slide-left;
+  animation-duration: 500ms;
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}

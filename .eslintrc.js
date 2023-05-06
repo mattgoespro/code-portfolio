@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
+    "prettier",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
@@ -29,14 +30,8 @@ module.exports = {
   },
   ignorePatterns: ["src/**/*.scss.d.ts"],
   rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        singleQuote: false,
-        parser: "flow"
-      }
-    ],
     "arrow-body-style": "off",
-    "prefer-arrow-callback": "off"
+    "prefer-arrow-callback": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }]
   }
 };

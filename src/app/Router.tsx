@@ -9,8 +9,12 @@ import { ProjectPage } from "./Pages/ProjectPage/ProjectPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PageNavigator landingPage={<HomePage />} />,
+    element: <PageNavigator />,
     children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
       {
         path: "projects",
         element: <ProjectPage />,

@@ -1,16 +1,10 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
-import NavHeaderLogo from "@icons/nav-header.svg";
-import LinkedInLogo from "@icons/linkedin.svg";
-import GitHubLogo from "@icons/github.svg";
+import { Link, Outlet } from "react-router-dom";
+import NavHeaderLogo from "@Icons/nav-header.svg";
+import LinkedInLogo from "@Icons/linkedin.svg";
+import GitHubLogo from "@Icons/github.svg";
 import styles from "./PageNavigator.module.scss";
 
-interface PageNavigatorProps {
-  landingPage: JSX.Element;
-}
-
-export function PageNavigator(props: PageNavigatorProps) {
-  const location = useLocation();
-
+export function PageNavigator() {
   return (
     <>
       <div className={styles["side-nav"]}>
@@ -46,10 +40,7 @@ export function PageNavigator(props: PageNavigatorProps) {
           </li>
         </ul>
       </div>
-      <div className={styles["page-content"]}>
-        {location.pathname === "/" && props.landingPage}
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   );
 }

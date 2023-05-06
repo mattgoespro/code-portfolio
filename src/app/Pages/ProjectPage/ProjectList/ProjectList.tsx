@@ -4,7 +4,7 @@ import { ProjectCard } from "./ProjectCard/ProjectCard";
 import { RepositorySummary } from "@mattgoespro/hoppingmode-web";
 import styles from "./ProjectList.module.scss";
 import { useOutletContext } from "react-router-dom";
-import { scrollAnimateIn } from "@shared/utility/AnimateOnScroll";
+import { scrollAnimateIn } from "@Shared/Utility/AnimateOnScroll";
 
 export function ProjectList() {
   const [fetchingProjects, setFetchingProjects] = useState(true);

@@ -3,7 +3,7 @@ declare namespace HomePageModuleScssNamespace {
     alias: string;
     "border-color-experienced": string;
     "color-angular": string;
-    "color-c-sharp": string;
+    "color-csharp": string;
     "color-dart": string;
     "color-docker": string;
     "color-express": string;
@@ -17,27 +17,22 @@ declare namespace HomePageModuleScssNamespace {
     "color-spring": string;
     "color-typescript": string;
     "fade-in-grow": string;
-    frameworks: string;
+    "fade-slide-left": string;
+    "frameworks-header-color": string;
+    header: string;
     introduction: string;
     "introduction-text": string;
-    languages: string;
+    "languages-bg-color": string;
     "languages-wave-bottom": string;
     "languages-wave-top": string;
+    list: string;
     logo: string;
-    "others-list": string;
+    "others-header": string;
     "others-section": string;
-    "others-text": string;
     "others-wave-top": string;
+    "page-base": string;
     "page-wave-top": string;
-    "section-text": string;
-    skill: string;
-    "skill-brand-icon": string;
-    "skill-list": string;
-    "skill-list-item": string;
-    "skill-name": string;
-    "skill-name-underline": string;
-    "skill-section": string;
-    "skill-tool-img": string;
+    wrapper: string;
   }
 }
 
