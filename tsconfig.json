@@ -12,6 +12,7 @@
     "baseUrl": "./",
     "paths": {
       "@Shared/Utility/*": ["./src/app/Shared/Utility/*"],
+      "@Shared/Components/*": ["./src/app/Shared/Components/*"],
       "@Icons/*": ["./src/assets/icons/*"]
     }
   },

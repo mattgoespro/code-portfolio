@@ -1,12 +1,14 @@
-@import "colors", "mixins", "animations";
+@import "colors", "mixins";
+
+$regular-border-color: #8d8d8d;
+$experience-border-color: #317ac3;
 
 :root {
   --name-underline-color: transparent;
 }
 
-$experience-border-color: #317ac3;
-
 :export {
+  regular-border-color: $regular-border-color;
   experience-border-color: $experience-border-color;
 }
 
@@ -18,8 +20,12 @@ $experience-border-color: #317ac3;
   max-width: 100px;
   margin: 5px;
   padding: 15px;
-  border: 3px solid #8d8d8d;
+  border: 3px solid;
   border-radius: 20px;
+
+  &:hover {
+    filter: brightness(85%);
+  }
 
   .brand-icon {
     display: flex;
@@ -36,23 +42,6 @@ $experience-border-color: #317ac3;
     height: 100%;
     margin-left: 8px;
 
-    &[experience]:hover::before {
-      content: attr(experience);
-      cursor: pointer;
-      position: absolute;
-      background-color: $blue;
-      min-width: 20px;
-      font-family: "Roboto", sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      color: $light;
-      text-align: center;
-      white-space: nowrap;
-      margin-bottom: 110px;
-      border-radius: 12px;
-      padding: 7px;
-    }
-
     .name {
       font-family: "Quicksand", sans-serif;
       font-size: 14px;
@@ -63,11 +52,4 @@ $experience-border-color: #317ac3;
       @include divider(3px, var(--name-underline-color), 0);
     }
   }
-}
-
-.slide-in {
-  animation-name: fade-slide-left;
-  animation-duration: 500ms;
-  animation-delay: 1000ms;
-  animation-fill-mode: forwards;
 }

@@ -19,7 +19,6 @@
     "@mattgoespro/hoppingmode-web": "^1.5.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.0",
-    "aos": "^2.3.4",
     "axios": "^1.3.5",
     "base-64": "^1.0.0",
     "chart.js": "^4.2.1",
@@ -30,19 +29,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "^4.0.3",
-    "react-spinners": "^0.13.8"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "react-spinners": "^0.13.8",
+    "simple-aos": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -104,5 +92,17 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.2",
     "webpack-merge": "^5.8.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

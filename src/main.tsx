@@ -1,11 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import router from "./app/Router";
-import AnimationOnScroll from "aos";
-import "aos/dist/aos.css";
-
-// init animation library
-AnimationOnScroll.init();
 
 const appRoot = document.getElementById("root");
 

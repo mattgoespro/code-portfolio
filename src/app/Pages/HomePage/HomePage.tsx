@@ -1,6 +1,10 @@
 import styles from "./HomePage.module.scss";
-import Tooltip from "@mui/material/Tooltip";
-import { SkillSection } from "./SkillSection/SkillSection";
+import { Tooltip } from "@Shared/Components/Tooltip/Tooltip";
+import {
+  SkillSection,
+  createHeaderAnimateAttrs,
+  createSkillAnimateAttrs
+} from "./SkillSection/SkillSection";
 import { knownDevFrameworks, knownDevLanguages, knownDevTools } from "./HomePage.data";
 
 export function HomePage() {
@@ -36,15 +40,17 @@ export function HomePage() {
         style={{ headerColor: styles["frameworks-header-color"] }}
       />
       <div className={styles["others-wave-top"]}></div>
-      <div className={styles["others-section"]}>
+      <div id="others" className={styles["others-section"]}>
         <div className={styles["others-header"]}>
-          <h3 id="others">Alongside a selection of industry standard tools</h3>
+          <h3 id="others" {...createHeaderAnimateAttrs("others", 350)}>
+            Alongside a selection of industry standard tools
+          </h3>
         </div>
         <div className={styles["list"]}>
-          {knownDevTools.map((item) => {
+          {knownDevTools.map((item, index) => {
             return (
-              <div key={item.resourceIdentifier}>
-                <Tooltip title={item.name}>
+              <div key={item.resourceIdentifier} {...createSkillAnimateAttrs(index, "others", 350)}>
+                <Tooltip textHint={item.name}>
                   <img src={`/assets/images/logos/${item.resourceIdentifier}.png`} alt="Git" />
                 </Tooltip>
               </div>

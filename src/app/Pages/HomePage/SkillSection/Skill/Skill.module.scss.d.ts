@@ -2,12 +2,10 @@ declare namespace SkillModuleScssNamespace {
   export interface ISkillModuleScss {
     "brand-icon": string;
     "experience-border-color": string;
-    "fade-in-grow": string;
-    "fade-slide-left": string;
     name: string;
     "name-underline": string;
+    "regular-border-color": string;
     skill: string;
-    "slide-in": string;
     wrapper: string;
   }
 }

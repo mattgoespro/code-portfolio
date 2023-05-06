@@ -1,26 +1,22 @@
-import { setStylesheetVariables } from "@Shared/Utility/Utility";
 import { SoftwareSkill } from "./Skill.model";
 import styles from "./Skill.module.scss";
 
 interface SkillProps {
   softwareSkill: SoftwareSkill;
+  animationProps: { [key: string]: unknown };
 }
 
 export function Skill(props: SkillProps) {
-  const expTooltipAttr = {};
-
-  if (props.softwareSkill.experienced) {
-    expTooltipAttr["experience"] = `${props.softwareSkill.yearsExperience} yrs`;
-  }
-
   return (
     <div
       key={props.softwareSkill.resourceIdentifier}
       className={styles.wrapper}
       style={{
-        borderColor: props.softwareSkill.experienced ? styles["experience-border-color"] : null
+        borderColor: props.softwareSkill.experienced
+          ? styles["experience-border-color"]
+          : styles["regular-border-color"]
       }}
-      {...expTooltipAttr}
+      {...props.animationProps}
     >
       <div className={styles["brand-icon"]}>
         <img
@@ -37,10 +33,11 @@ export function Skill(props: SkillProps) {
         </div>
         <div
           className={styles["name-underline"]}
-          style={setStylesheetVariables({
-            name: "name-underline-color",
-            value: props.softwareSkill.styles.nameColor
-          })}
+          style={
+            {
+              "--name-underline-color": props.softwareSkill.styles.nameColor
+            } as unknown
+          }
         ></div>
       </div>
     </div>

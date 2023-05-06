@@ -1,17 +1,27 @@
 @import "colors";
 
-.wrapper:hover::before {
-  content: attr(experience);
-  position: absolute;
-  background-color: $blue;
-  min-width: 20px;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  color: $light;
-  text-align: center;
-  white-space: nowrap;
-  margin-bottom: 110px;
-  border-radius: 12px;
-  padding: 7px;
+.wrapper {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+
+  &[tooltip-text-hint]:hover::before {
+    position: absolute;
+    top: 118%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 150px;
+    background-color: $dark-grey;
+    border-radius: 12px;
+    padding: 7px;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: $light;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    content: attr(tooltip-text-hint);
+  }
 }

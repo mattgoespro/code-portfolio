@@ -1,9 +1,19 @@
 import styles from "./Tooltip.module.scss";
 
 interface TooltipProps {
-  children: JSX.Element[];
+  textHint: string;
+  children: JSX.Element;
 }
 
-export function Tooltip(tooltipProps: TooltipProps) {
-  return <div className={styles.wrapper}>{tooltipProps.children}</div>;
+export function Tooltip(props: TooltipProps) {
+  return (
+    <div
+      className={styles.wrapper}
+      {...{
+        "tooltip-text-hint": `${props.textHint}`
+      }}
+    >
+      {props.children}
+    </div>
+  );
 }

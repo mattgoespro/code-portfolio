@@ -3,6 +3,11 @@
 
 .project-page {
   background-color: $content-page-background;
+
+  &:has(.project-load-error-overlay) {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
 }
 
 .page-header-wave-top {
@@ -63,7 +68,7 @@ $error-animation-duration: 300ms;
   position: absolute;
   z-index: 2;
   left: 50%;
-  transform: translateX(-50%) translateY(100%);
+  transform: translateX(-50%) translateY(80%);
   animation: project-load-error-overlay-fade $error-animation-duration ease-out;
   animation-fill-mode: forwards;
 }
@@ -75,7 +80,7 @@ $error-animation-duration: 300ms;
   align-items: center;
   backdrop-filter: blur(9px);
   filter: brightness(55%);
-  width: calc(100vw - $nav-width);
+  width: 100vw;
   height: 100vh;
   animation: project-load-error-overlay-fade $error-animation-duration ease-out;
 }
