@@ -4,6 +4,7 @@
 
 - Convert font-size units from _px_ to _rem_.
 - Imported nav bar SVG styles (like hover) not applying
+- Fix page not center aligned due to overlap with navbar.
 
 ## View Repo
 
