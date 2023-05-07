@@ -10,13 +10,15 @@ export function ProjectRepositoryStats(props: ProjectRepositoryStatsProps) {
     <div>
       <div className={styles["activity-title"]}>Stats</div>
       <div className={styles.activity}>
-        Date created: <i>{new Date(props.project.stats.createdTimestamp).toUTCString()}</i>
+        <span>Date created:</span>{" "}
+        <i>{new Date(props.project.stats.createdTimestamp).toUTCString()}</i>
       </div>
       <div className={styles.activity}>
-        Last updated: <i>{new Date(props.project.stats.updatedTimestamp).toUTCString()}</i>
+        <span>Last updated:</span>{" "}
+        <i>{new Date(props.project.stats.updatedTimestamp).toUTCString()}</i>
       </div>
       <div className={styles.activity}>
-        Total commits: <i>{props.project.stats.totalCommits}</i>
+        <span>Total commits:</span> <i>{props.project.stats.totalCommits}</i>
       </div>
     </div>
   );

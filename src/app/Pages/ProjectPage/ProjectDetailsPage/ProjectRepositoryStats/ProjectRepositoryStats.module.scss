@@ -1,15 +1,22 @@
+@import "colors";
+
 .activity-title {
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-size: 24px;
   letter-spacing: 1px;
+  color: $blue;
   margin-bottom: 25px;
 }
 
 .activity {
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-size: 16px;
   font-weight: 200;
   line-height: 1.5;
   letter-spacing: 1px;
   margin: 5px;
+
+  span {
+    color: $orange;
+  }
 }

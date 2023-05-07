@@ -3,9 +3,11 @@ declare namespace ProjectPageScssNamespace {
     "github-profile": string;
     "header-subtitle": string;
     "header-title": string;
+    "page-base": string;
     "page-header": string;
     "page-header-wave-bottom": string;
     "page-header-wave-top": string;
+    "page-title": string;
     "project-load-error": string;
     "project-load-error-overlay": string;
     "project-load-error-overlay-fade": string;

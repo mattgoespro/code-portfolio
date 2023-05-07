@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "colors", "mixins";
+@import "colors", "mixins", "components";
 
 .about-page {
   background-color: $light;

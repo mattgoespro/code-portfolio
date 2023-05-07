@@ -58,7 +58,7 @@ export function ProjectDetails() {
               <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
             </div>
           )) || <div className={styles["readme-unavailable"]}></div>}
-          <div className="divider"></div>
+          <div className={styles.divider}></div>
           <div className={styles.stats}>
             <div className={styles["stats-card"]}>
               <ProjectRepositoryStats project={project} />

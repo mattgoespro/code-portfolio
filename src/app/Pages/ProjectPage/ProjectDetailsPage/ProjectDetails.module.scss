@@ -19,6 +19,10 @@
     margin: 50px;
   }
 
+  .divider {
+    @include divider(1px, $orange, 50px);
+  }
+
   .stats {
     display: flex;
     margin-bottom: 50px;

@@ -6,9 +6,11 @@ declare namespace AboutPageModuleScssNamespace {
     "character-traits-list": string;
     "detailed-info": string;
     name: string;
+    "page-base": string;
     "page-header": string;
     "page-header-wave-bottom": string;
     "page-header-wave-top": string;
+    "page-title": string;
     separator: string;
     "smellsense-link": string;
     "summary-header": string;

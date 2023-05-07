@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "colors", "mixins";
+@import "colors", "mixins", "components";
 
 .project-page {
   &:has(.project-load-error-overlay) {
@@ -30,8 +30,9 @@
     font-size: 6rem;
     font-weight: 300;
     letter-spacing: 10px;
-    color: $grey;
+    color: $dark-grey;
     margin: 0 0 2rem;
+    max-width: 800px;
   }
 
   .header-subtitle {
