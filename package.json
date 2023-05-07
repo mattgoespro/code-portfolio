@@ -19,6 +19,7 @@
     "@mattgoespro/hoppingmode-web": "^1.5.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.0",
+    "aos": "^2.3.4",
     "axios": "^1.3.5",
     "base-64": "^1.0.0",
     "chart.js": "^4.2.1",
@@ -28,9 +29,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "^4.0.3",
-    "react-spinners": "^0.13.8",
-    "simple-aos": "^4.2.0"
+    "react-scripts": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",

@@ -1,7 +1,7 @@
 import styles from "./ProjectRequestFailure.module.scss";
 
 interface ProjectRequestFailureProps {
-  errorMessage: JSX.Element;
+  errorMessage: string;
 }
 
 export function ProjectRequestFailure(props: ProjectRequestFailureProps) {

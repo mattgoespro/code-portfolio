@@ -1,19 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
 import NavHeaderLogo from "@Icons/nav-header.svg";
 import LinkedInLogo from "@Icons/linkedin.svg";
 import GitHubLogo from "@Icons/github.svg";
 import styles from "./PageNavigator.module.scss";
-import AOS from "simple-aos";
-import { useEffect } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 export function PageNavigator() {
-  // Initialize animation engine on mount
-  useEffect(() => {
-    AOS.init({
-      disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    });
-  });
-
   return (
     <>
       <div className={styles["side-nav"]}>

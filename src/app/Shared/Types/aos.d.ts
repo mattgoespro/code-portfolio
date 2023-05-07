@@ -1,4 +1,4 @@
-declare module "simple-aos" {
+declare module "aos" {
   // See list of available: animations https://www.npmjs.com/package/aos#-animations
   type FadeAnimation =
     | "fade"

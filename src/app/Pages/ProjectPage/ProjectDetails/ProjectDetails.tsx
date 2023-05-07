@@ -50,15 +50,7 @@ export function ProjectView() {
 
   return (
     <div className={styles.wrapper}>
-      {error && (
-        <ProjectRequestFailure
-          errorMessage={
-            <div>
-              <span>Oops!</span> Failed to load project details
-            </div>
-          }
-        />
-      )}
+      {error && <ProjectRequestFailure errorMessage="Failed to load project details" />}
       {!error && !loadingProject && (
         <>
           <div className={styles.stats}>

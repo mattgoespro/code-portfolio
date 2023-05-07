@@ -19,13 +19,7 @@ export function ProjectPage() {
         <>
           <div className={styles["project-load-error-overlay"]}></div>
           <div className={styles["project-load-error"]}>
-            <ProjectRequestFailure
-              errorMessage={
-                <div>
-                  <span>Oops!</span> The projects failed to load
-                </div>
-              }
-            />
+            <ProjectRequestFailure errorMessage="The projects failed to load" />
           </div>
         </>
       )}
@@ -37,14 +31,13 @@ export function ProjectPage() {
           <h2 className={styles["header-subtitle"]}>
             Available on{" "}
             <span>
-              <ExternalLink
+              <a
                 href="https://github.com/mattgoespro"
                 target="tab"
-                underline="none"
                 className={styles["github-profile"]}
               >
                 GitHub
-              </ExternalLink>
+              </a>
             </span>
           </h2>
         )}

@@ -1,4 +1,4 @@
-import { AnchorPlacement, EasingFunction, FadeAnimation, SlideAnimation } from "simple-aos";
+import { AnchorPlacement, EasingFunction, FadeAnimation, SlideAnimation } from "aos";
 
 interface ScrollAnimationOptions {
   anchor: string;

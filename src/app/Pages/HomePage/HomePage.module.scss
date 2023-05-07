@@ -28,7 +28,7 @@
 }
 
 .page-wave-top {
-  @include wave-border(math.div(1920, 300), "svg/border-waves/orange-navy.svg");
+  @include wave-border(math.div(1920, 200), "svg/border-waves/orange-navy.svg");
 }
 
 .languages-wave-top {
