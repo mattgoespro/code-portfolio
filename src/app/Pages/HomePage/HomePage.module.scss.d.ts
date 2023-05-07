@@ -31,6 +31,7 @@ declare namespace HomePageModuleScssNamespace {
     "others-section": string;
     "others-wave-top": string;
     "page-base": string;
+    "page-title": string;
     "page-wave-top": string;
     wrapper: string;
   }

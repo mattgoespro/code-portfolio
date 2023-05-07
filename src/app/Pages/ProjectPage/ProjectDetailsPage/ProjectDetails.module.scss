@@ -1,12 +1,14 @@
 @import "colors", "mixins";
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 200px auto;
-  max-width: 60%;
+.project-details-page {
+  .project-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 80px auto 200px auto;
+    max-width: 60%;
+  }
 
   .project-name {
     font-family: "Roboto", sans-serif;

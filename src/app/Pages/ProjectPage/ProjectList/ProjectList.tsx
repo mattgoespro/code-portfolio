@@ -4,7 +4,10 @@ import { ProjectCard } from "./ProjectCard/ProjectCard";
 import { RepositorySummary } from "@mattgoespro/hoppingmode-web";
 import styles from "./ProjectList.module.scss";
 import { useOutletContext } from "react-router-dom";
-import { createAnimateOnScrollAttribs } from "@Shared/Utility/Animation";
+import {
+  createAnimateOnScrollAttribs,
+  generateListFadeLeftParams
+} from "@Shared/Utility/Animation";
 
 export function ProjectList() {
   const [fetchingProjects, setFetchingProjects] = useState(true);
@@ -12,10 +15,10 @@ export function ProjectList() {
   const [error, setError] = useState(false);
   const cont = useOutletContext<(err: boolean) => void>();
 
-  const LIST_ITEM_ANIMATE_DELAY = 100;
-  const LIST_ITEM_ANIMATE_DURATION = 400;
-  const LIST_ITEM_ANIMATE_LAG = 800;
-  const LIST_ITEM_ANIMATE_SPEED = 100;
+  const PROJECT_ANIMATE_DELAY = 100;
+  const PROJECT_ANIMATE_DURATION = 400;
+  const PROJECT_ANIMATE_LAG = 800;
+  const PROJECT_ANIMATE_SPEED_FACTOR = 100;
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -54,7 +57,7 @@ export function ProjectList() {
                   animation: "fade",
                   animationDuration: 400,
                   animationDelay: 400,
-                  scrollOffset: 600,
+                  scrollOffset: 200,
                   once: true
                 })}
               >
@@ -73,12 +76,14 @@ export function ProjectList() {
                           {...createAnimateOnScrollAttribs({
                             anchor: "pinned-scroll-trigger",
                             animation: "fade-left",
-                            animationDuration: LIST_ITEM_ANIMATE_DURATION,
-                            animationDelay:
-                              LIST_ITEM_ANIMATE_DELAY +
-                              LIST_ITEM_ANIMATE_LAG +
-                              LIST_ITEM_ANIMATE_SPEED * index,
-                            scrollOffset: 400,
+                            ...generateListFadeLeftParams(
+                              PROJECT_ANIMATE_DURATION,
+                              PROJECT_ANIMATE_DELAY,
+                              PROJECT_ANIMATE_LAG,
+                              PROJECT_ANIMATE_SPEED_FACTOR,
+                              index
+                            ),
+                            scrollOffset: 200,
                             once: true
                           })}
                         >
@@ -101,7 +106,7 @@ export function ProjectList() {
                   animation: "fade",
                   animationDuration: 400,
                   animationDelay: 400,
-                  scrollOffset: 400,
+                  scrollOffset: 200,
                   once: true
                 })}
               >
@@ -116,11 +121,11 @@ export function ProjectList() {
                           {...createAnimateOnScrollAttribs({
                             anchor: "unpinned-scroll-trigger",
                             animation: "fade-left",
-                            animationDuration: LIST_ITEM_ANIMATE_DURATION,
+                            animationDuration: PROJECT_ANIMATE_DURATION,
                             animationDelay:
-                              LIST_ITEM_ANIMATE_DELAY +
-                              LIST_ITEM_ANIMATE_LAG +
-                              LIST_ITEM_ANIMATE_SPEED * index,
+                              PROJECT_ANIMATE_DELAY +
+                              PROJECT_ANIMATE_LAG +
+                              PROJECT_ANIMATE_SPEED_FACTOR * index,
                             scrollOffset: 200,
                             once: true
                           })}

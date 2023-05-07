@@ -9,7 +9,7 @@ import styles from "./ProjectDetails.module.scss";
 import { ProjectRepositoryStats } from "./ProjectRepositoryStats/ProjectRepositoryStats";
 import { ProjectRequestFailure } from "../ProjectRequestFailure/ProjectRequestFailure";
 
-export function ProjectView() {
+export function ProjectDetails() {
   const { projectName } = useParams();
 
   const [project, setProject] = useState<Repository>(null);
@@ -49,10 +49,16 @@ export function ProjectView() {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles["project-details-page"]}>
       {error && <ProjectRequestFailure errorMessage="Failed to load project details" />}
       {!error && !loadingProject && (
-        <>
+        <div className={styles["project-details"]}>
+          {(project.readme && (
+            <div>
+              <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
+            </div>
+          )) || <div className={styles["readme-unavailable"]}></div>}
+          <div className="divider"></div>
           <div className={styles.stats}>
             <div className={styles["stats-card"]}>
               <ProjectRepositoryStats project={project} />
@@ -61,12 +67,7 @@ export function ProjectView() {
               <ProjectLanguageChart languages={projectLanguages} />
             </div>
           </div>
-          {(project.readme && (
-            <div>
-              <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
-            </div>
-          )) || <div className={styles["readme-unavailable"]}></div>}
-        </>
+        </div>
       )}
     </div>
   );

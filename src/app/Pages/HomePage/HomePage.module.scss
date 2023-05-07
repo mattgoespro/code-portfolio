@@ -1,6 +1,5 @@
 @use "sass:math";
-@import "colors", "mixins", "navigation", "animations", "components",
-  "./SkillSection/SkillSection.module";
+@import "colors", "mixins", "animations", "components", "./SkillSection/SkillSection.module";
 
 :export {
   // Languages

@@ -23,3 +23,16 @@ export function createAnimateOnScrollAttribs(options: ScrollAnimationOptions) {
     "data-aos-once": options.once
   };
 }
+
+export function generateListFadeLeftParams(
+  duration: number,
+  delay: number,
+  itemLag: number,
+  speedFactor: number,
+  index: number
+) {
+  return {
+    animationDuration: duration,
+    animationDelay: delay + itemLag + speedFactor * index
+  };
+}

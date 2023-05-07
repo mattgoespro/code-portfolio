@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { ProjectRequestFailure } from "./ProjectRequestFailure/ProjectRequestFailure";
-import { Link as ExternalLink } from "@mui/material";
 
 import styles from "./ProjectPage.scss";
 
@@ -24,7 +23,6 @@ export function ProjectPage() {
         </>
       )}
       <div className={styles["page-header-wave-top"]}></div>
-
       <div className={styles["page-header"]}>
         <h1 className={styles["header-title"]}>{params.projectName || "Projects"}</h1>
         {!params.projectName && (

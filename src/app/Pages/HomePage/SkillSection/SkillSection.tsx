@@ -1,4 +1,7 @@
-import { createAnimateOnScrollAttribs } from "@Shared/Utility/Animation";
+import {
+  createAnimateOnScrollAttribs,
+  generateListFadeLeftParams
+} from "@Shared/Utility/Animation";
 import { Skill } from "./Skill/Skill";
 import { SoftwareSkill, SoftwareSkillCategory } from "./Skill/Skill.model";
 import styles from "./SkillSection.module.scss";
@@ -10,12 +13,13 @@ const HEADER_ANIMATE_SCROLL_OFFSET = 350;
 
 const SKILL_ANIMATE_DELAY = 250;
 const SKILL_ANIMATE_DURATION = 150;
+const SKILL_ANIMATE_LAG = 800;
+const SKILL_ANIMATE_SPEED_FACTOR = 100;
 const SKILL_ANIMATE_SCROLL_OFFSET = 350;
 
 export function createHeaderAnimateAttrs(anchor: string, scrollOffset: number) {
   return createAnimateOnScrollAttribs({
     animation: "fade-left",
-    easing: "ease-out-quad",
     animationDuration: HEADER_ANIMATE_DURATION,
     animationDelay: HEADER_ANIMATE_DELAY,
     anchor,
@@ -24,12 +28,16 @@ export function createHeaderAnimateAttrs(anchor: string, scrollOffset: number) {
   });
 }
 
-export function createSkillAnimateAttrs(itemIndex: number, anchor: string, scrollOffset: number) {
+export function createSkillAnimateAttrs(index: number, anchor: string, scrollOffset: number) {
   return createAnimateOnScrollAttribs({
     animation: "fade-left",
-    easing: "ease-out-quad",
-    animationDuration: SKILL_ANIMATE_DURATION,
-    animationDelay: SKILL_ANIMATE_DELAY + SKILL_ANIMATE_DELAY + SKILL_ANIMATE_DURATION * itemIndex,
+    ...generateListFadeLeftParams(
+      SKILL_ANIMATE_DURATION,
+      SKILL_ANIMATE_DELAY,
+      SKILL_ANIMATE_LAG,
+      SKILL_ANIMATE_SPEED_FACTOR,
+      index
+    ),
     anchor,
     scrollOffset,
     once: false

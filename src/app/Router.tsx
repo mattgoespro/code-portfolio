@@ -2,9 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { PageNavigator } from "./PageNavigator/PageNavigator";
 import { AboutPage } from "./Pages/AboutPage/AboutPage";
 import { HomePage } from "./Pages/HomePage/HomePage";
-import { ProjectView } from "./Pages/ProjectPage/ProjectDetails/ProjectDetails";
 import { ProjectList } from "./Pages/ProjectPage/ProjectList/ProjectList";
 import { ProjectPage } from "./Pages/ProjectPage/ProjectPage";
+import { ProjectDetails } from "./Pages/ProjectPage/ProjectDetailsPage/ProjectDetails";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
           },
           {
             path: ":projectName",
-            element: <ProjectView />
+            element: <ProjectDetails />
           }
         ]
       },

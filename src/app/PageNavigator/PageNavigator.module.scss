@@ -1,4 +1,4 @@
-@import "colors", "navigation";
+@import "colors";
 
 .side-nav {
   position: fixed;
@@ -8,7 +8,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  width: $nav-width;
+  width: clamp(3rem, 10vw, 100px);
   height: 100%;
   background-color: #151d2b;
 

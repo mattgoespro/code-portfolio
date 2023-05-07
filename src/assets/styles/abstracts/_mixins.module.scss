@@ -2,21 +2,11 @@
  * Style of long bodies of text.
  */
 @mixin article-text($font-size, $font-weight, $color) {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: $font-size;
   font-weight: $font-weight;
   color: $color;
   line-height: 1.5;
-}
-
-@mixin page-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 60%;
-  margin: auto;
-  background-color: #ffffff;
 }
 
 @mixin divider($thickness, $color, $margin) {
@@ -33,7 +23,7 @@
 @mixin underline($thickness, $color, $width, $padding-top) {
   &:after {
     position: absolute;
-    content: '';
+    content: "";
     height: 1px;
     border-bottom: $thickness solid $color;
     width: $width;
