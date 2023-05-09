@@ -2,8 +2,13 @@ declare namespace PageNavigatorModuleScssNamespace {
   export interface IPageNavigatorModuleScss {
     divider: string;
     "header-logo": string;
+    navbar: string;
+    "overflow-menu-item": string;
+    "page-link": string;
+    "page-link-menu-button": string;
+    "page-link-menu-icon": string;
+    "page-link-overflow-menu": string;
     "page-links": string;
-    "side-nav": string;
     socials: string;
   }
 }
