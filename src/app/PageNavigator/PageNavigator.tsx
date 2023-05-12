@@ -3,7 +3,7 @@ import LinkedInLogo from "@Icons/linkedin.svg";
 import GitHubLogo from "@Icons/github.svg";
 import styles from "./PageNavigator.module.scss";
 import { Link, Outlet } from "react-router-dom";
-import AppMenu from "@Shared/Components/Menu/Menu";
+import { AppMenu } from "@Shared/Components/Menu/Menu";
 
 export function PageNavigator() {
   return (
@@ -14,32 +14,30 @@ export function PageNavigator() {
         </div>
         <div className={styles.divider}></div>
         <AppMenu className={styles["page-link-overflow-menu"]}>
-          <button {...{ trigger: "true" }} className={styles["page-link-menu-button"]}>
-            <span className={`${styles["page-link-menu-icon"]} material-symbols-outlined`}>
-              menu
-            </span>
-          </button>
-          <Link
-            className={`${styles["page-link"]} ${styles["overflow-menu-item"]}`}
-            {...{ option: "Home" }}
-            to="/"
-          >
-            Home
-          </Link>
-          <Link
-            className={`${styles["page-link"]} ${styles["overflow-menu-item"]}`}
-            {...{ option: "Projects" }}
-            to="/projects"
-          >
-            Projects
-          </Link>
-          <Link
-            className={`${styles["page-link"]} ${styles["overflow-menu-item"]}`}
-            {...{ option: "About" }}
-            to="/about"
-          >
-            About
-          </Link>
+          {{
+            trigger: (
+              <button {...{ trigger: "true" }} className={styles["page-link-menu-button"]}>
+                <span className={`${styles["page-link-menu-icon"]} material-symbols-outlined`}>
+                  menu
+                </span>
+              </button>
+            ),
+            options: [
+              { title: "Home", route: "/" },
+              { title: "Projects", route: "/projects" },
+              { title: "About", route: "/about" }
+            ].map((link) => {
+              return (
+                <Link
+                  key={link.title}
+                  className={`${styles["page-link"]} ${styles["overflow-menu-item"]}`}
+                  to={link.route}
+                >
+                  {link.title}
+                </Link>
+              );
+            })
+          }}
         </AppMenu>
         <div className={styles["page-links"]}>
           <Link className={styles["page-link"]} to="/">

@@ -28,9 +28,7 @@ declare namespace HomePageModuleScssNamespace {
     list: string;
     logo: string;
     "others-bg-color": string;
-    "others-header": string;
     "others-header-color": string;
-    "others-section": string;
     "others-wave-top": string;
     "page-base": string;
     "page-title": string;

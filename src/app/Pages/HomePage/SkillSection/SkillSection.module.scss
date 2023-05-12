@@ -1,14 +1,5 @@
 @import "colors";
 
-@mixin header {
-  font-family: "Quicksand", "Nunito", sans-serif;
-  font-size: 2rem;
-  font-weight: 300;
-  max-width: 56.25rem;
-  text-align: center;
-  margin: 0 0 1.5625rem;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -16,20 +7,23 @@
   align-items: center;
   width: 100%;
   min-height: 25rem;
+  padding: 2rem;
 
   .header {
-    font-family: "Quicksand", "Nunito", sans-serif;
-    font-size: 2rem;
-    font-weight: 300;
+    font-family: "Source Code Pro", "Nunito", sans-serif;
+    font-size: clamp(0.75rem, 1rem + 1vw, 4rem);
+    font-weight: 400;
     max-width: 70%;
     text-align: center;
-    margin: 0 0 1.5625rem;
+    margin: 0 0 3rem;
   }
 
   .list {
-    display: grid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 50%;
-    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-    gap: 2rem;
+    gap: clamp(0.5rem, 1vw, 3rem);
   }
 }

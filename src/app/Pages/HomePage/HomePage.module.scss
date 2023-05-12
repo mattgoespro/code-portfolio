@@ -46,15 +46,16 @@
 
 .introduction {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  min-height: 31.25rem;
-  width: clamp(20rem, 70vw + 3rem, 100vw);
+  padding: clamp(0rem, 2vw + 0.25rem, 6.25rem);
 
   .introduction-text {
     font-family: "Source Code Pro", "Nunito", sans-serif;
     text-align: left;
     color: $light;
+    flex-basis: 50%;
 
     h1 {
       font-size: clamp(3rem, 2rem + 4vw, 6rem);
@@ -63,7 +64,7 @@
     }
 
     h2 {
-      font-size: clamp(1.2rem, 0.875rem + 4vw, 0.5vw);
+      font-size: clamp(0.75rem, 0.875rem + 0.5vw, 4rem);
       font-weight: 100;
       margin: 0 0 1.25rem;
     }
@@ -82,42 +83,9 @@
     height: 100%;
 
     img {
-      width: clamp(5rem, 10vw + 2rem, 35rem);
+      width: clamp(15rem, 18vw + 2rem, 35rem);
       height: auto;
       flex: 1;
-    }
-  }
-}
-
-.others-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 12.5rem;
-  background-color: $blue;
-
-  .others-header {
-    margin-top: 6.25rem;
-
-    h3 {
-      @include header;
-      max-width: 25rem;
-      line-height: 1.5;
-      color: $light;
-    }
-  }
-
-  .list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 25rem;
-
-    img {
-      width: 2.5rem;
-      margin: 1.25rem;
     }
   }
 }

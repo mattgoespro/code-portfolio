@@ -33,6 +33,7 @@
 }
 
 @mixin wave-border($aspect-ratio, $wave-source) {
+  min-height: 150px;
   width: 100%;
   aspect-ratio: $aspect-ratio;
   background-repeat: no-repeat;

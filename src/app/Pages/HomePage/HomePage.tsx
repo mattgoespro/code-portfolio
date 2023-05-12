@@ -1,10 +1,5 @@
 import styles from "./HomePage.module.scss";
-import { Tooltip } from "@Shared/Components/Tooltip/Tooltip";
-import {
-  SkillSection,
-  createHeaderAnimateAttrs,
-  createSkillAnimateAttrs
-} from "./SkillSection/SkillSection";
+import { SkillSection } from "./SkillSection/SkillSection";
 import { knownDevFrameworks, knownDevLanguages, knownDevTools } from "./HomePage.data";
 
 export function HomePage() {
@@ -26,7 +21,7 @@ export function HomePage() {
       <div className={styles["languages-wave-top"]}></div>
       <SkillSection
         header="I have professional and personal experience working with a variety of programming languages"
-        skillType="languages"
+        skillsType="languages"
         softwareSkills={knownDevLanguages(styles)}
         style={{
           backgroundColor: styles["languages-bg-color"]
@@ -35,15 +30,15 @@ export function HomePage() {
       <div className={styles["languages-wave-bottom"]}></div>
       <SkillSection
         header="Across a multitude of software development frameworks"
-        skillType="frameworks"
+        skillsType="frameworks"
         softwareSkills={knownDevFrameworks(styles)}
         style={{ headerColor: styles["frameworks-header-color"] }}
       />
       <div className={styles["others-wave-top"]}></div>
       <SkillSection
         header="Alongside a selection of industry standard tools"
-        skillType="others"
-        softwareSkills={knownDevFrameworks(styles)}
+        skillsType="others"
+        softwareSkills={knownDevTools}
         style={{
           headerColor: styles["others-header-color"],
           backgroundColor: styles["others-bg-color"]

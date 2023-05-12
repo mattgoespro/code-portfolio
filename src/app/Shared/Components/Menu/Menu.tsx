@@ -1,14 +1,26 @@
 import Menu from "@mui/material/Menu/Menu";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
-import { createElement, useId, useState } from "react";
+import { DetailedHTMLProps, ReactElement, cloneElement, useId, useState } from "react";
 import styles from "./Menu.module.scss";
 
-interface MenuProps {
-  children: JSX.Element[];
-  className?: string;
-}
+const isObject = <T extends object>(value: unknown): value is T =>
+  typeof value === "object" && typeof value !== "function" && value != undefined;
+const isNamed = (children: unknown): children is MenuOption =>
+  isObject(children) && "trigger" in children && "options" in children;
 
-export default function AppMenu(props: MenuProps) {
+type MenuProps = {
+  children: ReactElement | MenuOption;
+  className?: string;
+};
+
+type MenuOption = {
+  trigger?: ReactElement<
+    DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+  >;
+  options?: ReactElement[];
+};
+
+export function AppMenu(props: MenuProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -18,18 +30,37 @@ export default function AppMenu(props: MenuProps) {
     setAnchorEl(null);
   };
 
-  const trigger = props.children.find((c) => c.props.trigger);
-  const triggerButton = createElement("button", {
-    ...trigger.props,
-    "aria-controls": open ? "menu" : undefined,
-    "aria-haspopup": "true",
-    "aria-expanded": open ? "true" : undefined,
-    onClick: handleClick
-  });
+  let menuOptions: ReactElement[] = [];
+  let menuTriggerButton: ReactElement<
+    DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+  > = null;
+
+  if (isNamed(props.children)) {
+    const { trigger, options } = props.children;
+
+    menuTriggerButton = cloneElement(trigger, {
+      "aria-controls": open ? "menu" : undefined,
+      "aria-haspopup": "true",
+      "aria-expanded": open ? "true" : undefined,
+      onClick: handleClick
+    });
+
+    menuOptions = options.map((opt) => {
+      return (
+        <MenuItem
+          key={opt.key}
+          onClick={handleClose}
+          style={{ backgroundColor: styles["background-color"], padding: 0 }}
+        >
+          {opt}
+        </MenuItem>
+      );
+    });
+  }
 
   return (
     <div className={props.className}>
-      {triggerButton}
+      {menuTriggerButton}
       <Menu
         id={useId()}
         anchorEl={anchorEl}
@@ -54,19 +85,7 @@ export default function AppMenu(props: MenuProps) {
           }
         }}
       >
-        {props.children
-          .filter((c) => c.props.option)
-          .map((opt) => {
-            return (
-              <MenuItem
-                key={opt.props.option}
-                onClick={handleClose}
-                style={{ backgroundColor: styles["background-color"], padding: 0 }}
-              >
-                {opt}
-              </MenuItem>
-            );
-          })}
+        {menuOptions}
       </Menu>
     </div>
   );

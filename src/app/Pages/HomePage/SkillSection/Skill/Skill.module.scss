@@ -16,9 +16,12 @@ $experience-border-color: #317ac3;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.9375rem;
-  border: 0.1875rem solid;
+  border: 0.1875rem solid transparent;
   border-radius: 1.25rem;
+
+  &.padded {
+    padding: clamp(0.0625rem, 0.21vw + 0.75rem, 3rem);
+  }
 
   &:hover {
     filter: brightness(85%);
@@ -26,10 +29,14 @@ $experience-border-color: #317ac3;
 
   .brand-icon {
     display: flex;
+  }
 
-    img {
-      max-width: 1.75rem;
-    }
+  img.icon-large {
+    max-width: 3rem;
+  }
+
+  img.icon-regular {
+    max-width: 1.75rem;
   }
 
   .skill {
@@ -41,7 +48,7 @@ $experience-border-color: #317ac3;
 
     .name {
       font-family: "Quicksand", sans-serif;
-      font-size: 0.875rem;
+      font-size: clamp(0.75rem, 1vw + 00.1875rem, 1rem);
       font-weight: bold;
     }
 

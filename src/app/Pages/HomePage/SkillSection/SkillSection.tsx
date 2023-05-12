@@ -46,7 +46,7 @@ export function createSkillAnimateAttrs(index: number, anchor: string, scrollOff
 
 interface SkillSectionProps {
   header: string;
-  skillType: SoftwareSkillType;
+  skillsType: SoftwareSkillType;
   softwareSkills: SoftwareSkill[];
   style?: {
     backgroundColor?: string;
@@ -55,14 +55,15 @@ interface SkillSectionProps {
 }
 
 export function SkillSection(props: SkillSectionProps) {
-  function createSkillComponent(skill: SoftwareSkill, index: number) {
+  function createSkillComponent(skill: SoftwareSkill, type: SoftwareSkillType, index: number) {
     return (
       <Skill
         key={skill.name}
         softwareSkill={skill}
+        titled={type != "others"}
         animationProps={createSkillAnimateAttrs(
           index,
-          props.skillType,
+          props.skillsType,
           SKILL_ANIMATE_SCROLL_OFFSET
         )}
       ></Skill>
@@ -71,22 +72,34 @@ export function SkillSection(props: SkillSectionProps) {
 
   return (
     <div
-      id={props.skillType}
+      id={props.skillsType}
       className={styles.wrapper}
       style={{ backgroundColor: props.style.backgroundColor }}
     >
       <h3
         className={styles.header}
         style={{ color: props.style.headerColor }}
-        {...createHeaderAnimateAttrs(props.skillType, HEADER_ANIMATE_SCROLL_OFFSET)}
+        {...createHeaderAnimateAttrs(props.skillsType, HEADER_ANIMATE_SCROLL_OFFSET)}
       >
         {props.header}
       </h3>
       <div className={styles.list}>
         {props.softwareSkills.map((skill, index) => {
-          const skillComponent = createSkillComponent(skill, index);
+          const skillComponent = createSkillComponent(skill, props.skillsType, index);
+          if (props.skillsType === "others") {
+            return (
+              <Tooltip key={index} textHint={skill.name} style={{ flexShrink: "1" }}>
+                {skillComponent}
+              </Tooltip>
+            );
+          }
+
           return skill.experienced ? (
-            <Tooltip key={index} textHint={`${skill.yearsExperience} years experience`}>
+            <Tooltip
+              key={index}
+              textHint={`${skill.yearsExperience} years experience`}
+              style={{ flexShrink: "1" }}
+            >
               {skillComponent}
             </Tooltip>
           ) : (

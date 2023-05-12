@@ -1,3 +1,5 @@
+export type SoftwareSkillType = "languages" | "frameworks" | "others";
+
 /**
  * @param resourceIdentifier The identifier for a stylesheet variable or image
  * asset name.
@@ -11,5 +13,3 @@ export interface SoftwareSkill {
   experienced?: boolean;
   yearsExperience?: number;
 }
-
-export type SoftwareSkillType = "languages" | "frameworks" | "others";
