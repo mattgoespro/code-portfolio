@@ -12,4 +12,4 @@ export interface SoftwareSkill {
   yearsExperience?: number;
 }
 
-export type SoftwareSkillCategory = "languages" | "frameworks" | "other";
+export type SoftwareSkillType = "languages" | "frameworks" | "others";

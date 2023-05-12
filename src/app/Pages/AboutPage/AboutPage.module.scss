@@ -26,7 +26,7 @@
     text-align: center;
     font-size: 6rem;
     font-weight: 200;
-    letter-spacing: 10px;
+    letter-spacing: 0.625rem;
     color: $blue;
     margin: 0 0 2rem;
 
@@ -42,22 +42,22 @@
       justify-content: center;
       align-items: center;
       font-family: "Roboto", sans-serif;
-      letter-spacing: 2px;
+      letter-spacing: 0.125rem;
       font-size: 1.5rem;
       font-weight: 300;
       color: $light-grey;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
 
       &:last-child {
         margin-bottom: 0;
       }
 
       .separator {
-        width: 8px;
-        height: 8px;
-        border-radius: 8px;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 0.5rem;
         background-color: $dark-grey;
-        margin: 0 10px;
+        margin: 0 0.625rem;
       }
     }
   }
@@ -76,7 +76,7 @@
     justify-content: center;
     align-items: center;
 
-    @include underline(2px, $light-grey, 100%, 2.5rem);
+    @include underline(0.125rem, $light-grey, 100%, 2.5rem);
 
     .summary-text {
       display: flex;
@@ -97,7 +97,7 @@
     img {
       width: 30%;
       height: 100%;
-      border-radius: 10px;
+      border-radius: 0.625rem;
     }
   }
 
@@ -123,7 +123,7 @@
 
       img {
         max-width: 18.75rem;
-        border-radius: 10px;
+        border-radius: 0.625rem;
       }
 
       label {

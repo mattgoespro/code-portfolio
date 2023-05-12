@@ -1,12 +1,14 @@
 @import "colors";
 
+$nav-height: 4.375rem;
+
 .navbar {
   position: fixed;
   display: flex;
   align-items: center;
   gap: 1rem;
-  width: 100%;
-  height: 70px;
+  width: 100vw;
+  height: $nav-height;
   z-index: 1;
   background-color: $light-navy;
 
@@ -14,8 +16,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    margin-left: 10px;
+    width: 6.25rem;
+    margin-left: 0.625rem;
   }
 
   .page-links {
@@ -25,7 +27,7 @@
   }
 
   .page-link-overflow-menu {
-    width: 100px;
+    width: 6.25rem;
     display: none;
 
     .page-link-menu-button {
@@ -38,16 +40,16 @@
       .page-link-menu-icon {
         color: $light;
         width: 100%;
-        font-size: 32px !important;
+        font-size: 2rem !important;
       }
     }
   }
 
   .divider {
-    border-bottom: 1px solid #505050;
-    height: 1px;
+    border-bottom: 0.0625rem solid #505050;
+    height: 0.0625rem;
     width: 100%;
-    margin: 0 10px;
+    margin: 0 0.625rem;
   }
 
   .socials {
@@ -71,12 +73,12 @@
       }
 
       &:last-child {
-        margin-right: 15px;
+        margin-right: 0.9375rem;
       }
     }
   }
 
-  @media screen and (max-width: 586px) {
+  @media screen and (max-width: 36.625rem) {
     .divider:nth-child(2) {
       display: none;
     }
@@ -89,11 +91,11 @@
     }
 
     .page-links {
-      margin-left: 15px;
+      margin-left: 0.9375rem;
     }
 
     .page-link-menu-icon {
-      font-size: 24px !important;
+      font-size: 1.5rem !important;
     }
   }
 }
@@ -102,10 +104,10 @@
   position: relative;
   display: block;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 300;
   color: $light;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
@@ -121,7 +123,7 @@
 
   &::after {
     position: absolute;
-    bottom: -5px;
+    bottom: -0.3125rem;
     left: 50%;
     transform: translateX(-50%);
     margin: auto;
@@ -129,7 +131,7 @@
     content: ".";
     color: transparent;
     background-color: $light;
-    height: 2px;
+    height: 0.125rem;
   }
 
   &:hover::after {
@@ -137,6 +139,10 @@
   }
 
   &.overflow-menu-item {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
+}
+
+.padder {
+  height: $nav-height;
 }

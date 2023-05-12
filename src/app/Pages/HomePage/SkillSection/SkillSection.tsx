@@ -3,7 +3,7 @@ import {
   generateListFadeLeftParams
 } from "@Shared/Utility/Animation";
 import { Skill } from "./Skill/Skill";
-import { SoftwareSkill, SoftwareSkillCategory } from "./Skill/Skill.model";
+import { SoftwareSkill, SoftwareSkillType } from "./Skill/Skill.model";
 import styles from "./SkillSection.module.scss";
 import { Tooltip } from "@Shared/Components/Tooltip/Tooltip";
 
@@ -46,7 +46,7 @@ export function createSkillAnimateAttrs(index: number, anchor: string, scrollOff
 
 interface SkillSectionProps {
   header: string;
-  skillType: SoftwareSkillCategory;
+  skillType: SoftwareSkillType;
   softwareSkills: SoftwareSkill[];
   style?: {
     backgroundColor?: string;

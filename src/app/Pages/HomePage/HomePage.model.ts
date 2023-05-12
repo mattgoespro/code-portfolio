@@ -1,17 +1,6 @@
-/**
- * @param resourceIdentifier The identifier for a stylesheet variable or image
- * asset name.
- */
-export interface SoftwareEngineeringSkills {
-  resourceIdentifier: string;
-  name: string;
-  experienced?: boolean;
-  yearsExperience?: number;
-}
+import { SoftwareSkill } from "./SkillSection/Skill/Skill.model";
 
-export type TechnicalSkillType = "languages" | "frameworks" | "other";
-
-export const devLanguages: SoftwareEngineeringSkills[] = [
+export const devLanguages: SoftwareSkill[] = [
   { resourceIdentifier: "java", name: "Java", experienced: true, yearsExperience: 4 },
   {
     resourceIdentifier: "javascript",
@@ -38,7 +27,7 @@ export const devLanguages: SoftwareEngineeringSkills[] = [
   { resourceIdentifier: "dart", name: "Dart" }
 ];
 
-export const devFrameworks: SoftwareEngineeringSkills[] = [
+export const devFrameworks: SoftwareSkill[] = [
   { resourceIdentifier: "node", name: "Node", experienced: true, yearsExperience: 3.5 },
   { resourceIdentifier: "react", name: "React", experienced: true, yearsExperience: 2 },
   { resourceIdentifier: "angular", name: "Angular", experienced: true, yearsExperience: 3.5 },
@@ -52,7 +41,7 @@ export const devFrameworks: SoftwareEngineeringSkills[] = [
   { resourceIdentifier: "flutter", name: "Flutter" }
 ];
 
-export const devTools: SoftwareEngineeringSkills[] = [
+export const devTools: SoftwareSkill[] = [
   {
     resourceIdentifier: "html",
     name: "HTML"

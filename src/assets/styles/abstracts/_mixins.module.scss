@@ -10,7 +10,7 @@
 }
 
 @mixin divider($thickness, $color, $margin) {
-  height: 1px;
+  height: 0.0625rem;
   border-bottom: $thickness solid $color;
   width: 100%;
   margin: $margin;
@@ -24,7 +24,7 @@
   &:after {
     position: absolute;
     content: "";
-    height: 1px;
+    height: 0.0625rem;
     border-bottom: $thickness solid $color;
     width: $width;
     bottom: -$padding-top;

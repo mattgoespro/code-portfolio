@@ -27,7 +27,9 @@ declare namespace HomePageModuleScssNamespace {
     "languages-wave-top": string;
     list: string;
     logo: string;
+    "others-bg-color": string;
     "others-header": string;
+    "others-header-color": string;
     "others-section": string;
     "others-wave-top": string;
     "page-base": string;

@@ -1,5 +1,9 @@
+@import "colors";
+
 .page-base {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page-title {
@@ -7,5 +11,5 @@
   text-align: center;
   font-size: 6rem;
   font-weight: 200;
-  letter-spacing: 10px;
+  letter-spacing: 0.625rem;
 }

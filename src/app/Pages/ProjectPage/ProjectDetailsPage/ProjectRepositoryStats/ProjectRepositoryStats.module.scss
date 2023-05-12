@@ -2,19 +2,19 @@
 
 .activity-title {
   font-family: "Nunito";
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 1.5rem;
+  letter-spacing: 0.0625rem;
   color: $blue;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
 }
 
 .activity {
   font-family: "Nunito";
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 200;
   line-height: 1.5;
-  letter-spacing: 1px;
-  margin: 5px;
+  letter-spacing: 0.0625rem;
+  margin: 0.3125rem;
 
   span {
     color: $orange;

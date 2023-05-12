@@ -1,22 +1,22 @@
 @import "colors", "mixins";
 
-$border-radius: 10px;
+$border-radius: 0.625rem;
 
 @mixin title($divider-color) {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  padding: 20px;
+  height: 3.125rem;
+  padding: 1.25rem;
 
-  @include underline(1px, darken($divider-color, 40%), 100%, 0);
+  @include underline(0.0625rem, darken($divider-color, 40%), 100%, 0);
 }
 
 @mixin project-name {
   font-family: "Nunito";
   font-size: 1.125rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
   text-decoration: none;
   line-height: 1.2;
   text-align: center;
@@ -29,15 +29,16 @@ $border-radius: 10px;
 }
 
 .card {
-  box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px 0px, rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
+  box-shadow: rgba(50, 50, 93, 0.5) 0rem 0.125rem 0.3125rem 0rem,
+    rgba(0, 0, 0, 0.5) 0 0.0625rem 0.1875rem 0;
   max-width: 12.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-basis: 33%;
-  margin: 30px;
+  margin: 1.875rem;
   border-radius: $border-radius;
-  border: 3px solid $light;
+  border: 0.1875rem solid $light;
 
   .title {
     @include title($light);
@@ -48,7 +49,7 @@ $border-radius: 10px;
   }
 
   &.pinned {
-    border: 2px solid $yellow;
+    border: 0.125rem solid $yellow;
 
     .title {
       @include title($yellow);
@@ -61,7 +62,7 @@ $border-radius: 10px;
 
   .description {
     font-family: "Nunito";
-    margin: 15px;
+    margin: 0.9375rem;
     color: $light;
     font-size: 0.875rem;
     font-weight: 100;
@@ -73,7 +74,7 @@ $border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 13px;
+  padding: 0.8125rem;
   font-size: 2.25rem;
   background: transparent;
   border: none;
@@ -87,11 +88,11 @@ $border-radius: 10px;
 
   .btn-action-view-details {
     font-family: "Roboto";
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 1px;
+    letter-spacing: 0.0625rem;
     color: $orange;
   }
 }

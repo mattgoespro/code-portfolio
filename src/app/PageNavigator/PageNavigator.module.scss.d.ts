@@ -4,6 +4,7 @@ declare namespace PageNavigatorModuleScssNamespace {
     "header-logo": string;
     navbar: string;
     "overflow-menu-item": string;
+    padder: string;
     "page-link": string;
     "page-link-menu-button": string;
     "page-link-menu-icon": string;

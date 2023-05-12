@@ -29,10 +29,10 @@
     text-align: center;
     font-size: 6rem;
     font-weight: 300;
-    letter-spacing: 10px;
+    letter-spacing: 0.625rem;
     color: $dark-grey;
     margin: 0 0 2rem;
-    max-width: 800px;
+    max-width: 50rem;
   }
 
   .header-subtitle {
@@ -78,9 +78,9 @@ $error-animation-duration: 300ms;
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(9px);
+  backdrop-filter: blur(0.5625rem);
   filter: brightness(55%);
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   animation: project-load-error-overlay-fade $error-animation-duration ease-out;
 }

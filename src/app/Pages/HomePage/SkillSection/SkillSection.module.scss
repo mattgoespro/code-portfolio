@@ -2,11 +2,11 @@
 
 @mixin header {
   font-family: "Quicksand", "Nunito", sans-serif;
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 300;
   max-width: 56.25rem;
   text-align: center;
-  margin: 0 0 25px;
+  margin: 0 0 1.5625rem;
 }
 
 .wrapper {
@@ -14,21 +14,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 400px;
+  width: 100%;
+  min-height: 25rem;
 
   .header {
     font-family: "Quicksand", "Nunito", sans-serif;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 300;
-    max-width: 56.25rem;
+    max-width: 70%;
     text-align: center;
-    margin: 0 0 25px;
+    margin: 0 0 1.5625rem;
   }
 
   .list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 700px;
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    gap: 2rem;
   }
 }

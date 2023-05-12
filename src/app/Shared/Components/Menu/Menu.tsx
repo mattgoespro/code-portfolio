@@ -41,14 +41,14 @@ export default function AppMenu(props: MenuProps) {
             display: "flex",
             flexDirection: "column",
             backgroundColor: styles["background-color"],
-            padding: "0 25px",
+            padding: "0 1.5625rem",
             overflow: "hidden",
-            borderRadius: "5px"
+            borderRadius: ".3125rem"
           }
         }}
         PaperProps={{
           style: {
-            borderRadius: "10px",
+            borderRadius: ".625rem",
             border: styles["border"],
             backgroundColor: styles["background-color"]
           }

@@ -62,6 +62,7 @@ export function PageNavigator() {
           </a>
         </div>
       </div>
+      <div className={styles.padder}></div>
       <Outlet />
     </>
   );

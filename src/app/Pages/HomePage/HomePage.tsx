@@ -15,23 +15,23 @@ export function HomePage() {
         <div className={styles["introduction-text"]}>
           <h1>Hey</h1>
           <h2>I&apos;m Matt, and this is my little corner of the web.</h2>
-          <h3>
+          <h2>
             Online, I go by the alias <span className={styles.alias}>hoppingmode</span>.
-          </h3>
+          </h2>
         </div>
-        <img className={styles.logo} src="/assets/images/hoppingmode-logo.png" />
+        <div className={styles.logo}>
+          <img src="/assets/images/hoppingmode-logo.png" />
+        </div>
       </div>
       <div className={styles["languages-wave-top"]}></div>
-      <div className={styles["section-wrapper"]}>
-        <SkillSection
-          header="I have professional and personal experience working with a variety of programming languages"
-          skillType="languages"
-          softwareSkills={knownDevLanguages(styles)}
-          style={{
-            backgroundColor: styles["languages-bg-color"]
-          }}
-        />
-      </div>
+      <SkillSection
+        header="I have professional and personal experience working with a variety of programming languages"
+        skillType="languages"
+        softwareSkills={knownDevLanguages(styles)}
+        style={{
+          backgroundColor: styles["languages-bg-color"]
+        }}
+      />
       <div className={styles["languages-wave-bottom"]}></div>
       <SkillSection
         header="Across a multitude of software development frameworks"
@@ -40,7 +40,16 @@ export function HomePage() {
         style={{ headerColor: styles["frameworks-header-color"] }}
       />
       <div className={styles["others-wave-top"]}></div>
-      <div id="others" className={styles["others-section"]}>
+      <SkillSection
+        header="Alongside a selection of industry standard tools"
+        skillType="others"
+        softwareSkills={knownDevFrameworks(styles)}
+        style={{
+          headerColor: styles["others-header-color"],
+          backgroundColor: styles["others-bg-color"]
+        }}
+      />
+      {/* <div id="others" className={styles["others-section"]}>
         <div className={styles["others-header"]}>
           <h3 id="others" {...createHeaderAnimateAttrs("others", 350)}>
             Alongside a selection of industry standard tools
@@ -57,7 +66,7 @@ export function HomePage() {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

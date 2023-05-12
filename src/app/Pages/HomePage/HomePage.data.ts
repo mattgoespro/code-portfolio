@@ -39,7 +39,7 @@ export const knownDevLanguages = (styles: unknown) => {
   ];
 };
 
-export const knownDevFrameworks = (styles: unknown) => {
+export const knownDevFrameworks = (styles: unknown): SoftwareSkill[] => {
   return [
     {
       resourceIdentifier: "node",
