@@ -13,7 +13,7 @@ export function ProjectPage() {
   };
 
   return (
-    <div className={`${styles["project-page"]} ${styles["page-base"]}`}>
+    <div className={`${styles["project-page"]} ${styles["page"]}`}>
       {error && (
         <>
           <div className={styles["project-load-error-overlay"]}></div>

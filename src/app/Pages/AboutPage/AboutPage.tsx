@@ -2,9 +2,9 @@ import styles from "./AboutPage.module.scss";
 
 export function AboutPage() {
   return (
-    <div className={`${styles["about-page"]} ${styles["page-base"]}`}>
+    <div className={`${styles["about-page"]}`}>
       <div className={styles["page-header-wave-top"]}></div>
-      <div className={styles["page-header"]}>
+      <div className={`${styles["page-header"]}`}>
         <h1 className={styles.name}>
           <span>About</span> Me
         </h1>
@@ -24,17 +24,19 @@ export function AboutPage() {
         </div>
       </div>
       <div className={styles["page-header-wave-bottom"]}></div>
-      <div className={styles["about-me"]}>
-        <div className={styles["summary-header"]}>
-          <div className={styles["summary-text"]}>
-            <h1 className={styles["summary-text-heading"]}>Hi, I&apos;m Matt.</h1>
-            <p className={styles["summary-text-info"]}>
+      <div className={styles["about-content"]}>
+        <div className={styles["content-summary"]}>
+          <div className={styles["content-summary-header"]}>
+            <h1 className={styles["content-summary-title"]}>Hi, I&apos;m Matt.</h1>
+            <p className={styles["content-summary-description"]}>
               This is my online portfolio, where you can get an inside look into my skills as a
               Software Engineer, and see what I&apos;ve been working on outside of my professional
               career.
             </p>
           </div>
-          <img src="/assets/images/misc/portrait.jpg" alt="profile-img" />
+          <div className={styles["profile-img"]}>
+            <img src="/assets/images/misc/portrait.jpg" alt="profile-img" />
+          </div>
         </div>
         <div className={styles["detailed-info"]}>
           <p>
@@ -49,7 +51,7 @@ export function AboutPage() {
             much as I did ultimately became the prime inspiration to pursue programming as a career.
           </p>
           <div className={styles["uct-caption"]}>
-            <img src="/assets/images/misc/university-of-cape-town.jpg" alt="uct" />
+            <img src="/assets/images/misc/university-of-cape-town.png" alt="uct" />
             <label>University of Cape Town</label>
           </div>
           <p>
@@ -95,7 +97,7 @@ export function AboutPage() {
             mobile (
             <a
               className={styles["smellsense-link"]}
-              href="https://mattgoespro.github.io/smellsense-site/"
+              href="https://mattgoespro.github.io/smellsense/"
               target="tab"
             >
               SmellSense

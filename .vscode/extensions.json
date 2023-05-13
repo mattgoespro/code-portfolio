@@ -1,11 +1,13 @@
 {
   "recommendations": [
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
+    "christian-kohler.npm-intellisense",
+    "formulahendry.auto-rename-tag",
+    "mrmlnc.vscode-scss",
+    "cipchk.cssrem",
     "ms-azuretools.vscode-docker",
     "ahmadalli.vscode-nginx-conf",
-    "christian-kohler.npm-intellisense",
-    "cipchk.cssrem",
-    "formulahendry.auto-rename-tag"
+    "dbaeumer.vscode-eslint",
+    "DavidAnson.vscode-markdownlint"
   ]
 }

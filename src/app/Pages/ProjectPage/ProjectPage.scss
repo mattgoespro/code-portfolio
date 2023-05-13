@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "colors", "mixins", "components";
+@import "colors", "mixins";
 
 .project-page {
   &:has(.project-load-error-overlay) {
@@ -17,13 +17,7 @@
 }
 
 .page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: $light;
-  width: 100%;
-  height: 20rem;
 
   .header-title {
     font-family: "Source Code Pro", "Nunito", sans-serif;

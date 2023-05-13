@@ -19,19 +19,19 @@ declare namespace HomePageModuleScssNamespace {
     "fade-in-grow": string;
     "fade-slide-left": string;
     "frameworks-header-color": string;
+    "greeting-subtitle": string;
+    "greeting-title": string;
     header: string;
+    "hoppingmode-logo": string;
     introduction: string;
     "introduction-text": string;
     "languages-bg-color": string;
     "languages-wave-bottom": string;
     "languages-wave-top": string;
     list: string;
-    logo: string;
     "others-bg-color": string;
     "others-header-color": string;
     "others-wave-top": string;
-    "page-base": string;
-    "page-title": string;
     "page-wave-top": string;
     wrapper: string;
   }

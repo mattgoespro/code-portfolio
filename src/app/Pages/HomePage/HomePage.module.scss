@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "colors", "mixins", "animations", "components", "./SkillSection/SkillSection.module";
+@import "colors", "mixins", "animations", "./SkillSection/SkillSection.module";
 
 :export {
   // Languages
@@ -57,25 +57,25 @@
     color: $light;
     flex-basis: 50%;
 
-    h1 {
+    .greeting-title {
       font-size: clamp(3rem, 2rem + 4vw, 6rem);
       font-weight: 300;
       margin: 0 0 1.25rem;
     }
 
-    h2 {
+    .greeting-subtitle {
       font-size: clamp(0.75rem, 0.875rem + 0.5vw, 4rem);
       font-weight: 100;
       margin: 0 0 1.25rem;
-    }
 
-    span.alias {
-      font-weight: 400;
-      color: $orange;
+      .alias {
+        font-weight: 400;
+        color: $orange;
+      }
     }
   }
 
-  .logo {
+  .hoppingmode-logo {
     display: flex;
     align-items: center;
     justify-content: center;

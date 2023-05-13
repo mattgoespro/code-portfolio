@@ -1,18 +1,13 @@
 # IMPORTANT
 
-## Sizing unit
+## Misc
 
-- Convert font-size units from _px_ to _rem_.
-- Imported nav bar SVG styles (like hover) not applying
-- Fix page not center aligned due to overlap with navbar.
+- Dependency updates
+- Add font-family fallbacks to stylesheets
 
 ## View Repo
 
 - Add portfolio skills from backend endpoint.
-
-## NGINX
-
-- Enable HTTPS using SSL certificates.
 
 ## Optimization
 
@@ -22,10 +17,6 @@
 ## Nice To Have
 
 - ESLint import ordering rules.
-
-### Responsive Design
-
-Absolute minimum handheld device width is 280px.
 
 ## Testing Edge Cases
 

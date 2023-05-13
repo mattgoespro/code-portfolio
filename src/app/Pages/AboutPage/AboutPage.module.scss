@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "colors", "mixins", "components";
+@import "colors", "mixins";
 
 .about-page {
   background-color: $light;
@@ -14,20 +14,11 @@
 }
 
 .page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include page-base;
   background-color: $navy;
-  width: 100%;
-  height: 20rem;
 
   .name {
-    font-family: "Source Code Pro", "Nunito", sans-serif;
-    text-align: center;
-    font-size: clamp(3rem, 2rem + 4vw, 6rem);
-    font-weight: 200;
-    letter-spacing: 0.625rem;
+    @include page-title;
     color: $blue;
     margin: 0 0 2rem;
 
@@ -76,48 +67,60 @@
   }
 }
 
-.about-me {
+.about-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: "Nunito", sans-serif;
-  max-width: 50rem;
-  margin: 0 4rem;
+  padding: 30px;
 
-  .summary-header {
+  .content-summary {
+    @include underline(0.125rem, $light-grey, 100%, 4rem);
+
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    margin-top: 3.125rem;
+    gap: clamp(0.5rem, 1rem + 2vw, 5rem);
+    margin-top: 4rem;
 
-    @include underline(0.125rem, $light-grey, 100%, 2.5rem);
-
-    .summary-text {
+    .content-summary-header {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 18.75rem;
+      flex-basis: 50%;
+      max-width: 30rem;
 
-      .summary-text-heading {
-        font-size: clamp(0.4rem, 1.5rem + 1vw, 4rem);
+      .content-summary-title {
+        font-size: clamp(0.2rem, 1.3rem + 1vw, 4rem);
         margin: 0;
       }
 
-      .summary-text-info {
-        @include article-text(clamp(0.4rem, 0.75rem + 0.4vw, 2rem), 400, #000);
+      .content-summary-description {
+        @include article-text(clamp(0.2rem, 0.6rem + 0.4vw, 2rem), 400, #000);
       }
     }
 
-    img {
-      width: 30%;
+    .profile-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 30%;
       height: 100%;
-      border-radius: 0.625rem;
+
+      img {
+        width: clamp(10rem, 6vw + 3rem, 30rem);
+        height: auto;
+        flex: 1;
+        border-radius: 0.5rem;
+      }
     }
   }
 
   .detailed-info {
-    margin: 6.25rem 0 6.25rem 0;
+    margin: 8rem 0;
+    max-width: 45rem;
 
     p {
       font-size: clamp(0.75rem, 0.7rem + 0.3vw, 3rem);

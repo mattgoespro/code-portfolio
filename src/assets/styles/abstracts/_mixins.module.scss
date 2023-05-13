@@ -42,3 +42,20 @@
   background-image: url($wave-source);
   background-color: $light;
 }
+
+@mixin page-base {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 20rem;
+}
+
+@mixin page-title {
+  font-family: "Source Code Pro", "Nunito", sans-serif;
+  text-align: center;
+  font-size: clamp(3rem, 2rem + 4vw, 6rem);
+  font-weight: 200;
+  letter-spacing: 0.625rem;
+}

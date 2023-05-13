@@ -1,23 +1,22 @@
 declare namespace AboutPageModuleScssNamespace {
   export interface IAboutPageModuleScss {
-    "about-me": string;
+    "about-content": string;
     "about-page": string;
     character: string;
     "character-trait": string;
     "character-traits": string;
+    "content-summary": string;
+    "content-summary-description": string;
+    "content-summary-header": string;
+    "content-summary-title": string;
     "detailed-info": string;
     name: string;
-    "page-base": string;
     "page-header": string;
     "page-header-wave-bottom": string;
     "page-header-wave-top": string;
-    "page-title": string;
+    "profile-img": string;
     separator: string;
     "smellsense-link": string;
-    "summary-header": string;
-    "summary-text": string;
-    "summary-text-heading": string;
-    "summary-text-info": string;
     "uct-caption": string;
   }
 }
