@@ -5,6 +5,7 @@
     "ms-azuretools.vscode-docker",
     "ahmadalli.vscode-nginx-conf",
     "christian-kohler.npm-intellisense",
-    "cipchk.cssrem"
+    "cipchk.cssrem",
+    "formulahendry.auto-rename-tag"
   ]
 }

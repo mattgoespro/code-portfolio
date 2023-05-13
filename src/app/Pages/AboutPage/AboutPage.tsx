@@ -8,18 +8,18 @@ export function AboutPage() {
         <h1 className={styles.name}>
           <span>About</span> Me
         </h1>
-        <div className={styles["character-traits-list"]}>
+        <div className={styles["character"]}>
           <div className={styles["character-traits"]}>
-            <div>Challenge Seeker</div>
+            <span className={styles["character-trait"]}>Challenge Seeker</span>
             <div className={styles.separator}></div>
-            <div>Go-Getter</div>
+            <span className={styles["character-trait"]}>Go-Getter</span>
             <div className={styles.separator}></div>
-            <div>Avid Learner</div>
+            <span className={styles["character-trait"]}>Avid Learner</span>
           </div>
           <div className={styles["character-traits"]}>
-            <div>Adventurer</div>
+            <span className={styles["character-trait"]}>Adventurer</span>
             <div className={styles.separator}></div>
-            <div>Dreamer</div>
+            <span className={styles["character-trait"]}>Dreamer</span>
           </div>
         </div>
       </div>

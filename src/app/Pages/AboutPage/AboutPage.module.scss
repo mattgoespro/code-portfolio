@@ -37,25 +37,28 @@
     }
   }
 
-  .character-traits-list {
+  .character {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     .character-traits {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
       margin-bottom: 0.625rem;
+      gap: clamp(0.001rem, 0.01rem + 0.5vw, 2vw);
 
-      div {
+      .character-trait {
         font-family: "Roboto", sans-serif;
         letter-spacing: 0.125rem;
-        font-size: clamp(0.75rem, 0.875rem + 0.5vw, 4rem);
+        font-size: clamp(0.3rem, 0.65rem + 0.5vw, 6rem);
         font-weight: 300;
         text-align: center;
         color: $light-grey;
+        white-space: nowrap;
       }
 
       &:last-child {
@@ -63,8 +66,8 @@
       }
 
       .separator {
-        width: 0.5rem;
-        height: 0.5rem;
+        min-width: 0.5rem;
+        min-height: 0.5rem;
         border-radius: 0.5rem;
         background-color: $dark-grey;
         margin: 0 0.625rem;
@@ -78,13 +81,15 @@
   flex-direction: column;
   font-family: "Nunito", sans-serif;
   max-width: 50rem;
-  margin: auto;
+  margin: 0 4rem;
 
   .summary-header {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
+    margin-top: 3.125rem;
 
     @include underline(0.125rem, $light-grey, 100%, 2.5rem);
 
@@ -92,15 +97,15 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 3.125rem;
       max-width: 18.75rem;
 
       .summary-text-heading {
-        font-size: 2.375rem;
+        font-size: clamp(0.4rem, 1.5rem + 1vw, 4rem);
+        margin: 0;
       }
 
       .summary-text-info {
-        @include article-text(1.125rem, 400, #000);
+        @include article-text(clamp(0.4rem, 0.75rem + 0.4vw, 2rem), 400, #000);
       }
     }
 
@@ -115,7 +120,7 @@
     margin: 6.25rem 0 6.25rem 0;
 
     p {
-      font-size: 1rem;
+      font-size: clamp(0.75rem, 0.7rem + 0.3vw, 3rem);
       font-weight: 400;
       line-height: 2rem;
       color: $dark-grey;
