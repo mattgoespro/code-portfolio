@@ -1,13 +1,15 @@
 declare namespace ProjectDetailsModuleScssNamespace {
   export interface IProjectDetailsModuleScss {
     divider: string;
-    "language-card": string;
+    "header-title": string;
+    languages: string;
+    "page-header": string;
     "project-details": string;
     "project-details-page": string;
-    "project-name": string;
+    "project-readme": string;
     "readme-unavailable": string;
+    repository: string;
     stats: string;
-    "stats-card": string;
   }
 }
 

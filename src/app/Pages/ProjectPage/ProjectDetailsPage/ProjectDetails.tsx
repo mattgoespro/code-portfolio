@@ -54,16 +54,16 @@ export function ProjectDetails() {
       {!error && !loadingProject && (
         <div className={styles["project-details"]}>
           {(project.readme && (
-            <div>
+            <div className={styles["project-readme"]}>
               <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
             </div>
           )) || <div className={styles["readme-unavailable"]}></div>}
           <div className={styles.divider}></div>
-          <div className={styles.stats}>
-            <div className={styles["stats-card"]}>
+          <div className={styles.repository}>
+            <div className={styles.stats}>
               <ProjectRepositoryStats project={project} />
             </div>
-            <div className={styles["language-card"]}>
+            <div className={styles.languages}>
               <ProjectLanguageChart languages={projectLanguages} />
             </div>
           </div>

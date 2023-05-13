@@ -9,6 +9,7 @@ import {
   LinearScale
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import styles from "./ProjectLanguageChart.module.scss";
 
 ChartJS.register(ArcElement, LinearScale, Tooltip, Legend);
 
@@ -23,7 +24,11 @@ interface ProjectLanguageChartProps {
 export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
   const options: ChartOptions<"pie"> = {
     maintainAspectRatio: false,
+    responsive: true,
     plugins: {
+      title: {
+        text: "Languages Used"
+      },
       legend: {
         position: "left",
         labels: {
@@ -36,7 +41,8 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
           boxHeight: 20,
           padding: 15,
           color: "#ffffff",
-          filter: (item) => item.index < 4
+          filter: (item) => item.index < 4,
+          sort: (label1, label2) => label1.text.localeCompare(label2.text)
         }
       },
       tooltip: {
@@ -70,13 +76,9 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
   return (
     <>
       {Object.keys(props.languages).length > 0 && (
-        <Pie
-          data={createChartData(props.languages)}
-          options={options}
-          style={{
-            display: "flex"
-          }}
-        ></Pie>
+        <div className={styles.chart}>
+          <Pie data={createChartData(props.languages)} options={options} />
+        </div>
       )}
     </>
   );

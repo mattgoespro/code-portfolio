@@ -43,7 +43,7 @@
   background-color: $light;
 }
 
-@mixin page-base {
+@mixin page-header-base {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -16,8 +16,9 @@ $experience-border-color: #317ac3;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.1875rem solid transparent;
+  border: 0.125rem solid transparent;
   border-radius: 1.25rem;
+  width: 7.5rem;
 
   &.padded {
     padding: clamp(0.0625rem, 0.21vw + 0.75rem, 3rem);
@@ -47,9 +48,10 @@ $experience-border-color: #317ac3;
     margin-left: 0.5rem;
 
     .name {
-      font-family: "Quicksand", sans-serif;
-      font-size: clamp(0.75rem, 1vw + 00.1875rem, 1rem);
-      font-weight: bold;
+      font-family: "Roboto", sans-serif;
+      font-size: clamp(0.8rem, 1vw + 0.1875rem, 1rem);
+      font-weight: 500;
+      letter-spacing: 2px;
     }
 
     .name-underline {

@@ -2,7 +2,7 @@
 
 .project-list-title {
   font-family: Source Code Pro;
-  font-size: 2.625rem;
+  font-size: clamp(0.75rem, 1.5rem + 1vw, 6rem);
   font-weight: 300;
   color: $light;
   text-align: center;
@@ -19,24 +19,6 @@
   align-items: center;
   margin: 1.25rem auto 0;
   width: 80%;
-
-  .title-pinned {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    .pinned-icon {
-      color: $orange;
-    }
-
-    h1 {
-      letter-spacing: 0.125rem;
-      font-size: 2.25rem;
-      font-weight: 300;
-      color: $text-title;
-    }
-  }
 }
 
 .unpinned-project-list {
@@ -46,26 +28,6 @@
   align-items: center;
   margin: 3.125rem auto 25rem;
   width: 80%;
-
-  .title-unpinned {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    .unpinned-icon {
-      transform: rotate(90deg);
-      color: $dark-grey;
-    }
-
-    h1 {
-      letter-spacing: 0.125rem;
-      font-size: 2.25rem;
-      font-weight: 300;
-      margin: 1.5625rem 0;
-      color: $text-title;
-    }
-  }
 }
 
 .project-list {

@@ -11,8 +11,13 @@
 
 ## Optimization
 
+- Install _Web Vitals_ chrome plugin for measure performance
+- Try out _Unlighthouse_ to test performance for all pages
 - Minimize bundle sizes
 - Remove unused CSS styles
+- Fix slow image loading speed:
+  - Investigate CDNs for image loading
+  - `img fetchpriority="high/low"`
 
 ## Nice To Have
 

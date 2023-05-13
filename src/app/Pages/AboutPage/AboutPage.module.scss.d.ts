@@ -10,8 +10,8 @@ declare namespace AboutPageModuleScssNamespace {
     "content-summary-header": string;
     "content-summary-title": string;
     "detailed-info": string;
-    name: string;
     "page-header": string;
+    "page-header-title": string;
     "page-header-wave-bottom": string;
     "page-header-wave-top": string;
     "profile-img": string;

@@ -5,7 +5,7 @@ export function AboutPage() {
     <div className={`${styles["about-page"]}`}>
       <div className={styles["page-header-wave-top"]}></div>
       <div className={`${styles["page-header"]}`}>
-        <h1 className={styles.name}>
+        <h1 className={styles["page-header-title"]}>
           <span>About</span> Me
         </h1>
         <div className={styles["character"]}>

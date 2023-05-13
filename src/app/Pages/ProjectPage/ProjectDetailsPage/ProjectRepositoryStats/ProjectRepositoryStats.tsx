@@ -7,7 +7,7 @@ interface ProjectRepositoryStatsProps {
 
 export function ProjectRepositoryStats(props: ProjectRepositoryStatsProps) {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles["activity-title"]}>Stats</div>
       <div className={styles.activity}>
         <span>Date created:</span>{" "}

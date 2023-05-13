@@ -50,23 +50,27 @@
   justify-content: center;
   align-items: center;
   padding: clamp(0rem, 2vw + 0.25rem, 6.25rem);
+  gap: clamp(0.5rem, 1rem + 1vw, 5rem);
 
   .introduction-text {
     font-family: "Source Code Pro", "Nunito", sans-serif;
     text-align: left;
     color: $light;
-    flex-basis: 50%;
+    flex-basis: clamp(20ch, 25%, 100%);
 
     .greeting-title {
-      font-size: clamp(3rem, 2rem + 4vw, 6rem);
+      font-size: clamp(2rem, 1.5rem + 4vw, 6rem);
       font-weight: 300;
-      margin: 0 0 1.25rem;
+      margin-top: 0;
+      margin-right: 0;
+      margin-left: 0;
+      margin: 0 0 clamp(0.3rem, 0.65rem + 0.5vw, 6rem);
     }
 
     .greeting-subtitle {
-      font-size: clamp(0.75rem, 0.875rem + 0.5vw, 4rem);
+      font-size: clamp(0.5rem, 0.65rem + 0.5vw, 6rem);
       font-weight: 100;
-      margin: 0 0 1.25rem;
+      margin: 0 0 clamp(0.3rem, 1rem + 0.5vw, 6rem);
 
       .alias {
         font-weight: 400;
@@ -79,13 +83,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 50%;
+    width: clamp(10rem, 18vw + 5rem, 35rem);
     height: 100%;
 
     img {
-      width: clamp(15rem, 18vw + 2rem, 35rem);
+      width: 100%;
       height: auto;
-      flex: 1;
     }
   }
 }

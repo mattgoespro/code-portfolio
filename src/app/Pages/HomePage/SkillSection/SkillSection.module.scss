@@ -7,11 +7,12 @@
   align-items: center;
   width: 100%;
   min-height: 25rem;
-  padding: 2rem;
+  padding: 2rem 0;
 
   .header {
     font-family: "Source Code Pro", "Nunito", sans-serif;
     font-size: clamp(0.75rem, 1rem + 1vw, 4rem);
+    color: $grey;
     font-weight: 400;
     max-width: 70%;
     text-align: center;

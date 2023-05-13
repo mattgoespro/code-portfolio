@@ -1,11 +1,8 @@
 @use "sass:math";
-@import "colors", "mixins";
+@import "colors", "mixins", "animations";
 
 .project-page {
-  &:has(.project-load-error-overlay) {
-    max-width: 100vw;
-    max-height: 100vh;
-  }
+  background-color: $navy;
 }
 
 .page-header-wave-top {
@@ -17,23 +14,20 @@
 }
 
 .page-header {
+  @include page-header-base;
   background-color: $light;
 
   .header-title {
-    font-family: "Source Code Pro", "Nunito", sans-serif;
-    text-align: center;
-    font-size: 6rem;
+    @include page-title;
     font-weight: 300;
-    letter-spacing: 0.625rem;
     color: $dark-grey;
     margin: 0 0 2rem;
-    max-width: 50rem;
   }
 
   .header-subtitle {
     font-family: "Source Code Pro", "Nunito", sans-serif;
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(0.75rem, 1rem + 1vw, 6rem);
     font-weight: 300;
     margin: 0;
     color: $dark-grey;
@@ -44,38 +38,4 @@
       text-decoration: none;
     }
   }
-}
-
-@keyframes project-load-error-overlay-fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-$error-animation-duration: 300ms;
-
-.project-load-error {
-  opacity: 0;
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  transform: translateX(-50%) translateY(80%);
-  animation: project-load-error-overlay-fade $error-animation-duration ease-out;
-  animation-fill-mode: forwards;
-}
-
-.project-load-error-overlay {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(0.5625rem);
-  filter: brightness(55%);
-  width: 100%;
-  height: 100vh;
-  animation: project-load-error-overlay-fade $error-animation-duration ease-out;
 }

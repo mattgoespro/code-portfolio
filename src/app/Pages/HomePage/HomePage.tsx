@@ -4,12 +4,14 @@ import { knownDevFrameworks, knownDevLanguages, knownDevTools } from "./HomePage
 
 export function HomePage() {
   return (
-    <div className={styles["page"]}>
+    <div>
       <div className={styles["page-wave-top"]}></div>
       <div className={styles.introduction}>
         <div className={styles["introduction-text"]}>
           <h1 className={styles["greeting-title"]}>Hey</h1>
-          <h2>I&apos;m Matt, and this is my little corner of the web.</h2>
+          <h2 className={styles["greeting-subtitle"]}>
+            I&apos;m Matt, and this is my little corner of the web.
+          </h2>
           <h2 className={styles["greeting-subtitle"]}>
             Online, I go by the alias <span className={styles.alias}>hoppingmode</span>.
           </h2>

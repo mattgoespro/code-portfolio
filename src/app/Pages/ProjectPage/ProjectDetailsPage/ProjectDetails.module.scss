@@ -1,7 +1,9 @@
 @import "colors", "mixins";
 
 .project-details-page {
-  .project-details {
+  .page-header {
+    @include page-header-base;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,46 +12,50 @@
     max-width: 60%;
   }
 
-  .project-name {
-    font-family: "Roboto", sans-serif;
-    font-size: 4.5rem;
+  .header-title {
+    @include page-title;
     font-weight: 100;
-    text-align: center;
     color: $light;
     margin: 3.125rem;
   }
 
+  .project-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.875rem;
+
+    .project-readme {
+      flex-basis: 50%;
+      max-width: 45rem;
+    }
+
+    .readme-unavailable {
+      text-align: center;
+      font-family: "Roboto";
+      margin-top: 1.25rem;
+      color: $dark-grey;
+    }
+
+    .repository {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .stats,
+      .languages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
   .divider {
     @include divider(0.0625rem, $orange, 3.125rem);
-  }
-
-  .stats {
-    display: flex;
-    margin-bottom: 3.125rem;
-    color: $light;
-    position: relative;
-
-    .stats-card,
-    .language-card {
-      flex: 1 1 100%;
-      padding: 1.25rem;
-      border: 0.0625rem solid $light;
-      border-radius: 0.625rem;
-    }
-
-    .stats-card {
-      margin: 0.625rem 0.625rem 0.625rem 0;
-    }
-
-    .language-card {
-      margin: 0.625rem 0.625rem 0.625rem 0;
-    }
-  }
-
-  .readme-unavailable {
-    text-align: center;
-    font-family: "Roboto";
-    margin-top: 1.25rem;
-    color: $dark-grey;
+    max-width: 60%;
   }
 }
