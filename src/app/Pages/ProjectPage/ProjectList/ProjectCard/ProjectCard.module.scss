@@ -16,7 +16,7 @@ $border-radius: 0.625rem;
 @mixin project-name {
   font-family: "Nunito";
   font-size: 1.125rem;
-  letter-spacing: 0.0625rem;
+  letter-spacing: 0.05rem;
   text-decoration: none;
   line-height: 1.2;
   text-align: center;
@@ -28,18 +28,13 @@ $border-radius: 0.625rem;
   }
 }
 
-.card {
-  box-shadow: rgba(50, 50, 93, 0.5) 0rem 0.125rem 0.3125rem 0rem,
-    rgba(0, 0, 0, 0.5) 0 0.0625rem 0.1875rem 0;
-  max-width: 12.5rem;
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-basis: 33%;
-  flex: 1;
   margin: 1.875rem;
   border-radius: $border-radius;
-  border: 0.1875rem solid $light;
+  border: 0.125rem solid;
 
   .title {
     @include title($light);
@@ -49,8 +44,12 @@ $border-radius: 0.625rem;
     }
   }
 
+  &:not(.pinned) {
+    border-color: $light;
+  }
+
   &.pinned {
-    border: 0.125rem solid $yellow;
+    border-color: $yellow;
 
     .title {
       @include title($yellow);
@@ -69,31 +68,30 @@ $border-radius: 0.625rem;
     font-weight: 100;
     letter-spacing: 0.125rem;
   }
-}
 
-.btn-action {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.8125rem;
-  font-size: 2.25rem;
-  background: transparent;
-  border: none;
-  border-bottom-left-radius: $border-radius;
-  border-bottom-right-radius: $border-radius;
+  .btn-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8125rem;
+    font-size: 2.25rem;
+    background: transparent;
+    border: none;
+    border-radius: 0 0 $border-radius $border-radius;
 
-  &:hover {
-    cursor: pointer;
-    background-color: lighten($navy, 2%);
-  }
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($navy, 2%);
+    }
 
-  .btn-action-view-details {
-    font-family: "Roboto";
-    font-size: 0.875rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.0625rem;
-    color: $orange;
+    .btn-action-view-details {
+      font-family: "Roboto";
+      font-size: 0.875rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.0625rem;
+      color: $orange;
+    }
   }
 }

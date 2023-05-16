@@ -4,6 +4,7 @@
 
 - Dependency updates
 - Add font-family fallbacks to stylesheets
+- Switch to css module typedef named exports [typedef named exports](https://github.com/Jimdo/typings-for-css-modules-loader#namedexport-option)
 
 ## View Repo
 
@@ -22,11 +23,13 @@
 ## Nice To Have
 
 - ESLint import ordering rules.
+- Stylelint integration
 
 ## Testing Edge Cases
 
 Handle cases where
 
+- Repository has very long name
 - User navigates to unknown route
 - Repo does not exist during view/refresh/navigate
 - Backend is down

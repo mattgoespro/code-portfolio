@@ -9,8 +9,9 @@
     "postcss": "postcss src/**/*.scss --replace --no-map",
     "docker:build": "./scripts/build_docker_image.sh",
     "docker:start-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web up -d",
+    "docker:start-api": "npx mattgoespro@latest hw run -i api --rm",
     "docker:remove-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web down",
-    "commit-empty": "git commit --allow-empty -m 'Empty-Commit' && git push origin main",
+    "github-workflow:build": "git commit --allow-empty -m 'Empty-Commit' && git push origin main",
     "clean": "rm -rf dist"
   },
   "dependencies": {

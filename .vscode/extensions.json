@@ -3,11 +3,13 @@
     "esbenp.prettier-vscode",
     "christian-kohler.npm-intellisense",
     "formulahendry.auto-rename-tag",
+    "dsznajder.es7-react-js-snippets",
     "mrmlnc.vscode-scss",
     "cipchk.cssrem",
     "ms-azuretools.vscode-docker",
     "ahmadalli.vscode-nginx-conf",
     "dbaeumer.vscode-eslint",
-    "DavidAnson.vscode-markdownlint"
+    "DavidAnson.vscode-markdownlint",
+    "github.vscode-github-actions"
   ]
 }

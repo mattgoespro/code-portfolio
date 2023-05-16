@@ -1,7 +1,7 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.watcherExclude": {
-    "node_modules": true,
+    "**/node_modules/*/**": false,
     "dist": true,
     ".git": true
   },
@@ -23,14 +23,12 @@
   "scss.format.enable": false,
   "less.format.enable": false,
   "css.format.enable": false,
-
+  "scss.lint.float": "warning",
+  "scss.lint.important": "ignore",
   "auto-rename-tag.activationOnLanguage": ["html", "typescriptreact"],
   "colorize.colorized_variables": ["SASS", "CSS"],
   "colorize.hide_current_line_decorations": false,
   "colorize.languages": ["scss", "css"],
-  "markdownlint.config": {
-    "no-space-in-code": false
-  },
   "[dockerfile]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.quickSuggestions": {

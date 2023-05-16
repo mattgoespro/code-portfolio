@@ -1,37 +1,109 @@
 @import "colors", "mixins";
 
-.project-list-title {
-  font-family: Source Code Pro;
-  font-size: clamp(0.75rem, 1.5rem + 1vw, 6rem);
-  font-weight: 300;
-  color: $light;
-  text-align: center;
+.aos-init {
+  display: flex !important;
 }
 
-.pinned-project-list-title {
-  color: $yellow;
-}
-
-.pinned-project-list {
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1.25rem auto 0;
-  width: 80%;
+
+  .project-list-title {
+    font-family: Source Code Pro;
+    font-size: clamp(0.75rem, 1.5rem + 1vw, 6rem);
+    font-weight: 300;
+    color: $light;
+    text-align: center;
+    margin-top: clamp(1rem, 2vw, 2rem);
+
+    &.pinned {
+      color: $yellow;
+    }
+  }
+
+  .project-list {
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-grow: 1;
+    margin: clamp(1rem, 5vw, 5rem) clamp(0.5rem, 1vw, 1rem);
+    min-height: 20rem;
+    width: 100%;
+
+    .project-card,
+    .project-card-placeholder {
+      flex-basis: 10rem;
+    }
+
+    .project-card-placeholder {
+      background-color: $navy;
+      border: transparent;
+      height: 10rem;
+      content: "";
+      display: block;
+      border-radius: 0.625rem;
+      background: linear-gradient(
+        to right,
+        rgba(21, 29, 43, 0.8) 0%,
+        rgba(255, 255, 255, 0.5) 20%,
+        rgba(21, 29, 43, 0.8) 40%,
+        rgba(21, 29, 43, 0.8) 100%
+      );
+      background-size: 400% 100%;
+      animation: shimmer 3s infinite linear, slideInOut 1s infinite ease-in;
+
+      @keyframes shimmer {
+        0% {
+          background-position: -100% 0%;
+        }
+        100% {
+          background-position: 300% 0%;
+        }
+      }
+
+      @keyframes slideInOut {
+        0% {
+          transform: translateX(170%);
+          opacity: 0;
+        }
+
+        25% {
+          opacity: 0.2;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        75% {
+          opacity: 0.2;
+        }
+
+        100% {
+          transform: translateX(-150%);
+          opacity: 0;
+        }
+      }
+    }
+  }
 }
 
-.unpinned-project-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 3.125rem auto 25rem;
-  width: 80%;
+@keyframes project-load-error-overlay-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.project-load-error {
+  opacity: 0;
+  animation: project-load-error-overlay-fade 300ms ease-out;
+  animation-fill-mode: forwards;
 }

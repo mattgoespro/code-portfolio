@@ -6,19 +6,24 @@ interface ProjectCardProps {
   description: string;
   pinned: boolean;
   githubUrl: string;
+  className?: string;
 }
 
 export function ProjectCard(props: ProjectCardProps) {
+  const { name, description, pinned, githubUrl, className, ...rest } = props;
+  const style =
+    styles.wrapper + (pinned ? ` ${styles.pinned}` : "") + (className ? ` ${className}` : "");
+
   return (
-    <div className={`${styles.card}` + `${props.pinned ? ` ${styles.pinned}` : ""}`}>
+    <div className={`${style}`} {...rest}>
       <div className={styles.title}>
-        <a href={props.githubUrl} target="tab" className={styles["project-name"]}>
-          {props.name}
+        <a href={githubUrl} title={githubUrl} target="tab" className={styles["project-name"]}>
+          {name}
         </a>
       </div>
-      <div className={styles.description}>{props.description || <i>Not available.</i>}</div>
+      <div className={styles.description}>{description || <i>Not available.</i>}</div>
       <button className={styles["btn-action"]}>
-        <Link className={styles["btn-action-view-details"]} to={`/projects/${props.name}`}>
+        <Link className={styles["btn-action-view-details"]} to={`/projects/${name}`}>
           Details
         </Link>
       </button>

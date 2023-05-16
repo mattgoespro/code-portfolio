@@ -1,10 +1,16 @@
 declare namespace ProjectListModuleScssNamespace {
   export interface IProjectListModuleScss {
-    "pinned-project-list": string;
-    "pinned-project-list-title": string;
+    "aos-init": string;
+    pinned: string;
+    "project-card": string;
+    "project-card-placeholder": string;
     "project-list": string;
     "project-list-title": string;
-    "unpinned-project-list": string;
+    "project-load-error": string;
+    "project-load-error-overlay-fade": string;
+    shimmer: string;
+    slideInOut: string;
+    wrapper: string;
   }
 }
 

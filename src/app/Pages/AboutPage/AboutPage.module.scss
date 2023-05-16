@@ -43,7 +43,7 @@
       gap: clamp(0.001rem, 0.01rem + 0.5vw, 2vw);
 
       .character-trait {
-        font-family: "Roboto", sans-serif;
+        font-family: Roboto, sans-serif;
         letter-spacing: 0.125rem;
         font-size: clamp(0.3rem, 0.65rem + 0.5vw, 6rem);
         font-weight: 300;
@@ -132,7 +132,6 @@
     }
 
     .uct-caption {
-      float: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
