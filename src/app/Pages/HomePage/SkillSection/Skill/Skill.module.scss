@@ -18,7 +18,7 @@ $experience-border-color: #317ac3;
   align-items: center;
   border: 0.125rem solid transparent;
   border-radius: 1.25rem;
-  width: 7.5rem;
+  max-width: 7.5rem;
 
   &.padded {
     padding: clamp(0.0625rem, 0.21vw + 0.75rem, 3rem);
@@ -30,6 +30,7 @@ $experience-border-color: #317ac3;
 
   .brand-icon {
     display: flex;
+    flex-basis: 1rem;
   }
 
   img.icon-large {

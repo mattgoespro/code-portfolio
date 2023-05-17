@@ -1,26 +1,28 @@
 @import "colors";
 
 .wrapper {
-  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 0.6rem + 0.5vw, 2rem);
   border: 0.0625rem solid $light;
   border-radius: 0.625rem;
 
   .activity-title {
     font-family: "Nunito";
-    font-size: 1.5rem;
+    font-size: clamp(0.5rem, 1rem + 1vw, 1.5rem);
     letter-spacing: 0.0625rem;
-    color: $blue;
+    color: $light-grey;
     margin-bottom: 1.5625rem;
   }
 
   .activity {
     font-family: "Nunito";
-    font-size: 1rem;
+    font-size: clamp(1rem, 0.6rem + 0.5vw, 2rem);
     font-weight: 200;
     color: $light;
     line-height: 1.5;
     letter-spacing: 0.0625rem;
-    margin: 0.3125rem;
+    margin: 0;
 
     span {
       color: $orange;

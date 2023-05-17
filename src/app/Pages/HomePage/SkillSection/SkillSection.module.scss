@@ -16,7 +16,7 @@
     font-weight: 400;
     max-width: 70%;
     text-align: center;
-    margin: 0 0 3rem;
+    margin: 0 0 clamp(2rem, 2vw, 3rem);
   }
 
   .list {

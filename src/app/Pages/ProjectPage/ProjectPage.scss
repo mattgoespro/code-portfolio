@@ -18,8 +18,9 @@
   background-color: $light;
 
   .header-title {
-    @include page-title;
     font-weight: 300;
+    @include page-title;
+
     color: $dark-grey;
     margin: 0 0 2rem;
   }

@@ -17,7 +17,14 @@ export function ProjectReadme(props: ProjectReadmeProps) {
           if (domNode instanceof Element) {
             switch (domNode.name) {
               case "h1":
-                domNode.attribs.class = styles.title;
+                return (
+                  <>
+                    <h1 className={styles.title}>
+                      {(domNode.childNodes.at(0) as { data: string }).data}
+                    </h1>
+                    <div className={styles.divider}></div>
+                  </>
+                );
                 break;
               case "h2":
                 domNode.attribs.class = styles["section-title"];

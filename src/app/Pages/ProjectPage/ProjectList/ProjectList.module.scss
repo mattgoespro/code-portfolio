@@ -4,11 +4,15 @@
   display: flex !important;
 }
 
+$margin-top: clamp(1rem, 5rem + 2vw, 10rem);
+
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 70%;
+  margin: auto;
 
   .project-list-title {
     font-family: Source Code Pro;
@@ -16,7 +20,7 @@
     font-weight: 300;
     color: $light;
     text-align: center;
-    margin-top: clamp(1rem, 2vw, 2rem);
+    margin-top: $margin-top;
 
     &.pinned {
       color: $yellow;
@@ -28,9 +32,9 @@
     justify-content: center;
     align-content: start;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: clamp(0rem, 1rem + 1vw, 3rem);
     flex-grow: 1;
-    margin: clamp(1rem, 5vw, 5rem) clamp(0.5rem, 1vw, 1rem);
+    margin: clamp(1rem, 1rem + 1vw, 5rem) clamp(0.5rem, 1vw, 1rem);
     min-height: 20rem;
     width: 100%;
 
@@ -92,7 +96,7 @@
   }
 }
 
-@keyframes project-load-error-overlay-fade {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -103,7 +107,7 @@
 }
 
 .project-load-error {
-  opacity: 0;
-  animation: project-load-error-overlay-fade 300ms ease-out;
+  margin-top: $margin-top;
+  animation: fadeIn 2s ease-out;
   animation-fill-mode: forwards;
 }

@@ -10,7 +10,7 @@ interface SkillProps {
 export function Skill(props: SkillProps) {
   const icon = (
     <img
-      src={`/assets/images/logos/${props.softwareSkill.resourceIdentifier}.png`}
+      src={`/assets/images/logos-56x56/${props.softwareSkill.resourceIdentifier}.png`}
       alt={props.softwareSkill.resourceIdentifier}
       className={props.titled ? styles["icon-regular"] : styles["icon-large"]}
     />

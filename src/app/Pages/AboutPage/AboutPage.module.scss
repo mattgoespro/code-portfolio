@@ -45,7 +45,7 @@
       .character-trait {
         font-family: Roboto, sans-serif;
         letter-spacing: 0.125rem;
-        font-size: clamp(0.3rem, 0.65rem + 0.5vw, 6rem);
+        font-size: clamp(0.3rem, 0.5rem + 0.5vw, 6rem);
         font-weight: 300;
         text-align: center;
         color: $light-grey;
@@ -61,7 +61,7 @@
         min-height: 0.5rem;
         border-radius: 0.5rem;
         background-color: $dark-grey;
-        margin: 0 0.625rem;
+        margin: 0 clamp(0rem, 2vw, 1rem);
       }
     }
   }
@@ -136,6 +136,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      float: left;
       margin-right: 1.25rem;
 
       img {

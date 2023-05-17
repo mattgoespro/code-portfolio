@@ -55,7 +55,8 @@
 @mixin page-title {
   font-family: "Source Code Pro", "Nunito", sans-serif;
   text-align: center;
-  font-size: clamp(3rem, 2rem + 4vw, 6rem);
+  // font-size: clamp(3rem, 2rem + 4vw, 6rem);
+  font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 200;
   letter-spacing: 0.625rem;
 }

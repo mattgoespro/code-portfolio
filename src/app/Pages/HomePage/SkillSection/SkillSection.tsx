@@ -98,7 +98,7 @@ export function SkillSection(props: SkillSectionProps) {
             <Tooltip
               key={index}
               textHint={`${skill.yearsExperience} years experience`}
-              style={{ flexShrink: "1" }}
+              style={{ display: "flex", flexBasis: "5rem" }}
             >
               {skillComponent}
             </Tooltip>

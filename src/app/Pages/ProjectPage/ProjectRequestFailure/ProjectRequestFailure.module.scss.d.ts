@@ -1,6 +1,7 @@
 declare namespace ProjectRequestFailureModuleScssNamespace {
   export interface IProjectRequestFailureModuleScss {
     error: string;
+    "failure-img": string;
     msg: string;
     oops: string;
     "try-later": string;

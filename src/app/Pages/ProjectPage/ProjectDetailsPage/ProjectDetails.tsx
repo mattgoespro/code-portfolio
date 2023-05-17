@@ -63,9 +63,9 @@ export function ProjectDetails() {
             <div className={styles.stats}>
               <ProjectRepositoryStats project={project} />
             </div>
-            <div className={styles.languages}>
-              <ProjectLanguageChart languages={projectLanguages} />
-            </div>
+            {/* <div className={styles.languages}> */}
+            <ProjectLanguageChart languages={projectLanguages} />
+            {/* </div> */}
           </div>
         </div>
       )}
