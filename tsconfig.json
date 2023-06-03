@@ -11,9 +11,16 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@Shared/Utility/*": ["./src/app/Shared/Utility/*"],
-      "@Shared/Components/*": ["./src/app/Shared/Components/*"],
-      "@Icons/*": ["./src/assets/icons/*"]
+      "@Utility/*": ["./src/app/Shared/Utility/*"],
+      "@Components/*": ["./src/app/Shared/Components/*"],
+      "@Icons/*": ["./src/assets/icons/*"],
+      "@Hooks/*": ["./src/app/Shared/Hooks/*"],
+      "@Images/*": [
+        "./src/assets/images/about/*",
+        "./src/assets/images/api/*",
+        "./src/assets/images/logos/technologies/*",
+        "./src/assets/images/logos/*"
+      ]
     }
   },
   "include": ["src/**/*"],

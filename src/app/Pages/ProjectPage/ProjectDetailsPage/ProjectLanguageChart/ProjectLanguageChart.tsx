@@ -1,4 +1,3 @@
-import { ProgrammingLanguages } from "@mattgoespro/hoppingmode-web";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -10,6 +9,7 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import styles from "./ProjectLanguageChart.module.scss";
+import { ProjectCodingLanguagesDTO } from "@mattgoespro/hoppingmode-web-core";
 
 ChartJS.register(ArcElement, LinearScale, Tooltip, Legend);
 
@@ -18,7 +18,7 @@ export const chartColors = ["#ffb74d", "#aed581", "#4db6ac", "#4fc3f7", "#ba68c8
 export const chartHoverColors = ["#ff9800", "#8bc34a", "#009688", "#03a9f4", "#9c27b0", "#e91e63"];
 
 interface ProjectLanguageChartProps {
-  languages: ProgrammingLanguages;
+  codingLanguages: ProjectCodingLanguagesDTO;
 }
 
 export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
@@ -60,7 +60,7 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
     }
   };
 
-  function createChartData(languages: ProgrammingLanguages): ChartData<"pie"> {
+  function createChartData(languages: ProjectCodingLanguagesDTO): ChartData<"pie"> {
     return {
       labels: Object.keys(languages),
       datasets: [
@@ -74,12 +74,14 @@ export function ProjectLanguageChart(props: ProjectLanguageChartProps) {
   }
 
   return (
-    <>
-      {Object.keys(props.languages).length > 0 && (
-        <div className={styles.chart}>
-          <Pie data={createChartData(props.languages)} options={options} />
-        </div>
-      )}
-    </>
+    (Object.keys(props.codingLanguages || {}).length > 0 && (
+      <div className={`${styles.container} ${styles["pie-chart-container"]}`}>
+        <Pie data={createChartData(props.codingLanguages)} options={options} />
+      </div>
+    )) || (
+      <div className={`${styles.container} ${styles["no-languages-container"]}`}>
+        No languages recognized
+      </div>
+    )
   );
 }

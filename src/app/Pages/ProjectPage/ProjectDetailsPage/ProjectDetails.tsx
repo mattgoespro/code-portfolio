@@ -1,59 +1,28 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ProjectLanguageChart } from "./ProjectLanguageChart/ProjectLanguageChart";
 import { ProjectReadme } from "./ProjectReadme/ProjectReadme";
-import { Repository, ProgrammingLanguages } from "@mattgoespro/hoppingmode-web";
 import base64 from "base-64";
 import styles from "./ProjectDetails.module.scss";
 import { ProjectRepositoryStats } from "./ProjectRepositoryStats/ProjectRepositoryStats";
 import { ProjectRequestFailure } from "../ProjectRequestFailure/ProjectRequestFailure";
+import { ProjectCodingLanguagesDTO, ProjectViewDTO } from "@mattgoespro/hoppingmode-web-core";
+import { useApiCall } from "@Hooks/UseApi";
 
 export function ProjectDetails() {
   const { projectName } = useParams();
+  const [project, fetchingProject, setFetchingProject, projectLoadError] =
+    useApiCall<ProjectViewDTO>(`/api/projects/${projectName}`, null, true);
 
-  const [project, setProject] = useState<Repository>(null);
-  const [loadingProject, setLoadingProject] = useState(true);
-  const [projectLanguages, setProjectLanguages] = useState<ProgrammingLanguages>(null);
-  const [error, setError] = useState();
-
-  useEffect(() => {
-    const abortController = new AbortController();
-
-    setLoadingProject(true);
-
-    Promise.all([
-      axios.get<Repository>(`/api/repos/${projectName}`, {
-        signal: abortController.signal
-      }),
-      axios.get<ProgrammingLanguages>(`/api/repos/${projectName}/languages`, {
-        signal: abortController.signal
-      })
-    ])
-      .then((resp) => {
-        setError(null);
-        setProject(resp[0].data);
-        setProjectLanguages(resp[1].data);
-        setLoadingProject(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setProject(null);
-        setProjectLanguages(null);
-        setLoadingProject(false);
-      });
-
-    return () => {
-      abortController.abort();
-    };
-  }, []);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [projectCodeLanguages, fetchingProjectCodeLanguages, setFetchingProjectCodeLanguages] =
+    useApiCall<ProjectCodingLanguagesDTO>(`/api/projects/${projectName}/code-languages`);
 
   return (
     <div className={styles["project-details-page"]}>
-      {error && <ProjectRequestFailure errorMessage="Failed to load project details" />}
-      {!error && !loadingProject && (
+      {projectLoadError && <ProjectRequestFailure errorMessage="Failed to load project details" />}
+      {!projectLoadError && !fetchingProject && project != null && (
         <div className={styles["project-details"]}>
-          {(project.readme && (
+          {(project.readme != null && (
             <div className={styles["project-readme"]}>
               <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
             </div>
@@ -63,9 +32,9 @@ export function ProjectDetails() {
             <div className={styles.stats}>
               <ProjectRepositoryStats project={project} />
             </div>
-            {/* <div className={styles.languages}> */}
-            <ProjectLanguageChart languages={projectLanguages} />
-            {/* </div> */}
+            <div className={styles.languages}>
+              <ProjectLanguageChart codingLanguages={projectCodeLanguages} />
+            </div>
           </div>
         </div>
       )}

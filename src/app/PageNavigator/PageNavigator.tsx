@@ -3,7 +3,7 @@ import LinkedInLogo from "@Icons/linkedin.svg";
 import GitHubLogo from "@Icons/github.svg";
 import styles from "./PageNavigator.module.scss";
 import { Link, Outlet } from "react-router-dom";
-import { AppMenu } from "@Shared/Components/Menu/Menu";
+import { AppMenu } from "@Components/Menu/Menu";
 
 export function PageNavigator() {
   return (

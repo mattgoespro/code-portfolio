@@ -1,8 +1,8 @@
-import { Repository } from "@mattgoespro/hoppingmode-web";
+import { ProjectViewDTO } from "@mattgoespro/hoppingmode-web-core";
 import styles from "./ProjectRepositoryStats.module.scss";
 
 interface ProjectRepositoryStatsProps {
-  project: Repository;
+  project: ProjectViewDTO;
 }
 
 export function ProjectRepositoryStats(props: ProjectRepositoryStatsProps) {

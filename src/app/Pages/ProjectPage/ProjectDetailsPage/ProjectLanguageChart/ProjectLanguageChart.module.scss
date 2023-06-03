@@ -1,9 +1,16 @@
 @import "colors";
 
-.chart {
-  display: block;
-  width: 99%;
+.container {
   padding: 1.25rem;
   border: 0.0625rem solid $light;
   border-radius: 0.625rem;
+}
+
+.pie-chart-container {
+  display: block;
+  width: 99%;
+}
+
+.no-languages-container {
+  flex: 1;
 }

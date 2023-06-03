@@ -1,14 +1,13 @@
 # IMPORTANT
 
-## Misc
-
-- Dependency updates
-- Add font-family fallbacks to stylesheets
-- Switch to css module typedef named exports [typedef named exports](https://github.com/Jimdo/typings-for-css-modules-loader#namedexport-option)
-
 ## View Repo
 
-- Add portfolio skills from backend endpoint.
+- List repository tags below title.
+
+## Accessibility
+
+- Add aria labels to components
+- Check tabindex order of elements
 
 ## Optimization
 
@@ -37,7 +36,12 @@ Handle cases where
 - Backend API request limit is reached
 - Project Page
   - GitHub repo is not initialized
-  - No portfolio.json or fields missing
   - Language pie chart has no languages
   - README does not exist
   - README is empty
+
+## Misc
+
+- Dependency updates
+- Add font-family fallbacks to stylesheets
+- Switch to css module typedef named exports [typedef named exports](https://github.com/Jimdo/typings-for-css-modules-loader#namedexport-option)

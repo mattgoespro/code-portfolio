@@ -1,6 +1,8 @@
 declare namespace ProjectLanguageChartModuleScssNamespace {
   export interface IProjectLanguageChartModuleScss {
-    chart: string;
+    container: string;
+    "no-languages-container": string;
+    "pie-chart-container": string;
   }
 }
 

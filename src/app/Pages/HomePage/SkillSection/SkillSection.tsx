@@ -1,11 +1,8 @@
-import {
-  createAnimateOnScrollAttribs,
-  generateListFadeLeftParams
-} from "@Shared/Utility/Animation";
+import { createAnimateOnScrollAttribs, generateListFadeLeftParams } from "@Utility/Animation";
 import { Skill } from "./Skill/Skill";
 import { SoftwareSkill, SoftwareSkillType } from "./Skill/Skill.model";
 import styles from "./SkillSection.module.scss";
-import { Tooltip } from "@Shared/Components/Tooltip/Tooltip";
+import { Tooltip } from "@Components/Tooltip/Tooltip";
 
 const HEADER_ANIMATE_DELAY = 100;
 const HEADER_ANIMATE_DURATION = 250;

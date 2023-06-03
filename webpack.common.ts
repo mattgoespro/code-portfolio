@@ -1,11 +1,12 @@
+import MiniCssExtractWebpackPlugin from "mini-css-extract-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
+import TerserWebpackPlugin from "terser-webpack-plugin";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
+import fs from "fs";
 import webpack, { Configuration } from "webpack";
 import path from "path";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import HtmlPlugin from "html-webpack-plugin";
-import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import fs from "fs";
 
 function generateStylesheetAliases() {
   const aliases = {};
@@ -26,6 +27,42 @@ function generateStylesheetAliases() {
   return aliases;
 }
 
+const imageFileMatcher = /\.(jpe?g|png|svg)$/i;
+
+const imageMinimizerPluginOptions = {
+  minimizer: {
+    implementation: ImageMinimizerPlugin.imageminMinify,
+    options: {
+      test: imageFileMatcher,
+      // Lossless optimization
+      plugins: [
+        "imagemin-mozjpeg",
+        "imagemin-pngquant",
+        "imagemin-svgo",
+        [
+          "svgo",
+          {
+            plugins: [
+              {
+                name: "preset-default",
+                params: {
+                  overrides: {
+                    removeViewBox: false,
+                    addAttributesToSVGElement: {
+                      params: {
+                        attributes: [{ xmlns: "http://www.w3.org/2000/svg" }]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  }
+} as const;
 const baseConfig: Configuration = {
   entry: "./src/main.tsx",
   output: {
@@ -35,7 +72,11 @@ const baseConfig: Configuration = {
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
-    plugins: [new TsconfigPathsPlugin()],
+    plugins: [
+      new TsconfigPathsWebpackPlugin({
+        configFile: "./tsconfig.json"
+      })
+    ],
     alias: {
       ...generateStylesheetAliases(),
       svg: path.resolve(__dirname, "src/assets/svg")
@@ -45,20 +86,35 @@ const baseConfig: Configuration = {
     new webpack.DefinePlugin({
       __REACT_DEVTOOLS_GLOBAL_HOOK__: "({ isDisabled: true })"
     }),
-    new ForkTsCheckerWebpackPlugin(),
-    new HtmlPlugin({
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true
+        },
+        mode: "write-references",
+        build: false,
+        configFile: path.resolve(__dirname, "./tsconfig.json"),
+        configOverwrite: {
+          compilerOptions: {
+            outDir: "./dist"
+          }
+        }
+      }
+    }),
+    new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
       favicon: path.resolve(__dirname, "public/favicon.ico"),
       inject: true
     }),
-    new MiniCssExtractPlugin({
+    new MiniCssExtractWebpackPlugin({
       filename: "assets/styles/css/[name].[contenthash:8].css",
       chunkFilename: "assets/styles/css/[name].[contenthash:8].chunk.css"
     })
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserWebpackPlugin(), new ImageMinimizerPlugin(imageMinimizerPluginOptions)],
     runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {
@@ -71,9 +127,7 @@ const baseConfig: Configuration = {
     }
   },
   performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    hints: false
   },
   module: {
     rules: [
@@ -81,6 +135,17 @@ const baseConfig: Configuration = {
         test: /\.svg$/i,
         type: "asset",
         resourceQuery: /url/ // *.svg?url
+      },
+      {
+        test: imageFileMatcher,
+        loader: ImageMinimizerPlugin.loader,
+        enforce: "pre",
+        options: {
+          minimizer: {
+            implementation: ImageMinimizerPlugin.imageminMinify,
+            options: imageMinimizerPluginOptions
+          }
+        }
       },
       {
         test: /\.svg$/i,
@@ -102,7 +167,7 @@ const baseConfig: Configuration = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          MiniCssExtractWebpackPlugin.loader,
           {
             loader: "@teamsupercell/typings-for-css-modules-loader",
             options: {
@@ -121,7 +186,7 @@ const baseConfig: Configuration = {
         test: /\.css$/,
         exclude: "/node_modules/",
         use: [
-          MiniCssExtractPlugin.loader,
+          MiniCssExtractWebpackPlugin.loader,
           "@teamsupercell/typings-for-css-modules-loader",
           "css-loader",
           "postcss-loader"

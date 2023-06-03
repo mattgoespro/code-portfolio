@@ -67,8 +67,8 @@ $border-radius: 0.625rem;
     font-weight: 100;
     letter-spacing: 0.125rem;
 
-    div {
-      width: 100%;
+    .not-available {
+      color: $light-grey;
       text-align: center;
     }
   }

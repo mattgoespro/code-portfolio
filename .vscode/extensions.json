@@ -9,7 +9,6 @@
     "ms-azuretools.vscode-docker",
     "ahmadalli.vscode-nginx-conf",
     "dbaeumer.vscode-eslint",
-    "DavidAnson.vscode-markdownlint",
     "github.vscode-github-actions"
   ]
 }

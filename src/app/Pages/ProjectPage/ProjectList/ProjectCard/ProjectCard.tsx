@@ -22,11 +22,7 @@ export function ProjectCard(props: ProjectCardProps) {
         </a>
       </div>
       <div className={styles.description}>
-        {description || (
-          <div>
-            <i>Not available.</i>
-          </div>
-        )}
+        {description || <b className={styles["not-available"]}>Description not available</b>}
       </div>
       <button className={styles["btn-action"]}>
         <Link className={styles["btn-action-view-details"]} to={`/projects/${name}`}>

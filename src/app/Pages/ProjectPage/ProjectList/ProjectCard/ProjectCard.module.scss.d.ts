@@ -3,6 +3,7 @@ declare namespace ProjectCardModuleScssNamespace {
     "btn-action": string;
     "btn-action-view-details": string;
     description: string;
+    "not-available": string;
     pinned: string;
     "project-name": string;
     title: string;
