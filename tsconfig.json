@@ -13,14 +13,8 @@
     "paths": {
       "@Utility/*": ["./src/app/Shared/Utility/*"],
       "@Components/*": ["./src/app/Shared/Components/*"],
-      "@Icons/*": ["./src/assets/icons/*"],
-      "@Hooks/*": ["./src/app/Shared/Hooks/*"],
-      "@Images/*": [
-        "./src/assets/images/about/*",
-        "./src/assets/images/api/*",
-        "./src/assets/images/logos/technologies/*",
-        "./src/assets/images/logos/*"
-      ]
+      "@Icons/*": ["./src/app/Assets/SVG/Icons/*"],
+      "@Hooks/*": ["./src/app/Shared/Hooks/*"]
     }
   },
   "include": ["src/**/*"],

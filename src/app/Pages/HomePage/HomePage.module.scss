@@ -29,19 +29,19 @@
 }
 
 .page-wave-top {
-  @include wave-border(math.div(1920, 200), "svg/border-waves/orange-navy.svg");
+  @include wave-border(math.div(1920, 200), "@SVG/BorderWaves/OrangeToNavy.svg");
 }
 
 .languages-wave-top {
-  @include wave-border(math.div(1920, 300), "svg/border-waves/navy-white.svg");
+  @include wave-border(math.div(1920, 300), "@SVG/BorderWaves/NavyToWhite.svg");
 }
 
 .languages-wave-bottom {
-  @include wave-border(math.div(1920, 300), "svg/border-waves/white-navy.svg");
+  @include wave-border(math.div(1920, 300), "@SVG/BorderWaves/WhiteToNavy.svg");
 }
 
 .others-wave-top {
-  @include wave-border(math.div(1920, 300), "svg/border-waves/navy-blue.svg");
+  @include wave-border(math.div(1920, 300), "@SVG/BorderWaves/NavyToBlue.svg");
 }
 
 .introduction {

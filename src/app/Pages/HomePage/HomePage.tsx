@@ -17,7 +17,7 @@ export function HomePage() {
           </h2>
         </div>
         <div className={styles["hoppingmode-logo"]}>
-          <img src="/assets/images/hoppingmode-logo.png" />
+          <img src={require("@Images/Logos/HoppingmodeWeb")} />
         </div>
       </div>
       <div className={styles["languages-wave-top"]}></div>

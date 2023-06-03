@@ -1,8 +1,6 @@
 import { SoftwareSkill } from "./Skill.model";
 import styles from "./Skill.module.scss";
 
-import Img from "@Logos/technologies/azure.png";
-
 interface SkillProps {
   softwareSkill: SoftwareSkill;
   titled?: boolean;
@@ -13,7 +11,7 @@ export function Skill(props: SkillProps) {
   const icon = (
     <img
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      src={require(`@Logos/technologies/${props.softwareSkill.name}.png`).default}
+      src={require(`@Images/Logos/Technologies/${props.softwareSkill.resourceIdentifier}.png`)}
       className={props.titled ? styles["icon-regular"] : styles["icon-large"]}
     />
   );

@@ -4,32 +4,34 @@ import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
 import TerserWebpackPlugin from "terser-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
-import fs from "fs";
+import { readdirSync } from "fs";
 import webpack, { Configuration } from "webpack";
-import path from "path";
+import { resolve as resolvePath } from "path";
 
 function generateStylesheetAliases() {
   const aliases = {};
-  const basePath = "src/assets/styles";
-  const stylesheetTypes = fs.readdirSync(path.resolve(__dirname, basePath));
+  const basePath = "src/app/Assets/Styles";
+  const stylesheets = readdirSync(resolvePath(__dirname, basePath)).filter(
+    (s) => !s.includes(".d.ts")
+  );
 
-  for (const stylesheetType of stylesheetTypes) {
-    const stylesheets = fs.readdirSync(path.resolve(__dirname, `${basePath}/${stylesheetType}/`));
+  console.log(stylesheets);
 
-    for (const stylesheet of stylesheets.filter((s) => !s.includes(".d.ts"))) {
-      aliases[stylesheet.substring(1, stylesheet.indexOf("."))] = path.resolve(
-        __dirname,
-        `${basePath}/${stylesheetType}/${stylesheet}`
-      );
-    }
+  for (const stylesheet of stylesheets) {
+    aliases[stylesheet.substring(1, stylesheet.indexOf("."))] = resolvePath(
+      __dirname,
+      `${basePath}/${stylesheet}`
+    );
   }
+
+  console.log(aliases);
 
   return aliases;
 }
 
 const imageFileMatcher = /\.(jpe?g|png|svg)$/i;
 
-const imageMinimizerPluginOptions = {
+const imageMinimizerPluginOptions: ImageMinimizerPlugin.PluginOptions<unknown, unknown> = {
   minimizer: {
     implementation: ImageMinimizerPlugin.imageminMinify,
     options: {
@@ -63,23 +65,21 @@ const imageMinimizerPluginOptions = {
     }
   }
 } as const;
+const extensions = [".ts", ".tsx", ".js", ".jsx", ".jpg", ".png"];
 const baseConfig: Configuration = {
   entry: "./src/main.tsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: resolvePath(__dirname, "dist"),
     filename: "[name].[chunkhash].js",
     publicPath: "/"
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
-    plugins: [
-      new TsconfigPathsWebpackPlugin({
-        configFile: "./tsconfig.json"
-      })
-    ],
+    extensions,
+    plugins: [new TsconfigPathsWebpackPlugin()],
     alias: {
       ...generateStylesheetAliases(),
-      svg: path.resolve(__dirname, "src/assets/svg")
+      "@SVG": resolvePath(__dirname, "src/app/Assets/SVG"),
+      "@Images": resolvePath(__dirname, "src/app/Assets/Images")
     }
   },
   plugins: [
@@ -94,7 +94,7 @@ const baseConfig: Configuration = {
         },
         mode: "write-references",
         build: false,
-        configFile: path.resolve(__dirname, "./tsconfig.json"),
+        configFile: resolvePath(__dirname, "./tsconfig.json"),
         configOverwrite: {
           compilerOptions: {
             outDir: "./dist"
@@ -103,8 +103,8 @@ const baseConfig: Configuration = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
-      favicon: path.resolve(__dirname, "public/favicon.ico"),
+      template: resolvePath(__dirname, "public/index.html"),
+      favicon: resolvePath(__dirname, "public/favicon.ico"),
       inject: true
     }),
     new MiniCssExtractWebpackPlugin({
@@ -136,16 +136,20 @@ const baseConfig: Configuration = {
         type: "asset",
         resourceQuery: /url/ // *.svg?url
       },
+      // {
+      //   test: imageFileMatcher,
+      //   loader: ImageMinimizerPlugin.loader,
+      //   enforce: "pre",
+      //   options: {
+      //     minimizer: {
+      //       implementation: ImageMinimizerPlugin.imageminMinify,
+      //       options: imageMinimizerPluginOptions
+      //     }
+      //   }
+      // },
       {
-        test: imageFileMatcher,
-        loader: ImageMinimizerPlugin.loader,
-        enforce: "pre",
-        options: {
-          minimizer: {
-            implementation: ImageMinimizerPlugin.imageminMinify,
-            options: imageMinimizerPluginOptions
-          }
-        }
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource"
       },
       {
         test: /\.svg$/i,
@@ -172,7 +176,7 @@ const baseConfig: Configuration = {
             loader: "@teamsupercell/typings-for-css-modules-loader",
             options: {
               formatter: "prettier",
-              prettierConfigFile: path.resolve(__dirname, "./prettierrc")
+              prettierConfigFile: resolvePath(__dirname, "./prettierrc")
             }
           },
           {

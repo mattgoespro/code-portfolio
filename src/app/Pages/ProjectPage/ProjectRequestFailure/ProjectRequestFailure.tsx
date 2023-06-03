@@ -8,7 +8,7 @@ export function ProjectRequestFailure(props: ProjectRequestFailureProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles["failure-img"]}>
-        <img src="/assets/images/misc/network-request-failure.png" alt="project-request-failure" />
+        <img src={require("@Images/Network/RequestFailure.png")} alt="project-request-failure" />
       </div>
       <div className={styles.error}>
         <h1 className={styles["oops"]}>Oops!</h1>
