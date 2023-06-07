@@ -1,16 +1,4 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
-  },
-  extends: [
-    "eslint:recommended",
-    "prettier",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -20,6 +8,19 @@ module.exports = {
     sourceType: "module"
   },
   plugins: ["react", "react-hooks", "@typescript-eslint"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  env: {
+    browser: true,
+    es2021: true
+  },
+
   settings: {
     "import/resolver": {
       typescript: {}
@@ -28,10 +29,14 @@ module.exports = {
       version: "detect"
     }
   },
-  ignorePatterns: ["src/**/*.scss.d.ts"],
+  ignorePatterns: ["public/index.html", "src/**/*.scss.d.ts"],
   rules: {
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }]
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
+    ]
   }
 };

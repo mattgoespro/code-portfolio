@@ -10,7 +10,7 @@ import { useApiCall } from "@Hooks/UseApi";
 
 export function ProjectDetails() {
   const { projectName } = useParams();
-  const [project, fetchingProject, setFetchingProject, projectLoadError] =
+  const [project, fetchingProject, _setFetchingProject, projectLoadError] =
     useApiCall<ProjectViewDTO>(`/api/projects/${projectName}`, null, true);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

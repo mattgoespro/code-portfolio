@@ -15,16 +15,12 @@ function generateStylesheetAliases() {
     (s) => !s.includes(".d.ts")
   );
 
-  console.log(stylesheets);
-
   for (const stylesheet of stylesheets) {
     aliases[stylesheet.substring(1, stylesheet.indexOf("."))] = resolvePath(
       __dirname,
       `${basePath}/${stylesheet}`
     );
   }
-
-  console.log(aliases);
 
   return aliases;
 }
