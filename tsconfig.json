@@ -3,13 +3,13 @@
     "target": "es2015",
     "lib": ["es2017", "dom"],
     "module": "commonjs",
-    "rootDir": "./src",
+    "rootDir": "src",
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@Utility/*": ["./src/app/Shared/Utility/*"],
       "@Components/*": ["./src/app/Shared/Components/*"],
@@ -17,6 +17,6 @@
       "@Hooks/*": ["./src/app/Shared/Hooks/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", ".vscode", "docker", "nginx", "public"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

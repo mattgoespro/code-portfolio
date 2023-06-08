@@ -4,15 +4,17 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.ts --port 4000 --env api-target=http://localhost:8080",
+    "test": "tsc --noEmit",
     "build": "webpack --config webpack.prod.ts",
     "lint": "eslint src",
-    "postcss": "postcss src/**/*.scss --replace --no-map",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier src --check",
     "docker:build": "./scripts/build_docker_image.sh",
     "docker:start-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web up -d",
     "docker:start-api": "npx mattgoespro@latest hw run -i api --rm",
     "docker:remove-services": "docker-compose -f docker/hoppingmode-web.compose.yml -p hoppingmode-web down",
-    "github-workflow:build": "git commit --allow-empty -m 'Empty-Commit' && git push origin main",
-    "clean": "rm -rf dist"
+    "install-deps": "npm install",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

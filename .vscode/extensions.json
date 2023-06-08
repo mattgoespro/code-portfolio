@@ -9,6 +9,14 @@
     "ms-azuretools.vscode-docker",
     "ahmadalli.vscode-nginx-conf",
     "dbaeumer.vscode-eslint",
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+    "formulahendry.auto-close-tag",
+    "jeff-hykin.better-dockerfile-syntax",
+    "alefragnani.bookmarks",
+    "naumovs.color-highlight",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "sibiraj-s.vscode-scss-formatter",
+    "simonsiefke.svg-preview"
   ]
 }
