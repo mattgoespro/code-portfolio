@@ -1,16 +1,5 @@
+/** @type {import('eslint').Linter.BaseConfig} */
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
-  },
-  extends: [
-    "eslint:recommended",
-    "prettier",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -19,10 +8,21 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module"
   },
-  plugins: ["react", "react-hooks", "@typescript-eslint"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/jsx-runtime"
+  ],
+  plugins: ["@typescript-eslint", "react", "react-hooks"],
   settings: {
     "import/resolver": {
       typescript: {}
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     react: {
       version: "detect"
@@ -30,8 +30,27 @@ module.exports = {
   },
   ignorePatterns: ["src/**/*.scss.d.ts"],
   rules: {
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }]
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
+    ],
+    "import/order": [
+      "error",
+      {
+        groups: ["builtin", "external", "internal", "type", "parent", "sibling"],
+        warnOnUnassignedImports: true,
+        "newlines-between": "never",
+        alphabetize: {
+          order: "asc",
+          orderImportKind: "asc"
+        }
+      }
+    ]
+  },
+  env: {
+    browser: true,
+    es2021: true,
+    commonjs: true
   }
 };

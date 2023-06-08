@@ -1,5 +1,4 @@
 import { Outlet, useParams } from "react-router-dom";
-
 import styles from "./ProjectPage.scss";
 
 export function ProjectPage() {

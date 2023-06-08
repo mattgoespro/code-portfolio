@@ -1,16 +1,16 @@
+import { ProjectCodingLanguagesDTO, ProjectViewDTO } from "@mattgoespro/hoppingmode-web-core";
+import { decode } from "base-64";
 import { useParams } from "react-router-dom";
+import { useApiCall } from "@Hooks/UseApi";
+import { ProjectRequestFailure } from "../ProjectRequestFailure/ProjectRequestFailure";
+import styles from "./ProjectDetails.module.scss";
 import { ProjectLanguageChart } from "./ProjectLanguageChart/ProjectLanguageChart";
 import { ProjectReadme } from "./ProjectReadme/ProjectReadme";
-import base64 from "base-64";
-import styles from "./ProjectDetails.module.scss";
 import { ProjectRepositoryStats } from "./ProjectRepositoryStats/ProjectRepositoryStats";
-import { ProjectRequestFailure } from "../ProjectRequestFailure/ProjectRequestFailure";
-import { ProjectCodingLanguagesDTO, ProjectViewDTO } from "@mattgoespro/hoppingmode-web-core";
-import { useApiCall } from "@Hooks/UseApi";
 
 export function ProjectDetails() {
   const { projectName } = useParams();
-  const [project, fetchingProject, setFetchingProject, projectLoadError] =
+  const [project, fetchingProject, _setFetchingProject, projectLoadError] =
     useApiCall<ProjectViewDTO>(`/api/projects/${projectName}`, null, true);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -24,7 +24,7 @@ export function ProjectDetails() {
         <div className={styles["project-details"]}>
           {(project.readme != null && (
             <div className={styles["project-readme"]}>
-              <ProjectReadme readmeContent={base64.decode(project.readme.content)} />
+              <ProjectReadme readmeContent={decode(project.readme.content)} />
             </div>
           )) || <div className={styles["readme-unavailable"]}></div>}
           <div className={styles.divider}></div>

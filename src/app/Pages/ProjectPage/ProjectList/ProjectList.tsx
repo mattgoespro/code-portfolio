@@ -1,10 +1,10 @@
+import { ProjectListDTO } from "@mattgoespro/hoppingmode-web-core";
 import { useState, useEffect, useRef } from "react";
-import { ProjectCard } from "./ProjectCard/ProjectCard";
-import styles from "./ProjectList.module.scss";
+import { useApiCall } from "@Hooks/UseApi";
 import { createAnimateOnScrollAttribs, generateListFadeLeftParams } from "@Utility/Animation";
 import { ProjectRequestFailure } from "../ProjectRequestFailure/ProjectRequestFailure";
-import { ProjectListDTO } from "@mattgoespro/hoppingmode-web-core";
-import { useApiCall } from "@Hooks/UseApi";
+import { ProjectCard } from "./ProjectCard/ProjectCard";
+import styles from "./ProjectList.module.scss";
 
 export function ProjectList() {
   // const [fetchingProjects, setFetchingProjects] = useState(true);

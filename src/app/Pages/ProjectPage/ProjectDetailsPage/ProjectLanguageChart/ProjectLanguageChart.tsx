@@ -1,3 +1,4 @@
+import { ProjectCodingLanguagesDTO } from "@mattgoespro/hoppingmode-web-core";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -9,7 +10,6 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import styles from "./ProjectLanguageChart.module.scss";
-import { ProjectCodingLanguagesDTO } from "@mattgoespro/hoppingmode-web-core";
 
 ChartJS.register(ArcElement, LinearScale, Tooltip, Legend);
 

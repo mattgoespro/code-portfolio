@@ -1,6 +1,6 @@
+import { knownDevFrameworks, knownDevLanguages, knownDevTools } from "./HomePage.data";
 import styles from "./HomePage.module.scss";
 import { SkillSection } from "./SkillSection/SkillSection";
-import { knownDevFrameworks, knownDevLanguages, knownDevTools } from "./HomePage.data";
 
 export function HomePage() {
   return (

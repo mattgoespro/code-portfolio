@@ -1,7 +1,6 @@
 {
   "name": "hoppingmode-frontend",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.ts --port 4000 --env api-target=http://localhost:8080",
     "test": "tsc --noEmit",
