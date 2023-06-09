@@ -30,8 +30,7 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0",
-    "react-scripts": "^4.0.3"
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -64,6 +63,7 @@
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",

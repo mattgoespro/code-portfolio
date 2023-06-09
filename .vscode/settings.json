@@ -40,9 +40,6 @@
   "scssFormatter.singleQuote": false,
   "scssFormatter.trailingComma": "none",
   "auto-rename-tag.activationOnLanguage": ["html", "xml", "javascriptreact", "typescriptreact"],
-  "colorize.colorized_variables": ["SASS", "CSS"],
-  "colorize.hide_current_line_decorations": false,
-  "colorize.languages": ["css", "scss", "sass"],
   "[dockerfile]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.quickSuggestions": {

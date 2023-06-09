@@ -35,7 +35,7 @@ export function AboutPage() {
             </p>
           </div>
           <div className={styles["profile-img"]}>
-            <img src="/assets/images/misc/portrait.jpg" alt="profile-img" />
+            <img src={require("@Images/About/portrait.jpg")} alt="profile-img" />
           </div>
         </div>
         <div className={styles["detailed-info"]}>
@@ -51,7 +51,7 @@ export function AboutPage() {
             much as I did ultimately became the prime inspiration to pursue programming as a career.
           </p>
           <div className={styles["uct-caption"]}>
-            <img src="/assets/images/misc/university-of-cape-town.png" alt="uct" />
+            <img src={require("@Images/About/uct.jpg")} alt="university-of-cape-town-arial" />
             <label>University of Cape Town</label>
           </div>
           <p>

@@ -1,4 +1,5 @@
 {
+  "include": ["src"],
   "compilerOptions": {
     "target": "es2015",
     "lib": ["es2017", "dom"],
@@ -17,6 +18,5 @@
       "@Hooks/*": ["./src/app/Shared/Hooks/*"]
     }
   },
-  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

@@ -12,17 +12,18 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:react/jsx-runtime"
+    "plugin:import/typescript"
   ],
-  plugins: ["@typescript-eslint", "react", "react-hooks"],
+  plugins: ["@typescript-eslint"],
   settings: {
     "import/resolver": {
-      typescript: {}
-    },
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      typescript: true,
+      node: true,
+      webpack: {
+        config: "./webpack.dev.ts"
+      }
     },
     react: {
       version: "detect"

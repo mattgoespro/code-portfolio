@@ -1,12 +1,12 @@
-import MiniCssExtractWebpackPlugin from "mini-css-extract-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
-import TerserWebpackPlugin from "terser-webpack-plugin";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
 import { readdirSync } from "fs";
-import webpack, { Configuration } from "webpack";
 import { resolve as resolvePath } from "path";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
+import MiniCssExtractWebpackPlugin from "mini-css-extract-plugin";
+import TerserWebpackPlugin from "terser-webpack-plugin";
+import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
+import { Configuration, DefinePlugin } from "webpack";
 
 function generateStylesheetAliases() {
   const aliases = {};
@@ -15,8 +15,6 @@ function generateStylesheetAliases() {
     (s) => !s.includes(".d.ts")
   );
 
-  console.log(stylesheets);
-
   for (const stylesheet of stylesheets) {
     aliases[stylesheet.substring(1, stylesheet.indexOf("."))] = resolvePath(
       __dirname,
@@ -24,48 +22,11 @@ function generateStylesheetAliases() {
     );
   }
 
-  console.log(aliases);
-
   return aliases;
 }
 
-const imageFileMatcher = /\.(jpe?g|png|svg)$/i;
+const imageMinimizerPluginFileMatcher = /\.(jpe?g|png|svg)$/i;
 
-const imageMinimizerPluginOptions: ImageMinimizerPlugin.PluginOptions<unknown, unknown> = {
-  minimizer: {
-    implementation: ImageMinimizerPlugin.imageminMinify,
-    options: {
-      test: imageFileMatcher,
-      // Lossless optimization
-      plugins: [
-        "imagemin-mozjpeg",
-        "imagemin-pngquant",
-        "imagemin-svgo",
-        [
-          "svgo",
-          {
-            plugins: [
-              {
-                name: "preset-default",
-                params: {
-                  overrides: {
-                    removeViewBox: false,
-                    addAttributesToSVGElement: {
-                      params: {
-                        attributes: [{ xmlns: "http://www.w3.org/2000/svg" }]
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      ]
-    }
-  }
-} as const;
-const extensions = [".ts", ".tsx", ".js", ".jsx", ".jpg", ".png"];
 const baseConfig: Configuration = {
   entry: "./src/main.tsx",
   output: {
@@ -74,7 +35,7 @@ const baseConfig: Configuration = {
     publicPath: "/"
   },
   resolve: {
-    extensions,
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".jpg", ".png"],
     plugins: [new TsconfigPathsWebpackPlugin()],
     alias: {
       ...generateStylesheetAliases(),
@@ -83,7 +44,7 @@ const baseConfig: Configuration = {
     }
   },
   plugins: [
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       __REACT_DEVTOOLS_GLOBAL_HOOK__: "({ isDisabled: true })"
     }),
     new ForkTsCheckerWebpackPlugin({
@@ -114,7 +75,18 @@ const baseConfig: Configuration = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserWebpackPlugin(), new ImageMinimizerPlugin(imageMinimizerPluginOptions)],
+    minimizer: [
+      new TerserWebpackPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            test: imageMinimizerPluginFileMatcher,
+            plugins: ["imagemin-mozjpeg", "imagemin-pngquant", "imagemin-svgo", "svgo"]
+          }
+        }
+      })
+    ],
     runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {

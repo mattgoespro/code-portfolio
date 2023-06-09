@@ -1,6 +1,6 @@
+import "webpack-dev-server";
 import { merge } from "webpack-merge";
 import baseConfig from "./webpack.common";
-import "webpack-dev-server";
 
 export default merge(baseConfig, {
   mode: "development",

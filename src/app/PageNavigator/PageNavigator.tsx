@@ -1,8 +1,8 @@
+import { Link, Outlet } from "react-router-dom";
+import { AppMenu } from "@Components/Menu/Menu";
 import GitHubLogo from "@SVG/Icons/GitHub.svg";
 import NavHeaderLogo from "@SVG/Icons/Hoppingmode.svg";
 import LinkedInLogo from "@SVG/Icons/LinkedIn.svg";
-import { Link, Outlet } from "react-router-dom";
-import { AppMenu } from "@Components/Menu/Menu";
 import styles from "./PageNavigator.module.scss";
 
 export function PageNavigator() {

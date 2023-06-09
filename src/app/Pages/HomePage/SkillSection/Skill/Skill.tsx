@@ -10,7 +10,6 @@ interface SkillProps {
 export function Skill(props: SkillProps) {
   const icon = (
     <img
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
       src={require(`@Images/Logos/Technologies/${props.softwareSkill.resourceIdentifier}.png`)}
       className={props.titled ? styles["icon-regular"] : styles["icon-large"]}
     />
