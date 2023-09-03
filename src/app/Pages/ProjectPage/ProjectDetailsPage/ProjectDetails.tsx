@@ -1,4 +1,4 @@
-import { ProjectCodingLanguagesDTO, ProjectViewDTO } from "@mattgoespro/hoppingmode-web-core";
+import { ProjectCodingLanguagesDTO, ProjectViewDTO } from "@mattgoespro/hw";
 import { decode } from "base-64";
 import { useParams } from "react-router-dom";
 import { useApiCall } from "@Hooks/UseApi";

@@ -1,4 +1,4 @@
-import { ProjectListDTO } from "@mattgoespro/hoppingmode-web-core";
+import { ProjectListDTO } from "@mattgoespro/hw";
 import { useState, useEffect, useRef } from "react";
 import { useApiCall } from "@Hooks/UseApi";
 import { createAnimateOnScrollAttribs, generateListFadeLeftParams } from "@Utility/Animation";

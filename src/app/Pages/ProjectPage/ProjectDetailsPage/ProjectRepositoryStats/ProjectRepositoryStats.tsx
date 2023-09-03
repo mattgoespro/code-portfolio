@@ -1,4 +1,4 @@
-import { ProjectViewDTO } from "@mattgoespro/hoppingmode-web-core";
+import { ProjectViewDTO } from "@mattgoespro/hw";
 import styles from "./ProjectRepositoryStats.module.scss";
 
 interface ProjectRepositoryStatsProps {

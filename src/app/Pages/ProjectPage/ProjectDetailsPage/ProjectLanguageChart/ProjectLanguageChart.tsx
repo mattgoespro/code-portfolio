@@ -1,4 +1,4 @@
-import { ProjectCodingLanguagesDTO } from "@mattgoespro/hoppingmode-web-core";
+import { ProjectCodingLanguagesDTO } from "@mattgoespro/hw";
 import {
   Chart as ChartJS,
   ArcElement,

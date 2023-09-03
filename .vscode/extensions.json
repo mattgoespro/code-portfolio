@@ -3,7 +3,6 @@
     "esbenp.prettier-vscode",
     "christian-kohler.npm-intellisense",
     "formulahendry.auto-rename-tag",
-    "dsznajder.es7-react-js-snippets",
     "mrmlnc.vscode-scss",
     "cipchk.cssrem",
     "ms-azuretools.vscode-docker",
@@ -12,11 +11,11 @@
     "github.vscode-github-actions",
     "formulahendry.auto-close-tag",
     "jeff-hykin.better-dockerfile-syntax",
-    "alefragnani.bookmarks",
     "naumovs.color-highlight",
     "yzhang.markdown-all-in-one",
     "davidanson.vscode-markdownlint",
     "sibiraj-s.vscode-scss-formatter",
-    "simonsiefke.svg-preview"
+    "simonsiefke.svg-preview",
+    "richie5um2.vscode-sort-json"
   ]
 }
