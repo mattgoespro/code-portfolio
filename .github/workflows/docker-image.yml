@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,6 +26,7 @@ jobs:
         env:
           NGINX_SSL_PRIVATE_KEY: ${{ secrets.NGINX_SSL_PRIVATE_KEY }}
           NGINX_SSL_CERT: ${{ secrets.NGINX_SSL_CERT }}
+          REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
         run: |
           echo "${NGINX_SSL_PRIVATE_KEY}" | base64 --decode > /home/runner/work/${{ env.REPOSITORY_NAME }}/${{ env.REPOSITORY_NAME }}/nginx/ssl/hoppingmode.com.key &&
           echo "${NGINX_SSL_CERT}" | base64 --decode > /home/runner/work/${{ env.REPOSITORY_NAME }}/${{ env.REPOSITORY_NAME }}/nginx/ssl/hoppingmode.com.crt

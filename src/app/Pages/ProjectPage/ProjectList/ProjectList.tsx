@@ -13,15 +13,15 @@ export function ProjectList() {
   const [unpinnedProjects, setUnpinnedProjects] = useState<ProjectListDTO[]>([]);
   const [pinnedProjects, setPinnedProjects] = useState<ProjectListDTO[]>([]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [projects, fetchingProjects, setFetchingProjects, projectLoadError] = useApiCall<
-    ProjectListDTO[]
-  >("/api/projects", (data) => {
-    if (data == null) return;
+  const [_, fetchingProjects, setFetchingProjects, projectLoadError] = useApiCall<ProjectListDTO[]>(
+    "/api/projects",
+    (data) => {
+      if (data == null) return;
 
-    setPinnedProjects(data.filter((p) => p.pinned));
-    setUnpinnedProjects(data.filter((p) => !p.pinned));
-  });
+      setPinnedProjects(data.filter((p) => p.pinned));
+      setUnpinnedProjects(data.filter((p) => !p.pinned));
+    }
+  );
   const scrollTriggerRef = useRef(this);
 
   const PROJECT_ANIMATE_DELAY = 100;

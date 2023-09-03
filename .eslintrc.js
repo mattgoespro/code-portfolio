@@ -29,12 +29,12 @@ module.exports = {
       version: "detect"
     }
   },
-  ignorePatterns: ["src/**/*.scss.d.ts"],
+  ignorePatterns: ["src/**/*.[s]css.d.ts", "**/*.html"],
   rules: {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_", ignoreRestSiblings: true }
     ],
     "import/order": [
       "error",
