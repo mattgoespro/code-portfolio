@@ -148,7 +148,7 @@ const baseConfig: Configuration = {
             loader: "@teamsupercell/typings-for-css-modules-loader",
             options: {
               formatter: "prettier",
-              prettierConfigFile: resolvePath(__dirname, "./prettierrc")
+              prettierConfigFile: resolvePath(__dirname, ".prettierrc.js")
             }
           },
           {
