@@ -11,7 +11,8 @@
 
 ## Optimization
 
-- Install _Web Vitals_ chrome plugin for measure performance
+- Utilize the [React compiler babel plugin](https://www.npmjs.com/package/babel-plugin-react-compiler) for optimization during build time.
+- Install _Web Vitals_ chrome plugin for measuring performance
 - Try out _Unlighthouse_ to test performance for all pages
 - Minimize bundle sizes
 - Remove unused CSS styles
